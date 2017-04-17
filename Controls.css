@@ -1,0 +1,75 @@
+﻿body {
+}
+
+.TextArea {
+    max-width: 100%;
+    width: 600px;
+}
+
+.NumBox {
+    width: 50px;
+}
+
+.LongBox {
+    max-width: 100%;
+    width: 800px;
+}
+
+.MenuStyle
+        {
+            background-color:white;
+            color:White;      
+        }
+
+.DDL150 {
+    width: 150px;
+}
+
+.DateBox {
+    width: 100px;
+}
+
+.CurrencyBox{
+    text-align:right;
+}
+
+.Grid td
+{
+    background-color: #A1DCF2;
+    color: black;
+    font-size: 10pt;
+    line-height:200%
+}
+.Grid th
+{
+    background-color: #3AC0F2;
+    color: White;
+    font-size: 10pt;
+    line-height:200%
+}
+.ChildGrid td
+{
+    background-color: #eee !important;
+    color: black;
+    font-size: 10pt;
+    line-height:200%
+}
+.ChildGrid th
+{
+    background-color: #6C6C6C !important;
+    color: White;
+    font-size: 10pt;
+    line-height:200%
+}
+
+#wrapper {
+    overflow:auto;
+}
+
+#lside {
+    float:left;
+}
+
+#rside {
+    float:right;
+}

@@ -1,0 +1,7 @@
+﻿body {
+}
+@media print {
+    .NoPrint {
+        display:none;
+    }
+}
