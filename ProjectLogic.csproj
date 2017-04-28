@@ -125,7 +125,7 @@
   <ItemGroup>
     <Content Include="About.aspx" />
     <Content Include="BFDetails.aspx" />
-    <Content Include="BFList.aspx" />
+    <Content Include="BFIndex.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -148,9 +148,9 @@
     <Content Include="images\minus.png" />
     <Content Include="images\plus.png" />
     <Content Include="MatOrderDetails.aspx" />
-    <Content Include="MatOrderList.aspx" />
+    <Content Include="MatOrderIndex.aspx" />
     <Content Include="ProjectDetails.aspx" />
-    <Content Include="ProjectList.aspx" />
+    <Content Include="ProjectIndex.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
@@ -223,12 +223,12 @@
     <Compile Include="BFDetails.aspx.designer.cs">
       <DependentUpon>BFDetails.aspx</DependentUpon>
     </Compile>
-    <Compile Include="BFList.aspx.cs">
-      <DependentUpon>BFList.aspx</DependentUpon>
+    <Compile Include="BFIndex.aspx.cs">
+      <DependentUpon>BFIndex.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="BFList.aspx.designer.cs">
-      <DependentUpon>BFList.aspx</DependentUpon>
+    <Compile Include="BFIndex.aspx.designer.cs">
+      <DependentUpon>BFIndex.aspx</DependentUpon>
     </Compile>
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
@@ -254,12 +254,12 @@
     <Compile Include="MatOrderDetails.aspx.designer.cs">
       <DependentUpon>MatOrderDetails.aspx</DependentUpon>
     </Compile>
-    <Compile Include="MatOrderList.aspx.cs">
-      <DependentUpon>MatOrderList.aspx</DependentUpon>
+    <Compile Include="MatOrderIndex.aspx.cs">
+      <DependentUpon>MatOrderIndex.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="MatOrderList.aspx.designer.cs">
-      <DependentUpon>MatOrderList.aspx</DependentUpon>
+    <Compile Include="MatOrderIndex.aspx.designer.cs">
+      <DependentUpon>MatOrderIndex.aspx</DependentUpon>
     </Compile>
     <Compile Include="ProjectDetails.aspx.cs">
       <DependentUpon>ProjectDetails.aspx</DependentUpon>
@@ -268,12 +268,12 @@
     <Compile Include="ProjectDetails.aspx.designer.cs">
       <DependentUpon>ProjectDetails.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ProjectList.aspx.cs">
-      <DependentUpon>ProjectList.aspx</DependentUpon>
+    <Compile Include="ProjectIndex.aspx.cs">
+      <DependentUpon>ProjectIndex.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ProjectList.aspx.designer.cs">
-      <DependentUpon>ProjectList.aspx</DependentUpon>
+    <Compile Include="ProjectIndex.aspx.designer.cs">
+      <DependentUpon>ProjectIndex.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">

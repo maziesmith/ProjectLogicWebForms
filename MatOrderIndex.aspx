@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Material Orders" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="MatOrderList.aspx.cs" Inherits="ProjectLogic.MatOrderList" %>
+﻿<%@ Page Title="Material Orders" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="MatOrderIndex.aspx.cs" Inherits="ProjectLogic.MatOrderList" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <br />

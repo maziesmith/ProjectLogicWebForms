@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ProjectDetails.aspx.cs" Inherits="ProjectLogic.ProjectDetails" %>
+﻿<%@ Page Title="Project" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ProjectDetails.aspx.cs" Inherits="ProjectLogic.ProjectDetails" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <asp:FormView ID="fvHeader" runat="server" CellPadding="4" DataKeyNames="ProjectID" DataSourceID="ProjectDetailsSQL">
         <ItemTemplate>
@@ -192,16 +192,18 @@
                                     <td><asp:TextBox ID="txtMTOComplete" runat="server" Text='<%# Bind("MTO_Complete", "{0:MM/dd/yyyy}") %>' /></td>
                                     <td>Reviewed By:</td>
                                     <td>
-                                        <asp:DropDownList ID="ddlReviewedBy" runat="server" AutoPostBack="true" DataSourceID="ddlAllEmployeeSQL"
+                                        <asp:DropDownList ID="ddlReviewedBy" runat="server" AutoPostBack="true" DataSourceID="ddlAllEmployeeSQL" AppendDataBoundItems="true"
                                             DataTextField="Name" DataValueField="EmployeeID" SelectedValue='<%# Bind("Shops_Reviewed_EmployeeID") %>'>
+                                            <asp:ListItem Text="<--Select Employee-->" Value="" />
                                         </asp:DropDownList>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>MTO Assigned To:</td>
                                     <td>
-                                        <asp:DropDownList ID="ddlMTOAssignedTo" runat="server" AutoPostBack="true" DataSourceID="ddlAllEmployeeSQL"
+                                        <asp:DropDownList ID="ddlMTOAssignedTo" runat="server" AutoPostBack="true" DataSourceID="ddlAllEmployeeSQL" AppendDataBoundItems="true"
                                             DataTextField="Name" DataValueField="EmployeeID" SelectedValue='<%# Bind("MTO_Complete_EmployeeID") %>'>
+                                            <asp:ListItem Text="<--Select Employee-->" Value="" />
                                         </asp:DropDownList>
                                     </td>
                                     <td>Shops Reviewed:</td>
@@ -251,14 +253,6 @@
                         </EditItemTemplate>
                         <ItemTemplate>
                             <asp:LinkButton ID="lbEdit" runat="server" CausesValidation="False" CommandName="Edit" Text="Edit"></asp:LinkButton>
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="PSID" InsertVisible="False" SortExpression="ProjectSubmittalID">
-                        <EditItemTemplate>
-                            <asp:Label ID="Label1" runat="server" Text='<%# Eval("ProjectSubmittalID") %>'></asp:Label>
-                        </EditItemTemplate>
-                        <ItemTemplate>
-                            <asp:Label ID="Label1" runat="server" Text='<%# Bind("ProjectSubmittalID") %>'></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Date" SortExpression="Date">
@@ -349,14 +343,6 @@
         <asp:View ID="ChangeOrders" runat="server">
             <asp:GridView ID="gvChangeOrders" runat="server" AutoGenerateColumns="False" DataKeyNames="ProjectChangeOrderID" DataSourceID="gvChangeOrdersSQL">
                 <Columns>
-                    <asp:TemplateField HeaderText="COID" InsertVisible="False" SortExpression="ProjectChangeOrderID">
-                        <EditItemTemplate>
-                            <asp:Label ID="Label1" runat="server" Text='<%# Eval("ProjectChangeOrderID") %>'></asp:Label>
-                        </EditItemTemplate>
-                        <ItemTemplate>
-                            <asp:Label ID="Label1" runat="server" Text='<%# Bind("ProjectChangeOrderID") %>'></asp:Label>
-                        </ItemTemplate>
-                    </asp:TemplateField>
                     <asp:TemplateField HeaderText="#" SortExpression="SeqNo">
                         <EditItemTemplate>
                             <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("SeqNo") %>'></asp:TextBox>
@@ -433,14 +419,6 @@
                 AllowPaging="True" PageSize="20">
                 <PagerSettings PreviousPageText="Prev" NextPageText="Next" Mode="NumericFirstLast" PageButtonCount="10" />
                 <Columns>
-                    <asp:TemplateField HeaderText="TCID" InsertVisible="False" SortExpression="TimecardID">
-                        <EditItemTemplate>
-                            <asp:Label ID="Label1" runat="server" Text='<%# Eval("TimecardID") %>'></asp:Label>
-                        </EditItemTemplate>
-                        <ItemTemplate>
-                            <asp:Label ID="Label1" runat="server" Text='<%# Bind("TimecardID") %>'></asp:Label>
-                        </ItemTemplate>
-                    </asp:TemplateField>
                     <asp:TemplateField HeaderText="Date" SortExpression="Date">
                         <EditItemTemplate>
                             <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("Date", "{0:MM/dd/yyyy}") %>'></asp:TextBox>
@@ -528,14 +506,6 @@
             <asp:GridView ID="gvDocuments" runat="server" AllowPaging="True" PageSize="20" AutoGenerateColumns="False" DataKeyNames="ProjectDocumentID" DataSourceID="gvDocumentSQL">
                 <PagerSettings PreviousPageText="Prev" NextPageText="Next" Mode="NumericFirstLast" PageButtonCount="10" />
                 <Columns>
-                    <asp:TemplateField HeaderText="DocID" InsertVisible="False" SortExpression="ProjectDocumentID">
-                        <EditItemTemplate>
-                            <asp:Label ID="Label1" runat="server" Text='<%# Eval("ProjectDocumentID") %>'></asp:Label>
-                        </EditItemTemplate>
-                        <ItemTemplate>
-                            <asp:Label ID="Label1" runat="server" Text='<%# Bind("ProjectDocumentID") %>'></asp:Label>
-                        </ItemTemplate>
-                    </asp:TemplateField>
                     <asp:TemplateField HeaderText="Description" SortExpression="Description">
                         <EditItemTemplate>
                             <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("Description") %>'></asp:TextBox>
@@ -570,14 +540,6 @@
         <asp:View ID="Log" runat="server">
             <asp:GridView ID="gvLog" runat="server" AllowPaging="True" AutoGenerateColumns="False" DataKeyNames="ProjectLogID" DataSourceID="gvLogSQL">
                 <Columns>
-                    <asp:TemplateField HeaderText="LogID" InsertVisible="False" SortExpression="ProjectLogID">
-                        <EditItemTemplate>
-                            <asp:Label ID="Label1" runat="server" Text='<%# Eval("ProjectLogID") %>'></asp:Label>
-                        </EditItemTemplate>
-                        <ItemTemplate>
-                            <asp:Label ID="Label1" runat="server" Text='<%# Bind("ProjectLogID") %>'></asp:Label>
-                        </ItemTemplate>
-                    </asp:TemplateField>
                     <asp:TemplateField HeaderText="Date" SortExpression="Date">
                         <EditItemTemplate>
                             <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("Date", "{0:MM/dd/yyyy}") %>'></asp:TextBox>
@@ -807,8 +769,9 @@
                                     </asp:DropDownList>
                         </ItemTemplate>
                         <FooterTemplate>
-                            <asp:DropDownList ID="ddlNewEmployee" runat="server"  AutoPostBack="true" DataSourceID="ddlActiveEmployeeSQL"
+                            <asp:DropDownList ID="ddlNewEmployee" runat="server"  AutoPostBack="true" DataSourceID="ddlActiveEmployeeSQL" AppendDataBoundItems="true"
                                 DataTextField="Name" DataValueField="EmployeeID"  SelectedValue='<%# Bind("EmployeeID") %>'>
+                                <asp:ListItem Text="<--Select Employee-->" Value="" />
                             </asp:DropDownList>
                         </FooterTemplate>
                     </asp:TemplateField>
@@ -937,8 +900,9 @@
                                 <td>
                                 
                                 </td>
-                                <td><asp:DropDownList ID="ddlEmptyEmployee" runat="server"  AutoPostBack="true" DataSourceID="ddlActiveEmployeeSQL"
+                                <td><asp:DropDownList ID="ddlEmptyEmployee" runat="server"  AutoPostBack="true" DataSourceID="ddlActiveEmployeeSQL" AppendDataBoundItems="true"
                                     DataTextField="Name" DataValueField="EmployeeID"  SelectedValue='<%# Bind("EmployeeID") %>'>
+                                    <asp:ListItem Text="<--Select Employee-->" Value="" />
                                     </asp:DropDownList></td>
                             
                                 <td><asp:TextBox ID="txtEmptyReleaseID" runat="server" CssClass="NumBox" AutoPostBack="true" Text='<%# Bind("ReleaseID") %>'></asp:TextBox></td>

@@ -52,12 +52,11 @@
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li><a runat="server" href="~/">Home</a></li>
-                        <li><a runat="server" href="~/ProjectList">Projects</a></li>
-                        <li><a runat="server" href="~/BFList">Booking Forms</a></li>
                         <li><a runat="server" href="~/TaskDashboard">Task Dashboard</a></li>
-                        <li><a runat="server" href="~/MatOrderList">Mat Orders</a></li>
-                        <li><a runat="server" href="~/Contact">Reports</a></li>
+                        <li><a runat="server" href="~/ProjectIndex">Projects</a></li>
+                        <li><a runat="server" href="~/BFIndex">Booking Forms</a></li>
+                        <li><a runat="server" href="~/MatOrderIndex">Mat Orders</a></li>
+                        <li><a runat="server" href="~/About">Reports</a></li>
                     </ul>
                     <p class="nav navbar-text navbar-right">Hello, <asp:LoginName runat="server" />!</p>
                 </div>

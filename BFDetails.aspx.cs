@@ -5,6 +5,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.Routing;
+using System.Net.Mail;
+using System.Diagnostics;
+using System.Text;
 
 namespace ProjectLogic
 {
@@ -115,6 +118,45 @@ namespace ProjectLogic
             }
         }
 
+        protected void fvBF_ItemCommand(object sender, FormViewCommandEventArgs e)
+        {
+            if (e.CommandName == "Email")
+            {
+                Label lblBFID = (Label)fvBookingForm.FindControl("lblBFID");
+                Label lblProjectID = (Label)fvBookingForm.FindControl("lblProjectNum");
+                Label lblProjectName = (Label)fvBookingForm.FindControl("lblProjectName");
+                Label lblReleaseName = (Label)fvBookingForm.FindControl("lblReleaseName");
+                Label lblPMName = (Label)fvBookingForm.FindControl("lblPM");
 
+                String strReleaseName = String.IsNullOrEmpty(lblReleaseName.Text) ? "[Description]" : lblReleaseName.Text;
+
+                //MailMessage mail = new MailMessage();
+                //String username = HttpContext.Current.User.Identity.Name.ToString().Split('\\')[1];
+                String pmFirst = lblPMName.Text.ToString().Split()[0];
+                String pmLast = lblPMName.Text.ToString().Split()[1];
+                String strTo = pmFirst + "." + pmLast + "@crmdsi.com";
+                //mail.From = new MailAddress(username + "@crmdsi.com");
+                //mail.To.Add(new MailAddress(pmFirst + "." + pmLast + "@crmdsi.com"));
+
+                String strSubject = "BF " + lblBFID.Text + " - " + lblProjectName.Text + " - Release " + strReleaseName;
+
+                StringBuilder builder = new StringBuilder();
+                builder.AppendLine(string.Format("A Booking Form for Project #{0} - {1}", lblProjectID.Text, lblProjectName.Text));
+                builder.AppendLine(string.Format(" - Release {0} has been created or modified.", strReleaseName));
+                builder.AppendLine("");
+                builder.AppendLine("");
+                builder.AppendLine(Request.Url.ToString());
+                String strBody = builder.ToString();
+
+                //String strBody = "A Booking Form for Project #"+ lblProjectID.Text + " - " + lblProjectName.Text + 
+                //    " - Release " + strReleaseName + " has been created or modified. \r\n" + Request.Url.ToString();
+
+                //Process.Start("mailto:" + pmFirst + "." + pmLast + "@crmdsi.com?subject=" +
+                //    HttpUtility.HtmlAttributeEncode(strSubject) + "&body=" +
+                //    HttpUtility.HtmlAttributeEncode(strBody));
+
+                ClientScript.RegisterStartupScript(this.GetType(), "mailto", "parent.location='mailto:" + strTo + "?subject=" + strSubject + "&body=" + strBody + "'", true);
+            }
+        }
     }
 }

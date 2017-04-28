@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="BFList.aspx.cs" Inherits="ProjectLogic.BFList" %>
+﻿<%@ Page Title="Booking Forms" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="BFIndex.aspx.cs" Inherits="ProjectLogic.BFList" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
         <br />
     <table runat="server">

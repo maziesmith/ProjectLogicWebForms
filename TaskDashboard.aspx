@@ -1,6 +1,6 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="TaskDashboard.aspx.cs" Inherits="ProjectLogic.TaskDashboard" %>
+﻿<%@ Page Title="Tasks" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="TaskDashboard.aspx.cs" Inherits="ProjectLogic.TaskDashboard" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script type="text/javascript">
 	    function plusminus(input) {
 	        var displayIcon = "img" + input;
@@ -45,7 +45,9 @@
                         <asp:Label ID="Label3" runat="server" Text="Employee:" />
                     </div>
                     <div>
-                        <asp:DropDownList ID="ddlEmployee" runat="server" AutoPostBack="True" DataSourceID="ddlEmployeeSQL" DataTextField="Name" DataValueField="EmployeeID">
+                        <asp:DropDownList ID="ddlEmployee" runat="server" AutoPostBack="True" DataSourceID="ddlEmployeeSQL" AppendDataBoundItems="true"
+                            DataTextField="Name" DataValueField="EmployeeID">
+                            <asp:ListItem Text="<--Select Employee-->" Value="" />
                         </asp:DropDownList>
                     </div>  
                 </div> <!-- end div left -->
@@ -407,7 +409,6 @@
                                 </asp:SqlDataSource>
                                 <asp:GridView ID="gvPMProjectTask" runat="server" AutoGenerateColumns="False" DataKeyNames="TaskID"> 
                                     <Columns>
-                                        <asp:BoundField DataField="TaskID" HeaderText="TaskID" InsertVisible="False" ReadOnly="True" SortExpression="TaskID" />
                                         <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
                                         <asp:BoundField DataField="ReleaseID" HeaderText="Release #" SortExpression="ReleaseID" />
                                         <asp:BoundField DataField="TaskCodeAbbr" HeaderText="Task Code" SortExpression="TaskCodeAbbr" />
@@ -422,31 +423,18 @@
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Project&nbsp#" SortExpression="ProjectID">
-                        <EditItemTemplate>
-                            <a href="/ProjectLogic/ProjectDetails.aspx?PID=<%# Eval("ProjectID") %>">
-                            <asp:Label ID="Label1" runat="server" Text='<%# Eval("ProjectID") %>'></asp:Label>
-                            </a>
-                        </EditItemTemplate>
                         <ItemTemplate>
-                            <a href="/ProjectLogic/ProjectDetails.aspx?PID=<%# Eval("ProjectID") %>">
+                            <a href="/ProjectLogic/Project/<%# Eval("ProjectID") %>">
                             <asp:Label ID="Label1" runat="server" Text='<%# Bind("ProjectID") %>'></asp:Label>
                             </a>
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Name" SortExpression="ProjectName">
-                        <EditItemTemplate>
-                            <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("ProjectName") %>'></asp:TextBox>
-                        </EditItemTemplate>
                         <ItemTemplate>
                             <asp:Label ID="Label2" runat="server" Text='<%# Bind("ProjectName") %>'></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Status" SortExpression="ProjectStatusID">
-                        <EditItemTemplate>
-                            <asp:DropDownList ID="DropDownList3" runat="server" AutoPostBack="True" DataSourceID="ddlProjectStatusSQL" 
-                                DataTextField="Description" DataValueField="ProjectStatusID" SelectedValue='<%# Bind("ProjectStatusID") %>'>
-                            </asp:DropDownList>
-                        </EditItemTemplate>
                         <ItemTemplate>
                             <asp:DropDownList ID="DropDownList2" runat="server" AutoPostBack="True" DataSourceID="ddlProjectStatusSQL" Enabled="false"
                                 DataTextField="Description" DataValueField="ProjectStatusID" SelectedValue='<%# Bind("ProjectStatusID") %>'>
@@ -454,9 +442,6 @@
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Date" SortExpression="DateStatus">
-                        <EditItemTemplate>
-                            <asp:TextBox ID="TextBox3" runat="server" Text='<%# Bind("DateStatus", "{0:MM/dd/yyyy}") %>'></asp:TextBox>
-                        </EditItemTemplate>
                         <ItemTemplate>
                             <asp:Label ID="Label4" runat="server" Text='<%# Bind("DateStatus", "{0:MM/dd/yyyy}") %>'></asp:Label>
                         </ItemTemplate>
@@ -713,8 +698,9 @@
                             <td>
                                 
                             </td>
-                            <td><asp:DropDownList ID="ddlEmptyEmployee" runat="server" AutoPostBack="true" DataSourceID="ddlCADModelEmpSQL" 
+                            <td><asp:DropDownList ID="ddlEmptyEmployee" runat="server" AutoPostBack="true" DataSourceID="ddlCADModelEmpSQL" AppendDataBoundItems="true" 
                                     DataTextField="Name" DataValueField="EmployeeID">
+                                <asp:ListItem Text="<--Select Employee-->" Value="" />
                                 </asp:DropDownList></td>
                             <td><asp:TextBox ID="txtEmptyProjectID" runat="server" CssClass="NumBox" AutoPostBack="true" Text='<%# Bind("ProjectID") %>'></asp:TextBox></td>
                             <td></td>

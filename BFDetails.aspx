@@ -1,8 +1,8 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="BFDetails.aspx.cs" Inherits="ProjectLogic.BFDetails" %>
+﻿<%@ Page Title="Booking Form" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="BFDetails.aspx.cs" Inherits="ProjectLogic.BFDetails" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <asp:FormView ID="fvBookingForm" runat="server" CellPadding="4" DataKeyNames="BookingFormID" DataSourceID="fvBookingFormSQL" ForeColor="#333333">
+    <asp:FormView ID="fvBookingForm" runat="server" CellPadding="4" DataKeyNames="BookingFormID" DataSourceID="fvBookingFormSQL" OnItemCommand="fvBF_ItemCommand" ForeColor="#333333">
         <EditItemTemplate>
-            <h1>Production Booking Form</h1>
+            <h1>Production Booking Form</h1><asp:Label ID="lblBFID" runat="server" Text='<%# Eval("BookingFormID") %>' Visible="false" />
             <h2><asp:Label ID="lblProjectNum" runat="server" Text='<%# Eval("ProjectID") %>' /> - <asp:Label ID="lblProjectName" runat="server" Text='<%# Eval("ProjectName") %>' /></h2>
             <h3>Release <asp:Label ID="lblReleaseNum" runat="server" Text='<%# Eval("ReleaseNum") %>' /> - <asp:Label ID="lblReleaseName" runat="server" Text='<%# Eval("ReleaseDesc") %>' /></h3>
             <table border="1">
@@ -12,7 +12,7 @@
                     <td><b>Modeler: </b></td>
                     <td><asp:DropDownList ID="ddlModeler" runat="server" DataSourceID="ddlEmpCADProgSQL" 
                             DataTextField="Name" DataValueField="EmployeeID" SelectedValue='<%# Bind("ModelByEmpID") %>' AppendDataBoundItems="true">
-                        <asp:ListItem Text="" Value="" />
+                        <asp:ListItem Text="<--Select Employee-->" Value="" />
                         </asp:DropDownList></td>
                     <td><b>Date Dims Appr: </b></td>
                     <td><asp:TextBox ID="txtDateDimsAppr" runat="server" CssClass="DateBox"  Text='<%# Bind("DateDimsApproved", "{0:MM/dd/yyyy}") %>' /></td>
@@ -23,7 +23,7 @@
                     <td><b>Design Lead: </b></td>
                     <td><asp:DropDownList ID="ddlDesignLead" runat="server" DataSourceID="ddlEmpCADProgSQL" 
                             DataTextField="Name" DataValueField="EmployeeID" SelectedValue='<%# Bind("DesignByEmpID") %>' AppendDataBoundItems="true">
-                        <asp:ListItem Text="" Value="" />
+                        <asp:ListItem Text="<--Select Employee-->" Value="" />
                         </asp:DropDownList></td>
                     <td><b>Released By PM: </b></td>
                     <td><asp:CheckBox ID="chkRelByPM" runat="server"  Checked='<%# Bind("ReleasedByPM") %>'  /></td>
@@ -34,7 +34,7 @@
                     <td><b>Designer 2: </b></td>
                     <td><asp:DropDownList ID="ddlDesign2" runat="server" DataSourceID="ddlEmpCADProgSQL" 
                             DataTextField="Name" DataValueField="EmployeeID" SelectedValue='<%# Bind("Design2EmpID") %>' AppendDataBoundItems="true">
-                        <asp:ListItem Text="" Value="" />
+                        <asp:ListItem Text="<--Select Employee-->" Value="" />
                         </asp:DropDownList></td>
                     <td><b>Rel To Prog: </b></td>
                     <td><asp:TextBox ID="txtReltoProg" runat="server" CssClass="DateBox" Text='<%# Bind("ToProgDate", "{0:MM/dd/yyyy}") %>' /></td>
@@ -45,7 +45,7 @@
                     <td><b>Program Lead: </b></td>
                     <td><asp:DropDownList ID="ddlProgLead" runat="server" DataSourceID="ddlEmpCADProgSQL" 
                             DataTextField="Name" DataValueField="EmployeeID" SelectedValue='<%# Bind("ProgramByEmpID") %>' AppendDataBoundItems="true">
-                        <asp:ListItem Text="" Value="" />
+                        <asp:ListItem Text="<--Select Employee-->" Value="" />
                         </asp:DropDownList></td>
                     <td><b>Rel To Shop: </b></td>
                     <td><asp:TextBox ID="txtRelToShop" runat="server" CssClass="DateBox" Text='<%# Bind("ActEngRelDate", "{0:MM/dd/yyyy}") %>' /></td>
@@ -56,7 +56,7 @@
                     <td><b>Programmer 2: </b></td>
                     <td><asp:DropDownList ID="ddlProg2" runat="server" DataSourceID="ddlEmpCADProgSQL" 
                             DataTextField="Name" DataValueField="EmployeeID" SelectedValue='<%# Bind("Prog2EmpID") %>' AppendDataBoundItems="true">
-                        <asp:ListItem Text="" Value="" />
+                        <asp:ListItem Text="<--Select Employee-->" Value="" />
                         </asp:DropDownList></td>
                     <td><b>Ship Date: </b></td>
                     <td><asp:TextBox ID="txtProjShipDate" runat="server" CssClass="DateBox" Text='<%# Bind("ActProjShipDate", "{0:MM/dd/yyyy}") %>' /></td>
@@ -68,7 +68,7 @@
                     <td>
                         <asp:DropDownList ID="ddlProgSource" runat="server" AutoPostBack="True" DataSourceID="ddlBFProgSourceSQL" 
                             DataTextField="ProgSourceDesc" DataValueField="ProgSourceID" SelectedValue='<%# Bind("ProgSourceID") %>' AppendDataBoundItems="true">
-                            <asp:ListItem Text="" Value="" />
+                            <asp:ListItem Text="<--Select Source-->" Value="" />
                         </asp:DropDownList>
                     </td>
                 </tr>
@@ -81,6 +81,7 @@
             <br />
             <asp:Label ID="gvBFMatsLabel" runat="server" Text="Materials" Font-Bold="true" />
             <asp:GridView ID="gvBFMats" runat="server" ShowFooter="True" AutoGenerateColumns="False" DataKeyNames="MaterialID" DataSourceID="gvBFMatsSQL" OnRowCommand="gvBFMats_RowCommand">
+                <EditRowStyle BackColor="LightYellow" />
                 <Columns>
                     <asp:TemplateField ShowHeader="False">
                         <EditItemTemplate>
@@ -97,69 +98,81 @@
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Manufacturer" SortExpression="MatManufacturerID">
                         <EditItemTemplate>
-                            <asp:DropDownList ID="ddlMfr" runat="server" AutoPostBack="True" DataSourceID="ddlMatMfrSQL" 
+                            <asp:DropDownList ID="ddlMfr" runat="server" AutoPostBack="True" DataSourceID="ddlMatMfrSQL" AppendDataBoundItems="true"
                                 DataTextField="MatManufacturerDesc" DataValueField="MatManufacturerID" SelectedValue='<%# Bind("MatManufacturerID") %>'>
+                                <asp:ListItem Text="<--Select Mfr-->" Value="" />
                             </asp:DropDownList>
                         </EditItemTemplate>
                         <FooterTemplate>
-                            <asp:DropDownList ID="ddlMfr" runat="server" AutoPostBack="True" DataSourceID="ddlMatMfrSQL" 
+                            <asp:DropDownList ID="ddlMfr" runat="server" AutoPostBack="True" DataSourceID="ddlMatMfrSQL" AppendDataBoundItems="true"
                                 DataTextField="MatManufacturerDesc" DataValueField="MatManufacturerID">
+                                <asp:ListItem Text="<--Select Mfr-->" Value="" />
                             </asp:DropDownList>
                         </FooterTemplate>
                         <ItemTemplate>
-                            <asp:DropDownList ID="ddlMfr" runat="server" AutoPostBack="True" DataSourceID="ddlMatMfrSQL" 
+                            <asp:DropDownList ID="ddlMfr" runat="server" AutoPostBack="True" DataSourceID="ddlMatMfrSQL" AppendDataBoundItems="true"
                                 DataTextField="MatManufacturerDesc" DataValueField="MatManufacturerID" SelectedValue='<%# Bind("MatManufacturerID") %>' Enabled="False">
+                                <asp:ListItem Text="<--Select Mfr-->" Value="" />
                             </asp:DropDownList>
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Thickness" SortExpression="MatThicknessID">
                         <EditItemTemplate>
-                            <asp:DropDownList ID="ddlThickness" runat="server" DataSourceID="ddlMatThicknessSQL" 
+                            <asp:DropDownList ID="ddlThickness" runat="server" DataSourceID="ddlMatThicknessSQL" AppendDataBoundItems="true"
                                 DataTextField="MatThickness" DataValueField="MatThicknessID" SelectedValue='<%# Bind("MatThicknessID") %>'>
+                                <asp:ListItem Text="<--Select-->" Value="" />
                             </asp:DropDownList>
                         </EditItemTemplate>
                         <FooterTemplate>
-                            <asp:DropDownList ID="ddlThickness" runat="server" AutoPostBack="True" DataSourceID="ddlMatThicknessSQL" 
+                            <asp:DropDownList ID="ddlThickness" runat="server" AutoPostBack="True" DataSourceID="ddlMatThicknessSQL" AppendDataBoundItems="true" 
                                 DataTextField="MatThickness" DataValueField="MatThicknessID">
+                                <asp:ListItem Text="<--Select-->" Value="" />
                             </asp:DropDownList>
                         </FooterTemplate>
                         <ItemTemplate>
-                            <asp:DropDownList ID="ddlThickness" runat="server" AutoPostBack="True" DataSourceID="ddlMatThicknessSQL" enabled="false"
+                            <asp:DropDownList ID="ddlThickness" runat="server" AutoPostBack="True" DataSourceID="ddlMatThicknessSQL" enabled="false" AppendDataBoundItems="true"
                                 DataTextField="MatThickness" DataValueField="MatThicknessID" SelectedValue='<%# Bind("MatThicknessID") %>'>
+                                <asp:ListItem Text="<--Select-->" Value="" />
                             </asp:DropDownList>
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Core" SortExpression="MatCoreID">
                         <EditItemTemplate>
-                            <asp:DropDownList ID="ddlCore" runat="server" AutoPostBack="True" DataSourceID="ddlMatCoreSQL" 
+                            <asp:DropDownList ID="ddlCore" runat="server" AutoPostBack="True" DataSourceID="ddlMatCoreSQL" AppendDataBoundItems="true"
                                 DataTextField="MatCore" DataValueField="MatCoreID" SelectedValue='<%# Bind("MatCoreID") %>'>
+                                <asp:ListItem Text="<--Select-->" Value="" />
                             </asp:DropDownList>
                         </EditItemTemplate>
                         <FooterTemplate>
-                            <asp:DropDownList ID="ddlCore" runat="server" AutoPostBack="True" DataSourceID="ddlMatCoreSQL" 
+                            <asp:DropDownList ID="ddlCore" runat="server" AutoPostBack="True" DataSourceID="ddlMatCoreSQL" AppendDataBoundItems="true"
                                 DataTextField="MatCore" DataValueField="MatCoreID">
+                                <asp:ListItem Text="<--Select-->" Value="" />
                             </asp:DropDownList>
                         </FooterTemplate>
                         <ItemTemplate>
-                            <asp:DropDownList ID="ddlCore" runat="server" AutoPostBack="True" DataSourceID="ddlMatCoreSQL" Enabled="false"
+                            <asp:DropDownList ID="ddlCore" runat="server" AutoPostBack="True" DataSourceID="ddlMatCoreSQL" Enabled="false" AppendDataBoundItems="true"
                                 DataTextField="MatCore" DataValueField="MatCoreID" SelectedValue='<%# Bind("MatCoreID") %>'>
+                                <asp:ListItem Text="<--Select-->" Value="" />
                             </asp:DropDownList>
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Size (HxL)" SortExpression="MatSizeID">
                         <EditItemTemplate>
-                            <asp:DropDownList ID="ddlSize" runat="server" AutoPostBack="True" DataSourceID="ddlMatSizeSQL" 
+                            <asp:DropDownList ID="ddlSize" runat="server" AutoPostBack="True" DataSourceID="ddlMatSizeSQL" AppendDataBoundItems="true" 
                                 DataTextField="MatSizeHxL" DataValueField="MatSizeID" SelectedValue='<%# Bind("MatSizeID") %>'>
+                                <asp:ListItem Text="<--Select-->" Value="" />
                             </asp:DropDownList>
                         </EditItemTemplate>
                         <FooterTemplate>
-                            <asp:DropDownList ID="ddlSize" runat="server" AutoPostBack="True" DataSourceID="ddlMatSizeSQL" 
+                            <asp:DropDownList ID="ddlSize" runat="server" AutoPostBack="True" DataSourceID="ddlMatSizeSQL" AppendDataBoundItems="true"
                                 DataTextField="MatSizeHxL" DataValueField="MatSizeID">
+                                <asp:ListItem Text="<--Select-->" Value="" />
                             </asp:DropDownList>
                         </FooterTemplate>
                         <ItemTemplate>
-                            <asp:DropDownList ID="ddlSize" runat="server" AutoPostBack="True" DataSourceID="ddlMatSizeSQL" Enabled="false"
+                            <asp:DropDownList ID="ddlSize" runat="server" AutoPostBack="True" DataSourceID="ddlMatSizeSQL" Enabled="false" AppendDataBoundItems="true"
                                 DataTextField="MatSizeHxL" DataValueField="MatSizeID" SelectedValue='<%# Bind("MatSizeID") %>'>
+                                <asp:ListItem Text="<--Select-->" Value="" />
                             </asp:DropDownList>
                         </ItemTemplate>
                     </asp:TemplateField>
@@ -187,18 +200,21 @@
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Pre/Post" SortExpression="MatFinishPrePostID">
                         <EditItemTemplate>
-                            <asp:DropDownList ID="ddlFinish" runat="server" AutoPostBack="True" DataSourceID="ddlMatFinishSQL" 
+                            <asp:DropDownList ID="ddlFinish" runat="server" AutoPostBack="True" DataSourceID="ddlMatFinishSQL" AppendDataBoundItems="true"
                                 DataTextField="MatFinishPrePostDesc" DataValueField="MatFinishPrePostID" SelectedValue='<%# Bind("MatFinishPrePostID") %>'>
+                                <asp:ListItem Text="<--Select-->" Value="" />
                             </asp:DropDownList>
                         </EditItemTemplate>
                         <FooterTemplate>
-                            <asp:DropDownList ID="ddlFinish" runat="server" AutoPostBack="True" DataSourceID="ddlMatFinishSQL" 
+                            <asp:DropDownList ID="ddlFinish" runat="server" AutoPostBack="True" DataSourceID="ddlMatFinishSQL" AppendDataBoundItems="true" 
                                 DataTextField="MatFinishPrePostDesc" DataValueField="MatFinishPrePostID">
+                                <asp:ListItem Text="<--Select-->" Value="" />
                             </asp:DropDownList>
                         </FooterTemplate>
                         <ItemTemplate>
-                            <asp:DropDownList ID="ddlFinish" runat="server" AutoPostBack="True" DataSourceID="ddlMatFinishSQL" Enabled="false"
+                            <asp:DropDownList ID="ddlFinish" runat="server" AutoPostBack="True" DataSourceID="ddlMatFinishSQL" Enabled="false" AppendDataBoundItems="true"
                                 DataTextField="MatFinishPrePostDesc" DataValueField="MatFinishPrePostID" SelectedValue='<%# Bind("MatFinishPrePostID") %>'>
+                                <asp:ListItem Text="<--Select-->" Value="" />
                             </asp:DropDownList>
                         </ItemTemplate>
                     </asp:TemplateField>
@@ -229,23 +245,27 @@
                         </tr>
                         <tr>
                             <td><asp:LinkButton ID="btnMatsEmpty" runat="server" CommandName="EmptyInsert" Text="Insert" /></td>
-                            <td><asp:DropDownList ID="ddlMfr" runat="server" AutoPostBack="True" DataSourceID="ddlMatMfrSQL" 
+                            <td><asp:DropDownList ID="ddlMfr" runat="server" AutoPostBack="True" DataSourceID="ddlMatMfrSQL" AppendDataBoundItems="true"
                                     DataTextField="MatManufacturerDesc" DataValueField="MatManufacturerID">
+                                <asp:ListItem Text="<--Select-->" Value="" />
                                 </asp:DropDownList>
                             </td>
                             <td>
-                                <asp:DropDownList ID="ddlThickness" runat="server" AutoPostBack="True" DataSourceID="ddlMatThicknessSQL" 
+                                <asp:DropDownList ID="ddlThickness" runat="server" AutoPostBack="True" DataSourceID="ddlMatThicknessSQL" AppendDataBoundItems="true"
                                 DataTextField="MatThickness" DataValueField="MatThicknessID">
+                                    <asp:ListItem Text="<--Select-->" Value="" />
                             </asp:DropDownList>
                             </td>
                             <td>
-                                <asp:DropDownList ID="ddlCore" runat="server" AutoPostBack="True" DataSourceID="ddlMatCoreSQL" 
+                                <asp:DropDownList ID="ddlCore" runat="server" AutoPostBack="True" DataSourceID="ddlMatCoreSQL" AppendDataBoundItems="true"
                                 DataTextField="MatCore" DataValueField="MatCoreID">
+                                    <asp:ListItem Text="<--Select-->" Value="" />
                             </asp:DropDownList>
                             </td>
                             <td>
-                                <asp:DropDownList ID="ddlSize" runat="server" AutoPostBack="True" DataSourceID="ddlMatSizeSQL" 
+                                <asp:DropDownList ID="ddlSize" runat="server" AutoPostBack="True" DataSourceID="ddlMatSizeSQL" AppendDataBoundItems="true" 
                                 DataTextField="MatSizeHxL" DataValueField="MatSizeID">
+                                    <asp:ListItem Text="<--Select-->" Value="" />
                             </asp:DropDownList>
                             </td>
                             <td>
@@ -255,8 +275,9 @@
                                 <asp:TextBox ID="txtQty" runat="server" CssClass="NumBox"></asp:TextBox>
                             </td>
                             <td>
-                                <asp:DropDownList ID="ddlFinish" runat="server" AutoPostBack="True" DataSourceID="ddlMatFinishSQL" 
+                                <asp:DropDownList ID="ddlFinish" runat="server" AutoPostBack="True" DataSourceID="ddlMatFinishSQL" AppendDataBoundItems="true"
                                 DataTextField="MatFinishPrePostDesc" DataValueField="MatFinishPrePostID">
+                                    <asp:ListItem Text="<--Select-->" Value="" />
                             </asp:DropDownList>
                             </td>
                             <td>
@@ -288,6 +309,7 @@
             <br />
             <asp:Label ID="gvBFProdLabel" runat="server" Text="Production" Font-Bold="true"/>
             <asp:GridView ID="gvBFProd" runat="server" ShowFooter="True" AutoGenerateColumns="False" DataKeyNames="BFProdID" DataSourceID="gvBFProdSQL" OnRowCommand="gvBFProd_RowCommand">
+                <EditRowStyle BackColor="LightYellow" />
                 <Columns>
                     <asp:TemplateField ShowHeader="False">
                         <EditItemTemplate>
@@ -304,24 +326,28 @@
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Series" SortExpression="SeriesID">
                         <EditItemTemplate>
-                            <asp:DropDownList ID="ddlSeries" runat="server" AutoPostBack="True" DataSourceID="ddlBFSeriesSQL" 
+                            <asp:DropDownList ID="ddlSeries" runat="server" AutoPostBack="True" DataSourceID="ddlBFSeriesSQL" AppendDataBoundItems="true"
                                 DataTextField="Description" DataValueField="SeriesID" SelectedValue='<%# Bind("SeriesID") %>'>
+                                <asp:ListItem Text="<--Select-->" Value="" />
                             </asp:DropDownList>
                         </EditItemTemplate>
                         <FooterTemplate>
-                            <asp:DropDownList ID="ddlSeries" runat="server" AutoPostBack="True" DataSourceID="ddlBFSeriesSQL" DataTextField="Description" DataValueField="SeriesID">
+                            <asp:DropDownList ID="ddlSeries" runat="server" AutoPostBack="True" DataSourceID="ddlBFSeriesSQL" AppendDataBoundItems="true"
+                                DataTextField="Description" DataValueField="SeriesID">
+                                <asp:ListItem Text="<--Select-->" Value="" />
                             </asp:DropDownList>
                         </FooterTemplate>
                         <ItemTemplate>
-                            <asp:DropDownList ID="ddlSeries" runat="server" AutoPostBack="True" DataSourceID="ddlBFSeriesSQL" Enabled="false"
+                            <asp:DropDownList ID="ddlSeries" runat="server" AutoPostBack="True" DataSourceID="ddlBFSeriesSQL" Enabled="false" AppendDataBoundItems="true"
                                 DataTextField="Description" DataValueField="SeriesID" SelectedValue='<%# Bind("SeriesID") %>'>
+                                <asp:ListItem Text="<--Select-->" Value="" />
                             </asp:DropDownList>
                         </ItemTemplate>
                         <FooterStyle HorizontalAlign="Left" />
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="#&nbspACM Welders" SortExpression="NumACMWelders" HeaderStyle-CssClass="NumBox">
                         <EditItemTemplate>
-                            <asp:TextBox ID="txtGluers" runat="server" Text='<%# Bind("NumACMWelders") %>'></asp:TextBox>
+                            <asp:TextBox ID="txtGluers" runat="server" CssClass="NumBox" Text='<%# Bind("NumACMWelders") %>'></asp:TextBox>
                         </EditItemTemplate>
                         <FooterTemplate>
                             <asp:TextBox ID="txtGluers" runat="server" CssClass="NumBox"></asp:TextBox>
@@ -332,7 +358,7 @@
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="#&nbspAlum Welders" SortExpression="NumAlumWelders" HeaderStyle-CssClass="NumBox">
                         <EditItemTemplate>
-                            <asp:TextBox ID="txtRadiusGluers" runat="server" Text='<%# Bind("NumAlumWelders") %>'></asp:TextBox>
+                            <asp:TextBox ID="txtRadiusGluers" runat="server" CssClass="NumBox" Text='<%# Bind("NumAlumWelders") %>'></asp:TextBox>
                         </EditItemTemplate>
                         <FooterTemplate>
                             <asp:TextBox ID="txtRadiusGluers" runat="server" CssClass="NumBox"></asp:TextBox>
@@ -343,7 +369,7 @@
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="#&nbspFlat Panels" SortExpression="NumFlatPanels" HeaderStyle-CssClass="NumBox">
                         <EditItemTemplate>
-                            <asp:TextBox ID="txtFlatPanels" runat="server" Text='<%# Bind("NumFlatPanels") %>'></asp:TextBox>
+                            <asp:TextBox ID="txtFlatPanels" runat="server" CssClass="NumBox" Text='<%# Bind("NumFlatPanels") %>'></asp:TextBox>
                         </EditItemTemplate>
                         <FooterTemplate>
                             <asp:TextBox ID="txtFlatPanels" runat="server" CssClass="NumBox"></asp:TextBox>
@@ -354,7 +380,7 @@
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="#&nbspRadius Panels" SortExpression="NumRadPanels" HeaderStyle-CssClass="NumBox">
                         <EditItemTemplate>
-                            <asp:TextBox ID="txtRadiusPanels" runat="server" Text='<%# Bind("NumRadPanels") %>'></asp:TextBox>
+                            <asp:TextBox ID="txtRadiusPanels" runat="server" CssClass="NumBox" Text='<%# Bind("NumRadPanels") %>'></asp:TextBox>
                         </EditItemTemplate>
                         <FooterTemplate>
                             <asp:TextBox ID="txtRadiusPanels" runat="server" CssClass="NumBox"></asp:TextBox>
@@ -376,7 +402,7 @@
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="#&nbspOther" SortExpression="NumOther" HeaderStyle-CssClass="NumBox">
                         <EditItemTemplate>
-                            <asp:TextBox ID="txtNumOther" runat="server" Text='<%# Bind("NumOther") %>'></asp:TextBox>
+                            <asp:TextBox ID="txtNumOther" runat="server" CssClass="NumBox" Text='<%# Bind("NumOther") %>'></asp:TextBox>
                         </EditItemTemplate>
                         <FooterTemplate>
                             <asp:TextBox ID="txtNumOther" runat="server" CssClass="NumBox"></asp:TextBox>
@@ -403,7 +429,9 @@
                                 <asp:LinkButton ID="btnProdEmpty" runat="server" CommandName="EmptyInsert" Text="Save" />
                             </td>
                             <td>
-                                <asp:DropDownList ID="ddlSeries" runat="server" AutoPostBack="True" DataSourceID="ddlBFSeriesSQL" DataTextField="Description" DataValueField="SeriesID">
+                                <asp:DropDownList ID="ddlSeries" runat="server" AutoPostBack="True" DataSourceID="ddlBFSeriesSQL" AppendDataBoundItems="true"
+                                    DataTextField="Description" DataValueField="SeriesID">
+                                    <asp:ListItem Text="<--Select-->" Value="" />
                                 </asp:DropDownList>
                             </td>
                             <td><asp:TextBox ID="txtGluers" runat="server" CssClass="NumBox"></asp:TextBox></td>
@@ -419,10 +447,10 @@
             </asp:GridView>  
             <table border="0">
                 <tr>
-                    <td><b>Production Complete: </b></td>
-                    <td><asp:CheckBox ID="ProductionCompleteCheckBox" runat="server" Checked='<%# Bind("ProductionComplete") %>' /></td>
                     <td><b>Programming Complete: </b></td>
                     <td><asp:CheckBox ID="ProgrammingCompleteCheckBox" runat="server" Checked='<%# Bind("ProgrammingComplete") %>' /></td>
+                    <td><b>Production Complete: </b></td>
+                    <td><asp:CheckBox ID="ProductionCompleteCheckBox" runat="server" Checked='<%# Bind("ProductionComplete") %>' /></td>
                     <td><b>Typical Extrusions: </b></td>
                     <td><asp:CheckBox ID="ExtrusionTypicalCheckBox" runat="server" Checked='<%# Bind("ExtrusionTypical") %>' /></td>
                     <td><b>Non-Typical Extrusions: </b></td>
@@ -441,445 +469,8 @@
         <EditRowStyle BackColor="LightYellow" />
         <FooterStyle BackColor="Silver" Font-Bold="True" ForeColor="White" />
         <HeaderStyle BackColor="Silver" Font-Bold="True" ForeColor="White" />
-        <InsertItemTemplate>
-            <h1>Production Booking Form</h1>
-            <h2><asp:Label ID="lblProjectNum" runat="server" Text='<%# Eval("ProjectID") %>' /> - <asp:Label ID="lblProjectName" runat="server" Text='<%# Eval("ProjectName") %>' /></h2>
-            <h3>Release <asp:Label ID="lblReleaseNum" runat="server" Text='<%# Eval("ReleaseNum") %>' /> - <asp:Label ID="lblReleaseName" runat="server" Text='<%# Eval("ReleaseDesc") %>' /></h3>
-            <table border="1">
-                <tr>
-                    <td><b>PM: </b></td>
-                    <td><asp:Label ID="lblPM" runat="server"  Text='<%# Bind("PM") %>' /></td>
-                    <td><b>Modeler: </b></td>
-                    <td><asp:DropDownList ID="ddlModeler" runat="server" DataSourceID="ddlEmpCADProgSQL" 
-                            DataTextField="Name" DataValueField="EmployeeID" SelectedValue='<%# Bind("ModelByEmpID") %>' AppendDataBoundItems="true">
-                        <asp:ListItem Text="" Value="" />
-                        </asp:DropDownList></td>
-                    <td><b>Date Dims Appr: </b></td>
-                    <td><asp:TextBox ID="txtDateDimsAppr" runat="server" CssClass="DateBox"  Text='<%# Bind("DateDimsApproved", "{0:MM/dd/yyyy}") %>' /></td>
-                </tr>
-                <tr>
-                    <td><b>Customer: </b></td>
-                    <td><asp:Label ID="lblCustomer" runat="server"  Text='<%# Bind("Customer") %>' /></td>
-                    <td><b>Design Lead: </b></td>
-                    <td><asp:DropDownList ID="ddlDesignLead" runat="server" DataSourceID="ddlEmpCADProgSQL" 
-                            DataTextField="Name" DataValueField="EmployeeID" SelectedValue='<%# Bind("DesignByEmpID") %>' AppendDataBoundItems="true">
-                        <asp:ListItem Text="" Value="" />
-                        </asp:DropDownList></td>
-                    <td><b>Released By PM: </b></td>
-                    <td><asp:CheckBox ID="chkRelByPM" runat="server"  Checked='<%# Bind("ReleasedByPM") %>'  /></td>
-                </tr>
-                <tr>
-                    <td><b>CreatedBy: </b></td>
-                    <td><asp:TextBox ID="txtCreatedBy" runat="server"  Text='<%# Bind("CreatedBy") %>' /></td>
-                    <td><b>Designer 2: </b></td>
-                    <td><asp:DropDownList ID="ddlDesign2" runat="server" DataSourceID="ddlEmpCADProgSQL" 
-                            DataTextField="Name" DataValueField="EmployeeID" SelectedValue='<%# Bind("Design2EmpID") %>' AppendDataBoundItems="true">
-                        <asp:ListItem Text="" Value="" />
-                        </asp:DropDownList></td>
-                    <td><b>Rel To Prog: </b></td>
-                    <td><asp:TextBox ID="txtReltoProg" runat="server" CssClass="DateBox" Text='<%# Bind("ToProgDate", "{0:MM/dd/yyyy}") %>' /></td>
-                </tr>
-                <tr>
-                    <td><b># Panels: </b></td>
-                    <td><asp:TextBox ID="txtNumPanels" runat="server" CssClass="NumBox" Text='<%# Bind("NumPanelsThisRelease") %>' /></td>
-                    <td><b>Program Lead: </b></td>
-                    <td><asp:DropDownList ID="ddlProgLead" runat="server" DataSourceID="ddlEmpCADProgSQL" 
-                            DataTextField="Name" DataValueField="EmployeeID" SelectedValue='<%# Bind("ProgramByEmpID") %>' AppendDataBoundItems="true">
-                        <asp:ListItem Text="" Value="" />
-                        </asp:DropDownList></td>
-                    <td><b>Rel To Shop: </b></td>
-                    <td><asp:TextBox ID="txtRelToShop" runat="server" CssClass="DateBox" Text='<%# Bind("ActEngRelDate", "{0:MM/dd/yyyy}") %>' /></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td><b>Programmer 2: </b></td>
-                    <td><asp:DropDownList ID="ddlProg2" runat="server" DataSourceID="ddlEmpCADProgSQL" 
-                            DataTextField="Name" DataValueField="EmployeeID" SelectedValue='<%# Bind("Prog2EmpID") %>' AppendDataBoundItems="true">
-                        <asp:ListItem Text="" Value="" />
-                        </asp:DropDownList></td>
-                    <td><b>Ship Date: </b></td>
-                    <td><asp:TextBox ID="txtProjShipDate" runat="server" CssClass="DateBox" Text='<%# Bind("ActProjShipDate", "{0:MM/dd/yyyy}") %>' /></td>
-                </tr>
-            </table>
-            <table border="0">
-                <tr>
-                    <td><b>Programming Source: </b></td>
-                    <td>
-                        <asp:DropDownList ID="ddlProgSource" runat="server" AutoPostBack="True" DataSourceID="ddlBFProgSourceSQL" 
-                            DataTextField="ProgSourceDesc" DataValueField="ProgSourceID" SelectedValue='<%# Bind("ProgSourceID") %>' AppendDataBoundItems="true">
-                            <asp:ListItem Text="" Value="" />
-                        </asp:DropDownList>
-                    </td>
-                </tr>
-                <tr>
-                    <td><b>Programming Source Path: </b></td>
-                    <td><asp:TextBox ID="txtProgSourcePath" runat="server" CssClass="NotesBox" Text='<%# Bind("ProgSourcePath") %>' /></td>
-                </tr>
-            </table>
-            <br />
-            <asp:Label ID="gvBFMatsLabel" runat="server" Text="Materials" Font-Bold="true" />
-            <asp:GridView ID="gvBFMats" runat="server" ShowFooter="True" AutoGenerateColumns="False" DataKeyNames="MaterialID" DataSourceID="gvBFMatsSQL" OnRowCommand="gvBFMats_RowCommand">
-                <Columns>
-                    <asp:TemplateField ShowHeader="False">
-                        <EditItemTemplate>
-                            <asp:LinkButton ID="lbUpdate" runat="server" CausesValidation="True" CommandName="Update" Text="Save"></asp:LinkButton>
-                            &nbsp;<asp:LinkButton ID="lbCancel" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel"></asp:LinkButton>
-                        </EditItemTemplate>
-                        <ItemTemplate>
-                            <asp:LinkButton ID="lbEdit" runat="server" CausesValidation="False" CommandName="Edit" Text="Edit"></asp:LinkButton>
-                            &nbsp;<asp:LinkButton ID="lbDelete" runat="server" CausesValidation="False" CommandName="Delete" Text="Delete"></asp:LinkButton>
-                        </ItemTemplate>
-                        <FooterTemplate>
-                            <asp:LinkButton ID="lbFooterInsert" runat="server" CommandName="FooterInsert" Text="Insert" />
-                        </FooterTemplate>
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Manufacturer" SortExpression="MatManufacturerID">
-                        <EditItemTemplate>
-                            <asp:DropDownList ID="ddlMfr" runat="server" AutoPostBack="True" DataSourceID="ddlMatMfrSQL" 
-                                DataTextField="MatManufacturerDesc" DataValueField="MatManufacturerID" SelectedValue='<%# Bind("MatManufacturerID") %>'>
-                            </asp:DropDownList>
-                        </EditItemTemplate>
-                        <FooterTemplate>
-                            <asp:DropDownList ID="ddlMfr" runat="server" AutoPostBack="True" DataSourceID="ddlMatMfrSQL" 
-                                DataTextField="MatManufacturerDesc" DataValueField="MatManufacturerID">
-                            </asp:DropDownList>
-                        </FooterTemplate>
-                        <ItemTemplate>
-                            <asp:DropDownList ID="ddlMfr" runat="server" AutoPostBack="True" DataSourceID="ddlMatMfrSQL" 
-                                DataTextField="MatManufacturerDesc" DataValueField="MatManufacturerID" SelectedValue='<%# Bind("MatManufacturerID") %>' Enabled="False">
-                            </asp:DropDownList>
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Thickness" SortExpression="MatThicknessID">
-                        <EditItemTemplate>
-                            <asp:DropDownList ID="ddlThickness" runat="server" DataSourceID="ddlMatThicknessSQL" 
-                                DataTextField="MatThickness" DataValueField="MatThicknessID" SelectedValue='<%# Bind("MatThicknessID") %>'>
-                            </asp:DropDownList>
-                        </EditItemTemplate>
-                        <FooterTemplate>
-                            <asp:DropDownList ID="ddlThickness" runat="server" AutoPostBack="True" DataSourceID="ddlMatThicknessSQL" 
-                                DataTextField="MatThickness" DataValueField="MatThicknessID">
-                            </asp:DropDownList>
-                        </FooterTemplate>
-                        <ItemTemplate>
-                            <asp:DropDownList ID="ddlThickness" runat="server" AutoPostBack="True" DataSourceID="ddlMatThicknessSQL" enabled="false"
-                                DataTextField="MatThickness" DataValueField="MatThicknessID" SelectedValue='<%# Bind("MatThicknessID") %>'>
-                            </asp:DropDownList>
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Core" SortExpression="MatCoreID">
-                        <EditItemTemplate>
-                            <asp:DropDownList ID="ddlCore" runat="server" AutoPostBack="True" DataSourceID="ddlMatCoreSQL" 
-                                DataTextField="MatCore" DataValueField="MatCoreID" SelectedValue='<%# Bind("MatCoreID") %>'>
-                            </asp:DropDownList>
-                        </EditItemTemplate>
-                        <FooterTemplate>
-                            <asp:DropDownList ID="ddlCore" runat="server" AutoPostBack="True" DataSourceID="ddlMatCoreSQL" 
-                                DataTextField="MatCore" DataValueField="MatCoreID">
-                            </asp:DropDownList>
-                        </FooterTemplate>
-                        <ItemTemplate>
-                            <asp:DropDownList ID="ddlCore" runat="server" AutoPostBack="True" DataSourceID="ddlMatCoreSQL" Enabled="false"
-                                DataTextField="MatCore" DataValueField="MatCoreID" SelectedValue='<%# Bind("MatCoreID") %>'>
-                            </asp:DropDownList>
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Size (HxL)" SortExpression="MatSizeID">
-                        <EditItemTemplate>
-                            <asp:DropDownList ID="ddlSize" runat="server" AutoPostBack="True" DataSourceID="ddlMatSizeSQL" 
-                                DataTextField="MatSizeHxL" DataValueField="MatSizeID" SelectedValue='<%# Bind("MatSizeID") %>'>
-                            </asp:DropDownList>
-                        </EditItemTemplate>
-                        <FooterTemplate>
-                            <asp:DropDownList ID="ddlSize" runat="server" AutoPostBack="True" DataSourceID="ddlMatSizeSQL" 
-                                DataTextField="MatSizeHxL" DataValueField="MatSizeID">
-                            </asp:DropDownList>
-                        </FooterTemplate>
-                        <ItemTemplate>
-                            <asp:DropDownList ID="ddlSize" runat="server" AutoPostBack="True" DataSourceID="ddlMatSizeSQL" Enabled="false"
-                                DataTextField="MatSizeHxL" DataValueField="MatSizeID" SelectedValue='<%# Bind("MatSizeID") %>'>
-                            </asp:DropDownList>
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Color" SortExpression="MatFinishColor">
-                        <EditItemTemplate>
-                            <asp:TextBox ID="txtColor" runat="server" Text='<%# Bind("MatFinishColor") %>' ></asp:TextBox>
-                        </EditItemTemplate>
-                        <FooterTemplate>
-                            <asp:TextBox ID="txtColor" runat="server"></asp:TextBox>
-                        </FooterTemplate>
-                        <ItemTemplate>
-                            <asp:Label ID="lblColor" runat="server" Text='<%# Bind("MatFinishColor") %>'></asp:Label>
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Qty" SortExpression="MatQty">
-                        <EditItemTemplate>
-                            <asp:TextBox ID="txtQty" runat="server" Text='<%# Bind("MatQty") %>' CssClass="NumBox"></asp:TextBox>
-                        </EditItemTemplate>
-                        <FooterTemplate>
-                            <asp:TextBox ID="txtQty" runat="server" CssClass="NumBox"></asp:TextBox>
-                        </FooterTemplate>
-                        <ItemTemplate>
-                            <asp:Label ID="lblQty" runat="server" Text='<%# Bind("MatQty") %>'></asp:Label>
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Pre/Post" SortExpression="MatFinishPrePostID">
-                        <EditItemTemplate>
-                            <asp:DropDownList ID="ddlFinish" runat="server" AutoPostBack="True" DataSourceID="ddlMatFinishSQL" 
-                                DataTextField="MatFinishPrePostDesc" DataValueField="MatFinishPrePostID" SelectedValue='<%# Bind("MatFinishPrePostID") %>'>
-                            </asp:DropDownList>
-                        </EditItemTemplate>
-                        <FooterTemplate>
-                            <asp:DropDownList ID="ddlFinish" runat="server" AutoPostBack="True" DataSourceID="ddlMatFinishSQL" 
-                                DataTextField="MatFinishPrePostDesc" DataValueField="MatFinishPrePostID">
-                            </asp:DropDownList>
-                        </FooterTemplate>
-                        <ItemTemplate>
-                            <asp:DropDownList ID="ddlFinish" runat="server" AutoPostBack="True" DataSourceID="ddlMatFinishSQL" Enabled="false"
-                                DataTextField="MatFinishPrePostDesc" DataValueField="MatFinishPrePostID" SelectedValue='<%# Bind("MatFinishPrePostID") %>'>
-                            </asp:DropDownList>
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="#&nbspExtra Sheets" SortExpression="MatNumExtraSheets" HeaderStyle-CssClass="NumBox">
-                        <EditItemTemplate>
-                            <asp:TextBox ID="txtExtra" runat="server" Text='<%# Bind("MatNumExtraSheets") %>' CssClass="NumBox"></asp:TextBox>
-                        </EditItemTemplate>
-                        <FooterTemplate>
-                            <asp:TextBox ID="txtExtra" runat="server" CssClass="NumBox"></asp:TextBox>
-                        </FooterTemplate>
-                        <ItemTemplate>
-                            <asp:Label ID="lblExtra" runat="server" Text='<%# Bind("MatNumExtraSheets") %>'></asp:Label>
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                </Columns>
-                <EmptyDataTemplate>
-                    <table border="1">
-                        <tr style="background-color: gray;">
-                            <th></th>
-                            <th>Manufacturer</th>
-                            <th>Thickness</th>
-                            <th>Core</th>
-                            <th>Size (HxL)</th>
-                            <th>Color</th>
-                            <th>Qty</th>
-                            <th>Pre/Post</th>
-                            <th>#&nbspExtra Sheets</th>
-                        </tr>
-                        <tr>
-                            <td><asp:LinkButton ID="btnMatsEmpty" runat="server" CommandName="EmptyInsert" Text="Insert" /></td>
-                            <td><asp:DropDownList ID="ddlMfr" runat="server" AutoPostBack="True" DataSourceID="ddlMatMfrSQL" 
-                                    DataTextField="MatManufacturerDesc" DataValueField="MatManufacturerID">
-                                </asp:DropDownList>
-                            </td>
-                            <td>
-                                <asp:DropDownList ID="ddlThickness" runat="server" AutoPostBack="True" DataSourceID="ddlMatThicknessSQL" 
-                                DataTextField="MatThickness" DataValueField="MatThicknessID">
-                            </asp:DropDownList>
-                            </td>
-                            <td>
-                                <asp:DropDownList ID="ddlCore" runat="server" AutoPostBack="True" DataSourceID="ddlMatCoreSQL" 
-                                DataTextField="MatCore" DataValueField="MatCoreID">
-                            </asp:DropDownList>
-                            </td>
-                            <td>
-                                <asp:DropDownList ID="ddlSize" runat="server" AutoPostBack="True" DataSourceID="ddlMatSizeSQL" 
-                                DataTextField="MatSizeHxL" DataValueField="MatSizeID">
-                            </asp:DropDownList>
-                            </td>
-                            <td>
-                                <asp:TextBox ID="txtColor" runat="server"></asp:TextBox>
-                            </td>
-                            <td>
-                                <asp:TextBox ID="txtQty" runat="server" CssClass="NumBox"></asp:TextBox>
-                            </td>
-                            <td>
-                                <asp:DropDownList ID="ddlFinish" runat="server" AutoPostBack="True" DataSourceID="ddlMatFinishSQL" 
-                                DataTextField="MatFinishPrePostDesc" DataValueField="MatFinishPrePostID">
-                            </asp:DropDownList>
-                            </td>
-                            <td>
-                                <asp:TextBox ID="txtExtra" runat="server" CssClass="NumBox"></asp:TextBox>
-                            </td>
-                        </tr>
-                    </table>
-                </EmptyDataTemplate>
-            </asp:GridView>
-
-            <table border="0">
-                <tr>
-                    <td><b>Brake Metal: </b></td>
-                    <td><asp:CheckBox ID="chkBrakeMetal" runat="server" Checked='<%# Bind("SupportBrakeMetal") %>'  /></td>
-                    <td><b>Extrusions: </b></td>
-                    <td><asp:CheckBox ID="chkExtrusions" runat="server" Checked='<%# Bind("SupportExtrusions") %>'  /></td>
-                    <td><b>Fasteners: </b></td>
-                    <td><asp:CheckBox ID="chkFasteners" runat="server" Checked='<%# Bind("SupportFasteners") %>'  /></td>
-                    <td><b>Filler Strips: </b></td>
-                    <td><asp:CheckBox ID="chkFillerStrips" runat="server" Checked='<%# Bind("SupportFillerStrips") %>'  /></td>
-                    <td><b>Stiffeners: </b></td>
-                    <td><asp:CheckBox ID="chkStiffeners" runat="server" Checked='<%# Bind("SupportStiffeners") %>'  /></td>
-                    <td><b>Gasket: </b></td>
-                    <td><asp:CheckBox ID="chkGasket" runat="server" Checked='<%# Bind("SupportGasket") %>'  /></td>
-                    <td><b>Snap Covers: </b></td>
-                    <td><asp:CheckBox ID="chkSnapCovers" runat="server" Checked='<%# Bind("SupportSnapCovers") %>'  /></td>
-                </tr>
-            </table>
-            <br />
-            <asp:Label ID="gvBFProdLabel" runat="server" Text="Production" Font-Bold="true"/>
-            <asp:GridView ID="gvBFProd" runat="server" ShowFooter="True" AutoGenerateColumns="False" DataKeyNames="BFProdID" DataSourceID="gvBFProdSQL" OnRowCommand="gvBFProd_RowCommand">
-                <Columns>
-                    <asp:TemplateField ShowHeader="False">
-                        <EditItemTemplate>
-                            <asp:LinkButton ID="lbUpdate" runat="server" CausesValidation="True" CommandName="Update" Text="Save"></asp:LinkButton>
-                            &nbsp;<asp:LinkButton ID="lbCancel" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel"></asp:LinkButton>
-                        </EditItemTemplate>
-                        <FooterTemplate>
-                            <asp:LinkButton ID="lbInsert" runat="server" CommandName="FooterInsert" Text="Insert"  />
-                        </FooterTemplate>
-                        <ItemTemplate>
-                            <asp:LinkButton ID="lbEdit" runat="server" CausesValidation="False" CommandName="Edit" Text="Edit"></asp:LinkButton>
-                            &nbsp;<asp:LinkButton ID="lbDelete" runat="server" CausesValidation="False" CommandName="Delete" Text="Delete"></asp:LinkButton>
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Series" SortExpression="SeriesID">
-                        <EditItemTemplate>
-                            <asp:DropDownList ID="ddlSeries" runat="server" AutoPostBack="True" DataSourceID="ddlBFSeriesSQL" 
-                                DataTextField="Description" DataValueField="SeriesID" SelectedValue='<%# Bind("SeriesID") %>'>
-                            </asp:DropDownList>
-                        </EditItemTemplate>
-                        <FooterTemplate>
-                            <asp:DropDownList ID="ddlSeries" runat="server" AutoPostBack="True" DataSourceID="ddlBFSeriesSQL" DataTextField="Description" DataValueField="SeriesID">
-                            </asp:DropDownList>
-                        </FooterTemplate>
-                        <ItemTemplate>
-                            <asp:DropDownList ID="ddlSeries" runat="server" AutoPostBack="True" DataSourceID="ddlBFSeriesSQL" Enabled="false"
-                                DataTextField="Description" DataValueField="SeriesID" SelectedValue='<%# Bind("SeriesID") %>'>
-                            </asp:DropDownList>
-                        </ItemTemplate>
-                        <FooterStyle HorizontalAlign="Left" />
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="#&nbspACM Welders" SortExpression="NumACMWelders" HeaderStyle-CssClass="NumBox">
-                        <EditItemTemplate>
-                            <asp:TextBox ID="txtGluers" runat="server" Text='<%# Bind("NumACMWelders") %>'></asp:TextBox>
-                        </EditItemTemplate>
-                        <FooterTemplate>
-                            <asp:TextBox ID="txtGluers" runat="server" CssClass="NumBox"></asp:TextBox>
-                        </FooterTemplate>
-                        <ItemTemplate>
-                            <asp:Label ID="lblGluers" runat="server" Text='<%# Bind("NumACMWelders") %>'></asp:Label>
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="#&nbspAlum Welders" SortExpression="NumAlumWelders" HeaderStyle-CssClass="NumBox">
-                        <EditItemTemplate>
-                            <asp:TextBox ID="txtRadiusGluers" runat="server" Text='<%# Bind("NumAlumWelders") %>'></asp:TextBox>
-                        </EditItemTemplate>
-                        <FooterTemplate>
-                            <asp:TextBox ID="txtRadiusGluers" runat="server" CssClass="NumBox"></asp:TextBox>
-                        </FooterTemplate>
-                        <ItemTemplate>
-                            <asp:Label ID="lblRadiusGluers" runat="server" Text='<%# Bind("NumAlumWelders") %>'></asp:Label>
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="#&nbspFlat Panels" SortExpression="NumFlatPanels" HeaderStyle-CssClass="NumBox">
-                        <EditItemTemplate>
-                            <asp:TextBox ID="txtFlatPanels" runat="server" Text='<%# Bind("NumFlatPanels") %>'></asp:TextBox>
-                        </EditItemTemplate>
-                        <FooterTemplate>
-                            <asp:TextBox ID="txtFlatPanels" runat="server" CssClass="NumBox"></asp:TextBox>
-                        </FooterTemplate>
-                        <ItemTemplate>
-                            <asp:Label ID="lblFlatPanels" runat="server" Text='<%# Bind("NumFlatPanels") %>'></asp:Label>
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="#&nbspRadius Panels" SortExpression="NumRadPanels" HeaderStyle-CssClass="NumBox">
-                        <EditItemTemplate>
-                            <asp:TextBox ID="txtRadiusPanels" runat="server" Text='<%# Bind("NumRadPanels") %>'></asp:TextBox>
-                        </EditItemTemplate>
-                        <FooterTemplate>
-                            <asp:TextBox ID="txtRadiusPanels" runat="server" CssClass="NumBox"></asp:TextBox>
-                        </FooterTemplate>
-                        <ItemTemplate>
-                            <asp:Label ID="lblRadiusPanels" runat="server" Text='<%# Bind("NumRadPanels") %>'></asp:Label>
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Other Description" SortExpression="OtherDesc">
-                        <EditItemTemplate>
-                            <asp:TextBox ID="txtOtherDesc" runat="server" Text='<%# Bind("OtherDesc") %>'></asp:TextBox>
-                        </EditItemTemplate>
-                        <FooterTemplate>
-                            <asp:TextBox ID="txtOtherDesc" runat="server" ></asp:TextBox>
-                        </FooterTemplate>
-                        <ItemTemplate>
-                            <asp:Label ID="lblOtherDesc" runat="server" Text='<%# Bind("OtherDesc") %>'></asp:Label>
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="#&nbspOther" SortExpression="NumOther" HeaderStyle-CssClass="NumBox">
-                        <EditItemTemplate>
-                            <asp:TextBox ID="txtNumOther" runat="server" Text='<%# Bind("NumOther") %>'></asp:TextBox>
-                        </EditItemTemplate>
-                        <FooterTemplate>
-                            <asp:TextBox ID="txtNumOther" runat="server" CssClass="NumBox"></asp:TextBox>
-                        </FooterTemplate>
-                        <ItemTemplate>
-                            <asp:Label ID="lblNumOther" runat="server" Text='<%# Bind("NumOther") %>'></asp:Label>
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                </Columns>
-                <EmptyDataTemplate>
-                    <table border="1">
-                        <tr style="background-color:gray">
-                            <th></th>
-                            <th>Series</th>
-                            <th>#&nbspACM Welders</th>
-                            <th>#&nbspAlum Welders</th>
-                            <th>#&nbspFlat Panels</th>
-                            <th>#&nbspRadius Panels</th>
-                            <th>Other Description</th>
-                            <th>#&nbspOther</th>
-                        </tr>
-                        <tr>
-                            <td>
-                                <asp:LinkButton ID="lbEmptyInsert" runat="server" CommandName="EmptyInsert" Text="Insert" />
-                            </td>
-                            <td>
-                                <asp:DropDownList ID="ddlSeries" runat="server" AutoPostBack="True" DataSourceID="ddlBFSeriesSQL" DataTextField="Description" DataValueField="SeriesID">
-                                </asp:DropDownList>
-                            </td>
-                            <td><asp:TextBox ID="txtGluers" runat="server" CssClass="NumBox"></asp:TextBox></td>
-                            <td><asp:TextBox ID="txtRadiusGluers" runat="server" CssClass="NumBox"></asp:TextBox></td>
-                            <td><asp:TextBox ID="txtFlatPanels" runat="server" CssClass="NumBox"></asp:TextBox></td>
-                            <td><asp:TextBox ID="txtRadiusPanels" runat="server" CssClass="NumBox"></asp:TextBox></td>
-                            <td><asp:TextBox ID="txtOtherDesc" runat="server" ></asp:TextBox></td>
-                            <td><asp:TextBox ID="txtNumOther" runat="server" CssClass="NumBox"></asp:TextBox></td>
-                        </tr>
-                    </table>
-                    
-                </EmptyDataTemplate>
-            </asp:GridView>  
-            <table border="0">
-                <tr>
-                    <td><b>Production Complete: </b></td>
-                    <td><asp:CheckBox ID="chkProdComplete" runat="server" Checked='<%# Bind("ProductionComplete") %>' /></td>
-                    <td><b>Programming Complete: </b></td>
-                    <td><asp:CheckBox ID="chkProgComplete" runat="server" Checked='<%# Bind("ProgrammingComplete") %>' /></td>
-                    <td><b>Typical Extrusions: </b></td>
-                    <td><asp:CheckBox ID="chkExtrusionTypical" runat="server" Checked='<%# Bind("ExtrusionTypical") %>' /></td>
-                    <td><b>Non-Typical Extrusions: </b></td>
-                    <td><asp:CheckBox ID="chkExtrusionNonTypical" runat="server" Checked='<%# Bind("ExtrusionNonTypical") %>' /></td>
-                </tr>
-            </table>
-
-            <b>Notes:</b>
-            <br />
-            <asp:TextBox ID="txtNotes" runat="server" CssClass="TextArea" TextMode="MultiLine" Rows="5" 
-                Text='<%# Bind("Notes") %>' />
-            <br />
-            <asp:LinkButton ID="lbInsert" runat="server" CausesValidation="True" CommandName="Insert" Text="Save" />
-            &nbsp;<asp:LinkButton ID="lbCancel" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
-        </InsertItemTemplate>
-        <InsertRowStyle BackColor="LightYellow" />
         <ItemTemplate>
-            <h1>Production Booking Form</h1>
+            <h1>Production Booking Form</h1><asp:Label ID="lblBFID" runat="server" Text='<%# Eval("BookingFormID") %>' Visible="false" />
             <h2><asp:Label ID="lblProjectNum" runat="server" Text='<%# Eval("ProjectID") %>' /> - <asp:Label ID="lblProjectName" runat="server" Text='<%# Eval("ProjectName") %>' /></h2>
             <h3>Release <asp:Label ID="lblReleaseNum" runat="server" Text='<%# Eval("ReleaseNum") %>' /> - <asp:Label ID="lblReleaseName" runat="server" Text='<%# Eval("ReleaseDesc") %>' /></h3>
             <table border="1">
@@ -889,7 +480,7 @@
                     <td><b>Modeler: </b></td>
                     <td><asp:DropDownList ID="ddlModeler" runat="server" DataSourceID="ddlEmpCADProgSQL" Enabled="false"
                             DataTextField="Name" DataValueField="EmployeeID" SelectedValue='<%# Bind("ModelByEmpID") %>' AppendDataBoundItems="true">
-                        <asp:ListItem Text="" Value="" />
+                        <asp:ListItem Text="<--Select Employee-->" Value="" />
                         </asp:DropDownList></td>
                     <td><b>Date Dims Appr: </b></td>
                     <td><asp:Label ID="lblDateDimsAppr" runat="server"  Text='<%# Bind("DateDimsApproved", "{0:MM/dd/yyyy}") %>' /></td>
@@ -900,7 +491,7 @@
                     <td><b>Design Lead: </b></td>
                     <td><asp:DropDownList ID="ddlDesignLead" runat="server" DataSourceID="ddlEmpCADProgSQL" Enabled="false"
                             DataTextField="Name" DataValueField="EmployeeID" SelectedValue='<%# Bind("DesignByEmpID") %>' AppendDataBoundItems="true">
-                        <asp:ListItem Text="" Value="" />
+                        <asp:ListItem Text="<--Select Employee-->" Value="" />
                         </asp:DropDownList></td>
                     <td><b>Released By PM: </b></td>
                     <td><asp:CheckBox ID="chkRelByPM" runat="server"  Checked='<%# Bind("ReleasedByPM") %>' Enabled="false" /></td>
@@ -911,7 +502,7 @@
                     <td><b>Designer 2: </b></td>
                     <td><asp:DropDownList ID="ddlDesign2" runat="server" DataSourceID="ddlEmpCADProgSQL" Enabled="false"
                             DataTextField="Name" DataValueField="EmployeeID" SelectedValue='<%# Bind("Design2EmpID") %>' AppendDataBoundItems="true">
-                        <asp:ListItem Text="" Value="" />
+                        <asp:ListItem Text="<--Select Employee-->" Value="" />
                         </asp:DropDownList></td>
                     <td><b>Rel To Prog: </b></td>
                     <td><asp:Label ID="lblReltoProg" runat="server" Text='<%# Bind("ToProgDate", "{0:MM/dd/yyyy}") %>' /></td>
@@ -922,7 +513,7 @@
                     <td><b>Program Lead: </b></td>
                     <td><asp:DropDownList ID="ddlProgLead" runat="server" DataSourceID="ddlEmpCADProgSQL" Enabled="false"
                             DataTextField="Name" DataValueField="EmployeeID" SelectedValue='<%# Bind("ProgramByEmpID") %>' AppendDataBoundItems="true">
-                        <asp:ListItem Text="" Value="" />
+                        <asp:ListItem Text="<--Select Employee-->" Value="" />
                         </asp:DropDownList></td>
                     <td><b>Rel To Shop: </b></td>
                     <td><asp:Label ID="lblRelToShop" runat="server"  Text='<%# Bind("ActEngRelDate", "{0:MM/dd/yyyy}") %>' /></td>
@@ -933,7 +524,7 @@
                     <td><b>Programmer 2: </b></td>
                     <td><asp:DropDownList ID="ddlProg2" runat="server" DataSourceID="ddlEmpCADProgSQL" Enabled="false"
                             DataTextField="Name" DataValueField="EmployeeID" SelectedValue='<%# Bind("Prog2EmpID") %>' AppendDataBoundItems="true">
-                        <asp:ListItem Text="" Value="" />
+                        <asp:ListItem Text="<--Select Employee-->" Value="" />
                         </asp:DropDownList></td>
                     <td><b>Ship Date: </b></td>
                     <td><asp:Label ID="lblProjShipDate" runat="server"  Text='<%# Bind("ActProjShipDate", "{0:MM/dd/yyyy}") %>' /></td>
@@ -945,7 +536,7 @@
                     <td>
                         <asp:DropDownList ID="ddlProgSourceView" runat="server" AutoPostBack="True" DataSourceID="ddlBFProgSourceSQL" Enabled="false"
                             DataTextField="ProgSourceDesc" DataValueField="ProgSourceID" SelectedValue='<%# Bind("ProgSourceID") %>' AppendDataBoundItems="true">
-                            <asp:ListItem Text="" Value="" />
+                            <asp:ListItem Text="<--Select Source-->" Value="" />
                         </asp:DropDownList>
                     </td>
                 </tr>
@@ -959,6 +550,7 @@
             <asp:Label ID="gvBFMatsLabel" runat="server" Text="Materials" Font-Bold="true" />
             <asp:GridView ID="gvBFMats" runat="server" ShowFooter="True" FooterStyle-CssClass="NoPrint" AutoGenerateColumns="False" 
                 DataKeyNames="MaterialID" DataSourceID="gvBFMatsSQL" OnRowCommand="gvBFMats_RowCommand">
+                <EditRowStyle BackColor="LightYellow" />
                 <Columns>
                     <asp:TemplateField ShowHeader="False" ControlStyle-CssClass="NoPrint">
                         <EditItemTemplate>
@@ -975,69 +567,81 @@
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Manufacturer" SortExpression="MatManufacturerID">
                         <EditItemTemplate>
-                            <asp:DropDownList ID="ddlMfr" runat="server" AutoPostBack="True" DataSourceID="ddlMatMfrSQL" 
+                            <asp:DropDownList ID="ddlMfr" runat="server" AutoPostBack="True" DataSourceID="ddlMatMfrSQL" AppendDataBoundItems="true" 
                                 DataTextField="MatManufacturerDesc" DataValueField="MatManufacturerID" SelectedValue='<%# Bind("MatManufacturerID") %>'>
+                                <asp:ListItem Text="<--Select-->" Value="" />
                             </asp:DropDownList>
                         </EditItemTemplate>
                         <FooterTemplate>
-                            <asp:DropDownList ID="ddlMfr" runat="server" AutoPostBack="True" DataSourceID="ddlMatMfrSQL" 
+                            <asp:DropDownList ID="ddlMfr" runat="server" AutoPostBack="True" DataSourceID="ddlMatMfrSQL" AppendDataBoundItems="true"
                                 DataTextField="MatManufacturerDesc" DataValueField="MatManufacturerID">
+                                <asp:ListItem Text="<--Select-->" Value="" />
                             </asp:DropDownList>
                         </FooterTemplate>
                         <ItemTemplate>
-                            <asp:DropDownList ID="ddlMfr" runat="server" AutoPostBack="True" DataSourceID="ddlMatMfrSQL" 
+                            <asp:DropDownList ID="ddlMfr" runat="server" AutoPostBack="True" DataSourceID="ddlMatMfrSQL" AppendDataBoundItems="true"
                                 DataTextField="MatManufacturerDesc" DataValueField="MatManufacturerID" SelectedValue='<%# Bind("MatManufacturerID") %>' Enabled="False">
+                                <asp:ListItem Text="<--Select-->" Value="" />
                             </asp:DropDownList>
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Thickness" SortExpression="MatThicknessID">
                         <EditItemTemplate>
-                            <asp:DropDownList ID="ddlThickness" runat="server" DataSourceID="ddlMatThicknessSQL" 
+                            <asp:DropDownList ID="ddlThickness" runat="server" DataSourceID="ddlMatThicknessSQL" AppendDataBoundItems="true"
                                 DataTextField="MatThickness" DataValueField="MatThicknessID" SelectedValue='<%# Bind("MatThicknessID") %>'>
+                                <asp:ListItem Text="<--Select-->" Value="" />
                             </asp:DropDownList>
                         </EditItemTemplate>
                         <FooterTemplate>
-                            <asp:DropDownList ID="ddlThickness" runat="server" AutoPostBack="True" DataSourceID="ddlMatThicknessSQL" 
+                            <asp:DropDownList ID="ddlThickness" runat="server" AutoPostBack="True" DataSourceID="ddlMatThicknessSQL" AppendDataBoundItems="true"
                                 DataTextField="MatThickness" DataValueField="MatThicknessID">
+                                <asp:ListItem Text="<--Select-->" Value="" />
                             </asp:DropDownList>
                         </FooterTemplate>
                         <ItemTemplate>
-                            <asp:DropDownList ID="ddlThickness" runat="server" AutoPostBack="True" DataSourceID="ddlMatThicknessSQL" enabled="false"
+                            <asp:DropDownList ID="ddlThickness" runat="server" AutoPostBack="True" DataSourceID="ddlMatThicknessSQL" enabled="false" AppendDataBoundItems="true"
                                 DataTextField="MatThickness" DataValueField="MatThicknessID" SelectedValue='<%# Bind("MatThicknessID") %>'>
+                                <asp:ListItem Text="<--Select-->" Value="" />
                             </asp:DropDownList>
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Core" SortExpression="MatCoreID">
                         <EditItemTemplate>
-                            <asp:DropDownList ID="ddlCore" runat="server" AutoPostBack="True" DataSourceID="ddlMatCoreSQL" 
+                            <asp:DropDownList ID="ddlCore" runat="server" AutoPostBack="True" DataSourceID="ddlMatCoreSQL" AppendDataBoundItems="true"
                                 DataTextField="MatCore" DataValueField="MatCoreID" SelectedValue='<%# Bind("MatCoreID") %>'>
+                                <asp:ListItem Text="<--Select-->" Value="" />
                             </asp:DropDownList>
                         </EditItemTemplate>
                         <FooterTemplate>
-                            <asp:DropDownList ID="ddlCore" runat="server" AutoPostBack="True" DataSourceID="ddlMatCoreSQL" 
+                            <asp:DropDownList ID="ddlCore" runat="server" AutoPostBack="True" DataSourceID="ddlMatCoreSQL" AppendDataBoundItems="true"
                                 DataTextField="MatCore" DataValueField="MatCoreID">
+                                <asp:ListItem Text="<--Select-->" Value="" />
                             </asp:DropDownList>
                         </FooterTemplate>
                         <ItemTemplate>
-                            <asp:DropDownList ID="ddlCore" runat="server" AutoPostBack="True" DataSourceID="ddlMatCoreSQL" Enabled="false"
+                            <asp:DropDownList ID="ddlCore" runat="server" AutoPostBack="True" DataSourceID="ddlMatCoreSQL" Enabled="false" AppendDataBoundItems="true"
                                 DataTextField="MatCore" DataValueField="MatCoreID" SelectedValue='<%# Bind("MatCoreID") %>'>
+                                <asp:ListItem Text="<--Select-->" Value="" />
                             </asp:DropDownList>
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Size (HxL)" SortExpression="MatSizeID">
                         <EditItemTemplate>
-                            <asp:DropDownList ID="ddlSize" runat="server" AutoPostBack="True" DataSourceID="ddlMatSizeSQL" 
+                            <asp:DropDownList ID="ddlSize" runat="server" AutoPostBack="True" DataSourceID="ddlMatSizeSQL" AppendDataBoundItems="true"
                                 DataTextField="MatSizeHxL" DataValueField="MatSizeID" SelectedValue='<%# Bind("MatSizeID") %>'>
+                                <asp:ListItem Text="<--Select-->" Value="" />
                             </asp:DropDownList>
                         </EditItemTemplate>
                         <FooterTemplate>
-                            <asp:DropDownList ID="ddlSize" runat="server" AutoPostBack="True" DataSourceID="ddlMatSizeSQL" 
+                            <asp:DropDownList ID="ddlSize" runat="server" AutoPostBack="True" DataSourceID="ddlMatSizeSQL" AppendDataBoundItems="true"
                                 DataTextField="MatSizeHxL" DataValueField="MatSizeID">
+                                <asp:ListItem Text="<--Select-->" Value="" />
                             </asp:DropDownList>
                         </FooterTemplate>
                         <ItemTemplate>
-                            <asp:DropDownList ID="ddlSize" runat="server" AutoPostBack="True" DataSourceID="ddlMatSizeSQL" Enabled="false"
+                            <asp:DropDownList ID="ddlSize" runat="server" AutoPostBack="True" DataSourceID="ddlMatSizeSQL" Enabled="false" AppendDataBoundItems="true"
                                 DataTextField="MatSizeHxL" DataValueField="MatSizeID" SelectedValue='<%# Bind("MatSizeID") %>'>
+                                <asp:ListItem Text="<--Select-->" Value="" />
                             </asp:DropDownList>
                         </ItemTemplate>
                     </asp:TemplateField>
@@ -1054,7 +658,7 @@
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Qty" SortExpression="MatQty">
                         <EditItemTemplate>
-                            <asp:TextBox ID="txtQty" runat="server" Text='<%# Bind("MatQty") %>' CssClass="NumBox"></asp:TextBox>
+                            <asp:TextBox ID="txtQty" runat="server" CssClass="NumBox" Text='<%# Bind("MatQty") %>'></asp:TextBox>
                         </EditItemTemplate>
                         <FooterTemplate>
                             <asp:TextBox ID="txtQty" runat="server" CssClass="NumBox"></asp:TextBox>
@@ -1065,18 +669,21 @@
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Pre/Post" SortExpression="MatFinishPrePostID">
                         <EditItemTemplate>
-                            <asp:DropDownList ID="ddlFinish" runat="server" AutoPostBack="True" DataSourceID="ddlMatFinishSQL" 
+                            <asp:DropDownList ID="ddlFinish" runat="server" AutoPostBack="True" DataSourceID="ddlMatFinishSQL" AppendDataBoundItems="true"
                                 DataTextField="MatFinishPrePostDesc" DataValueField="MatFinishPrePostID" SelectedValue='<%# Bind("MatFinishPrePostID") %>'>
+                                <asp:ListItem Text="<--Select-->" Value="" />
                             </asp:DropDownList>
                         </EditItemTemplate>
                         <FooterTemplate>
-                            <asp:DropDownList ID="ddlFinish" runat="server" AutoPostBack="True" DataSourceID="ddlMatFinishSQL" 
+                            <asp:DropDownList ID="ddlFinish" runat="server" AutoPostBack="True" DataSourceID="ddlMatFinishSQL" AppendDataBoundItems="true"
                                 DataTextField="MatFinishPrePostDesc" DataValueField="MatFinishPrePostID">
+                                <asp:ListItem Text="<--Select-->" Value="" />
                             </asp:DropDownList>
                         </FooterTemplate>
                         <ItemTemplate>
-                            <asp:DropDownList ID="ddlFinish" runat="server" AutoPostBack="True" DataSourceID="ddlMatFinishSQL" Enabled="false"
+                            <asp:DropDownList ID="ddlFinish" runat="server" AutoPostBack="True" DataSourceID="ddlMatFinishSQL" Enabled="false" AppendDataBoundItems="true"
                                 DataTextField="MatFinishPrePostDesc" DataValueField="MatFinishPrePostID" SelectedValue='<%# Bind("MatFinishPrePostID") %>'>
+                                <asp:ListItem Text="<--Select-->" Value="" />
                             </asp:DropDownList>
                         </ItemTemplate>
                     </asp:TemplateField>
@@ -1100,18 +707,21 @@
                                 </asp:DropDownList>
                             </td>
                             <td>
-                                <asp:DropDownList ID="ddlThickness" runat="server" AutoPostBack="True" DataSourceID="ddlMatThicknessSQL" 
+                                <asp:DropDownList ID="ddlThickness" runat="server" AutoPostBack="True" DataSourceID="ddlMatThicknessSQL" AppendDataBoundItems="true"
                                 DataTextField="MatThickness" DataValueField="MatThicknessID">
+                                    <asp:ListItem Text="<--Select-->" Value="" />
                             </asp:DropDownList>
                             </td>
                             <td>
-                                <asp:DropDownList ID="ddlCore" runat="server" AutoPostBack="True" DataSourceID="ddlMatCoreSQL" 
+                                <asp:DropDownList ID="ddlCore" runat="server" AutoPostBack="True" DataSourceID="ddlMatCoreSQL" AppendDataBoundItems="true"
                                 DataTextField="MatCore" DataValueField="MatCoreID">
+                                    <asp:ListItem Text="<--Select-->" Value="" />
                             </asp:DropDownList>
                             </td>
                             <td>
-                                <asp:DropDownList ID="ddlSize" runat="server" AutoPostBack="True" DataSourceID="ddlMatSizeSQL" 
+                                <asp:DropDownList ID="ddlSize" runat="server" AutoPostBack="True" DataSourceID="ddlMatSizeSQL" AppendDataBoundItems="true"
                                 DataTextField="MatSizeHxL" DataValueField="MatSizeID">
+                                    <asp:ListItem Text="<--Select-->" Value="" />
                             </asp:DropDownList>
                             </td>
                             <td>
@@ -1121,8 +731,9 @@
                                 <asp:TextBox ID="txtQty" runat="server" CssClass="NumBox"></asp:TextBox>
                             </td>
                             <td>
-                                <asp:DropDownList ID="ddlFinish" runat="server" AutoPostBack="True" DataSourceID="ddlMatFinishSQL" 
+                                <asp:DropDownList ID="ddlFinish" runat="server" AutoPostBack="True" DataSourceID="ddlMatFinishSQL" AppendDataBoundItems="true"
                                 DataTextField="MatFinishPrePostDesc" DataValueField="MatFinishPrePostID">
+                                    <asp:ListItem Text="<--Select-->" Value="" />
                             </asp:DropDownList>
                             </td>
                         </tr>
@@ -1155,6 +766,7 @@
             <asp:Label ID="gvBFProdLabel" runat="server" Text="Production" Font-Bold="true"/>
             <asp:GridView ID="gvBFProd" runat="server" ShowFooter="True" FooterStyle-CssClass="NoPrint" AutoGenerateColumns="False" 
                 DataKeyNames="BFProdID" DataSourceID="gvBFProdSQL" OnRowCommand="gvBFProd_RowCommand">
+                <EditRowStyle BackColor="LightYellow" />
                 <Columns>
                     <asp:TemplateField ShowHeader="False" ControlStyle-CssClass="NoPrint">
                         <EditItemTemplate>
@@ -1171,24 +783,28 @@
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Series" SortExpression="SeriesID">
                         <EditItemTemplate>
-                            <asp:DropDownList ID="ddlSeries" runat="server" AutoPostBack="True" DataSourceID="ddlBFSeriesSQL" 
+                            <asp:DropDownList ID="ddlSeries" runat="server" AutoPostBack="True" DataSourceID="ddlBFSeriesSQL" AppendDataBoundItems="true"
                                 DataTextField="Description" DataValueField="SeriesID" SelectedValue='<%# Bind("SeriesID") %>'>
+                                <asp:ListItem Text="<--Select-->" Value="" />
                             </asp:DropDownList>
                         </EditItemTemplate>
                         <FooterTemplate>
-                            <asp:DropDownList ID="ddlSeries" runat="server" AutoPostBack="True" DataSourceID="ddlBFSeriesSQL" DataTextField="Description" DataValueField="SeriesID">
+                            <asp:DropDownList ID="ddlSeries" runat="server" AutoPostBack="True" DataSourceID="ddlBFSeriesSQL" AppendDataBoundItems="true"
+                                DataTextField="Description" DataValueField="SeriesID">
+                                <asp:ListItem Text="<--Select-->" Value="" />
                             </asp:DropDownList>
                         </FooterTemplate>
                         <ItemTemplate>
-                            <asp:DropDownList ID="ddlSeries" runat="server" AutoPostBack="True" DataSourceID="ddlBFSeriesSQL" Enabled="false"
+                            <asp:DropDownList ID="ddlSeries" runat="server" AutoPostBack="True" DataSourceID="ddlBFSeriesSQL" Enabled="false" AppendDataBoundItems="true"
                                 DataTextField="Description" DataValueField="SeriesID" SelectedValue='<%# Bind("SeriesID") %>'>
+                                <asp:ListItem Text="<--Select-->" Value="" />
                             </asp:DropDownList>
                         </ItemTemplate>
                         <FooterStyle HorizontalAlign="Left" />
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="#&nbspFlat Panels" SortExpression="NumFlatPanels" HeaderStyle-CssClass="NumBox">
                         <EditItemTemplate>
-                            <asp:TextBox ID="txtFlatPanels" runat="server" Text='<%# Bind("NumFlatPanels") %>'></asp:TextBox>
+                            <asp:TextBox ID="txtFlatPanels" runat="server" CssClass="NumBox" Text='<%# Bind("NumFlatPanels") %>'></asp:TextBox>
                         </EditItemTemplate>
                         <FooterTemplate>
                             <asp:TextBox ID="txtFlatPanels" runat="server" CssClass="NumBox"></asp:TextBox>
@@ -1199,7 +815,7 @@
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="#&nbspGluers" SortExpression="NumACMWelders" HeaderStyle-CssClass="NumBox">
                         <EditItemTemplate>
-                            <asp:TextBox ID="txtGluers" runat="server" Text='<%# Bind("NumACMWelders") %>'></asp:TextBox>
+                            <asp:TextBox ID="txtGluers" runat="server" CssClass="NumBox" Text='<%# Bind("NumACMWelders") %>'></asp:TextBox>
                         </EditItemTemplate>
                         <FooterTemplate>
                             <asp:TextBox ID="txtGluers" runat="server" CssClass="NumBox"></asp:TextBox>
@@ -1210,7 +826,7 @@
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="#&nbspRadius Panels" SortExpression="NumRadPanels" HeaderStyle-CssClass="NumBox">
                         <EditItemTemplate>
-                            <asp:TextBox ID="txtRadiusPanels" runat="server" Text='<%# Bind("NumRadPanels") %>'></asp:TextBox>
+                            <asp:TextBox ID="txtRadiusPanels" runat="server" CssClass="NumBox" Text='<%# Bind("NumRadPanels") %>'></asp:TextBox>
                         </EditItemTemplate>
                         <FooterTemplate>
                             <asp:TextBox ID="txtRadiusPanels" runat="server" CssClass="NumBox"></asp:TextBox>
@@ -1221,7 +837,7 @@
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="#&nbspRadius Gluers" SortExpression="NumAlumWelders" HeaderStyle-CssClass="NumBox">
                         <EditItemTemplate>
-                            <asp:TextBox ID="txtRadiusGluers" runat="server" Text='<%# Bind("NumAlumWelders") %>'></asp:TextBox>
+                            <asp:TextBox ID="txtRadiusGluers" runat="server" CssClass="NumBox" Text='<%# Bind("NumAlumWelders") %>'></asp:TextBox>
                         </EditItemTemplate>
                         <FooterTemplate>
                             <asp:TextBox ID="txtRadiusGluers" runat="server" CssClass="NumBox"></asp:TextBox>
@@ -1243,7 +859,7 @@
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="#&nbspOther" SortExpression="NumOther" HeaderStyle-CssClass="NumBox">
                         <EditItemTemplate>
-                            <asp:TextBox ID="txtNumOther" runat="server" Text='<%# Bind("NumOther") %>'></asp:TextBox>
+                            <asp:TextBox ID="txtNumOther" runat="server" CssClass="NumBox" Text='<%# Bind("NumOther") %>'></asp:TextBox>
                         </EditItemTemplate>
                         <FooterTemplate>
                             <asp:TextBox ID="txtNumOther" runat="server" CssClass="NumBox"></asp:TextBox>
@@ -1270,7 +886,9 @@
                                 <asp:LinkButton ID="btnProdEmpty" runat="server" CssClass="NoPrint" CommandName="EmptyInsert" Text="Save" />
                             </td>
                             <td>
-                                <asp:DropDownList ID="ddlSeries" runat="server" AutoPostBack="True" DataSourceID="ddlBFSeriesSQL" DataTextField="Description" DataValueField="SeriesID">
+                                <asp:DropDownList ID="ddlSeries" runat="server" AutoPostBack="True" DataSourceID="ddlBFSeriesSQL" AppendDataBoundItems="true"
+                                    DataTextField="Description" DataValueField="SeriesID">
+                                    <asp:ListItem Text="<--Select-->" Value="" />
                                 </asp:DropDownList>
                             </td>
                             <td><asp:TextBox ID="txtFlatPanels" runat="server" CssClass="NumBox"></asp:TextBox></td>
@@ -1308,7 +926,7 @@
             </table>
             <br />
             <asp:Button ID="EditButton" runat="server" CssClass="NoPrint" CausesValidation="False" CommandName="Edit" Text="Edit" />
-            &nbsp;<asp:Button ID="DeleteButton" runat="server" CssClass="NoPrint" CausesValidation="False" CommandName="Delete" Text="Delete" />
+            &nbsp;<asp:Button ID="DeleteButton" runat="server" CssClass="NoPrint" CausesValidation="False" CommandName="FakeDelete" Text="Delete" />
             &nbsp;<asp:Button ID="NewButton" runat="server" CssClass="NoPrint" CausesValidation="False" CommandName="New" Text="New" />
             &nbsp;<asp:Button ID="EmailButton" runat="server" CssClass="NoPrint" CausesValidation="false" CommandName="Email" Text="Email" />
         </ItemTemplate>
