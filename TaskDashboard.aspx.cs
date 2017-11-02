@@ -39,7 +39,7 @@ namespace ProjectLogic
         {
             GridViewRow row1 = gvTaskTeam.Rows[e.RowIndex];
             DropDownList list = (DropDownList)row1.FindControl("ddlEditTaskStatus");
-            if (string.IsNullOrWhiteSpace(((TextBox)row1.FindControl("txtEditCompDate")).Text) && (list.SelectedItem.Text == "Complete"))
+            if (string.IsNullOrWhiteSpace(((TextBox)row1.FindControl("txtCompDate")).Text) && (list.SelectedItem.Text == "Complete"))
             {
                 ClientScript.RegisterStartupScript(GetType(), "error", "alert('Enter Complete Date if Status is Complete.');", true);
                 e.Cancel = true;
@@ -94,16 +94,16 @@ namespace ProjectLogic
                 GridViewRow row2 = (GridViewRow)gvTaskTeam.Controls[0].Controls[0];
                 if (row2 != null)
                 {
-                    DropDownList list5 = (DropDownList)row2.FindControl("ddlEmptyEmployee");
-                    TextBox box7 = (TextBox)row2.FindControl("txtEmptyProjectID");
-                    TextBox box8 = (TextBox)row2.FindControl("txtEmptyZoneDesc");
-                    TextBox box9 = (TextBox)row2.FindControl("txtEmptyReleaseID");
-                    DropDownList list6 = (DropDownList)row2.FindControl("ddlEmptyTaskCode");
-                    DropDownList list7 = (DropDownList)row2.FindControl("ddlEmptyStatus");
-                    DropDownList list8 = (DropDownList)row2.FindControl("ddlEmptyPriority");
-                    TextBox box10 = (TextBox)row2.FindControl("txtEmptyDueDate");
-                    TextBox box11 = (TextBox)row2.FindControl("txtEmptyNotes");
-                    TextBox box12 = (TextBox)row2.FindControl("txtEmptyCompDate");
+                    DropDownList list5 = (DropDownList)row2.FindControl("ddlEmployee");
+                    TextBox box7 = (TextBox)row2.FindControl("txtProjectID");
+                    TextBox box8 = (TextBox)row2.FindControl("txtZoneDesc");
+                    TextBox box9 = (TextBox)row2.FindControl("txtReleaseID");
+                    DropDownList list6 = (DropDownList)row2.FindControl("ddlTaskCode");
+                    DropDownList list7 = (DropDownList)row2.FindControl("ddlStatus");
+                    DropDownList list8 = (DropDownList)row2.FindControl("ddlPriority");
+                    TextBox box10 = (TextBox)row2.FindControl("txtDueDate");
+                    TextBox box11 = (TextBox)row2.FindControl("txtNotes");
+                    TextBox box12 = (TextBox)row2.FindControl("txtCompDate");
                     if (string.IsNullOrWhiteSpace(box7.Text) || string.IsNullOrWhiteSpace(box10.Text))
                     {
                         ClientScript.RegisterStartupScript(GetType(), "error", "alert('Enter Project # and Due Date.');", true);
@@ -152,15 +152,15 @@ namespace ProjectLogic
                     return;
                 }
                 DropDownList list = (DropDownList)MultiView1.Views[0].FindControl("ddlEmployee");
-                TextBox box = (TextBox)footerRow.FindControl("txtNewProjectID");
+                TextBox box = (TextBox)footerRow.FindControl("txtProjectID");
                 TextBox box2 = (TextBox)footerRow.FindControl("txtFooterZoneDesc");
-                TextBox box3 = (TextBox)footerRow.FindControl("txtNewReleaseID");
-                DropDownList list2 = (DropDownList)footerRow.FindControl("ddlNewTaskCode");
-                DropDownList list3 = (DropDownList)footerRow.FindControl("ddlNewStatus");
-                DropDownList list4 = (DropDownList)footerRow.FindControl("ddlNewPriority");
-                TextBox box4 = (TextBox)footerRow.FindControl("txtNewDueDate");
-                TextBox box5 = (TextBox)footerRow.FindControl("txtNewNotes");
-                TextBox box6 = (TextBox)footerRow.FindControl("txtNewCompDate");
+                TextBox box3 = (TextBox)footerRow.FindControl("txtReleaseID");
+                DropDownList list2 = (DropDownList)footerRow.FindControl("ddlTaskCode");
+                DropDownList list3 = (DropDownList)footerRow.FindControl("ddlStatus");
+                DropDownList list4 = (DropDownList)footerRow.FindControl("ddlPriority");
+                TextBox box4 = (TextBox)footerRow.FindControl("txtDueDate");
+                TextBox box5 = (TextBox)footerRow.FindControl("txtNotes");
+                TextBox box6 = (TextBox)footerRow.FindControl("txtCompDate");
                 if (string.IsNullOrWhiteSpace(box.Text) || string.IsNullOrWhiteSpace(box4.Text))
                 {
                     ClientScript.RegisterStartupScript(GetType(), "error", "alert('Enter Project ID and Due Date.');", true);
@@ -187,15 +187,15 @@ namespace ProjectLogic
                 if (row2 != null)
                 {
                     DropDownList list5 = (DropDownList)MultiView1.Views[0].FindControl("ddlEmployee");
-                    TextBox box7 = (TextBox)row2.FindControl("txtEmptyProjectID");
-                    TextBox box8 = (TextBox)row2.FindControl("txtEmptyZoneDesc");
-                    TextBox box9 = (TextBox)row2.FindControl("txtEmptyReleaseID");
-                    DropDownList list6 = (DropDownList)row2.FindControl("ddlEmptyTaskCode");
-                    DropDownList list7 = (DropDownList)row2.FindControl("ddlEmptyStatus");
-                    DropDownList list8 = (DropDownList)row2.FindControl("ddlEmptyPriority");
-                    TextBox box10 = (TextBox)row2.FindControl("txtEmptyDueDate");
-                    TextBox box11 = (TextBox)row2.FindControl("txtEmptyNotes");
-                    TextBox box12 = (TextBox)row2.FindControl("txtEmptyCompDate");
+                    TextBox box7 = (TextBox)row2.FindControl("txtProjectID");
+                    TextBox box8 = (TextBox)row2.FindControl("txtZoneDesc");
+                    TextBox box9 = (TextBox)row2.FindControl("txtReleaseID");
+                    DropDownList list6 = (DropDownList)row2.FindControl("ddlTaskCode");
+                    DropDownList list7 = (DropDownList)row2.FindControl("ddlStatus");
+                    DropDownList list8 = (DropDownList)row2.FindControl("ddlPriority");
+                    TextBox box10 = (TextBox)row2.FindControl("txtDueDate");
+                    TextBox box11 = (TextBox)row2.FindControl("txtNotes");
+                    TextBox box12 = (TextBox)row2.FindControl("txtCompDate");
                     if (string.IsNullOrWhiteSpace(box7.Text) || string.IsNullOrWhiteSpace(box10.Text))
                     {
                         ClientScript.RegisterStartupScript(GetType(), "error", "alert('Enter Project # and Due Date.');", true);

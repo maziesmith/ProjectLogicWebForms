@@ -9,12 +9,12 @@
                     <td><b>Order ID:</b></td>
                     <td><asp:Label ID="lblOrderID" runat="server" Text='<%# Eval("OrderID") %>' /></td>
                     <td><b>Ordered By:</b></td>
-                    <td><asp:DropDownList ID="ddlViewOrderedBy" runat="server" Enabled="false" DataSourceID="ddlOrderedBySQL" AppendDataBoundItems="true"
+                    <td><asp:DropDownList ID="ddlOrderedBy" runat="server" Enabled="false" DataSourceID="ddlOrderedBySQL" AppendDataBoundItems="true"
                             DataTextField="Name" DataValueField="EmployeeID" SelectedValue='<%# Bind("OrderedByEmpID") %>'>
                         <asp:ListItem Text="<--Select Employee-->" Value="" />
                         </asp:DropDownList></td>
                     <td><b>Reason:</b></td>
-                    <td><asp:DropDownList ID="ddlViewReason" runat="server" Enabled="false" DataSourceID="ddlReasonSQL" AppendDataBoundItems="true"
+                    <td><asp:DropDownList ID="ddlReason" runat="server" Enabled="false" DataSourceID="ddlReasonSQL" AppendDataBoundItems="true"
                             DataTextField="Description" DataValueField="ReasonID" SelectedValue='<%# Bind("ReasonID") %>'>
                         <asp:ListItem Text="<--Select Reason-->" Value="" />
                         </asp:DropDownList></td>
@@ -87,10 +87,10 @@
                     <asp:Label ID="lblSheetID" runat="server" Text='<%# Eval("SheetID") %>' />
                 </ItemTemplate>
                 <EditItemTemplate>
-                    <asp:Label ID="lblEditSheetID" runat="server" Text='<%# Eval("SheetID") %>' />
+                    <asp:Label ID="lblSheetID" runat="server" Text='<%# Eval("SheetID") %>' />
                 </EditItemTemplate>
                 <FooterTemplate>
-                    <asp:Label ID="lblNewSheetID" runat="server"  Text='<%# Eval("SheetID") %>' />
+                    <asp:Label ID="lblSheetID" runat="server"  Text='<%# Eval("SheetID") %>' />
                 </FooterTemplate>
             </asp:TemplateField>
             <asp:TemplateField HeaderText="Mat Name" SortExpression="SheetName" HeaderStyle-BackColor="Silver">
@@ -98,7 +98,7 @@
                     <asp:TextBox ID="txtSheetName" runat="server" CssClass="DateBox" Text='<%# Bind("SheetName") %>'></asp:TextBox>
                 </EditItemTemplate>
                 <FooterTemplate>
-                    <asp:TextBox ID="txtNewSheetName" runat="server" CssClass="DateBox"></asp:TextBox>
+                    <asp:TextBox ID="txtSheetName" runat="server" CssClass="DateBox"></asp:TextBox>
                 </FooterTemplate>
                 <ItemTemplate>
                     <asp:Label ID="lblSheetName" runat="server" Text='<%# Bind("SheetName") %>'></asp:Label>
@@ -106,10 +106,10 @@
             </asp:TemplateField>
             <asp:TemplateField HeaderText="Total Needed" SortExpression="TotalNeeded" ItemStyle-HorizontalAlign="Right" HeaderStyle-BackColor="Silver">
                 <EditItemTemplate>
-                    <asp:Label ID="lblEditSheetTotal" runat="server" Text='<%# Eval("TotalNeeded") %>'></asp:Label>
+                    <asp:Label ID="lblSheetTotal" runat="server" Text='<%# Eval("TotalNeeded") %>'></asp:Label>
                 </EditItemTemplate>
                 <FooterTemplate>
-                    <asp:Label ID="lblNewSheetTotal" runat="server" Text=""></asp:Label>
+                    <asp:Label ID="lblSheetTotal" runat="server" Text=""></asp:Label>
                 </FooterTemplate>
                 <ItemTemplate>
                     <asp:Label ID="lblSheetTotal" runat="server" Text='<%# Bind("TotalNeeded") %>'></asp:Label>
@@ -123,13 +123,13 @@
                     </asp:DropDownList>
                 </EditItemTemplate>
                 <FooterTemplate>
-                    <asp:DropDownList ID="ddlNewVendor" runat="server" AutoPostBack="True"  DataSourceID="ddlVendorSQL" AppendDataBoundItems="true"
+                    <asp:DropDownList ID="ddlVendor" runat="server" AutoPostBack="True"  DataSourceID="ddlVendorSQL" AppendDataBoundItems="true"
                         DataTextField="MatManufacturerDesc" DataValueField="MatManufacturerID">
                         <asp:ListItem Text="<--Select-->" Value="" />
                     </asp:DropDownList>
                 </FooterTemplate>
                 <ItemTemplate>
-                    <asp:DropDownList ID="ddlViewVendor" runat="server" DataSourceID="ddlVendorSQL"  Enabled="false" AppendDataBoundItems="true"
+                    <asp:DropDownList ID="ddlVendor" runat="server" DataSourceID="ddlVendorSQL"  Enabled="false" AppendDataBoundItems="true"
                         DataTextField="MatManufacturerDesc" DataValueField="MatManufacturerID" SelectedValue='<%# Eval("VendorID") %>'>
                         <asp:ListItem Text="<--Select-->" Value="" />
                     </asp:DropDownList>
@@ -140,7 +140,7 @@
                     <asp:TextBox ID="txtSheetSize" runat="server" CssClass="DateBox" Text='<%# Bind("SheetSize") %>'></asp:TextBox>
                 </EditItemTemplate>
                 <FooterTemplate>
-                    <asp:TextBox ID="txtNewSheetSize" runat="server" CssClass="DateBox"></asp:TextBox>
+                    <asp:TextBox ID="txtSheetSize" runat="server" CssClass="DateBox"></asp:TextBox>
                 </FooterTemplate>
                 <ItemTemplate>
                     <asp:Label ID="lblSheetSize" runat="server" Text='<%# Bind("SheetSize") %>'></asp:Label>
@@ -154,13 +154,13 @@
                     </asp:DropDownList>
                 </EditItemTemplate>
                 <FooterTemplate>
-                    <asp:DropDownList ID="ddlNewThickness" runat="server" AutoPostBack="True"  DataSourceID="ddlThicknessSQL" AppendDataBoundItems="true"
+                    <asp:DropDownList ID="ddlThickness" runat="server" AutoPostBack="True"  DataSourceID="ddlThicknessSQL" AppendDataBoundItems="true"
                         DataTextField="MatThickness" DataValueField="MatThicknessID">
                         <asp:ListItem Text="<--Select-->" Value="" />
                     </asp:DropDownList>
                 </FooterTemplate>
                 <ItemTemplate>
-                    <asp:DropDownList ID="ddlViewThickness" runat="server" DataSourceID="ddlThicknessSQL" AppendDataBoundItems="true"
+                    <asp:DropDownList ID="ddlThickness" runat="server" DataSourceID="ddlThicknessSQL" AppendDataBoundItems="true"
                         DataTextField="MatThickness" DataValueField="MatThicknessID" SelectedValue='<%# Bind("ThicknessID") %>'>
                         <asp:ListItem Text="<--Select-->" Value="" />
                     </asp:DropDownList>
@@ -174,13 +174,13 @@
                     </asp:DropDownList>
                 </EditItemTemplate>
                 <FooterTemplate>
-                    <asp:DropDownList ID="ddlNewCore" runat="server" AutoPostBack="True"  DataSourceID="ddlCoreSQL" AppendDataBoundItems="true"
+                    <asp:DropDownList ID="ddlCore" runat="server" AutoPostBack="True"  DataSourceID="ddlCoreSQL" AppendDataBoundItems="true"
                         DataTextField="MatCore" DataValueField="MatCoreID">
                         <asp:ListItem Text="<--Select-->" Value="" />
                     </asp:DropDownList>
                 </FooterTemplate>
                 <ItemTemplate>
-                    <asp:DropDownList ID="ddlViewCore" runat="server" DataSourceID="ddlCoreSQL" AppendDataBoundItems="true"
+                    <asp:DropDownList ID="ddlCore" runat="server" DataSourceID="ddlCoreSQL" AppendDataBoundItems="true"
                         DataTextField="MatCore" DataValueField="MatCoreID" SelectedValue='<%# Eval("CoreID") %>'>
                         <asp:ListItem Text="<--Select-->" Value="" />
                     </asp:DropDownList>
@@ -188,13 +188,13 @@
             </asp:TemplateField>
             <asp:TemplateField HeaderText="Color" SortExpression="Color" HeaderStyle-BackColor="Silver">
                 <EditItemTemplate>
-                    <asp:TextBox ID="txtSheetColor" runat="server" CssClass="DateBox" Text='<%# Bind("Color") %>'></asp:TextBox>
+                    <asp:TextBox ID="txtColor" runat="server" CssClass="DateBox" Text='<%# Bind("Color") %>'></asp:TextBox>
                 </EditItemTemplate>
                 <FooterTemplate>
-                    <asp:TextBox ID="txtNewSheetColor" runat="server" CssClass="DateBox"></asp:TextBox>
+                    <asp:TextBox ID="txtColor" runat="server" CssClass="DateBox"></asp:TextBox>
                 </FooterTemplate>
                 <ItemTemplate>
-                    <asp:Label ID="lblSheetColor" runat="server" Text='<%# Bind("Color") %>'></asp:Label>
+                    <asp:Label ID="lblColor" runat="server" Text='<%# Bind("Color") %>'></asp:Label>
                 </ItemTemplate>
             </asp:TemplateField>
             <asp:TemplateField HeaderText="Cust Color Code" SortExpression="CustColorCode" HeaderStyle-BackColor="Silver">
@@ -202,7 +202,7 @@
                     <asp:TextBox ID="txtCustColorCode" runat="server" CssClass="DateBox" Text='<%# Bind("CustColorCode") %>'></asp:TextBox>
                 </EditItemTemplate>
                 <FooterTemplate>
-                    <asp:TextBox ID="txtNewCustColorCode" runat="server" CssClass="DateBox"></asp:TextBox>
+                    <asp:TextBox ID="txtCustColorCode" runat="server" CssClass="DateBox"></asp:TextBox>
                 </FooterTemplate>
                 <ItemTemplate>
                     <asp:Label ID="lblCustColorCode" runat="server" Text='<%# Bind("CustColorCode") %>'></asp:Label>
@@ -210,13 +210,13 @@
             </asp:TemplateField>
             <asp:TemplateField HeaderText="Quoted Cost" SortExpression="CostFromEstimate" ItemStyle-HorizontalAlign="Right" HeaderStyle-BackColor="Silver">
                 <EditItemTemplate>
-                    <asp:TextBox ID="txtSheetCost" runat="server" CssClass="DateBox" Text='<%# Bind("CostFromEstimate","${0:f2}") %>'></asp:TextBox>
+                    <asp:TextBox ID="txtCost" runat="server" CssClass="DateBox" Text='<%# Bind("CostFromEstimate","${0:f2}") %>'></asp:TextBox>
                 </EditItemTemplate>
                 <FooterTemplate>
-                    <asp:TextBox ID="txtNewSheetCost" runat="server" CssClass="DateBox"></asp:TextBox>
+                    <asp:TextBox ID="txtCost" runat="server" CssClass="DateBox"></asp:TextBox>
                 </FooterTemplate>
                 <ItemTemplate>
-                    <asp:Label ID="lblSheetCost" runat="server" Text='<%# Bind("CostFromEstimate","${0:f2}") %>'></asp:Label>
+                    <asp:Label ID="lblCost" runat="server" Text='<%# Bind("CostFromEstimate","${0:f2}") %>'></asp:Label>
                 </ItemTemplate>
             </asp:TemplateField>
         </Columns>
@@ -236,18 +236,18 @@
                 </tr>
                 <tr>
                     <td class="NoPrint"><asp:LinkButton ID="lbSheetEmpty" runat="server" CommandName="EmptyInsert" Text="Save" /></td>
-                    <td><asp:TextBox ID="txtNewSheetName" runat="server" CssClass="DateBox" Text='<%# Bind("SheetName") %>' /></td>
+                    <td><asp:TextBox ID="txtSheetName" runat="server" CssClass="DateBox" Text='<%# Bind("SheetName") %>' /></td>
                     <td></td>
-                    <td><asp:DropDownList ID="ddlNewVendor" runat="server"  DataSourceID="ddlVendorSQL"
+                    <td><asp:DropDownList ID="ddlVendor" runat="server"  DataSourceID="ddlVendorSQL"
                         DataTextField="MatManufacturerDesc" DataValueField="MatManufacturerID" SelectedValue='<%# Bind("VendorID") %>' /></td>
-                    <td><asp:TextBox ID="txtNewSheetSize" runat="server" CssClass="DateBox"  Text='<%# Bind("SheetSize") %>' /></td>
-                    <td><asp:DropDownList ID="ddlNewThickness" runat="server"  DataSourceID="ddlThicknessSQL" 
+                    <td><asp:TextBox ID="txtSheetSize" runat="server" CssClass="DateBox"  Text='<%# Bind("SheetSize") %>' /></td>
+                    <td><asp:DropDownList ID="ddlThickness" runat="server"  DataSourceID="ddlThicknessSQL" 
                         DataTextField="MatThickness" DataValueField="MatThicknessID" SelectedValue='<%# Bind("ThicknessID") %>' /></td>
-                    <td><asp:DropDownList ID="ddlNewCore" runat="server"  DataSourceID="ddlCoreSQL" 
+                    <td><asp:DropDownList ID="ddlCore" runat="server"  DataSourceID="ddlCoreSQL" 
                         DataTextField="MatCore" DataValueField="MatCoreID" SelectedValue='<%# Bind("CoreID") %>' /></td>
-                    <td><asp:TextBox ID="txtNewSheetColor" runat="server" CssClass="DateBox" Text='<%# Bind("Color") %>' /></td>
-                    <td><asp:TextBox ID="txtNewCustColorCode" runat="server" CssClass="DateBox" Text='<%# Bind("CustColorCode") %>' /></td>
-                    <td><asp:TextBox ID="txtNewSheetCost" runat="server" CssClass="DateBox" Text='<%# Bind("CostFromEstimate","${0:f2}") %>' /></td>
+                    <td><asp:TextBox ID="txtColor" runat="server" CssClass="DateBox" Text='<%# Bind("Color") %>' /></td>
+                    <td><asp:TextBox ID="txtCustColorCode" runat="server" CssClass="DateBox" Text='<%# Bind("CustColorCode") %>' /></td>
+                    <td><asp:TextBox ID="txtCost" runat="server" CssClass="DateBox" Text='<%# Bind("CostFromEstimate","${0:f2}") %>' /></td>
                 </tr>
             </table>
         </EmptyDataTemplate>
@@ -276,10 +276,10 @@
                     <asp:Label ID="lblSupportID" runat="server" Text='<%# Eval("ExtrusionID") %>' />
                 </ItemTemplate>
                 <EditItemTemplate>
-                    <asp:Label ID="lblEditSupportID" runat="server" Text='<%# Eval("ExtrusionID") %>' />
+                    <asp:Label ID="lblSupportID" runat="server" Text='<%# Eval("ExtrusionID") %>' />
                 </EditItemTemplate>
                 <FooterTemplate>
-                    <asp:Label ID="lblNewSupportID" runat="server"  Text='<%# Eval("ExtrusionID") %>' />
+                    <asp:Label ID="lblSupportID" runat="server"  Text='<%# Eval("ExtrusionID") %>' />
                 </FooterTemplate>
             </asp:TemplateField>
             <asp:TemplateField HeaderText="Mat Name" SortExpression="ExtrusionName" HeaderStyle-BackColor="Silver">
@@ -287,7 +287,7 @@
                     <asp:TextBox ID="txtSupportName" runat="server" CssClass="DateBox" Text='<%# Bind("ExtrusionName") %>'></asp:TextBox>
                 </EditItemTemplate>
                 <FooterTemplate>
-                    <asp:TextBox ID="txtNewSupportName" runat="server" CssClass="DateBox"></asp:TextBox>
+                    <asp:TextBox ID="txtSupportName" runat="server" CssClass="DateBox"></asp:TextBox>
                 </FooterTemplate>
                 <ItemTemplate>
                     <asp:Label ID="lblSupportName" runat="server" Text='<%# Bind("ExtrusionName") %>'></asp:Label>
@@ -295,10 +295,10 @@
             </asp:TemplateField>
             <asp:TemplateField HeaderText="Total Needed" SortExpression="TotalNeeded" ItemStyle-HorizontalAlign="Right" HeaderStyle-BackColor="Silver">
                 <EditItemTemplate>
-                    <asp:Label ID="lblEditSupportTotal" runat="server" Text='<%# Eval("TotalNeeded") %>'></asp:Label>
+                    <asp:Label ID="lblSupportTotal" runat="server" Text='<%# Eval("TotalNeeded") %>'></asp:Label>
                 </EditItemTemplate>
                 <FooterTemplate>
-                    <asp:Label ID="lblNewSupportTotal" runat="server" Text=""></asp:Label>
+                    <asp:Label ID="lblSupportTotal" runat="server" Text=""></asp:Label>
                 </FooterTemplate>
                 <ItemTemplate>
                     <asp:Label ID="lblSupportTotal" runat="server" Text='<%# Bind("TotalNeeded") %>'></asp:Label>
@@ -312,13 +312,13 @@
                     </asp:DropDownList>
                 </EditItemTemplate>
                 <FooterTemplate>
-                    <asp:DropDownList ID="ddlNewPartNum" runat="server" AutoPostBack="True"  DataSourceID="ddlPartNumSQL" AppendDataBoundItems="true"
+                    <asp:DropDownList ID="ddlPartNum" runat="server" AutoPostBack="True"  DataSourceID="ddlPartNumSQL" AppendDataBoundItems="true"
                         DataTextField="PartNumDesc" DataValueField="PartNumID">
                         <asp:ListItem Text="<--Select-->" Value="" />
                     </asp:DropDownList>
                 </FooterTemplate>
                 <ItemTemplate>
-                    <asp:DropDownList ID="ddlViewPartNum" runat="server" DataSourceID="ddlPartNumSQL" AppendDataBoundItems="true"
+                    <asp:DropDownList ID="ddlPartNum" runat="server" DataSourceID="ddlPartNumSQL" AppendDataBoundItems="true"
                         DataTextField="PartNumDesc" DataValueField="PartNumID" SelectedValue='<%# Eval("PartNumID") %>'>
                         <asp:ListItem Text="<--Select-->" Value="" />
                     </asp:DropDownList>
@@ -332,13 +332,13 @@
                     </asp:DropDownList>
                 </EditItemTemplate>
                 <FooterTemplate>
-                    <asp:DropDownList ID="ddlNewFinish" runat="server" AutoPostBack="True"  DataSourceID="ddlFinishSQL" AppendDataBoundItems="true"
+                    <asp:DropDownList ID="ddlFinish" runat="server" AutoPostBack="True"  DataSourceID="ddlFinishSQL" AppendDataBoundItems="true"
                         DataTextField="Description" DataValueField="FinishID">
                         <asp:ListItem Text="<--Select-->" Value="" />
                     </asp:DropDownList>
                 </FooterTemplate>
                 <ItemTemplate>
-                    <asp:DropDownList ID="ddlViewFinish" runat="server" DataSourceID="ddlFinishSQL" AppendDataBoundItems="true"
+                    <asp:DropDownList ID="ddlFinish" runat="server" DataSourceID="ddlFinishSQL" AppendDataBoundItems="true"
                         DataTextField="Description" DataValueField="FinishID" SelectedValue='<%# Eval("FinishID") %>'>
                         <asp:ListItem Text="<--Select-->" Value="" />
                     </asp:DropDownList>
@@ -346,35 +346,35 @@
             </asp:TemplateField>
             <asp:TemplateField HeaderText="Color" SortExpression="Color" HeaderStyle-BackColor="Silver">
                 <EditItemTemplate>
-                    <asp:TextBox ID="txtSupportColor" runat="server" CssClass="DateBox" Text='<%# Bind("Color") %>'></asp:TextBox>
+                    <asp:TextBox ID="txtColor" runat="server" CssClass="DateBox" Text='<%# Bind("Color") %>'></asp:TextBox>
                 </EditItemTemplate>
                 <FooterTemplate>
-                    <asp:TextBox ID="txtNewSupportColor" runat="server" CssClass="DateBox"></asp:TextBox>
+                    <asp:TextBox ID="txtColor" runat="server" CssClass="DateBox"></asp:TextBox>
                 </FooterTemplate>
                 <ItemTemplate>
-                    <asp:Label ID="lblSupportColor" runat="server" Text='<%# Bind("Color") %>'></asp:Label>
+                    <asp:Label ID="lblColor" runat="server" Text='<%# Bind("Color") %>'></asp:Label>
                 </ItemTemplate>
             </asp:TemplateField>
             <asp:TemplateField HeaderText="Notes" SortExpression="Notes" HeaderStyle-BackColor="Silver">
                 <EditItemTemplate>
-                    <asp:TextBox ID="txtSupportNotes" runat="server" Text='<%# Bind("Notes") %>'></asp:TextBox>
+                    <asp:TextBox ID="txtNotes" runat="server" Text='<%# Bind("Notes") %>'></asp:TextBox>
                 </EditItemTemplate>
                 <FooterTemplate>
-                    <asp:TextBox ID="txtNewSupportNotes"  runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtNotes"  runat="server"></asp:TextBox>
                 </FooterTemplate>
                 <ItemTemplate>
-                    <asp:Label ID="lblSupportNotes" runat="server" Text='<%# Bind("Notes") %>'></asp:Label>
+                    <asp:Label ID="lblNotes" runat="server" Text='<%# Bind("Notes") %>'></asp:Label>
                 </ItemTemplate>
             </asp:TemplateField>
             <asp:TemplateField HeaderText="Quoted Cost" SortExpression="CostFromEstimate" ItemStyle-HorizontalAlign="Right" HeaderStyle-BackColor="Silver">
                 <EditItemTemplate>
-                    <asp:TextBox ID="txtSupportCost" runat="server" CssClass="DateBox" Text='<%# Bind("CostFromEstimate","${0:f2}") %>'></asp:TextBox>
+                    <asp:TextBox ID="txtCost" runat="server" CssClass="DateBox" Text='<%# Bind("CostFromEstimate","${0:f2}") %>'></asp:TextBox>
                 </EditItemTemplate>
                 <FooterTemplate>
-                    <asp:TextBox ID="txtNewSupportCost" runat="server" CssClass="DateBox"></asp:TextBox>
+                    <asp:TextBox ID="txtCost" runat="server" CssClass="DateBox"></asp:TextBox>
                 </FooterTemplate>
                 <ItemTemplate>
-                    <asp:Label ID="lblSupportCost" runat="server" Text='<%# Bind("CostFromEstimate","${0:f2}") %>'></asp:Label>
+                    <asp:Label ID="lblCost" runat="server" Text='<%# Bind("CostFromEstimate","${0:f2}") %>'></asp:Label>
                 </ItemTemplate>
             </asp:TemplateField>
         </Columns>
@@ -392,15 +392,15 @@
                 </tr>
                 <tr>
                     <td class="NoPrint"><asp:LinkButton ID="lbSupportEmpty" runat="server" CausesValidation="true" CommandName="EmptyInsert" Text="Save" /></td>
-                    <td><asp:TextBox ID="txtEmptySupportName" runat="server" CssClass="DateBox" Text='<%# Bind("SheetName") %>' /></td>
+                    <td><asp:TextBox ID="txtSupportName" runat="server" CssClass="DateBox" Text='<%# Bind("SheetName") %>' /></td>
                     <td></td>
-                    <td><asp:DropDownList ID="ddlEmptyPartNum" runat="server" AutoPostBack="True" DataSourceID="ddlPartNumSQL" 
+                    <td><asp:DropDownList ID="ddlPartNum" runat="server" AutoPostBack="True" DataSourceID="ddlPartNumSQL" 
                         DataTextField="PartNumDesc" DataValueField="PartNumID" SelectedValue='<%# Bind("PartNumID") %>' /></td>
-                    <td><asp:DropDownList ID="ddlEmptyFinish" runat="server" AutoPostBack="True" DataSourceID="ddlFinishSQL" 
+                    <td><asp:DropDownList ID="ddlFinish" runat="server" AutoPostBack="True" DataSourceID="ddlFinishSQL" 
                         DataTextField="Description" DataValueField="FinishID" SelectedValue='<%# Bind("FinishID") %>' /></td>
-                    <td><asp:TextBox ID="txtEmptySupportColor" runat="server" CssClass="DateBox" Text='<%# Bind("Color") %>' /></td>
-                    <td><asp:TextBox ID="txtEmptySupportNotes" runat="server" Text='<%# Bind("Notes") %>' /></td>
-                    <td><asp:TextBox ID="txtEmptySupportCost" runat="server" CssClass="DateBox" Text='<%# Bind("CostFromEstimate","${0:f2}") %>' /></td>
+                    <td><asp:TextBox ID="txtColor" runat="server" CssClass="DateBox" Text='<%# Bind("Color") %>' /></td>
+                    <td><asp:TextBox ID="txtNotes" runat="server" Text='<%# Bind("Notes") %>' /></td>
+                    <td><asp:TextBox ID="txtCost" runat="server" CssClass="DateBox" Text='<%# Bind("CostFromEstimate","${0:f2}") %>' /></td>
                 </tr>
             </table>
         </EmptyDataTemplate>
@@ -429,10 +429,10 @@
                     <asp:Label ID="lblMiscID" runat="server" Text='<%# Eval("MiscID") %>' />
                 </ItemTemplate>
                 <EditItemTemplate>
-                    <asp:Label ID="lblEditMiscID" runat="server" Text='<%# Eval("MiscID") %>' />
+                    <asp:Label ID="lblMiscID" runat="server" Text='<%# Eval("MiscID") %>' />
                 </EditItemTemplate>
                 <FooterTemplate>
-                    <asp:Label ID="lblNewMiscID" runat="server" Text='<%# Eval("MiscID") %>' />
+                    <asp:Label ID="lblMiscID" runat="server" Text='<%# Eval("MiscID") %>' />
                 </FooterTemplate>
             </asp:TemplateField>
             <asp:TemplateField HeaderText="Mat Name" SortExpression="MiscName" HeaderStyle-BackColor="Silver">
@@ -440,7 +440,7 @@
                     <asp:TextBox ID="txtMiscName" runat="server" CssClass="DateBox" Text='<%# Bind("MiscName") %>' AutoPostBack="True"></asp:TextBox>
                 </EditItemTemplate>
                 <FooterTemplate>
-                    <asp:TextBox ID="txtNewMiscName" runat="server" CssClass="DateBox" AutoPostBack="True"></asp:TextBox>
+                    <asp:TextBox ID="txtMiscName" runat="server" CssClass="DateBox" AutoPostBack="True"></asp:TextBox>
                 </FooterTemplate>
                 <ItemTemplate>
                     <asp:Label ID="lblMiscName" runat="server" Text='<%# Bind("MiscName") %>'></asp:Label>
@@ -448,68 +448,68 @@
             </asp:TemplateField>
             <asp:TemplateField HeaderText="Total Needed" SortExpression="TotalNeeded" ItemStyle-HorizontalAlign="Right" HeaderStyle-BackColor="Silver">
                 <EditItemTemplate>
-                    <asp:Label ID="lblEditMiscTotal" runat="server" Text='<%# Eval("TotalNeeded") %>'></asp:Label>
+                    <asp:Label ID="lblTotal" runat="server" Text='<%# Eval("TotalNeeded") %>'></asp:Label>
                 </EditItemTemplate>
                 <FooterTemplate>
-                    <asp:Label ID="lblNewMiscTotal" runat="server" Text=""></asp:Label>
+                    <asp:Label ID="lblTotal" runat="server" Text=""></asp:Label>
                 </FooterTemplate>
                 <ItemTemplate>
-                    <asp:Label ID="lblMiscTotal" runat="server" Text='<%# Bind("TotalNeeded") %>'></asp:Label>
+                    <asp:Label ID="lblTotal" runat="server" Text='<%# Bind("TotalNeeded") %>'></asp:Label>
                 </ItemTemplate>
             </asp:TemplateField>
             <asp:TemplateField HeaderText="Item Desc" SortExpression="ItemDesc" HeaderStyle-BackColor="Silver">
                 <EditItemTemplate>
-                    <asp:TextBox ID="txtMiscDesc" runat="server" Text='<%# Bind("ItemDesc") %>'></asp:TextBox>
+                    <asp:TextBox ID="txtDesc" runat="server" Text='<%# Bind("ItemDesc") %>'></asp:TextBox>
                 </EditItemTemplate>
                 <FooterTemplate>
-                    <asp:TextBox ID="txtNewMiscDesc"  runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtDesc"  runat="server"></asp:TextBox>
                 </FooterTemplate>
                 <ItemTemplate>
-                    <asp:Label ID="lblMiscDesc" runat="server" Text='<%# Bind("ItemDesc") %>'></asp:Label>
+                    <asp:Label ID="lblDesc" runat="server" Text='<%# Bind("ItemDesc") %>'></asp:Label>
                 </ItemTemplate>
             </asp:TemplateField>
             <asp:TemplateField HeaderText="Size" SortExpression="Size" HeaderStyle-BackColor="Silver">
                 <EditItemTemplate>
-                    <asp:TextBox ID="txtMiscSize" runat="server" Text='<%# Bind("Size") %>'></asp:TextBox>
+                    <asp:TextBox ID="txtSize" runat="server" Text='<%# Bind("Size") %>'></asp:TextBox>
                 </EditItemTemplate>
                 <FooterTemplate>
-                    <asp:TextBox ID="txtNewMiscSize" CssClass="DateBox" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtSize" CssClass="DateBox" runat="server"></asp:TextBox>
                 </FooterTemplate>
                 <ItemTemplate>
-                    <asp:Label ID="lblMiscSize" runat="server" Text='<%# Bind("Size") %>'></asp:Label>
+                    <asp:Label ID="lblSize" runat="server" Text='<%# Bind("Size") %>'></asp:Label>
                 </ItemTemplate>
             </asp:TemplateField>
             <asp:TemplateField HeaderText="Alloy" SortExpression="Alloy" HeaderStyle-BackColor="Silver">
                 <EditItemTemplate>
-                    <asp:TextBox ID="txtMiscAlloy" runat="server"  Text='<%# Bind("Alloy") %>'></asp:TextBox>
+                    <asp:TextBox ID="txtAlloy" runat="server"  Text='<%# Bind("Alloy") %>'></asp:TextBox>
                 </EditItemTemplate>
                 <FooterTemplate>
-                    <asp:TextBox ID="txtNewMiscAlloy" CssClass="DateBox" runat="server" ></asp:TextBox>
+                    <asp:TextBox ID="txtAlloy" CssClass="DateBox" runat="server" ></asp:TextBox>
                 </FooterTemplate>
                 <ItemTemplate>
-                    <asp:Label ID="lblMiscAlloy" runat="server" Text='<%# Bind("Alloy") %>'></asp:Label>
+                    <asp:Label ID="lblAlloy" runat="server" Text='<%# Bind("Alloy") %>'></asp:Label>
                 </ItemTemplate>
             </asp:TemplateField>
             <asp:TemplateField HeaderText="Finish Color" SortExpression="FinishColor" HeaderStyle-BackColor="Silver">
                 <EditItemTemplate>
-                    <asp:TextBox ID="txtMiscFinishColor" runat="server" CssClass="DateBox" Text='<%# Bind("FinishColor") %>'></asp:TextBox>
+                    <asp:TextBox ID="txtColor" runat="server" CssClass="DateBox" Text='<%# Bind("FinishColor") %>'></asp:TextBox>
                 </EditItemTemplate>
                 <FooterTemplate>
-                    <asp:TextBox ID="txtNewMiscFinishColor" runat="server" CssClass="DateBox"></asp:TextBox>
+                    <asp:TextBox ID="txtColor" runat="server" CssClass="DateBox"></asp:TextBox>
                 </FooterTemplate>
                 <ItemTemplate>
-                    <asp:Label ID="lblMiscFinishColor" runat="server" Text='<%# Bind("FinishColor") %>'></asp:Label>
+                    <asp:Label ID="lblColor" runat="server" Text='<%# Bind("FinishColor") %>'></asp:Label>
                 </ItemTemplate>
             </asp:TemplateField>
             <asp:TemplateField HeaderText="Quoted Cost" SortExpression="CostFromEstimate" ItemStyle-HorizontalAlign="Right" HeaderStyle-BackColor="Silver">
                 <EditItemTemplate>
-                    <asp:TextBox ID="txtMiscCost" runat="server" CssClass="DateBox" Text='<%# Bind("CostFromEstimate","${0:f2}") %>'></asp:TextBox>
+                    <asp:TextBox ID="txtCost" runat="server" CssClass="DateBox" Text='<%# Bind("CostFromEstimate","${0:f2}") %>'></asp:TextBox>
                 </EditItemTemplate>
                 <FooterTemplate>
-                    <asp:TextBox ID="txtNewMiscCost" runat="server" CssClass="DateBox"></asp:TextBox>
+                    <asp:TextBox ID="txtCost" runat="server" CssClass="DateBox"></asp:TextBox>
                 </FooterTemplate>
                 <ItemTemplate>
-                    <asp:Label ID="lblMiscCost" runat="server" Text='<%# Bind("CostFromEstimate","${0:f2}") %>'></asp:Label>
+                    <asp:Label ID="lblCost" runat="server" Text='<%# Bind("CostFromEstimate","${0:f2}") %>'></asp:Label>
                 </ItemTemplate>
             </asp:TemplateField>
         </Columns>
@@ -527,13 +527,13 @@
                 </tr>
                 <tr>
                     <td class="NoPrint"><asp:LinkButton ID="lbMiscEmpty" runat="server" CausesValidation="true"  CommandName="EmptyInsert" Text="Save" /></td>
-                    <td><asp:TextBox ID="txtEmptyMiscName" runat="server" CssClass="DateBox" Text='<%# Bind("MiscName") %>' /></td>
+                    <td><asp:TextBox ID="txtMiscName" runat="server" CssClass="DateBox" Text='<%# Bind("MiscName") %>' /></td>
                     <td></td>
-                    <td><asp:TextBox ID="txtEmptyMiscDesc" runat="server" Text='<%# Bind("ItemDesc") %>' /></td>
-                    <td><asp:TextBox ID="txtEmptyMiscSize" runat="server" CssClass="DateBox" Text='<%# Bind("Size") %>' /></td>
-                    <td><asp:TextBox ID="txtEmptyMiscAlloy" runat="server" CssClass="DateBox" Text='<%# Bind("Alloy") %>' /></td>
-                    <td><asp:TextBox ID="txtEmptyMiscFinishColor" runat="server" CssClass="DateBox" Text='<%# Bind("FinishColor") %>' /></td>
-                    <td><asp:TextBox ID="txtEmptyMiscCost" runat="server" CssClass="DateBox" Text='<%# Bind("CostFromEstimate","${0:f2}") %>' /></td>
+                    <td><asp:TextBox ID="txtDesc" runat="server" Text='<%# Bind("ItemDesc") %>' /></td>
+                    <td><asp:TextBox ID="txtSize" runat="server" CssClass="DateBox" Text='<%# Bind("Size") %>' /></td>
+                    <td><asp:TextBox ID="txtAlloy" runat="server" CssClass="DateBox" Text='<%# Bind("Alloy") %>' /></td>
+                    <td><asp:TextBox ID="txtColor" runat="server" CssClass="DateBox" Text='<%# Bind("FinishColor") %>' /></td>
+                    <td><asp:TextBox ID="txtCost" runat="server" CssClass="DateBox" Text='<%# Bind("CostFromEstimate","${0:f2}") %>' /></td>
                 </tr>
             </table>
         </EmptyDataTemplate>
@@ -562,10 +562,10 @@
                     <asp:Label ID="lblMatAllocID" runat="server" Text='<%# Eval("MatAllocationID") %>' />
                 </ItemTemplate>
                 <EditItemTemplate>
-                    <asp:Label ID="lblEditMatAllocID" runat="server" Text='<%# Eval("MatAllocationID") %>' />
+                    <asp:Label ID="lblMatAllocID" runat="server" Text='<%# Eval("MatAllocationID") %>' />
                 </EditItemTemplate>
                 <FooterTemplate>
-                    <asp:Label ID="lblNewMatAllocID" runat="server" Text='<%# Eval("MatAllocationID") %>' />
+                    <asp:Label ID="lblMatAllocID" runat="server" Text='<%# Eval("MatAllocationID") %>' />
                 </FooterTemplate>
             </asp:TemplateField>
             <asp:TemplateField HeaderText="Zone Name" SortExpression="ZoneName" HeaderStyle-BackColor="Silver">
@@ -573,7 +573,7 @@
                     <asp:TextBox ID="txtZoneName" runat="server" Text='<%# Bind("ZoneName") %>'></asp:TextBox>
                 </EditItemTemplate>
                 <FooterTemplate>
-                    <asp:TextBox ID="txtNewZoneName" runat="server" CssClass="DateBox"></asp:TextBox>
+                    <asp:TextBox ID="txtZoneName" runat="server" CssClass="DateBox"></asp:TextBox>
                 </FooterTemplate>
                 <ItemTemplate>
                     <asp:Label ID="lblZoneName" runat="server" Text='<%# Bind("ZoneName") %>'></asp:Label>
@@ -584,7 +584,7 @@
                     <asp:TextBox ID="txtReleaseDesc" runat="server" Text='<%# Bind("ReleaseName") %>'></asp:TextBox>
                 </EditItemTemplate>
                 <FooterTemplate>
-                    <asp:TextBox ID="txtNewReleaseDesc" runat="server" ></asp:TextBox>
+                    <asp:TextBox ID="txtReleaseDesc" runat="server" ></asp:TextBox>
                 </FooterTemplate>
                 <ItemTemplate>
                     <asp:Label ID="lblReleaseDesc" runat="server" Text='<%# Bind("ReleaseName") %>'></asp:Label>
@@ -595,7 +595,7 @@
                     <asp:TextBox ID="txtMTOBy" runat="server" CssClass="DateBox" Text='<%# Bind("MTOByName") %>'></asp:TextBox>
                 </EditItemTemplate>
                 <FooterTemplate>
-                    <asp:TextBox ID="txtNewMTOBy" runat="server" CssClass="DateBox"></asp:TextBox>
+                    <asp:TextBox ID="txtMTOBy" runat="server" CssClass="DateBox"></asp:TextBox>
                 </FooterTemplate>
                 <ItemTemplate>
                     <asp:Label ID="lblMTOBy" runat="server" Text='<%# Bind("MTOByName") %>'></asp:Label>
@@ -609,13 +609,13 @@
                     </asp:DropDownList>
                 </EditItemTemplate>
                 <FooterTemplate>
-                    <asp:DropDownList ID="ddlNewMatName" runat="server"  AutoPostBack="True" DataSourceID="ddlMatNameSQL" AppendDataBoundItems="true"
+                    <asp:DropDownList ID="ddlMatName" runat="server"  AutoPostBack="True" DataSourceID="ddlMatNameSQL" AppendDataBoundItems="true"
                         DataTextField="MatName" DataValueField="MatName">
                         <asp:ListItem Text="<--Select-->" Value="" />
                     </asp:DropDownList>
                 </FooterTemplate>
                 <ItemTemplate>
-                    <asp:DropDownList ID="ddlViewMatName" runat="server" DataSourceID="ddlMatNameSQL" Enabled="false" AppendDataBoundItems="true"
+                    <asp:DropDownList ID="ddlMatName" runat="server" DataSourceID="ddlMatNameSQL" Enabled="false" AppendDataBoundItems="true"
                         DataTextField="MatName" DataValueField="MatName" SelectedValue='<%# Bind("MatName") %>'>
                         <asp:ListItem Text="<--Select-->" Value="" />
                     </asp:DropDownList>
@@ -626,7 +626,7 @@
                     <asp:TextBox ID="txtLinInch" runat="server" CssClass="DateBox" Text='<%# Bind("LinInch") %>'></asp:TextBox>
                 </EditItemTemplate>
                 <FooterTemplate>
-                    <asp:TextBox ID="txtNewLinInch" runat="server" CssClass="DateBox"></asp:TextBox>
+                    <asp:TextBox ID="txtLinInch" runat="server" CssClass="DateBox"></asp:TextBox>
                 </FooterTemplate>
                 <ItemTemplate>
                     <asp:Label ID="lblLinInch" runat="server" Text='<%# Bind("LinInch") %>'></asp:Label>
@@ -637,7 +637,7 @@
                     <asp:TextBox ID="txtMatQty" runat="server" CssClass="NumBox" Text='<%# Bind("MTOMatQty") %>' AutoPostBack="True"></asp:TextBox>
                 </EditItemTemplate>
                 <FooterTemplate>
-                    <asp:TextBox ID="txtNewMatQty" runat="server" CssClass="NumBox NoPrint" AutoPostBack="True"></asp:TextBox>
+                    <asp:TextBox ID="txtMatQty" runat="server" CssClass="NumBox NoPrint" AutoPostBack="True"></asp:TextBox>
                 </FooterTemplate>
                 <ItemTemplate>
                     <asp:Label ID="lblMatQty" runat="server" Text='<%# Bind("MTOMatQty") %>'></asp:Label>
@@ -648,7 +648,7 @@
                     <asp:TextBox ID="txtOverageQty" runat="server" CssClass="NumBox" Text='<%# Bind("MTOOverageQty") %>'></asp:TextBox>
                 </EditItemTemplate>
                 <FooterTemplate>
-                    <asp:TextBox ID="txtNewOverageQty" runat="server" CssClass="NumBox NoPrint"></asp:TextBox>
+                    <asp:TextBox ID="txtOverageQty" runat="server" CssClass="NumBox NoPrint"></asp:TextBox>
                 </FooterTemplate>
                 <ItemTemplate>
                     <asp:Label ID="lblOverageQty" runat="server" Text='<%# Bind("MTOOverageQty") %>'></asp:Label>
@@ -659,7 +659,7 @@
                     <asp:TextBox ID="txtUsageDesc" runat="server" Text='<%# Bind("UsageDesc") %>'></asp:TextBox>
                 </EditItemTemplate>
                 <FooterTemplate>
-                    <asp:TextBox ID="txtNewUsageDesc" runat="server" ></asp:TextBox>
+                    <asp:TextBox ID="txtUsageDesc" runat="server" ></asp:TextBox>
                 </FooterTemplate>
                 <ItemTemplate>
                     <asp:Label ID="lblUsageDesc" runat="server" Text='<%# Bind("UsageDesc") %>'></asp:Label>
@@ -670,7 +670,7 @@
                     <asp:TextBox ID="txtUsageQty" runat="server" CssClass="NumBox" Text='<%# Bind("UsageQty") %>'></asp:TextBox>
                 </EditItemTemplate>
                 <FooterTemplate>
-                    <asp:TextBox ID="txtNewUsageQty" runat="server" CssClass="NumBox NoPrint"></asp:TextBox>
+                    <asp:TextBox ID="txtUsageQty" runat="server" CssClass="NumBox NoPrint"></asp:TextBox>
                 </FooterTemplate>
                 <ItemTemplate>
                     <asp:Label ID="lblUsageQty" runat="server" Text='<%# Bind("UsageQty") %>'></asp:Label>
@@ -693,16 +693,16 @@
                 </tr>
                 <tr>
                     <td class="NoPrint"><asp:LinkButton ID="lbMatAllocEmpty" runat="server" CausesValidation="true" CommandName="EmptyInsert" Text="Save" /></td>
-                    <td><asp:TextBox ID="txtEmptyZoneName" runat="server" CssClass="DateBox" Text='<%# Bind("ZoneName") %>' /></td>
-                    <td><asp:TextBox ID="txtEmptyReleaseDesc" runat="server" Text='<%# Bind("ReleaseName") %>' /></td>
-                    <td><asp:TextBox ID="txtEmptyMTOBy" runat="server" CssClass="DateBox" Text='<%# Bind("MTOByName") %>' /></td>
-                    <td><asp:DropDownList ID="ddlEmptyMatName" runat="server" AutoPostBack="True" DataSourceID="ddlMatNameSQL" 
+                    <td><asp:TextBox ID="txtZoneName" runat="server" CssClass="DateBox" Text='<%# Bind("ZoneName") %>' /></td>
+                    <td><asp:TextBox ID="txtReleaseDesc" runat="server" Text='<%# Bind("ReleaseName") %>' /></td>
+                    <td><asp:TextBox ID="txtMTOBy" runat="server" CssClass="DateBox" Text='<%# Bind("MTOByName") %>' /></td>
+                    <td><asp:DropDownList ID="ddlMatName" runat="server" AutoPostBack="True" DataSourceID="ddlMatNameSQL" 
                         DataTextField="MatName" DataValueField="MatName" SelectedValue='<%# Bind("MatName") %>' /></td>
-                    <td><asp:TextBox ID="txtEmptyLinInch" runat="server" CssClass="DateBox" Text='<%# Bind("LinInch") %>' /></td>
-                    <td><asp:TextBox ID="txtEmptyMatQty" runat="server" CssClass="NumBox" Text='<%# Bind("MTOMatQty") %>' /></td>
-                    <td><asp:Textbox ID="txtEmptyOverageQty" runat="server" CssClass="NumBox" Text='<%# Bind("MTOOverageQty") %>' /></td>
-                    <td><asp:TextBox ID="txtEmptyUsageDesc" runat="server" Text='<%# Bind("UsageDesc") %>' /></td>
-                    <td><asp:TextBox ID="txtEmptyUsageQty" runat="server" CssClass="NumBox" Text='<%# Bind("UsageQty") %>' /></td>
+                    <td><asp:TextBox ID="txtLinInch" runat="server" CssClass="DateBox" Text='<%# Bind("LinInch") %>' /></td>
+                    <td><asp:TextBox ID="txtMatQty" runat="server" CssClass="NumBox" Text='<%# Bind("MTOMatQty") %>' /></td>
+                    <td><asp:Textbox ID="txtOverageQty" runat="server" CssClass="NumBox" Text='<%# Bind("MTOOverageQty") %>' /></td>
+                    <td><asp:TextBox ID="txtUsageDesc" runat="server" Text='<%# Bind("UsageDesc") %>' /></td>
+                    <td><asp:TextBox ID="txtUsageQty" runat="server" CssClass="NumBox" Text='<%# Bind("UsageQty") %>' /></td>
                 </tr>
             </table>
         </EmptyDataTemplate>

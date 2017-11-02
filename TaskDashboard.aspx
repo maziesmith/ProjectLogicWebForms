@@ -106,7 +106,7 @@
                         <asp:Label ID="Label1" runat="server" Text='<%# Bind("ProjectID") %>'></asp:Label>
                     </ItemTemplate>
                     <FooterTemplate>
-                        <asp:TextBox ID="txtNewProjectID" runat="server" Width="75" Text='<%# Bind("ProjectID") %>'></asp:TextBox>
+                        <asp:TextBox ID="txtProjectID" runat="server" Width="75" Text='<%# Bind("ProjectID") %>'></asp:TextBox>
                     </FooterTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Project Name" SortExpression="ProjectName" HeaderStyle-BackColor="Silver">
@@ -122,7 +122,7 @@
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Zone Desc" SortExpression="ZoneDesc" HeaderStyle-BackColor="Silver">
                     <EditItemTemplate>
-                        <asp:TextBox ID="txtEditZoneDesc" CssClass="NumBox" runat="server" Text='<%# Bind("ZoneDesc") %>'></asp:TextBox>
+                        <asp:TextBox ID="txtZoneDesc" CssClass="NumBox" runat="server" Text='<%# Bind("ZoneDesc") %>'></asp:TextBox>
                     </EditItemTemplate>
                     <ItemTemplate>
                         <asp:Label ID="lblZoneDesc" runat="server" Text='<%# Bind("ZoneDesc") %>'></asp:Label>
@@ -139,7 +139,7 @@
                         <asp:Label ID="Label2" runat="server" Text='<%# Bind("ReleaseID") %>'></asp:Label>
                     </ItemTemplate>
                     <FooterTemplate>
-                        <asp:TextBox ID="txtNewReleaseID" runat="server" Width="50" Text='<%# Bind("ReleaseID") %>'></asp:TextBox>
+                        <asp:TextBox ID="txtReleaseID" runat="server" Width="50" Text='<%# Bind("ReleaseID") %>'></asp:TextBox>
                     </FooterTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Task Code" SortExpression="TaskCodeAbbr" HeaderStyle-BackColor="Silver">
@@ -150,7 +150,7 @@
                         <asp:Label ID="Label11" runat="server" Text='<%# Bind("TaskCodeAbbr") %>'></asp:Label>
                     </ItemTemplate>
                     <FooterTemplate>
-                        <asp:DropDownList ID="ddlNewTaskCode" runat="server" AutoPostBack="True" 
+                        <asp:DropDownList ID="ddlTaskCode" runat="server" AutoPostBack="True" 
                             DataSourceID="lstTaskCodeSQL" DataTextField="TaskCodeAbbr" DataValueField="TaskCodeID">
                         </asp:DropDownList>
                     </FooterTemplate>
@@ -162,12 +162,12 @@
                         </asp:DropDownList>
                     </EditItemTemplate>
                     <ItemTemplate>
-                        <asp:DropDownList ID="ddlViewStatus" runat="server" AutoPostBack="True" DataSourceID="ddlStatusSQL" enabled="false"
+                        <asp:DropDownList ID="ddlStatus" runat="server" AutoPostBack="True" DataSourceID="ddlStatusSQL" enabled="false"
                             DataTextField="TaskStatusName" DataValueField="TaskStatusID" SelectedValue='<%# Bind("TaskStatusID") %>'>
                         </asp:DropDownList>
                     </ItemTemplate>
                     <FooterTemplate>
-                        <asp:DropDownList ID="ddlNewStatus" runat="server" AutoPostBack="True" DataSourceID="ddlStatusSQL" 
+                        <asp:DropDownList ID="ddlStatus" runat="server" AutoPostBack="True" DataSourceID="ddlStatusSQL" 
                             DataTextField="TaskStatusName" DataValueField="TaskStatusID" SelectedValue='<%# Bind("TaskStatusID") %>'>
                         </asp:DropDownList>
                     </FooterTemplate>
@@ -179,12 +179,12 @@
                         </asp:DropDownList>
                     </EditItemTemplate>
                     <ItemTemplate>
-                        <asp:DropDownList ID="ddlViewPriority" runat="server" AutoPostBack="True" DataSourceID="ddlPrioritySQL" enabled="false"
+                        <asp:DropDownList ID="ddlPriority" runat="server" AutoPostBack="True" DataSourceID="ddlPrioritySQL" enabled="false"
                             DataTextField="TaskPriorityName" DataValueField="TaskPriorityID" SelectedValue='<%# Bind("TaskPriorityID") %>'>
                         </asp:DropDownList>
                     </ItemTemplate>
                     <FooterTemplate>
-                        <asp:DropDownList ID="ddlNewPriority" runat="server" AutoPostBack="True" DataSourceID="ddlPrioritySQL" 
+                        <asp:DropDownList ID="ddlPriority" runat="server" AutoPostBack="True" DataSourceID="ddlPrioritySQL" 
                             DataTextField="TaskPriorityName" DataValueField="TaskPriorityID" SelectedValue='<%# Bind("TaskPriorityID") %>'>
                         </asp:DropDownList>
                     </FooterTemplate>
@@ -200,8 +200,8 @@
                         <asp:Label ID="Label5" runat="server" CssClass="DateBox" Text='<%# Bind("DueDate", "{0:MM/dd/yyyy}") %>'></asp:Label>
                     </ItemTemplate>
                     <FooterTemplate>
-                        <asp:TextBox ID="txtNewDueDate" CssClass="DateBox" runat="server"  Text='<%# Bind("DueDate", "{0:MM/dd/yyyy}") %>'></asp:TextBox>
-                        <asp:CompareValidator id="DueDateValidator" runat="server" Display="Dynamic" Type="Date" Operator="DataTypeCheck" ControlToValidate="txtNewDueDate"
+                        <asp:TextBox ID="txtDueDate" CssClass="DateBox" runat="server"  Text='<%# Bind("DueDate", "{0:MM/dd/yyyy}") %>'></asp:TextBox>
+                        <asp:CompareValidator id="DueDateValidator" runat="server" Display="Dynamic" Type="Date" Operator="DataTypeCheck" ControlToValidate="txtDueDate"
                             ErrorMessage="Please enter a valid date.">
                         </asp:CompareValidator>
                     </FooterTemplate>
@@ -214,7 +214,7 @@
                         <asp:Label ID="Label6" runat="server" Text='<%# Bind("Notes") %>'></asp:Label>
                     </ItemTemplate>
                     <FooterTemplate>
-                        <asp:TextBox ID="txtNewNotes" runat="server" Text='<%# Bind("Notes") %>'></asp:TextBox>
+                        <asp:TextBox ID="txtNotes" runat="server" Text='<%# Bind("Notes") %>'></asp:TextBox>
                     </FooterTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Date Complete" SortExpression="CompDate" HeaderStyle-BackColor="Silver">
@@ -228,8 +228,8 @@
                         <asp:Label ID="Label7" CssClass="DateBox" runat="server" Text='<%# Bind("CompDate", "{0:MM/dd/yyyy}") %>'></asp:Label>
                     </ItemTemplate>
                     <FooterTemplate>
-                        <asp:TextBox ID="txtNewCompDate" CssClass="DateBox" runat="server" Text='<%# Bind("CompDate", "{0:MM/dd/yyyy}") %>'></asp:TextBox>
-                        <asp:CompareValidator id="CompDateValidator" runat="server" Display="Dynamic" Type="Date" Operator="DataTypeCheck" ControlToValidate="txtNewCompDate"
+                        <asp:TextBox ID="txtCompDate" CssClass="DateBox" runat="server" Text='<%# Bind("CompDate", "{0:MM/dd/yyyy}") %>'></asp:TextBox>
+                        <asp:CompareValidator id="CompDateValidator" runat="server" Display="Dynamic" Type="Date" Operator="DataTypeCheck" ControlToValidate="txtCompDate"
                             ErrorMessage="Please enter a valid date.">
                         </asp:CompareValidator>
                     </FooterTemplate>
@@ -258,26 +258,26 @@
                             <td>
                                 
                             </td>
-                            <td><asp:TextBox ID="txtEmptyProjectID" runat="server" CssClass="NumBox" AutoPostBack="true" Text='<%# Bind("ProjectID") %>'></asp:TextBox></td>
+                            <td><asp:TextBox ID="txtProjectID" runat="server" CssClass="NumBox" AutoPostBack="true" Text='<%# Bind("ProjectID") %>'></asp:TextBox></td>
                             <td></td>
-                            <td><asp:TextBox ID="txtEmptyZoneDesc" runat="server" CssClass="NumBox" AutoPostBack="true" Text='<%# Bind("ZoneDesc") %>'></asp:TextBox></td>
-                            <td><asp:TextBox ID="txtEmptyReleaseID" runat="server" CssClass="NumBox" AutoPostBack="true" Text='<%# Bind("ReleaseID") %>'></asp:TextBox></td>
-                            <td><asp:DropDownList ID="ddlEmptyTaskCode" runat="server" AutoPostBack="True" DataSourceID="lstTaskCodeSQL" 
+                            <td><asp:TextBox ID="txtZoneDesc" runat="server" CssClass="NumBox" AutoPostBack="true" Text='<%# Bind("ZoneDesc") %>'></asp:TextBox></td>
+                            <td><asp:TextBox ID="txtReleaseID" runat="server" CssClass="NumBox" AutoPostBack="true" Text='<%# Bind("ReleaseID") %>'></asp:TextBox></td>
+                            <td><asp:DropDownList ID="ddlTaskCode" runat="server" AutoPostBack="True" DataSourceID="lstTaskCodeSQL" 
                                 DataTextField="TaskCodeAbbr" DataValueField="TaskCodeID">
                                     </asp:DropDownList></td>
-                            <td><asp:DropDownList ID="ddlEmptyStatus" runat="server" AutoPostBack="True" DataSourceID="ddlStatusSQL" 
+                            <td><asp:DropDownList ID="ddlStatus" runat="server" AutoPostBack="True" DataSourceID="ddlStatusSQL" 
                                         DataTextField="TaskStatusName" DataValueField="TaskStatusID" SelectedValue='<%# Bind("TaskStatusID") %>'>
                                 </asp:DropDownList></td>
-                            <td><asp:DropDownList ID="ddlEmptyPriority" runat="server" AutoPostBack="True" DataSourceID="ddlPrioritySQL" 
+                            <td><asp:DropDownList ID="ddlPriority" runat="server" AutoPostBack="True" DataSourceID="ddlPrioritySQL" 
                                         DataTextField="TaskPriorityName" DataValueField="TaskPriorityID" SelectedValue='<%# Bind("TaskPriorityID") %>'>
                                 </asp:DropDownList></td>
-                            <td><asp:TextBox ID="txtEmptyDueDate" CssClass="DateBox" runat="server" AutoPostBack="true" Text='<%# Bind("DueDate", "{0:MM/dd/yyyy}") %>'></asp:TextBox>
-                                <asp:CompareValidator id="EmptyDueDateValidator" runat="server" Display="Dynamic" Type="Date" Operator="DataTypeCheck" ControlToValidate="txtEmptyDueDate"
+                            <td><asp:TextBox ID="txtDueDate" CssClass="DateBox" runat="server" AutoPostBack="true" Text='<%# Bind("DueDate", "{0:MM/dd/yyyy}") %>'></asp:TextBox>
+                                <asp:CompareValidator id="EmptyDueDateValidator" runat="server" Display="Dynamic" Type="Date" Operator="DataTypeCheck" ControlToValidate="txtDueDate"
                                     ErrorMessage="Please enter a valid date."></asp:CompareValidator>
                             </td>
-                            <td><asp:TextBox ID="txtEmptyNotes" runat="server" AutoPostBack="true" Text='<%# Bind("Notes") %>'></asp:TextBox></td>
-                            <td><asp:TextBox ID="txtEmptyCompDate" CssClass="DateBox" runat="server" AutoPostBack="true" Text='<%# Bind("CompDate", "{0:MM/dd/yyyy}") %>'></asp:TextBox>
-                                <asp:CompareValidator id="EmptyCompDateValidator" runat="server" Display="Dynamic" Type="Date" Operator="DataTypeCheck" ControlToValidate="txtEmptyCompDate"
+                            <td><asp:TextBox ID="txtNotes" runat="server" AutoPostBack="true" Text='<%# Bind("Notes") %>'></asp:TextBox></td>
+                            <td><asp:TextBox ID="txtCompDate" CssClass="DateBox" runat="server" AutoPostBack="true" Text='<%# Bind("CompDate", "{0:MM/dd/yyyy}") %>'></asp:TextBox>
+                                <asp:CompareValidator id="EmptyCompDateValidator" runat="server" Display="Dynamic" Type="Date" Operator="DataTypeCheck" ControlToValidate="txtCompDate"
                                     ErrorMessage="Please enter a valid date."></asp:CompareValidator>
                             </td>
                         </tr>
@@ -393,20 +393,6 @@
                                 <img alt="Tasks" id="imgdiv<%# Eval ("ProjectID") %>" src="images/plus.png" />
                             </a>
                             <div id="div<%# Eval("ProjectID") %>" style="display:none;">
-                                <asp:SqlDataSource ID="gvPMProjectTaskSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicConnectionString %>" 
-                                    SelectCommand="SELECT tt.TaskID, e.Name, tt.ReleaseID, tc.TaskCodeAbbr, ts.TaskStatusName, tp.TaskPriorityName, 
-                                        tt.DueDate, tt.Notes, tt.CompDate 
-                                    FROM tblTaskTracker AS tt INNER JOIN 
-                                    tblTaskCode AS tc ON tt.TaskCodeID = tc.TaskCodeID INNER JOIN 
-                                    tblTaskPriority AS tp ON tt.TaskPriorityID = tp.TaskPriorityID INNER JOIN 
-                                    tblTaskStatus AS ts ON tt.TaskStatusID = ts.TaskStatusID INNER JOIN 
-                                    tblEmployee AS e ON tt.EmployeeID = e.EmployeeID 
-                                    WHERE (tt.ProjectID = @ProjectID) AND (ts.TaskStatusType &lt;&gt; 'Z') 
-                                    ORDER BY tp.TaskPriorityName, tt.DueDate">
-                                    <SelectParameters>
-                                        <asp:Parameter Name="ProjectID" Type="Int32" />
-                                    </SelectParameters>
-                                </asp:SqlDataSource>
                                 <asp:GridView ID="gvPMProjectTask" runat="server" AutoGenerateColumns="False" DataKeyNames="TaskID"> 
                                     <Columns>
                                         <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
@@ -535,7 +521,7 @@
                             </asp:DropDownList>
                         </FooterTemplate>
                         <ItemTemplate>
-                            <asp:DropDownList ID="ddlViewEmployee" runat="server" AutoPostBack="True" DataSourceID="ddlCADModelEmpSQL" Enabled="false"
+                            <asp:DropDownList ID="ddlEmployee" runat="server" AutoPostBack="True" DataSourceID="ddlCADModelEmpSQL" Enabled="false"
                                 DataTextField="Name" DataValueField="EmployeeID" SelectedValue='<%# Bind("EmployeeID") %>'>
                             </asp:DropDownList>
                         </ItemTemplate>
@@ -606,7 +592,7 @@
                             </asp:DropDownList>
                         </FooterTemplate>
                         <ItemTemplate>
-                            <asp:DropDownList ID="ddlViewTaskStatus" runat="server" AutoPostBack="True" DataSourceID="ddlStatusSQL" enabled="false"
+                            <asp:DropDownList ID="ddlTaskStatus" runat="server" AutoPostBack="True" DataSourceID="ddlStatusSQL" enabled="false"
                                 DataTextField="TaskStatusName" DataValueField="TaskStatusID" SelectedValue='<%# Bind("TaskStatusID") %>'>
                             </asp:DropDownList>
                         </ItemTemplate>
@@ -623,16 +609,16 @@
                             </asp:DropDownList>
                         </FooterTemplate>
                         <ItemTemplate>
-                            <asp:DropDownList ID="ddlViewPriority" runat="server" AutoPostBack="True" DataSourceID="ddlPrioritySQL" enabled="false"
+                            <asp:DropDownList ID="ddlPriority" runat="server" AutoPostBack="True" DataSourceID="ddlPrioritySQL" enabled="false"
                                 DataTextField="TaskPriorityName" DataValueField="TaskPriorityID" SelectedValue='<%# Bind("TaskPriorityID") %>'>
                             </asp:DropDownList>
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Due Date" SortExpression="DueDate" HeaderStyle-BackColor="Silver">
                         <EditItemTemplate>
-                            <asp:TextBox ID="txtEditDueDate" runat="server" CssClass="DateBox" Text='<%# Bind("DueDate", "{0:MM/dd/yyyy}") %>'></asp:TextBox>
+                            <asp:TextBox ID="txtDueDate" runat="server" CssClass="DateBox" Text='<%# Bind("DueDate", "{0:MM/dd/yyyy}") %>'></asp:TextBox>
                             <asp:CompareValidator id="EditDueDateValidator" runat="server" Display="Dynamic" Type="Date" Operator="DataTypeCheck" 
-                                ControlToValidate="txtEditDueDate" ErrorMessage="Please enter a valid date.">
+                                ControlToValidate="txtDueDate" ErrorMessage="Please enter a valid date.">
                             </asp:CompareValidator>
                         </EditItemTemplate>
                         <FooterTemplate>
@@ -658,9 +644,9 @@
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Complete Date" SortExpression="CompDate" HeaderStyle-BackColor="Silver">
                         <EditItemTemplate>
-                            <asp:TextBox ID="txtEditCompDate" runat="server" CssClass="DateBox" Text='<%# Bind("CompDate", "{0:MM/dd/yyyy}") %>'></asp:TextBox>
+                            <asp:TextBox ID="txtCompDate" runat="server" CssClass="DateBox" Text='<%# Bind("CompDate", "{0:MM/dd/yyyy}") %>'></asp:TextBox>
                             <asp:CompareValidator id="EditCompDateValidator" runat="server" Display="Dynamic" Type="Date" Operator="DataTypeCheck" 
-                                ControlToValidate="txtEditCompDate" ErrorMessage="Please enter a valid date.">
+                                ControlToValidate="txtCompDate" ErrorMessage="Please enter a valid date.">
                             </asp:CompareValidator>
                         </EditItemTemplate>
                         <FooterTemplate>
@@ -698,30 +684,30 @@
                             <td>
                                 
                             </td>
-                            <td><asp:DropDownList ID="ddlEmptyEmployee" runat="server" AutoPostBack="true" DataSourceID="ddlCADModelEmpSQL" AppendDataBoundItems="true" 
+                            <td><asp:DropDownList ID="ddlEmployee" runat="server" AutoPostBack="true" DataSourceID="ddlCADModelEmpSQL" AppendDataBoundItems="true" 
                                     DataTextField="Name" DataValueField="EmployeeID">
                                 <asp:ListItem Text="<--Select Employee-->" Value="" />
                                 </asp:DropDownList></td>
-                            <td><asp:TextBox ID="txtEmptyProjectID" runat="server" CssClass="NumBox" AutoPostBack="true" Text='<%# Bind("ProjectID") %>'></asp:TextBox></td>
+                            <td><asp:TextBox ID="txtProjectID" runat="server" CssClass="NumBox" AutoPostBack="true" Text='<%# Bind("ProjectID") %>'></asp:TextBox></td>
                             <td></td>
-                            <td><asp:TextBox ID="txtEmptyZoneDesc" runat="server" CssClass="NumBox" AutoPostBack="true" Text='<%# Bind("ZoneDesc") %>'></asp:TextBox></td>
-                            <td><asp:TextBox ID="txtEmptyReleaseID" runat="server" CssClass="NumBox" AutoPostBack="true" Text='<%# Bind("ReleaseID") %>'></asp:TextBox></td>
-                            <td><asp:DropDownList ID="ddlEmptyTaskCode" runat="server" AutoPostBack="True" DataSourceID="lstTaskCodeSQL" 
+                            <td><asp:TextBox ID="txtZoneDesc" runat="server" CssClass="NumBox" AutoPostBack="true" Text='<%# Bind("ZoneDesc") %>'></asp:TextBox></td>
+                            <td><asp:TextBox ID="txtReleaseID" runat="server" CssClass="NumBox" AutoPostBack="true" Text='<%# Bind("ReleaseID") %>'></asp:TextBox></td>
+                            <td><asp:DropDownList ID="ddlTaskCode" runat="server" AutoPostBack="True" DataSourceID="lstTaskCodeSQL" 
                                 DataTextField="TaskCodeAbbr" DataValueField="TaskCodeID">
                                     </asp:DropDownList></td>
-                            <td><asp:DropDownList ID="ddlEmptyStatus" runat="server" AutoPostBack="True" DataSourceID="ddlStatusSQL" 
+                            <td><asp:DropDownList ID="ddlStatus" runat="server" AutoPostBack="True" DataSourceID="ddlStatusSQL" 
                                         DataTextField="TaskStatusName" DataValueField="TaskStatusID" SelectedValue='<%# Bind("TaskStatusID") %>'>
                                 </asp:DropDownList></td>
-                            <td><asp:DropDownList ID="ddlEmptyPriority" runat="server" AutoPostBack="True" DataSourceID="ddlPrioritySQL" 
+                            <td><asp:DropDownList ID="ddlPriority" runat="server" AutoPostBack="True" DataSourceID="ddlPrioritySQL" 
                                         DataTextField="TaskPriorityName" DataValueField="TaskPriorityID" SelectedValue='<%# Bind("TaskPriorityID") %>'>
                                 </asp:DropDownList></td>
-                            <td><asp:TextBox ID="txtEmptyDueDate" CssClass="DateBox" runat="server" AutoPostBack="true" Text='<%# Bind("DueDate", "{0:MM/dd/yyyy}") %>'></asp:TextBox>
-                                <asp:CompareValidator id="EmptyDueDateValidator" runat="server" Display="Dynamic" Type="Date" Operator="DataTypeCheck" ControlToValidate="txtEmptyDueDate"
+                            <td><asp:TextBox ID="txtDueDate" CssClass="DateBox" runat="server" AutoPostBack="true" Text='<%# Bind("DueDate", "{0:MM/dd/yyyy}") %>'></asp:TextBox>
+                                <asp:CompareValidator id="EmptyDueDateValidator" runat="server" Display="Dynamic" Type="Date" Operator="DataTypeCheck" ControlToValidate="txtDueDate"
                                     ErrorMessage="Please enter a valid date."></asp:CompareValidator>
                             </td>
-                            <td><asp:TextBox ID="txtEmptyNotes" CssClass="DateBox" runat="server" AutoPostBack="true" Text='<%# Bind("Notes") %>'></asp:TextBox></td>
-                            <td><asp:TextBox ID="txtEmptyCompDate" CssClass="DateBox" runat="server" AutoPostBack="true" Text='<%# Bind("CompDate", "{0:MM/dd/yyyy}") %>'></asp:TextBox>
-                                <asp:CompareValidator id="EmptyCompDateValidator" runat="server" Display="Dynamic" Type="Date" Operator="DataTypeCheck" ControlToValidate="txtEmptyCompDate"
+                            <td><asp:TextBox ID="txtNotes" CssClass="DateBox" runat="server" AutoPostBack="true" Text='<%# Bind("Notes") %>'></asp:TextBox></td>
+                            <td><asp:TextBox ID="txtCompDate" CssClass="DateBox" runat="server" AutoPostBack="true" Text='<%# Bind("CompDate", "{0:MM/dd/yyyy}") %>'></asp:TextBox>
+                                <asp:CompareValidator id="EmptyCompDateValidator" runat="server" Display="Dynamic" Type="Date" Operator="DataTypeCheck" ControlToValidate="txtCompDate"
                                     ErrorMessage="Please enter a valid date."></asp:CompareValidator>
                             </td>
                         </tr>
@@ -887,7 +873,20 @@
             tblEmployeeType et ON e.EmployeeTypeID = et.EmployeeTypeID
             WHERE (et.Description = 'Project Manager') AND (e.Status = 'A')">
     </asp:SqlDataSource>
-    
+    <asp:SqlDataSource ID="gvPMProjectTaskSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicConnectionString %>" 
+                                    SelectCommand="SELECT tt.TaskID, e.Name, tt.ReleaseID, tc.TaskCodeAbbr, ts.TaskStatusName, tp.TaskPriorityName, 
+                                        tt.DueDate, tt.Notes, tt.CompDate 
+                                    FROM tblTaskTracker AS tt INNER JOIN 
+                                    tblTaskCode AS tc ON tt.TaskCodeID = tc.TaskCodeID INNER JOIN 
+                                    tblTaskPriority AS tp ON tt.TaskPriorityID = tp.TaskPriorityID INNER JOIN 
+                                    tblTaskStatus AS ts ON tt.TaskStatusID = ts.TaskStatusID INNER JOIN 
+                                    tblEmployee AS e ON tt.EmployeeID = e.EmployeeID 
+                                    WHERE (tt.ProjectID = @ProjectID) AND (ts.TaskStatusType &lt;&gt; 'Z') 
+                                    ORDER BY tp.TaskPriorityName, tt.DueDate">
+                                    <SelectParameters>
+                                        <asp:Parameter Name="ProjectID" Type="Int32" />
+                                    </SelectParameters>
+                                </asp:SqlDataSource>
     <asp:SqlDataSource ID="gvTaskTeamSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicConnectionString %>" 
         SelectCommand="SELECT tt.TaskID, 
                 tt.EmployeeID, 

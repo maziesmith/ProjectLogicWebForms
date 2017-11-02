@@ -1,6 +1,12 @@
 ﻿body {
 }
 
+.AlignRight {
+    text-align: right;
+}
+.AlignCenter {
+    text-align: center;
+}
 .TextArea {
     max-width: 100%;
     width: 600px;
@@ -11,8 +17,7 @@
 }
 
 .LongBox {
-    max-width: 100%;
-    width: 800px;
+    width: 400px;
 }
 
 .MenuStyle

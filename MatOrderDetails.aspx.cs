@@ -23,14 +23,14 @@ namespace ProjectLogic
                 GridViewRow gvrow = gvSheetGoods.FooterRow;
                 if (gvrow == null) { return; }
                 Label lblOrderID = (Label)this.fvHeader.Row.FindControl("lblOrderID");
-                TextBox txtMatName = (TextBox)gvrow.FindControl("txtNewSheetName");
-                DropDownList ddlVendor = (DropDownList)gvrow.FindControl("ddlNewVendor");
-                TextBox txtSheetSize = (TextBox)gvrow.FindControl("txtNewSheetSize");
-                DropDownList ddlThickness = (DropDownList)gvrow.FindControl("ddlNewThickness");
-                DropDownList ddlCore = (DropDownList)gvrow.FindControl("ddlNewCore");
-                TextBox txtColor = (TextBox)gvrow.FindControl("txtNewSheetColor");
-                TextBox txtCustColorCode = (TextBox)gvrow.FindControl("txtNewCustColorCode");
-                TextBox txtQuotedCost = (TextBox)gvrow.FindControl("txtNewSheetCost");
+                TextBox txtMatName = (TextBox)gvrow.FindControl("txtSheetName");
+                DropDownList ddlVendor = (DropDownList)gvrow.FindControl("ddlVendor");
+                TextBox txtSheetSize = (TextBox)gvrow.FindControl("txtSheetSize");
+                DropDownList ddlThickness = (DropDownList)gvrow.FindControl("ddlThickness");
+                DropDownList ddlCore = (DropDownList)gvrow.FindControl("ddlCore");
+                TextBox txtColor = (TextBox)gvrow.FindControl("txtColor");
+                TextBox txtCustColorCode = (TextBox)gvrow.FindControl("txtCustColorCode");
+                TextBox txtQuotedCost = (TextBox)gvrow.FindControl("txtCost");
 
                 if (string.IsNullOrWhiteSpace(txtMatName.Text))
                 {
@@ -62,14 +62,14 @@ namespace ProjectLogic
                 if (gvrow == null) { return; }
 
                 Label lblOrderID = (Label)this.fvHeader.Row.FindControl("lblOrderID");
-                TextBox txtMatName = (TextBox)gvrow.FindControl("txtNewSheetName");
-                DropDownList ddlVendor = (DropDownList)gvrow.FindControl("ddlNewVendor");
-                TextBox txtSheetSize = (TextBox)gvrow.FindControl("txtNewSheetSize");
-                DropDownList ddlThickness = (DropDownList)gvrow.FindControl("ddlNewThickness");
-                DropDownList ddlCore = (DropDownList)gvrow.FindControl("ddlNewCore");
-                TextBox txtColor = (TextBox)gvrow.FindControl("txtNewSheetColor");
-                TextBox txtCustColorCode = (TextBox)gvrow.FindControl("txtNewCustColorCode");
-                TextBox txtQuotedCost = (TextBox)gvrow.FindControl("txtNewSheetCost");
+                TextBox txtMatName = (TextBox)gvrow.FindControl("txtSheetName");
+                DropDownList ddlVendor = (DropDownList)gvrow.FindControl("ddlVendor");
+                TextBox txtSheetSize = (TextBox)gvrow.FindControl("txtSheetSize");
+                DropDownList ddlThickness = (DropDownList)gvrow.FindControl("ddlThickness");
+                DropDownList ddlCore = (DropDownList)gvrow.FindControl("ddlCore");
+                TextBox txtColor = (TextBox)gvrow.FindControl("txtColor");
+                TextBox txtCustColorCode = (TextBox)gvrow.FindControl("txtCustColorCode");
+                TextBox txtQuotedCost = (TextBox)gvrow.FindControl("txtCost");
 
                 if (string.IsNullOrWhiteSpace(txtMatName.Text))
                 {
@@ -108,14 +108,14 @@ namespace ProjectLogic
             }
             else
             {
-                Label lblSheetID = (Label)gvrow.FindControl("lblEditSheetID");
+                Label lblSheetID = (Label)gvrow.FindControl("lblSheetID");
                 DropDownList ddlVendor = (DropDownList)gvrow.FindControl("ddlVendor");
                 TextBox txtSheetSize = (TextBox)gvrow.FindControl("txtSheetSize");
                 DropDownList ddlThickness = (DropDownList)gvrow.FindControl("ddlThickness");
                 DropDownList ddlCore = (DropDownList)gvrow.FindControl("ddlCore");
-                TextBox txtColor = (TextBox)gvrow.FindControl("txtSheetColor");
+                TextBox txtColor = (TextBox)gvrow.FindControl("txtColor");
                 TextBox txtCustColorCode = (TextBox)gvrow.FindControl("txtCustColorCode");
-                TextBox txtQuotedCost = (TextBox)gvrow.FindControl("txtSheetCost");
+                TextBox txtQuotedCost = (TextBox)gvrow.FindControl("txtCost");
 
                 gvSheetGoodsSQL.UpdateParameters.Clear();
                 gvSheetGoodsSQL.UpdateParameters.Add("SheetID", lblSheetID.Text);
@@ -139,12 +139,12 @@ namespace ProjectLogic
                 GridViewRow footerRow = gvSupportMats.FooterRow;
                 if (footerRow == null) { return; }
                 Label lblOrderID = (Label)this.fvHeader.Row.FindControl("lblOrderID");
-                TextBox txtMatName = (TextBox)footerRow.FindControl("txtNewSupportName");
-                DropDownList ddlPartNum = (DropDownList)footerRow.FindControl("ddlNewPartNum");
-                DropDownList ddlFinish = (DropDownList)footerRow.FindControl("ddlNewFinish");
-                TextBox txtColor = (TextBox)footerRow.FindControl("txtNewSupportColor");
-                TextBox txtNotes = (TextBox)footerRow.FindControl("txtNewSupportNotes");
-                TextBox txtQuotedCost = (TextBox)footerRow.FindControl("txtNewSupportCost");
+                TextBox txtMatName = (TextBox)footerRow.FindControl("txtSupportName");
+                DropDownList ddlPartNum = (DropDownList)footerRow.FindControl("ddlPartNum");
+                DropDownList ddlFinish = (DropDownList)footerRow.FindControl("ddlFinish");
+                TextBox txtColor = (TextBox)footerRow.FindControl("txtColor");
+                TextBox txtNotes = (TextBox)footerRow.FindControl("txtNotes");
+                TextBox txtQuotedCost = (TextBox)footerRow.FindControl("txtCost");
 
                 if (string.IsNullOrWhiteSpace(txtMatName.Text))
                 {
@@ -172,12 +172,12 @@ namespace ProjectLogic
                 GridViewRow emptyRow = (GridViewRow)gvSupportMats.Controls[0].Controls[0];
                 if (emptyRow == null) { return; }
                 Label lblOrderID = (Label)this.fvHeader.Row.FindControl("lblOrderID");
-                TextBox txtMatName = (TextBox)emptyRow.FindControl("txtEmptySupportName");
-                DropDownList ddlPartNum = (DropDownList)emptyRow.FindControl("ddlEmptyPartNum");
-                DropDownList ddlFinish = (DropDownList)emptyRow.FindControl("ddlEmptyFinish");
-                TextBox txtColor = (TextBox)emptyRow.FindControl("txtEmptySupportColor");
-                TextBox txtNotes = (TextBox)emptyRow.FindControl("txtEmptyNotes");
-                TextBox txtQuotedCost = (TextBox)emptyRow.FindControl("txtEmptySupportCost");
+                TextBox txtMatName = (TextBox)emptyRow.FindControl("txtSupportName");
+                DropDownList ddlPartNum = (DropDownList)emptyRow.FindControl("ddlPartNum");
+                DropDownList ddlFinish = (DropDownList)emptyRow.FindControl("ddlFinish");
+                TextBox txtColor = (TextBox)emptyRow.FindControl("txtColor");
+                TextBox txtNotes = (TextBox)emptyRow.FindControl("txtNotes");
+                TextBox txtQuotedCost = (TextBox)emptyRow.FindControl("txtCost");
 
                 if (string.IsNullOrWhiteSpace(txtMatName.Text))
                 {
@@ -211,12 +211,12 @@ namespace ProjectLogic
             }
             else
             {
-                Label lblSupportID = (Label)gvrow.FindControl("lblEditSupportID");
+                Label lblSupportID = (Label)gvrow.FindControl("lblSupportID");
                 DropDownList ddlPartNum = (DropDownList)gvrow.FindControl("ddlPartNum");
                 DropDownList ddlFinish = (DropDownList)gvrow.FindControl("ddlFinish");
-                TextBox txtColor = (TextBox)gvrow.FindControl("txtSupportColor");
-                TextBox txtNotes = (TextBox)gvrow.FindControl("txtSupportNotes");
-                TextBox txtQuotedCost = (TextBox)gvrow.FindControl("txtSupportCost");
+                TextBox txtColor = (TextBox)gvrow.FindControl("txtColor");
+                TextBox txtNotes = (TextBox)gvrow.FindControl("txtNotes");
+                TextBox txtQuotedCost = (TextBox)gvrow.FindControl("txtCost");
 
                 gvSupportMatsSQL.UpdateParameters.Clear();
                 gvSupportMatsSQL.UpdateParameters.Add("ExtrusionID", lblSupportID.Text);
@@ -237,12 +237,12 @@ namespace ProjectLogic
                 GridViewRow footerRow = gvMiscMats.FooterRow;
                 if (footerRow == null) { return; }
                 Label lblOrderID = (Label)this.fvHeader.Row.FindControl("lblOrderID");
-                TextBox txtMatName = (TextBox)footerRow.FindControl("txtNewMiscName");
-                TextBox txtItemDesc = (TextBox)footerRow.FindControl("txtNewMiscDesc");
-                TextBox txtSize = (TextBox)footerRow.FindControl("txtNewMiscSize");
-                TextBox txtAlloy = (TextBox)footerRow.FindControl("txtNewMiscAlloy");
-                TextBox txtFinishColor = (TextBox)footerRow.FindControl("txtNewMiscFinishColor");
-                TextBox txtQuotedCost = (TextBox)footerRow.FindControl("txtNewMiscCost");
+                TextBox txtMatName = (TextBox)footerRow.FindControl("txtMiscName");
+                TextBox txtItemDesc = (TextBox)footerRow.FindControl("txtDesc");
+                TextBox txtSize = (TextBox)footerRow.FindControl("txtSize");
+                TextBox txtAlloy = (TextBox)footerRow.FindControl("txtAlloy");
+                TextBox txtFinishColor = (TextBox)footerRow.FindControl("txtColor");
+                TextBox txtQuotedCost = (TextBox)footerRow.FindControl("txtCost");
 
                 if (string.IsNullOrWhiteSpace(txtMatName.Text))
                 {
@@ -269,12 +269,12 @@ namespace ProjectLogic
                 GridViewRow emptyRow = (GridViewRow)gvMiscMats.Controls[0].Controls[0];
                 if (emptyRow == null) { return; }
                 Label lblOrderID = (Label)this.fvHeader.Row.FindControl("lblOrderID");
-                TextBox txtMatName = (TextBox)emptyRow.FindControl("txtEmptyMiscName");
-                TextBox txtItemDesc = (TextBox)emptyRow.FindControl("txtEmptyMiscDesc");
-                TextBox txtSize = (TextBox)emptyRow.FindControl("txtEmptyMiscSize");
-                TextBox txtAlloy = (TextBox)emptyRow.FindControl("txtEmptyAMisclloy");
-                TextBox txtFinishColor = (TextBox)emptyRow.FindControl("txtEmptyMiscFinishColor");
-                TextBox txtQuotedCost = (TextBox)emptyRow.FindControl("txtEmptyMiscCost");
+                TextBox txtMatName = (TextBox)emptyRow.FindControl("txtMiscName");
+                TextBox txtItemDesc = (TextBox)emptyRow.FindControl("txtDesc");
+                TextBox txtSize = (TextBox)emptyRow.FindControl("txtSize");
+                TextBox txtAlloy = (TextBox)emptyRow.FindControl("txtAMisclloy");
+                TextBox txtFinishColor = (TextBox)emptyRow.FindControl("txtColor");
+                TextBox txtQuotedCost = (TextBox)emptyRow.FindControl("txtCost");
 
                 if (string.IsNullOrWhiteSpace(txtMatName.Text))
                 {
@@ -309,12 +309,12 @@ namespace ProjectLogic
             }
             else
             {
-                Label lblMiscID = (Label)gvrow.FindControl("lblEditMiscID");
-                TextBox txtItemDesc = (TextBox)gvrow.FindControl("txtMiscDesc");
-                TextBox txtSize = (TextBox)gvrow.FindControl("txtMiscSize");
-                TextBox txtAlloy = (TextBox)gvrow.FindControl("txtMiscAlloy");
-                TextBox txtColor = (TextBox)gvrow.FindControl("txtMiscFinishColor");
-                TextBox txtQuotedCost = (TextBox)gvrow.FindControl("txtMiscCost");
+                Label lblMiscID = (Label)gvrow.FindControl("lblMiscID");
+                TextBox txtItemDesc = (TextBox)gvrow.FindControl("txtDesc");
+                TextBox txtSize = (TextBox)gvrow.FindControl("txtSize");
+                TextBox txtAlloy = (TextBox)gvrow.FindControl("txtAlloy");
+                TextBox txtColor = (TextBox)gvrow.FindControl("txtColor");
+                TextBox txtQuotedCost = (TextBox)gvrow.FindControl("txtCost");
 
                 gvMiscMatsSQL.UpdateParameters.Clear();
                 gvMiscMatsSQL.UpdateParameters.Add("MiscID", lblMiscID.Text);
@@ -336,15 +336,15 @@ namespace ProjectLogic
                 GridViewRow footerRow = gvMatAllocation.FooterRow;
                 if (footerRow == null) { return; }
                 Label lblOrderID = (Label)this.fvHeader.Row.FindControl("lblOrderID");
-                TextBox txtZoneName = (TextBox)footerRow.FindControl("txtNewZoneName");
-                TextBox txtReleaseName = (TextBox)footerRow.FindControl("txtNewReleaseDesc");
-                TextBox txtMTOByName = (TextBox)footerRow.FindControl("txtNewMTOBy");
-                DropDownList ddlMatName = (DropDownList)footerRow.FindControl("ddlNewMatName");
-                TextBox txtMatQty = (TextBox)footerRow.FindControl("txtNewMatQty");
-                TextBox txtOverageQty = (TextBox)footerRow.FindControl("txtNewOverageQty");
-                TextBox txtUsageDesc = (TextBox)footerRow.FindControl("txtNewUsageDesc");
-                TextBox txtUsageQty = (TextBox)footerRow.FindControl("txtNewUsageQty");
-                TextBox txtLinInch = (TextBox)footerRow.FindControl("txtNewLinInch");
+                TextBox txtZoneName = (TextBox)footerRow.FindControl("txtZoneName");
+                TextBox txtReleaseName = (TextBox)footerRow.FindControl("txtReleaseDesc");
+                TextBox txtMTOByName = (TextBox)footerRow.FindControl("txtMTOBy");
+                DropDownList ddlMatName = (DropDownList)footerRow.FindControl("ddlMatName");
+                TextBox txtMatQty = (TextBox)footerRow.FindControl("txtMatQty");
+                TextBox txtOverageQty = (TextBox)footerRow.FindControl("txtOverageQty");
+                TextBox txtUsageDesc = (TextBox)footerRow.FindControl("txtUsageDesc");
+                TextBox txtUsageQty = (TextBox)footerRow.FindControl("txtUsageQty");
+                TextBox txtLinInch = (TextBox)footerRow.FindControl("txtLinInch");
 
                 if (string.IsNullOrWhiteSpace(txtMatQty.Text)) { txtMatQty.Text = "0"; };
                 if (string.IsNullOrWhiteSpace(txtOverageQty.Text)) { txtOverageQty.Text = "0"; };
@@ -369,15 +369,15 @@ namespace ProjectLogic
                 GridViewRow emptyRow = (GridViewRow)gvMatAllocation.Controls[0].Controls[0];
                 if (emptyRow == null) { return; }
                 Label lblOrderID = (Label)this.fvHeader.Row.FindControl("lblOrderID");
-                TextBox txtZoneName = (TextBox)emptyRow.FindControl("txtEmptyZoneName");
-                TextBox txtReleaseName = (TextBox)emptyRow.FindControl("txtEmptyReleaseName");
-                TextBox txtMTOByName = (TextBox)emptyRow.FindControl("txtEmptyMTOByName");
-                DropDownList ddlMatName = (DropDownList)emptyRow.FindControl("ddlEmptyMatName");
-                TextBox txtMatQty = (TextBox)emptyRow.FindControl("txtEmptyMTOMatQty");
-                TextBox txtOverageQty = (TextBox)emptyRow.FindControl("txtEmptyMTOOverageQty");
-                TextBox txtUsageDesc = (TextBox)emptyRow.FindControl("txtEmptyUsageDesc");
-                TextBox txtUsageQty = (TextBox)emptyRow.FindControl("txtEmptyUsageQty");
-                TextBox txtLinInch = (TextBox)emptyRow.FindControl("txtEmptyLinInch");
+                TextBox txtZoneName = (TextBox)emptyRow.FindControl("txtZoneName");
+                TextBox txtReleaseName = (TextBox)emptyRow.FindControl("txtReleaseName");
+                TextBox txtMTOByName = (TextBox)emptyRow.FindControl("txtMTOByName");
+                DropDownList ddlMatName = (DropDownList)emptyRow.FindControl("ddlMatName");
+                TextBox txtMatQty = (TextBox)emptyRow.FindControl("txtMTOMatQty");
+                TextBox txtOverageQty = (TextBox)emptyRow.FindControl("txtMTOOverageQty");
+                TextBox txtUsageDesc = (TextBox)emptyRow.FindControl("txtUsageDesc");
+                TextBox txtUsageQty = (TextBox)emptyRow.FindControl("txtUsageQty");
+                TextBox txtLinInch = (TextBox)emptyRow.FindControl("txtLinInch");
 
                 if (string.IsNullOrWhiteSpace(txtMatQty.Text)) { txtMatQty.Text = "0"; };
                 if (string.IsNullOrWhiteSpace(txtOverageQty.Text)) { txtOverageQty.Text = "0"; };
@@ -401,7 +401,7 @@ namespace ProjectLogic
         protected void gvMatAlloc_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
             GridViewRow gvrow = (GridViewRow)gvMatAllocation.Rows[e.RowIndex];
-            Label lblMatAllocID = (Label)gvrow.FindControl("lblEditMatAllocID");
+            Label lblMatAllocID = (Label)gvrow.FindControl("lblMatAllocID");
             TextBox txtZoneName = (TextBox)gvrow.FindControl("txtZoneName");
             TextBox txtReleaseDesc = (TextBox)gvrow.FindControl("txtReleaseDesc");
             TextBox txtMTOBy = (TextBox)gvrow.FindControl("txtMTOBy");
