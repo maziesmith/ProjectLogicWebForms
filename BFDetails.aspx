@@ -936,7 +936,7 @@
            
     
             
-    <asp:SqlDataSource ID="gvBFMatsSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicConnectionString %>" 
+    <asp:SqlDataSource ID="gvBFMatsSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>" 
         DeleteCommand="DELETE FROM [tblBookingFormMats] WHERE [MaterialID] = @MaterialID" 
         InsertCommand="INSERT INTO [tblBookingFormMats] ( [BookingFormID], [MatManufacturerID], [MatThicknessID], [MatCoreID], [MatSizeID], [MatFinishColor], [MatQty], [MatFinishPrePostID], [MatNumExtraSheets]) 
             VALUES ( @BookingFormID, @MatManufacturerID, @MatThicknessID, @MatCoreID, @MatSizeID, @MatFinishColor, @MatQty, @MatFinishPrePostID, @MatNumExtraSheets)" 
@@ -977,7 +977,7 @@
         </UpdateParameters>
     </asp:SqlDataSource>
  
-    <asp:SqlDataSource ID="gvBFProdSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicConnectionString %>" 
+    <asp:SqlDataSource ID="gvBFProdSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>" 
         SelectCommand="SELECT [BFProdID], [BFID], [SeriesID], [NumACMWelders], [NumAlumWelders], [NumFlatPanels], [NumRadPanels], [OtherDesc], [NumOther] 
             FROM [tblBookingFormProd] WHERE ([BFID] = @BFID) ORDER BY [BFProdID]" 
         DeleteCommand="DELETE FROM [tblBookingFormProd] WHERE [BFProdID] = @BFProdID" 
@@ -1013,10 +1013,10 @@
             <asp:Parameter Name="BFProdID" Type="Int32" />
         </UpdateParameters>
     </asp:SqlDataSource>
-    <asp:SqlDataSource ID="ddlBFProgSourceSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicConnectionString %>" 
+    <asp:SqlDataSource ID="ddlBFProgSourceSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>" 
         SelectCommand="SELECT [ProgSourceID], [ProgSourceDesc] FROM [tblProgSource] ORDER BY [ProgSourceDesc]">
     </asp:SqlDataSource>
-    <asp:SqlDataSource ID="fvBookingFormSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicConnectionString %>" 
+    <asp:SqlDataSource ID="fvBookingFormSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>" 
         DeleteCommand="DELETE FROM [tblBookingForm] WHERE [BookingFormID] = @BFID" 
         InsertCommand="INSERT INTO tblBookingForm(ProjectID, ReleaseNum, ProgSourceID, ReleaseDesc, SystemTypeID, DateDimsApproved, ActEngRelDate, ActProjShipDate, 
             NumPanelsThisRelease, ProgSourcePath, ExtrusionTypical, ExtrusionNonTypical, SupportBrakeMetal, SupportExtrusions, SupportFasteners, CreatedBy, 
@@ -1115,30 +1115,30 @@
             <asp:RouteParameter Name="BFID" Type="Int32" RouteKey="BFID" />
         </UpdateParameters>
     </asp:SqlDataSource>
-    <asp:SqlDataSource ID="ddlBFSeriesSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicConnectionString %>" 
+    <asp:SqlDataSource ID="ddlBFSeriesSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>" 
         SelectCommand="SELECT [SeriesID], [Description] FROM [tblSeries] ORDER BY [Description]">
     </asp:SqlDataSource>
-    <asp:SqlDataSource ID="ddlMatCoreSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicConnectionString %>" 
+    <asp:SqlDataSource ID="ddlMatCoreSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>" 
         SelectCommand="SELECT [MatCoreID], [MatCore] FROM [tblMatCore] ORDER BY [MatCore]">
 
     </asp:SqlDataSource>
-    <asp:SqlDataSource ID="ddlMatFinishSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicConnectionString %>" 
+    <asp:SqlDataSource ID="ddlMatFinishSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>" 
         SelectCommand="SELECT [MatFinishPrePostID], [MatFinishPrePostDesc] FROM [tblMatFinishPrePost] ORDER BY [MatFinishPrePostID]">
 
     </asp:SqlDataSource>
-    <asp:SqlDataSource ID="ddlMatMfrSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicConnectionString %>" 
+    <asp:SqlDataSource ID="ddlMatMfrSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>" 
         SelectCommand="SELECT [MatManufacturerID], [MatManufacturerDesc] FROM [tblMatManufacturer] ORDER BY [MatManufacturerDesc]">
 
     </asp:SqlDataSource>
-    <asp:SqlDataSource ID="ddlMatSizeSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicConnectionString %>" 
+    <asp:SqlDataSource ID="ddlMatSizeSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>" 
         SelectCommand="SELECT [MatSizeID], [MatSizeHxL] FROM [tblMatSize] ORDER BY [MatSizeHxL]">
 
     </asp:SqlDataSource>
-    <asp:SqlDataSource ID="ddlMatThicknessSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicConnectionString %>" 
+    <asp:SqlDataSource ID="ddlMatThicknessSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>" 
         SelectCommand="SELECT [MatThicknessID], [MatThickness] FROM [tblMatThickness] ORDER BY [MatThickness]">
 
     </asp:SqlDataSource>
-    <asp:SqlDataSource ID="ddlEmpCADProgSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicConnectionString %>" 
+    <asp:SqlDataSource ID="ddlEmpCADProgSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>" 
         SelectCommand="SELECT DISTINCT e.EmployeeID, e.Name FROM tblEmployee AS e INNER JOIN tblEmployeeRole AS er ON e.EmployeeID = er.EmployeeID 
             LEFT OUTER JOIN tblEmployeeType AS et ON er.EmployeeTypeID = et.EmployeeTypeID 
             WHERE (et.Description = 'CAD') OR (et.Description = 'Programmer') ORDER BY e.Name">

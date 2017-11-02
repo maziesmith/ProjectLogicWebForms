@@ -382,7 +382,7 @@
             </asp:GridView>
         </asp:View>
     </asp:MultiView>
-    <asp:SqlDataSource ID="fvGeneralSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicConnectionString %>" 
+    <asp:SqlDataSource ID="fvGeneralSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>" 
         DeleteCommand="DELETE FROM [tblProjectShipment] WHERE [ProjectShipmentID] = @ProjectShipmentID" 
         InsertCommand="INSERT INTO [tblProjectShipment] ([ProjectID], [ShipmentNo], [Description], [DateRequested], [DateAssigned], 
             [ShipToName], [ShipToAddress], [ShipToCity], [ShipToState], [ShipToZip], [DateShipped], [Notes], [FreightPaidBy]) 
@@ -431,7 +431,7 @@
             <asp:QueryStringParameter Name="PSID" Type="Int32" QueryStringField="PSID" />
         </UpdateParameters>
     </asp:SqlDataSource>
-    <asp:SqlDataSource ID="gvShipmentSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicConnectionString %>" 
+    <asp:SqlDataSource ID="gvShipmentSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>" 
         SelectCommand="SELECT tsg.ShippingID, tsg.Date, tsg.PaidBy, tsg.TrackingNo, tsg.Cost, tsr.Name, tsg.ShipToName, tsg.ShipToAddress, tsg.ShipToCity, tsg.ShipToState, tsg.ShipToZip, tsg.Notes FROM tblShipping AS tsg LEFT OUTER JOIN tblShipper AS tsr ON tsg.ShipperID = tsr.ShipperID WHERE (tsg.ProjectShipmentID = @PSID)">
         <SelectParameters>
             <asp:QueryStringParameter Name="PSID" QueryStringField="PSID" />

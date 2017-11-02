@@ -3,7 +3,7 @@
     <div id="wrapper">
         <div id="lside">
             <asp:Label ID="lblEmployee" runat="server" Text="Select Employee:" />
-            <asp:DropDownList ID="ddlAvtiveEmployee" runat="server" AutoPostBack="True" DataSourceID="ddlActiveEmployeeSQL" 
+            <asp:DropDownList ID="ddlActiveEmployee" runat="server" AutoPostBack="True" DataSourceID="ddlActiveEmployeeSQL" 
                 DataTextField="Name" DataValueField="EmployeeID">
             </asp:DropDownList>
         </div> <!-- end div left -->
@@ -12,7 +12,7 @@
         </div> <!-- end div right-->
         
     </div>
-    <asp:SqlDataSource ID="ddlActiveEmployeeSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicConnectionString %>" 
+    <asp:SqlDataSource ID="ddlActiveEmployeeSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>" 
         SelectCommand="SELECT [EmployeeID], [Name] FROM [tblEmployee] WHERE ([Status] = @Status) ORDER BY [Name]">
         <SelectParameters>
             <asp:Parameter DefaultValue="A" Name="Status" Type="String" />

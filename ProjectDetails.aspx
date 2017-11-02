@@ -1764,7 +1764,7 @@
 		   
 		
 		
-	<asp:SqlDataSource ID="fvHeaderSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicConnectionString %>" 
+	<asp:SqlDataSource ID="fvHeaderSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>" 
 		SelectCommand="SELECT p.ProjectID, p.ProjectName, p.ProjectAddress, p.ProjectCity, p.ProjectState, p.ProjectZip, 
 			emp.Name AS PM, s.Description AS Series, ps.Description AS ProjectStatus, c.Company AS Customer, 
 			c.Contact AS CustContact, c.Address1 AS CustAddr1, c.Address2 AS CustAddr2, c.City AS CustCity, 
@@ -1779,7 +1779,7 @@
 			<asp:RouteParameter Name="ProjectID" Type="Int32" RouteKey="ProjectID" />
 		</SelectParameters>
 	</asp:SqlDataSource>
-	<asp:SqlDataSource ID="fvGeneralSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicConnectionString %>" 
+	<asp:SqlDataSource ID="fvGeneralSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>" 
 		SelectCommand="SELECT p.ProjectID, p.ProjectName, p.ProjectAddress, p.ProjectCity, p.ProjectState, p.ProjectZip, p.DateSold,
 			p.MultipleSeries, p.JobTypeID, emp.Name AS PM, s.Description AS Series, p.ProjectStatusID, p.DateStatus, p.CustomerPO,
 			p.WarrantyInfo, p.CreditApproved, p.DateCreditAppSent, p.DateCreditAppRecd, p.PreferredBilling, p.NumShopDrawings, 
@@ -1865,7 +1865,7 @@
 		</UpdateParameters>
 	</asp:SqlDataSource>
 
-	<asp:SqlDataSource ID="gvProjectTaskSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicConnectionString %>" 
+	<asp:SqlDataSource ID="gvProjectTaskSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>" 
 				SelectCommand="SELECT tt.TaskID, tt.EmployeeID, tt.ProjectID, tt.ReleaseID, tt.TaskStatusID, tt.TaskPriorityID, tt.DueDate,
 						tt.Notes, tt.CompDate, p.ProjectName, tc.TaskCodeAbbr 
 					FROM tblTaskTracker tt 
@@ -1909,41 +1909,41 @@
 				</DeleteParameters>
 			</asp:SqlDataSource>
 
-	<asp:SqlDataSource ID="lstTaskCodeSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicConnectionString %>" 
+	<asp:SqlDataSource ID="lstTaskCodeSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>" 
 		SelectCommand="SELECT [TaskCodeID], [TaskCodeAbbr], [TaskCodeName] FROM [tblTaskCode] WHERE ([TaskCodeStatus] = @TaskCodeStatus) ORDER BY [TaskCodeAbbr]">
 		<SelectParameters>
 			<asp:Parameter DefaultValue="True" Name="TaskCodeStatus" Type="Boolean" />
 		</SelectParameters>
 	</asp:SqlDataSource>
 
-	<asp:SqlDataSource ID="ddlActiveEmployeeSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicConnectionString %>" 
+	<asp:SqlDataSource ID="ddlActiveEmployeeSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>" 
 		SelectCommand="SELECT [EmployeeID], [Name] FROM [tblEmployee] WHERE ([Status] = 'A') ORDER BY [Name]">
 	</asp:SqlDataSource>
 
-	<asp:SqlDataSource ID="ddlTaskStatusSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicConnectionString %>" 
+	<asp:SqlDataSource ID="ddlTaskStatusSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>" 
 		SelectCommand="SELECT [TaskStatusID], [TaskStatusName] FROM [tblTaskStatus] ORDER BY [TaskStatusType], [TaskStatusName]">
 	</asp:SqlDataSource>
 
-	<asp:SqlDataSource ID="ddlPrioritySQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicConnectionString %>" 
+	<asp:SqlDataSource ID="ddlPrioritySQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>" 
 		SelectCommand="SELECT [TaskPriorityID], [TaskPriorityName] FROM [tblTaskPriority] ORDER BY [TaskPriorityID]">
 	</asp:SqlDataSource>
 
-	<asp:SqlDataSource ID="ddlJobTypeSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicConnectionString %>" 
+	<asp:SqlDataSource ID="ddlJobTypeSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>" 
 		SelectCommand="SELECT [JobTypeID], [JobTypeDescription] FROM [tblJobType] WHERE ([Active] = @Active)">
 		<SelectParameters>
 			<asp:Parameter DefaultValue="True" Name="Active" Type="Boolean" />
 		</SelectParameters>
 	</asp:SqlDataSource>
 
-	<asp:SqlDataSource ID="ddlProjStatusSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicConnectionString %>" 
+	<asp:SqlDataSource ID="ddlProjStatusSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>" 
 		SelectCommand="SELECT [ProjectStatusID], [Description] FROM [tblProjectStatus]">
 	</asp:SqlDataSource>
 
-	<asp:SqlDataSource ID="ddlPreferredBillingSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicConnectionString %>" 
+	<asp:SqlDataSource ID="ddlPreferredBillingSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>" 
 		SelectCommand="SELECT DISTINCT [PreferredBilling] FROM [tblProject] ORDER BY [PreferredBilling]">
 	</asp:SqlDataSource>
 
-	<asp:SqlDataSource ID="gvSubmittalsSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicConnectionString %>" 
+	<asp:SqlDataSource ID="gvSubmittalsSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>" 
 		SelectCommand="SELECT ps.ProjectSubmittalID, 
 			ps.ProjectID, 
 			ps.Date, 
@@ -1997,15 +1997,15 @@
 		</DeleteParameters>
 	</asp:SqlDataSource>
 
-	<asp:SqlDataSource ID="ddlProjectSubmittalReasonSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicConnectionString %>" 
+	<asp:SqlDataSource ID="ddlProjectSubmittalReasonSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>" 
 		SelectCommand="SELECT [ProjectSubmittalReasonID], [Description] FROM [tblProjectSubmittalReason]">
 	</asp:SqlDataSource>
 
-	<asp:SqlDataSource ID="ddlProjectSubmittalType" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicConnectionString %>" 
+	<asp:SqlDataSource ID="ddlProjectSubmittalType" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>" 
 		SelectCommand="SELECT [ProjectSubmittalTypeID], [Description] FROM [tblProjectSubmittalType]">
 	</asp:SqlDataSource>
 
-	<asp:SqlDataSource ID="ChangeOrdersSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicConnectionString %>" 
+	<asp:SqlDataSource ID="ChangeOrdersSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>" 
 		SelectCommand="SELECT [ProjectChangeOrderID], [ProjectID], [Date], [Description], [Amount], [DateDue], [DateRecd], [Status], [ApprovalCode], 
 			[EnteredBy_UserID], [SeqNo], [Source], [Initiator], [Reason], [ReasonNotes], [NumPanels], [IsCommissionable], [ProjectShipmentID] 
 			FROM [tblProjectChangeOrder] 
@@ -2016,7 +2016,7 @@
 		</SelectParameters>
 	</asp:SqlDataSource>
 
-	<asp:SqlDataSource ID="gvChangeOrdersSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicConnectionString %>" 
+	<asp:SqlDataSource ID="gvChangeOrdersSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>" 
 		SelectCommand="SELECT [ProjectChangeOrderID], [SeqNo], [Date], [Source], [Amount], [DateDue], [DateRecd], [Status], [Description] 
 		FROM [tblProjectChangeOrder] 
 		WHERE ([ProjectID] = @ProjectID)">
@@ -2025,11 +2025,11 @@
 		</SelectParameters>
 	</asp:SqlDataSource>
 
-	<asp:SqlDataSource ID="ddlCOStatusSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicConnectionString %>" 
+	<asp:SqlDataSource ID="ddlCOStatusSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>" 
 		SelectCommand="SELECT [COStatusAbbr], [COStatusDesc] FROM [tblProjectChangeOrderStatus]">
 	</asp:SqlDataSource>
 
-	<asp:SqlDataSource ID="gvTimeCardsSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicConnectionString %>" 
+	<asp:SqlDataSource ID="gvTimeCardsSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>" 
 		SelectCommand="SELECT [TimecardID], [Date], [EmployeeID], [ReleaseNo], [TimeCardTaskID], [Hours], [NumPanels], [NumSheets], [Notes] 
 		FROM [tblTimecard] 
 		WHERE ([ProjectID] = @ProjectID) 
@@ -2039,22 +2039,22 @@
 		</SelectParameters>
 	</asp:SqlDataSource>
 
-	<asp:SqlDataSource ID="TimeCardTaskSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicConnectionString %>" 
+	<asp:SqlDataSource ID="TimeCardTaskSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>" 
 		SelectCommand="SELECT [TimecardTaskID], [Description] FROM [tblTimecardTask]">
 	</asp:SqlDataSource>
 
-	<asp:SqlDataSource ID="ddlAllEmployeeSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicConnectionString %>" 
+	<asp:SqlDataSource ID="ddlAllEmployeeSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>" 
 		SelectCommand="SELECT [EmployeeID], [Name] FROM [tblEmployee] ORDER BY [Name]">
 	</asp:SqlDataSource>
 
-	<asp:SqlDataSource ID="TCTotalHoursSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicConnectionString %>" 
+	<asp:SqlDataSource ID="TCTotalHoursSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>" 
 		SelectCommand="SELECT SUM(Hours) AS TotalHours FROM tblTimecard WHERE (ProjectID = @ProjectID)">
 		<SelectParameters>
 			<asp:RouteParameter Name="ProjectID" Type="Int32" RouteKey="ProjectID" />
 		</SelectParameters>
 	</asp:SqlDataSource>
 
-	<asp:SqlDataSource ID="gvDocumentSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicConnectionString %>" 
+	<asp:SqlDataSource ID="gvDocumentSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>" 
 		SelectCommand="SELECT [ProjectDocumentID], [Description], [ProjectDocumentTypeID], [Date] 
 		FROM [tblProjectDocument] 
 		WHERE ([ProjectID] = @ProjectID) 
@@ -2064,11 +2064,11 @@
 		</SelectParameters>
 	</asp:SqlDataSource>
 
-	<asp:SqlDataSource ID="ddlDocTypeSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicConnectionString %>" 
+	<asp:SqlDataSource ID="ddlDocTypeSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>" 
 		SelectCommand="SELECT [ProjectDocumentTypeID], [Description] FROM [tblProjectDocumentType] ORDER BY [Description]">
 	</asp:SqlDataSource>
 
-	<asp:SqlDataSource ID="gvLogSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicConnectionString %>" 
+	<asp:SqlDataSource ID="gvLogSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>" 
 		SelectCommand="SELECT [ProjectLogID], [Date], [LogTypeID], [Subject], [EmployeeID] 
 		FROM [tblProjectLog] 
 		WHERE ([ProjectID] = @ProjectID) 
@@ -2078,11 +2078,11 @@
 		</SelectParameters>
 	</asp:SqlDataSource>
 
-	<asp:SqlDataSource ID="ddlLogTypeSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicConnectionString %>" 
+	<asp:SqlDataSource ID="ddlLogTypeSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>" 
 		SelectCommand="SELECT [LogTypeID], [Description] FROM [tblLogType]">
 	</asp:SqlDataSource>
 
-	<asp:SqlDataSource ID="gvFinancialSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicConnectionString %>" 
+	<asp:SqlDataSource ID="gvFinancialSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>" 
 		SelectCommand="SELECT [InvoiceNo], [Date], [AmtInvoice], [AmtMaterial], [AmtOther], [AmtFreight], [EnteredBy], [Description] 
 		FROM [tblInvoice] 
 		WHERE ([ProjectID] = @ProjectID) 
@@ -2092,7 +2092,7 @@
 		</SelectParameters>
 	</asp:SqlDataSource>
 
-	<asp:SqlDataSource ID="fvPMSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicConnectionString %>" 
+	<asp:SqlDataSource ID="fvPMSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>" 
 		SelectCommand="SELECT [ProjectID], 
 			[Scope_PM_EmployeeID], 
 			[MTO_Complete], 
@@ -2114,7 +2114,7 @@
 		</SelectParameters>
 	</asp:SqlDataSource>
 
-	<asp:SqlDataSource ID="ddlPMEmployeeSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicConnectionString %>" 
+	<asp:SqlDataSource ID="ddlPMEmployeeSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>" 
 		SelectCommand="SELECT e.EmployeeID, e.Name FROM tblEmployee AS e INNER JOIN 
 		tblEmployeeRole AS er ON e.EmployeeID = er.EmployeeID INNER JOIN 
 		tblEmployeeType AS et ON er.EmployeeTypeID = et.EmployeeTypeID 
@@ -2122,14 +2122,14 @@
 		ORDER BY e.Name">
 	</asp:SqlDataSource>
 
-	<asp:SqlDataSource ID="ddlSeriesSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicConnectionString %>" 
+	<asp:SqlDataSource ID="ddlSeriesSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>" 
 		SelectCommand="SELECT [SeriesID], [Description] FROM [tblSeries] WHERE ([Active] = @Active) ORDER BY [Description]">
 		<SelectParameters>
 			<asp:Parameter DefaultValue="True" Name="Active" Type="Boolean" />
 		</SelectParameters>
 	</asp:SqlDataSource>
 
-	<asp:SqlDataSource ID="fvScopeSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicConnectionString %>" 
+	<asp:SqlDataSource ID="fvScopeSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>" 
 		SelectCommand="SELECT [ProjectID], [Scope_DateMeeting], [Scope_TimeMeeting], [Scope_PM_EmployeeID], [Scope_CA_EmployeeID], [Scope_Estimator_EmployeeID], 
 			[Scope_CAD_EmployeeID], [Scope_Others], [Scope_NumReleases], [Scope_ReleaseNotes], [Scope_ShippingNotes], [Scope_Warranty], [Scope_WarrantyStd], 
 			[Scope_TeamLead_EmployeeID], [NumPanels], [PanelSqFt], [Scope_BeginQtr], [Scope_BeginYear], [Scope_EndQtr], [Scope_EndYear], [Scope_InternalNotes], 
@@ -2173,7 +2173,7 @@
 		</UpdateParameters>
 	</asp:SqlDataSource>
 
-	<asp:SqlDataSource ID="fvCADSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicConnectionString %>" 
+	<asp:SqlDataSource ID="fvCADSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>" 
 		SelectCommand="SELECT [ProjectID], [ProjectName], [CAD_EmployeeID], [CAD_StatusID], [CAD_Num], [CAD_DateRecd], [CAD_DateEst], [CAD_DateSent], [CAD_DateHandoff], [CAD_EstHours], [DateDelivery], [NumShopDrawings], [CAD_Notes] FROM [tblProject] WHERE ([ProjectID] = @ProjectID)" DeleteCommand="DELETE FROM [tblProject] WHERE [ProjectID] = @ProjectID" InsertCommand="INSERT INTO [tblProject] ([ProjectID], [ProjectName], [CAD_EmployeeID], [CAD_StatusID], [CAD_Num], [CAD_DateRecd], [CAD_DateEst], [CAD_DateSent], [CAD_DateHandoff], [CAD_EstHours], [DateDelivery], [NumShopDrawings], [CAD_Notes]) VALUES (@ProjectID, @ProjectName, @CAD_EmployeeID, @CAD_StatusID, @CAD_Num, @CAD_DateRecd, @CAD_DateEst, @CAD_DateSent, @CAD_DateHandoff, @CAD_EstHours, @DateDelivery, @NumShopDrawings, @CAD_Notes)" UpdateCommand="UPDATE [tblProject] SET [ProjectName] = @ProjectName, [CAD_EmployeeID] = @CAD_EmployeeID, [CAD_StatusID] = @CAD_StatusID, [CAD_Num] = @CAD_Num, [CAD_DateRecd] = @CAD_DateRecd, [CAD_DateEst] = @CAD_DateEst, [CAD_DateSent] = @CAD_DateSent, [CAD_DateHandoff] = @CAD_DateHandoff, [CAD_EstHours] = @CAD_EstHours, [DateDelivery] = @DateDelivery, [NumShopDrawings] = @NumShopDrawings, [CAD_Notes] = @CAD_Notes WHERE [ProjectID] = @ProjectID">
 		<DeleteParameters>
 			<asp:Parameter Name="ProjectID" Type="Int32" />
@@ -2213,15 +2213,15 @@
 		</UpdateParameters>
 	</asp:SqlDataSource>
 
-	<asp:SqlDataSource ID="ddlWarrantySQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicConnectionString %>" 
+	<asp:SqlDataSource ID="ddlWarrantySQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>" 
 		SelectCommand="SELECT [Warranty] FROM [tblWarranty] ORDER BY [Warranty]">
 	</asp:SqlDataSource>
 
-	<asp:SqlDataSource ID="ddlCADStatusSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicConnectionString %>" 
+	<asp:SqlDataSource ID="ddlCADStatusSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>" 
 		SelectCommand="SELECT [ProjectCADStatusID], [Description] FROM [tblProjectCADStatus] ORDER BY [Description]">
 	</asp:SqlDataSource>
 
-	<asp:SqlDataSource ID="gvPMShipmentSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicConnectionString %>" 
+	<asp:SqlDataSource ID="gvPMShipmentSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>" 
 		DeleteCommand="DELETE FROM [tblProjectShipment] WHERE [ProjectShipmentID] = @ProjectShipmentID" 
 		InsertCommand="INSERT INTO [tblProjectShipment] ([ProjectID], [ShipmentNo], [Description], [DateRequested], [DateShipped]) 
 			VALUES (@ProjectID, @ShipmentNo, @Description, @DateRequested, @DateShipped)" 
@@ -2253,14 +2253,14 @@
 		</UpdateParameters>
 	</asp:SqlDataSource>
 
-	<asp:SqlDataSource ID="gvPMShipmentSubSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicConnectionString %>" 
+	<asp:SqlDataSource ID="gvPMShipmentSubSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>" 
 		SelectCommand="SELECT [ShippingID], [Date], [PaidBy], [TrackingNo], [Cost] FROM [tblShipping] WHERE ([ProjectID] = @ProjectID)">
 		<SelectParameters>
 			<asp:Parameter Name="ProjectID" Type="Int32" />
 		</SelectParameters>
 	</asp:SqlDataSource>
 
-	<asp:SqlDataSource ID="gvPMReleaseSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicConnectionString %>" 
+	<asp:SqlDataSource ID="gvPMReleaseSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>" 
 		SelectCommand="SELECT tpr.ProjectReleaseID, tpr.ProjectID, tps.ShipmentNo, tpr.ReleaseNo, tpr.Description, tpr.DateRelease, 
 			(SELECT SUM(Qty) AS Expr1 FROM tblProjectReleaseWork AS tprw WHERE (ProjectReleaseID = tpr.ProjectReleaseID)) AS NumPanels, 
 			(SELECT SUM(QtyPanels) AS Expr1 FROM tblModule WHERE (ProjectReleaseID = tpr.ProjectReleaseID)) AS NumColumns FROM tblProjectRelease AS tpr 

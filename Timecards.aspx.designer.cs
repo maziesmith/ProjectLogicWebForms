@@ -22,13 +22,13 @@ namespace ProjectLogic {
         protected global::System.Web.UI.WebControls.Label lblEmployee;
         
         /// <summary>
-        /// ddlAvtiveEmployee control.
+        /// ddlActiveEmployee control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlAvtiveEmployee;
+        protected global::System.Web.UI.WebControls.DropDownList ddlActiveEmployee;
         
         /// <summary>
         /// ddlActiveEmployeeSQL control.

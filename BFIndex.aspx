@@ -148,7 +148,7 @@
         </LayoutTemplate>
     </asp:ListView>
 
-        <asp:SqlDataSource ID="lvBFListSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicConnectionString %>" 
+        <asp:SqlDataSource ID="lvBFListSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>" 
             SelectCommand="SELECT [ProjectID], [ProjectName], [BookingFormID], [ReleaseNum], [NumPanelsThisRelease], [ReleasedByPM], [ProgrammingComplete], 
             [ProductionComplete], [DateDimsApproved], [ReleaseDesc], [ActEngRelDate], [ActProjShipDate], [CreatedBy] 
             FROM [vueBookingForm] 

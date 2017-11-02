@@ -737,7 +737,7 @@
         </EditItemTemplate>
     </asp:FormView>
     
-    <asp:SqlDataSource ID="gvSheetGoodsSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicConnectionString %>" 
+    <asp:SqlDataSource ID="gvSheetGoodsSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>" 
         SelectCommand="SELECT mos.SheetID, mos.OrderID, mos.SheetName, mos.VendorID, mos.ThicknessID, mos.Color, mos.SheetSize, 
                 mos.CustColorCode, mos.CostFromEstimate, SUM(ma.MTOMatQty) + SUM(ma.MTOOverageQty) AS TotalNeeded, mos.CoreID 
             FROM tblMatOrderSheet AS mos 
@@ -779,7 +779,7 @@
             <asp:Parameter Name="CoreID" Type="Int32" />
         </UpdateParameters>
     </asp:SqlDataSource>
-    <asp:SqlDataSource ID="fvMatOrdersSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicConnectionString %>" 
+    <asp:SqlDataSource ID="fvMatOrdersSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>" 
         SelectCommand="SELECT mo.OrderID, mo.ProjectID, p.ProjectName, mo.OrderedByEmpID, emp.Name, mo.OrderDate, mo.DateNeeded, mo.ReasonID, mor.Description, mo.Notes 
             FROM tblMatOrder AS mo 
             LEFT OUTER JOIN tblMatOrderReason AS mor ON mo.ReasonID = mor.ReasonID 
@@ -817,7 +817,7 @@
             <asp:Parameter Name="Notes" Type="String" />
         </UpdateParameters>
     </asp:SqlDataSource>
-    <asp:SqlDataSource ID="gvSupportMatsSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicConnectionString %>" 
+    <asp:SqlDataSource ID="gvSupportMatsSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>" 
         SelectCommand="SELECT moe.ExtrusionID, moe.OrderID, moe.ExtrusionName, moe.PartNumID, moe.FinishID, moe.Color, moe.Notes, moe.CostFromEstimate, SUM(ma.MTOMatQty) + SUM(ma.MTOOverageQty) AS TotalNeeded
             FROM dbo.tblMatOrderExtrusion AS moe 
             LEFT OUTER JOIN dbo.tblMatAllocation AS ma ON moe.OrderID = ma.OrderID AND moe.ExtrusionName = ma.MatName
@@ -854,7 +854,7 @@
             <asp:Parameter Name="CostFromEstimate" Type="Decimal" />
         </UpdateParameters>
     </asp:SqlDataSource>
-    <asp:SqlDataSource ID="gvMiscMatsSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicConnectionString %>" 
+    <asp:SqlDataSource ID="gvMiscMatsSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>" 
         SelectCommand="SELECT mom.MiscID, mom.OrderID, mom.MiscName, mom.ItemDesc, mom.Size, mom.Alloy, mom.FinishColor, mom.CostFromEstimate, SUM(ma.MTOMatQty) + SUM(ma.MTOOverageQty) AS TotalNeeded
             FROM dbo.tblMatOrderMisc AS mom 
             LEFT OUTER JOIN dbo.tblMatAllocation AS ma ON mom.OrderID = ma.OrderID AND mom.MiscName = ma.MatName
@@ -889,7 +889,7 @@
             <asp:Parameter Name="CostFromEstimate" Type="Decimal" />
         </UpdateParameters>
     </asp:SqlDataSource>
-    <asp:SqlDataSource ID="gvMatAllocationSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicConnectionString %>" 
+    <asp:SqlDataSource ID="gvMatAllocationSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>" 
         SelectCommand="SELECT MatAllocationID, OrderID, ZoneName, ReleaseName, MTOByName, MatName, MTOMatQty, MTOOverageQty, DamagedQty, UsageDesc, UsageQty, LinInch
             FROM dbo.tblMatAllocation
             WHERE OrderID = @OrderID
@@ -929,22 +929,22 @@
             <asp:Parameter Name="LinInch" Type="Decimal" />
         </UpdateParameters>
     </asp:SqlDataSource>
-    <asp:SqlDataSource ID="ddlVendorSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicConnectionString %>" 
+    <asp:SqlDataSource ID="ddlVendorSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>" 
         SelectCommand="SELECT [MatManufacturerID], [MatManufacturerDesc] FROM [tblMatManufacturer]">
     </asp:SqlDataSource>
-    <asp:SqlDataSource ID="ddlThicknessSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicConnectionString %>" 
+    <asp:SqlDataSource ID="ddlThicknessSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>" 
         SelectCommand="SELECT [MatThicknessID], [MatThickness] FROM [tblMatThickness]">
     </asp:SqlDataSource>
-    <asp:SqlDataSource ID="ddlCoreSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicConnectionString %>" 
+    <asp:SqlDataSource ID="ddlCoreSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>" 
         SelectCommand="SELECT [MatCoreID], [MatCore] FROM [tblMatCore]">
     </asp:SqlDataSource>
-    <asp:SqlDataSource ID="ddlPartNumSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicConnectionString %>" 
+    <asp:SqlDataSource ID="ddlPartNumSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>" 
         SelectCommand="SELECT [PartNumID], [PartNumDesc] FROM [tblMatOrderPartNum] ORDER BY [PartNumDesc]">
     </asp:SqlDataSource>
-    <asp:SqlDataSource ID="ddlFinishSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicConnectionString %>" 
+    <asp:SqlDataSource ID="ddlFinishSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>" 
         SelectCommand="SELECT [FinishID], [Description] FROM [tblMatOrderFinish]">
     </asp:SqlDataSource>
-    <asp:SqlDataSource ID="ddlMatNameSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicConnectionString %>" 
+    <asp:SqlDataSource ID="ddlMatNameSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>" 
         SelectCommand="SELECT OrderID, SheetName AS MatName
                 FROM dbo.tblMatOrderSheet
                 WHERE OrderID=@OrderID
@@ -961,10 +961,10 @@
             <asp:RouteParameter Name="OrderID" Type="Int32" RouteKey="OrderID" />
         </SelectParameters>
     </asp:SqlDataSource>
-    <asp:SqlDataSource ID="ddlOrderedBySQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicConnectionString %>" SelectCommand="SELECT [EmployeeID], [Name] FROM [tblEmployee] WHERE ([Status] = @Status) ORDER BY [Name]">
+    <asp:SqlDataSource ID="ddlOrderedBySQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>" SelectCommand="SELECT [EmployeeID], [Name] FROM [tblEmployee] WHERE ([Status] = @Status) ORDER BY [Name]">
         <SelectParameters>
             <asp:Parameter DefaultValue="A" Name="Status" Type="String" />
         </SelectParameters>
     </asp:SqlDataSource>
-    <asp:SqlDataSource ID="ddlReasonSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicConnectionString %>" SelectCommand="SELECT [ReasonID], [Description] FROM [tblMatOrderReason]"></asp:SqlDataSource>
+    <asp:SqlDataSource ID="ddlReasonSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>" SelectCommand="SELECT [ReasonID], [Description] FROM [tblMatOrderReason]"></asp:SqlDataSource>
 </asp:Content>

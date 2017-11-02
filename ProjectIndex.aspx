@@ -122,7 +122,7 @@
       
     </asp:ListView>
 
-    <asp:SqlDataSource ID="ProjectListSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicConnectionString %>" 
+    <asp:SqlDataSource ID="ProjectListSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>" 
         SelectCommand="SELECT [ProjectID], [ProjectName], [ProjectAddress], [ProjectCity], [ProjectState], [ProjectZip] FROM [tblProject]
             WHERE (ProjectName LIKE '%' + @ProjectName + '%') OR (ProjectID = @ProjectID)" CancelSelectOnNullParameter="false">
         <SelectParameters>

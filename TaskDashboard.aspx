@@ -718,18 +718,18 @@
     </asp:MultiView>
 
 
-    <asp:SqlDataSource ID="ddlEmployeeSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicConnectionString %>" 
+    <asp:SqlDataSource ID="ddlEmployeeSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>" 
             SelectCommand="SELECT [EmployeeID], [Name] FROM [tblEmployee] WHERE ([Status] = 'A') ORDER BY [Name]">
         </asp:SqlDataSource>
         
-    <asp:SqlDataSource ID="lstTaskCodeSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicConnectionString %>" 
+    <asp:SqlDataSource ID="lstTaskCodeSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>" 
         SelectCommand="SELECT [TaskCodeID], [TaskCodeAbbr], [TaskCodeName] FROM [tblTaskCode] WHERE ([TaskCodeStatus] = @TaskCodeStatus) ORDER BY [TaskCodeAbbr]">
         <SelectParameters>
             <asp:Parameter DefaultValue="True" Name="TaskCodeStatus" Type="Boolean" />
         </SelectParameters>
     </asp:SqlDataSource>
     
-    <asp:SqlDataSource ID="gvTaskEmployeeSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicConnectionString %>" 
+    <asp:SqlDataSource ID="gvTaskEmployeeSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>" 
                 SelectCommand="SELECT tt.TaskID
                     , tt.EmployeeID
                     , tt.ProjectID
@@ -785,7 +785,7 @@
                 </DeleteParameters>
             </asp:SqlDataSource>
 
-    <asp:SqlDataSource ID="gvTaskProjectSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicConnectionString %>" 
+    <asp:SqlDataSource ID="gvTaskProjectSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>" 
         SelectCommand="SELECT tt.TaskID
             , tt.EmployeeID
             , tt.ProjectID
@@ -837,15 +837,15 @@
         </DeleteParameters>
     </asp:SqlDataSource>
     
-    <asp:SqlDataSource ID="ddlStatusSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicConnectionString %>" 
+    <asp:SqlDataSource ID="ddlStatusSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>" 
         SelectCommand="SELECT [TaskStatusID], [TaskStatusName] FROM [tblTaskStatus] ORDER BY [TaskStatusType], [TaskStatusName]">
     </asp:SqlDataSource>
     
-    <asp:SqlDataSource ID="ddlPrioritySQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicConnectionString %>" 
+    <asp:SqlDataSource ID="ddlPrioritySQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>" 
         SelectCommand="SELECT [TaskPriorityID], [TaskPriorityName] FROM [tblTaskPriority] ORDER BY [TaskPriorityID]">
     </asp:SqlDataSource>
     
-            <asp:SqlDataSource ID="gvPMProjectSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicConnectionString %>" 
+            <asp:SqlDataSource ID="gvPMProjectSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>" 
                 SelectCommand="SELECT [ProjectID], [ProjectName], [ProjectStatusID], [DateStatus] 
                 FROM [tblProject] 
                 WHERE (([Scope_PM_EmployeeID] = @Scope_PM_EmployeeID) AND ([ProjectStatusID] &lt;&gt; '5') AND [ProjectStatusID] &lt;&gt; '6') 
@@ -855,11 +855,11 @@
                 </SelectParameters>
             </asp:SqlDataSource>
     
-            <asp:SqlDataSource ID="ddlProjectStatusSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicConnectionString %>" 
+            <asp:SqlDataSource ID="ddlProjectStatusSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>" 
                 SelectCommand="SELECT [ProjectStatusID], [Description] FROM [tblProjectStatus] ORDER BY [AutoStep]">
             </asp:SqlDataSource>
     
-    <asp:SqlDataSource ID="ddlCADModelEmpSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicConnectionString %>" 
+    <asp:SqlDataSource ID="ddlCADModelEmpSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>" 
         SelectCommand="SELECT e.EmployeeID, e.Name
             FROM tblEmployee e INNER JOIN
             tblEmployeeType et ON e.EmployeeTypeID = et.EmployeeTypeID
@@ -867,13 +867,13 @@
             ORDER BY e.Name">
     </asp:SqlDataSource>
 
-    <asp:SqlDataSource ID="ddlPMEmployeeSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicConnectionString %>" 
+    <asp:SqlDataSource ID="ddlPMEmployeeSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>" 
         SelectCommand="SELECT e.EmployeeID, e.Name
             FROM tblEmployee e INNER JOIN
             tblEmployeeType et ON e.EmployeeTypeID = et.EmployeeTypeID
             WHERE (et.Description = 'Project Manager') AND (e.Status = 'A')">
     </asp:SqlDataSource>
-    <asp:SqlDataSource ID="gvPMProjectTaskSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicConnectionString %>" 
+    <asp:SqlDataSource ID="gvPMProjectTaskSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>" 
                                     SelectCommand="SELECT tt.TaskID, e.Name, tt.ReleaseID, tc.TaskCodeAbbr, ts.TaskStatusName, tp.TaskPriorityName, 
                                         tt.DueDate, tt.Notes, tt.CompDate 
                                     FROM tblTaskTracker AS tt INNER JOIN 
@@ -887,7 +887,7 @@
                                         <asp:Parameter Name="ProjectID" Type="Int32" />
                                     </SelectParameters>
                                 </asp:SqlDataSource>
-    <asp:SqlDataSource ID="gvTaskTeamSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicConnectionString %>" 
+    <asp:SqlDataSource ID="gvTaskTeamSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>" 
         SelectCommand="SELECT tt.TaskID, 
                 tt.EmployeeID, 
                 tt.ProjectID, 

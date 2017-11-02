@@ -107,7 +107,7 @@
    
 
     </asp:ListView>  
-    <asp:SqlDataSource ID="lvMatOrdersSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicConnectionString %>" 
+    <asp:SqlDataSource ID="lvMatOrdersSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>" 
         SelectCommand="SELECT mo.ProjectID, p.ProjectName, mo.OrderID, mor.Description, mo.OrderDate 
         FROM tblMatOrder AS mo 
         LEFT OUTER JOIN tblProject AS p ON mo.ProjectID = p.ProjectID 
