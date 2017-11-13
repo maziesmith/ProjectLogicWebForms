@@ -56,7 +56,7 @@ namespace ProjectLogic
         {
 
         }
-        protected void fvPM_DataBound(Object sender, EventArgs e)
+        protected void fvPM_DataBound(object sender, EventArgs e)
         {
             int BidPanels = 0;
             int RelToDate = 0;
@@ -103,7 +103,7 @@ namespace ProjectLogic
 
         }
 
-        protected void GvPMShipment_DataBound(Object sender, EventArgs e)
+        protected void GvPMShipment_DataBound(object sender, EventArgs e)
         {
             GridViewRow pagerRow = gvPMShipment.BottomPagerRow;
             DropDownList pagelist = (DropDownList)pagerRow.Cells[0].FindControl("ddlPage");
@@ -154,13 +154,13 @@ namespace ProjectLogic
             }
         }
 
-        protected void ShipmentPagerDDL_SelectedIndexChanged(Object sender, EventArgs e)
+        protected void ShipmentPagerDDL_SelectedIndexChanged(object sender, EventArgs e)
         {
             GridViewRow pagerRow = gvPMShipment.BottomPagerRow;
             DropDownList pageList = (DropDownList)pagerRow.Cells[0].FindControl("ddlPage");
             gvPMShipment.PageIndex = pageList.SelectedIndex;
         }
-        protected void GvPMRelease_DataBound(Object sender, EventArgs e)
+        protected void GvPMRelease_DataBound(object sender, EventArgs e)
         {
             GridViewRow pagerRow = gvPMRelease.BottomPagerRow;
             DropDownList pagelist = (DropDownList)pagerRow.Cells[0].FindControl("ddlPage");
@@ -212,7 +212,7 @@ namespace ProjectLogic
             }
         }
 
-        protected void ReleasePagerDDL_SelectedIndexChanged(Object sender, EventArgs e)
+        protected void ReleasePagerDDL_SelectedIndexChanged(object sender, EventArgs e)
         {
             GridViewRow pagerRow = gvPMRelease.BottomPagerRow;
             DropDownList pageList = (DropDownList)pagerRow.Cells[0].FindControl("ddlPage");
