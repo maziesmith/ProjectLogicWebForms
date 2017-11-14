@@ -176,7 +176,7 @@
                     <th>#&nbsp;Sheets</th>
                 </tr>
                 <tr>
-                    <td class="NoPrint"><asp:LinkButton ID="LbTimeCardEmpty" runat="server" CommandName="EmptyInsert" Text="Save" /></td>
+                    <td class="NoPrint"><asp:LinkButton ID="LbTimeCardEmpty" runat="server" CommandName="EmptyInsert" Text="Add Entry" /></td>
                     <td><asp:TextBox ID="TxtDate" runat="server" CssClass="DateBox" Text='<%# Bind("Date") %>' /></td>
                     <td><asp:DropDownList ID="DdlTaskDesc" runat="server" DataSourceID="DdlTaskDescSQL" AppendDataBoundItems="True"
                             DataTextField="Description" DataValueField="TimecardTaskID" SelectedValue='<%# Bind("TimeCardTaskID") %>'>
