@@ -590,7 +590,7 @@
                     <asp:Label ID="lblReleaseDesc" runat="server" Text='<%# Bind("ReleaseName") %>'></asp:Label>
                 </ItemTemplate>
             </asp:TemplateField>
-            <asp:TemplateField HeaderText="MTO&nbspBy" SortExpression="MTOByName" HeaderStyle-BackColor="Silver">
+            <asp:TemplateField HeaderText="MTO&nbsp;By" SortExpression="MTOByName" HeaderStyle-BackColor="Silver">
                 <EditItemTemplate>
                     <asp:TextBox ID="txtMTOBy" runat="server" CssClass="DateBox" Text='<%# Bind("MTOByName") %>'></asp:TextBox>
                 </EditItemTemplate>

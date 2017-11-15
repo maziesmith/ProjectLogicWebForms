@@ -14,15 +14,22 @@ namespace ProjectLogic
         {
             if (!IsPostBack)
             {
-                txtFrom.Text = DateTime.Now.ToShortDateString();
-                txtTo.Text = DateTime.Now.ToShortDateString();
+                TxtFrom.Text = DateTime.Now.ToShortDateString();
+                TxtTo.Text = DateTime.Now.ToShortDateString();
             }
-                
         }
 
         protected void DdlProjectsById_OnSelectedIndexChanged(object sender, EventArgs e)
         {
             GridViewRow gvrow = GvTimecards.Rows[GvTimecards.EditIndex];
+            DropDownList ddlProjectsById = (DropDownList)gvrow.FindControl("DdlProjectsById");
+            DropDownList ddlProjectsByName = (DropDownList) gvrow.FindControl("DdlProjectsByName");
+
+            ddlProjectsByName.SelectedValue = ddlProjectsById.SelectedValue;
+        }
+        protected void DdlEmptyProjectsById_OnSelectedIndexChanged(object sender, EventArgs e)
+        {
+            GridViewRow gvrow = (GridViewRow)GvTimecards.Controls[0].Controls[0];
             DropDownList ddlProjectsById = (DropDownList)gvrow.FindControl("DdlProjectsById");
             DropDownList ddlProjectsByName = (DropDownList) gvrow.FindControl("DdlProjectsByName");
 
@@ -40,6 +47,14 @@ namespace ProjectLogic
         protected void DdlProjectsByName_OnSelectedIndexChanged(object sender, EventArgs e)
         {
             GridViewRow gvrow = GvTimecards.Rows[GvTimecards.EditIndex];
+            DropDownList ddlProjectsById = (DropDownList)gvrow.FindControl("DdlProjectsById");
+            DropDownList ddlProjectsByName = (DropDownList)gvrow.FindControl("DdlProjectsByName");
+
+            ddlProjectsById.SelectedValue = ddlProjectsByName.SelectedValue;
+        }
+        protected void DdlEmptyProjectsByName_OnSelectedIndexChanged(object sender, EventArgs e)
+        {
+            GridViewRow gvrow = (GridViewRow)GvTimecards.Controls[0].Controls[0];
             DropDownList ddlProjectsById = (DropDownList)gvrow.FindControl("DdlProjectsById");
             DropDownList ddlProjectsByName = (DropDownList)gvrow.FindControl("DdlProjectsByName");
 
@@ -114,6 +129,73 @@ namespace ProjectLogic
                 lbPrev.Visible = true;
                 lbNext.Visible = true;
                 lbLast.Visible = true;
+            }
+        }
+
+        protected void GvTimecards_OnRowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "FooterInsert" && Page.IsValid)
+            {
+                GridViewRow gvrow = GvTimecards.FooterRow;
+                if (gvrow != null)
+                {
+                    RowInsert(gvrow);
+                }
+            }
+
+            if (e.CommandName == "EmptyInsert" && Page.IsValid)
+            {
+                GridViewRow gvrow = (GridViewRow) GvTimecards.Controls[0].Controls[0];
+                if (gvrow != null)
+                {
+                    RowInsert(gvrow);
+                }
+            }
+        }
+
+        private void RowInsert(GridViewRow gvRow)
+        {
+            GridViewRow gvrow = gvRow;
+            TextBox txtDate = (TextBox)gvrow.FindControl("TxtDate");
+            DropDownList ddlDescription = (DropDownList)gvrow.FindControl("DdlTaskDesc");
+            TextBox txtHours = (TextBox)gvrow.FindControl("TxtHours");
+            TextBox txtNotes = (TextBox)gvrow.FindControl("TxtNotes");
+            DropDownList ddlProjectId = (DropDownList)gvrow.FindControl("DdlProjectsById");
+            TextBox txtRelNo = (TextBox)gvrow.FindControl("TxtReleaseNo");
+            TextBox txtNumPanels = (TextBox)gvrow.FindControl("TxtNumPanels");
+            TextBox txtNumSheets = (TextBox)gvrow.FindControl("TxtNumSheets"); 
+
+            //Data Validation
+            if (string.IsNullOrWhiteSpace(ddlEmployee.SelectedValue)) // no employee selected. Control is in MainContent, not in GridView
+            {
+                ClientScript.RegisterStartupScript(GetType(), "error",
+                    "alert('Please select Employee before adding Timecard.');", true);
+            }
+            else if (string.IsNullOrWhiteSpace(ddlDescription.SelectedValue)) // no task description selected
+            {
+                ClientScript.RegisterStartupScript(GetType(), "error",
+                    "alert('Please select Timecard Description.');", true);
+            }
+            else if ((ddlDescription.SelectedValue == "2" || ddlDescription.SelectedValue == "8") &&
+                        !string.IsNullOrWhiteSpace(ddlProjectId.SelectedValue)) // non-project task and project selected
+            {
+                ClientScript.RegisterStartupScript(GetType(), "error",
+                    "alert('Non-project Description and Project #" + ddlProjectId.SelectedValue + " selected. Please change Description or use <--Select Project-->.');",
+                    true);
+            } 
+            else
+            {
+                GridViewTimecardSQL.InsertParameters.Clear();
+                GridViewTimecardSQL.InsertParameters.Add("EmployeeID", ddlEmployee.SelectedValue);
+                GridViewTimecardSQL.InsertParameters.Add("Date", txtDate.Text);
+                GridViewTimecardSQL.InsertParameters.Add("TimecardTaskID", ddlDescription.SelectedValue);
+                GridViewTimecardSQL.InsertParameters.Add("Hours", txtHours.Text); // null exception here
+                GridViewTimecardSQL.InsertParameters.Add("Notes", txtNotes.Text); 
+                GridViewTimecardSQL.InsertParameters.Add("ProjectID", ddlProjectId.SelectedValue);
+                GridViewTimecardSQL.InsertParameters.Add("ReleaseNo", txtRelNo.Text);
+                GridViewTimecardSQL.InsertParameters.Add("NumPanels", txtNumPanels.Text);
+                GridViewTimecardSQL.InsertParameters.Add("NumSheets", txtNumSheets.Text);
+                GridViewTimecardSQL.Insert();
             }
         }
     }

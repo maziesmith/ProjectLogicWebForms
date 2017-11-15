@@ -58,33 +58,33 @@ namespace ProjectLogic
         }
         protected void fvPM_DataBound(object sender, EventArgs e)
         {
-            int BidPanels = 0;
-            int RelToDate = 0;
-            int PanelsRemain = 0;
+            int bidPanels = 0;
+            int relToDate = 0;
+            int panelsRemain = 0;
 
             TextBox txtBidPanels = (TextBox)fvPM.FindControl("txtBidPanels");
             TextBox txtRelToDate = (TextBox)fvPM.FindControl("txtRelToDate");
             TextBox txtPanelsRemain = (TextBox)fvPM.FindControl("txtPanelsRemain");
-            Label lblProjectID = (Label)this.fvHeader.FindControl("lblProjectID");
+            Label lblProjectId = (Label)this.fvHeader.FindControl("lblProjectID");
 
-            String strProjectID = lblProjectID.Text.ToString();
-            if (strProjectID != null)
+            String strProjectId = lblProjectId.Text.ToString();
+            if (strProjectId != null)
             {
-                String conString = ConfigurationManager.ConnectionStrings["ProjectLogicConnectionString"].ConnectionString;
+                String conString = ConfigurationManager.ConnectionStrings["ProjectLogicTestConnectionString"].ConnectionString;
                 SqlConnection connection = new SqlConnection(conString);
                 connection.Open();
-                SqlCommand command1 = new SqlCommand("SELECT NumPanels FROM tblBid WHERE BidID = '" + strProjectID + "'", connection);
-                BidPanels = (int)command1.ExecuteScalar();
-                SqlCommand command2 = new SqlCommand("SELECT SUM(NumPanels) FROM vueProjectRelease WHERE ProjectID = '" + strProjectID + "'", connection);
-                RelToDate = (int)command2.ExecuteScalar();
-                PanelsRemain = BidPanels - RelToDate;
+                SqlCommand command1 = new SqlCommand("SELECT NumPanels FROM tblBid WHERE BidID = '" + strProjectId + "'", connection);
+                bidPanels = (int)command1.ExecuteScalar();
+                SqlCommand command2 = new SqlCommand("SELECT SUM(NumPanels) FROM vueProjectRelease WHERE ProjectID = '" + strProjectId + "'", connection);
+                relToDate = (int)command2.ExecuteScalar();
+                panelsRemain = bidPanels - relToDate;
             }
             if (txtBidPanels != null)
-            { txtBidPanels.Text = String.Format("{0:n0}",BidPanels); }
+            { txtBidPanels.Text = String.Format("{0:n0}",bidPanels); }
             if (txtRelToDate != null)
-            { txtRelToDate.Text = String.Format("{0:n0}",RelToDate); }
+            { txtRelToDate.Text = String.Format("{0:n0}",relToDate); }
             if (txtPanelsRemain != null)
-            { txtPanelsRemain.Text = String.Format("{0:n0}",PanelsRemain); }
+            { txtPanelsRemain.Text = String.Format("{0:n0}",panelsRemain); }
         }
         protected void GvPMShipment_RowDataBound(object sender, GridViewRowEventArgs e)
         {
@@ -93,7 +93,7 @@ namespace ProjectLogic
                 string str = Convert.ToString(DataBinder.Eval(e.Row.DataItem, "ProjectShipmentID"));
                 SqlDataSource source = new SqlDataSource
                 {
-                    ConnectionString = ConfigurationManager.ConnectionStrings["ProjectLogicConnectionString"].ConnectionString,
+                    ConnectionString = ConfigurationManager.ConnectionStrings["ProjectLogicTestConnectionString"].ConnectionString,
                     SelectCommand = "SELECT [ShippingID], [Date], [PaidBy], [TrackingNo], [Cost] FROM [tblShipping] WHERE ([ProjectShipmentID] = '" + str + "')"
                 };
                 GridView view1 = (GridView)e.Row.FindControl("gvPMShipmentSub");
@@ -237,7 +237,7 @@ namespace ProjectLogic
 
         protected void gvProjectTask_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-            string str = base.Request.QueryString["PID"];
+            string str = Request.QueryString["PID"];
             if ((e.CommandName == "FooterInsert") && Page.IsValid)
             {
                 GridViewRow footerRow = ((GridView)MultiView1.Views[10].FindControl("gvProjectTask")).FooterRow;

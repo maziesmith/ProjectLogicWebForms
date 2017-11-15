@@ -58,13 +58,13 @@ namespace ProjectLogic {
         protected global::System.Web.UI.WebControls.Label Label3;
         
         /// <summary>
-        /// ddlEmployee control.
+        /// DdlEmployee control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlEmployee;
+        protected global::System.Web.UI.WebControls.DropDownList DdlEmployee;
         
         /// <summary>
         /// Label4 control.
@@ -166,13 +166,13 @@ namespace ProjectLogic {
         protected global::System.Web.UI.WebControls.BulletedList blPM;
         
         /// <summary>
-        /// Label12 control.
+        /// LblPM control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label12;
+        protected global::System.Web.UI.WebControls.Label LblPM;
         
         /// <summary>
         /// ddlPMEmployee control.
@@ -184,13 +184,13 @@ namespace ProjectLogic {
         protected global::System.Web.UI.WebControls.DropDownList ddlPMEmployee;
         
         /// <summary>
-        /// Label13 control.
+        /// LblLegend control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label13;
+        protected global::System.Web.UI.WebControls.Label LblLegend;
         
         /// <summary>
         /// lstTaskCode control.
@@ -229,13 +229,13 @@ namespace ProjectLogic {
         protected global::System.Web.UI.WebControls.BulletedList blTeam;
         
         /// <summary>
-        /// Label14 control.
+        /// LblTeam control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label14;
+        protected global::System.Web.UI.WebControls.Label LblTeam;
         
         /// <summary>
         /// ddlTeam control.
@@ -247,22 +247,22 @@ namespace ProjectLogic {
         protected global::System.Web.UI.WebControls.DropDownList ddlTeam;
         
         /// <summary>
-        /// Label15 control.
+        /// LblTeamLegend control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label15;
+        protected global::System.Web.UI.WebControls.Label LblTeamLegend;
         
         /// <summary>
-        /// DataList4 control.
+        /// DlTaskCode control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DataList DataList4;
+        protected global::System.Web.UI.WebControls.DataList DlTaskCode;
         
         /// <summary>
         /// gvTaskTeam control.

@@ -22,31 +22,31 @@ namespace ProjectLogic {
         protected global::System.Web.UI.WebControls.Label lblEmployee;
         
         /// <summary>
-        /// ddlActiveEmployee control.
+        /// ddlEmployee control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlActiveEmployee;
+        protected global::System.Web.UI.WebControls.DropDownList ddlEmployee;
         
         /// <summary>
-        /// txtFrom control.
+        /// TxtFrom control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFrom;
+        protected global::System.Web.UI.WebControls.TextBox TxtFrom;
         
         /// <summary>
-        /// txtTo control.
+        /// TxtTo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtTo;
+        protected global::System.Web.UI.WebControls.TextBox TxtTo;
         
         /// <summary>
         /// BtnSearch control.
@@ -101,6 +101,15 @@ namespace ProjectLogic {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource DdlProjectsByIdSQL;
+        
+        /// <summary>
+        /// SqlDataSource1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
         
         /// <summary>
         /// DdlProjectsByNameSQL control.

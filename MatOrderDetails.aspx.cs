@@ -61,7 +61,7 @@ namespace ProjectLogic
                 GridViewRow gvrow = (GridViewRow)gvSheetGoods.Controls[0].Controls[0];
                 if (gvrow == null) { return; }
 
-                Label lblOrderID = (Label)this.fvHeader.Row.FindControl("lblOrderID");
+                Label lblOrderId = (Label)fvHeader.Row.FindControl("lblOrderID");
                 TextBox txtMatName = (TextBox)gvrow.FindControl("txtSheetName");
                 DropDownList ddlVendor = (DropDownList)gvrow.FindControl("ddlVendor");
                 TextBox txtSheetSize = (TextBox)gvrow.FindControl("txtSheetSize");
@@ -80,7 +80,7 @@ namespace ProjectLogic
                 else
                 {
                     gvSheetGoodsSQL.InsertParameters.Clear();
-                    gvSheetGoodsSQL.InsertParameters.Add("OrderID", lblOrderID.Text);
+                    gvSheetGoodsSQL.InsertParameters.Add("OrderID", lblOrderId.Text);
                     gvSheetGoodsSQL.InsertParameters.Add("SheetName", txtMatName.Text);
                     gvSheetGoodsSQL.InsertParameters.Add("VendorID", ddlVendor.SelectedValue);
                     gvSheetGoodsSQL.InsertParameters.Add("SheetSize", txtSheetSize.Text);
