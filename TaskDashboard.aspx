@@ -652,7 +652,7 @@
 						<FooterTemplate>
 							<asp:TextBox ID="TxtCompDate" runat="server" CssClass="DateBox" Text='<%# Bind("CompDate", "{0:MM/dd/yyyy}") %>'></asp:TextBox>
 							<asp:CompareValidator id="FooterCompDateValidator" runat="server" Display="Dynamic" Type="Date" Operator="DataTypeCheck" 
-								ControlToValidate="txtFooterCompDate" ErrorMessage="Please enter a valid date.">
+								ControlToValidate="TxtCompDate" ErrorMessage="Please enter a valid date.">
 							</asp:CompareValidator>
 						</FooterTemplate>
 						<ItemTemplate>
