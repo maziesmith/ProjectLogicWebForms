@@ -17,6 +17,7 @@ namespace ProjectLogic
                 TxtFrom.Text = DateTime.Now.ToShortDateString();
                 TxtTo.Text = DateTime.Now.ToShortDateString();
             }
+
         }
 
         protected void DdlProjectsById_OnSelectedIndexChanged(object sender, EventArgs e)
@@ -161,7 +162,7 @@ namespace ProjectLogic
             TextBox txtHours = (TextBox)gvrow.FindControl("TxtHours");
             TextBox txtNotes = (TextBox)gvrow.FindControl("TxtNotes");
             DropDownList ddlProjectId = (DropDownList)gvrow.FindControl("DdlProjectsById");
-            TextBox txtRelNo = (TextBox)gvrow.FindControl("TxtReleaseNo");
+            TextBox txtRelNo = (TextBox)gvrow.FindControl("TxtRelNo");
             TextBox txtNumPanels = (TextBox)gvrow.FindControl("TxtNumPanels");
             TextBox txtNumSheets = (TextBox)gvrow.FindControl("TxtNumSheets"); 
 

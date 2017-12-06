@@ -1,6 +1,4 @@
-﻿body {
-}
-
+﻿
 .AlignRight {
     text-align: right;
 }
@@ -20,6 +18,14 @@
     width: 400px;
 }
 
+.DateBox {
+    width: 100px;
+}
+
+.CurrencyBox {
+    text-align: right;
+}
+
 .MenuStyle
         {
             background-color:white;
@@ -30,14 +36,9 @@
     width: 150px;
 }
 
-.DateBox {
-    width: 100px;
+table, th, td {
+    border: 1px solid black;
 }
-
-.CurrencyBox{
-    text-align:right;
-}
-
 .Grid td
 {
     background-color: lightgray;
@@ -54,14 +55,14 @@
 }
 .ChildGrid td
 {
-    background-color: #eee !important;
+    background-color: #eee;
     color: black;
     font-size: 10pt;
     line-height:200%
 }
 .ChildGrid th
 {
-    background-color: #6C6C6C !important;
+    background-color: #6C6C6C;
     color: White;
     font-size: 10pt;
     line-height:200%

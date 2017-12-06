@@ -204,7 +204,7 @@
                                           DataTextField="ProjectName" DataValueField="ProjectID" SelectedValue='<%# Bind("ProjectID") %>' 
                                           OnSelectedIndexChanged="DdlEmptyProjectsByName_OnSelectedIndexChanged" AutoPostBack="True">
                         <asp:ListItem Text="<--Select Project-->" Value="" /></asp:DropDownList></td>
-                    <td><asp:TextBox ID="TxtRelease" runat="server" CssClass="NumBox AlignRight" Text="" /></td>
+                    <td><asp:TextBox ID="TxtRelNo" runat="server" CssClass="NumBox AlignRight" Text="" /></td>
                     <td><asp:TextBox ID="TxtNumPanels" runat="server" CssClass="NumBox AlignRight" Text="0" /></td>
                     <td><asp:TextBox ID="TxtNumSheets" runat="server" CssClass="NumBox AlignRight" Text="0" /></td>
                 </tr>
@@ -226,6 +226,8 @@
             <asp:LinkButton ID="lbLast" runat="server" Text="Last&gt&gt" CommandArgument="Last" CommandName="Page" />
         </PagerTemplate>
     </asp:GridView>
+    
+    Total hours for selected employee and date range: <asp:Label runat="server" ID="TxtTotalHours" Text="0.00"></asp:Label>
 
     <asp:SqlDataSource ID="ddlActiveEmployeeSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>" 
         SelectCommand="SELECT [EmployeeID], [Name] FROM [tblEmployee] WHERE ([Status] = @Status) ORDER BY [Name]">
@@ -291,6 +293,15 @@
     <asp:SqlDataSource ID="DdlProjectsByNameSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>" 
         SelectCommand="SELECT [ProjectID], [ProjectName] FROM [tblProject] ORDER BY [ProjectName]">
         
+    </asp:SqlDataSource>
+
+    <asp:SqlDataSource ID="SqlTotalHours" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>" 
+        SelectCommand="SELECT SUM([Hours]) FROM [tblTimecard] WHERE (([EmployeeID] = @EmployeeID) AND ([Date] &gt;= @DateFrom) AND ([Date] &lt;= @DateTo))">
+        <SelectParameters>
+            <asp:ControlParameter ControlID="ddlEmployee" Name="EmployeeID" PropertyName="SelectedValue" Type="Int32" />
+            <asp:ControlParameter ControlID="TxtFrom" Name="DateFrom" PropertyName="Text" Type="DateTime" />
+            <asp:ControlParameter ControlID="TxtTo" Name="DateTo" PropertyName="Text" Type="DateTime" />
+        </SelectParameters>
     </asp:SqlDataSource>
 
 </asp:Content>

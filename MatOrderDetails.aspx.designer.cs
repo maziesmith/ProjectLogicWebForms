@@ -13,174 +13,174 @@ namespace ProjectLogic {
     public partial class MatOrderDetails {
         
         /// <summary>
-        /// fvHeader control.
+        /// FvHeader control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FormView fvHeader;
+        protected global::System.Web.UI.WebControls.FormView FvHeader;
         
         /// <summary>
-        /// gvSheetGoods control.
+        /// GvSheetGoods control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvSheetGoods;
+        protected global::System.Web.UI.WebControls.GridView GvSheetGoods;
         
         /// <summary>
-        /// gvSupportMats control.
+        /// GvSupportMats control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvSupportMats;
+        protected global::System.Web.UI.WebControls.GridView GvSupportMats;
         
         /// <summary>
-        /// gvMiscMats control.
+        /// GvMiscMats control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvMiscMats;
+        protected global::System.Web.UI.WebControls.GridView GvMiscMats;
         
         /// <summary>
-        /// gvMatAllocation control.
+        /// GvMatAllocation control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvMatAllocation;
+        protected global::System.Web.UI.WebControls.GridView GvMatAllocation;
         
         /// <summary>
-        /// fvFooter control.
+        /// FvFooter control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FormView fvFooter;
+        protected global::System.Web.UI.WebControls.FormView FvFooter;
         
         /// <summary>
-        /// gvSheetGoodsSQL control.
+        /// GvSheetGoodsSQL control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource gvSheetGoodsSQL;
+        protected global::System.Web.UI.WebControls.SqlDataSource GvSheetGoodsSQL;
         
         /// <summary>
-        /// fvMatOrdersSQL control.
+        /// FvMatOrdersSQL control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource fvMatOrdersSQL;
+        protected global::System.Web.UI.WebControls.SqlDataSource FvMatOrdersSQL;
         
         /// <summary>
-        /// gvSupportMatsSQL control.
+        /// GvSupportMatsSQL control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource gvSupportMatsSQL;
+        protected global::System.Web.UI.WebControls.SqlDataSource GvSupportMatsSQL;
         
         /// <summary>
-        /// gvMiscMatsSQL control.
+        /// GvMiscMatsSQL control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource gvMiscMatsSQL;
+        protected global::System.Web.UI.WebControls.SqlDataSource GvMiscMatsSQL;
         
         /// <summary>
-        /// gvMatAllocationSQL control.
+        /// GvMatAllocationSQL control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource gvMatAllocationSQL;
+        protected global::System.Web.UI.WebControls.SqlDataSource GvMatAllocationSQL;
         
         /// <summary>
-        /// ddlVendorSQL control.
+        /// DdlVendorSQL control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource ddlVendorSQL;
+        protected global::System.Web.UI.WebControls.SqlDataSource DdlVendorSQL;
         
         /// <summary>
-        /// ddlThicknessSQL control.
+        /// DdlThicknessSQL control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource ddlThicknessSQL;
+        protected global::System.Web.UI.WebControls.SqlDataSource DdlThicknessSQL;
         
         /// <summary>
-        /// ddlCoreSQL control.
+        /// DdlCoreSQL control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource ddlCoreSQL;
+        protected global::System.Web.UI.WebControls.SqlDataSource DdlCoreSQL;
         
         /// <summary>
-        /// ddlPartNumSQL control.
+        /// DdlPartNumSQL control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource ddlPartNumSQL;
+        protected global::System.Web.UI.WebControls.SqlDataSource DdlPartNumSQL;
         
         /// <summary>
-        /// ddlFinishSQL control.
+        /// DdlFinishSQL control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource ddlFinishSQL;
+        protected global::System.Web.UI.WebControls.SqlDataSource DdlFinishSQL;
         
         /// <summary>
-        /// ddlMatNameSQL control.
+        /// DdlMatNameSQL control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource ddlMatNameSQL;
+        protected global::System.Web.UI.WebControls.SqlDataSource DdlMatNameSQL;
         
         /// <summary>
-        /// ddlOrderedBySQL control.
+        /// DdlOrderedBySQL control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource ddlOrderedBySQL;
+        protected global::System.Web.UI.WebControls.SqlDataSource DdlOrderedBySQL;
         
         /// <summary>
-        /// ddlReasonSQL control.
+        /// DdlReasonSQL control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource ddlReasonSQL;
+        protected global::System.Web.UI.WebControls.SqlDataSource DdlReasonSQL;
     }
 }
