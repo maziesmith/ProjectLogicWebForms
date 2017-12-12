@@ -19,7 +19,7 @@
                     </tr>
                 </table>
                 <br/>
-                <asp:Button runat="server" ID="BtnSearch" Text="Search"/>
+                <asp:Button runat="server" CssClass="NoPrint" ID="BtnSearch" Text="Search"/>
             </div> <!-- end div left -->
             <div id="rside">
             </div> <!-- end div right -->

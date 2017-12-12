@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="Material Order Form" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="MatOrderDetails.aspx.cs" Inherits="ProjectLogic.MatOrderDetails" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-<asp:FormView ID="FvHeader" runat="server" DataKeyNames="OrderID" DataSourceID="FvMatOrdersSQL" ForeColor="#333333">
+<asp:FormView ID="FvHeader" runat="server" DataKeyNames="OrderID" DataSourceID="FvMatOrdersSQL" RenderOuterTable="False" >
     <ItemTemplate>
         <h1>Material Order and Allocation Form</h1>
         <h2><asp:Label ID="LblProjectID" runat="server" Text='<%# Eval("ProjectID") %>'/> - <asp:Label ID="LblProjectName" runat="server" Text='<%# Eval("ProjectName") %>'/>
@@ -829,7 +829,7 @@
         </table>
     </EmptyDataTemplate>
 </asp:GridView>
-<asp:FormView ID="FvFooter" runat="server" DataKeyNames="OrderID" DataSourceID="FvMatOrdersSQL" ForeColor="#333333" OnItemCommand="FvFooter_OnItemCommand">
+<asp:FormView ID="FvFooter" runat="server" DataKeyNames="OrderID" DataSourceID="FvMatOrdersSQL"  OnItemCommand="FvFooter_OnItemCommand" RenderOuterTable="False">
     <ItemTemplate>
         <br/>
         <b>Notes</b>

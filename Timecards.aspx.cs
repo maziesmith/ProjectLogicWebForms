@@ -167,7 +167,7 @@ namespace ProjectLogic
             TextBox txtNumSheets = (TextBox)gvrow.FindControl("TxtNumSheets"); 
 
             //Data Validation
-            if (string.IsNullOrWhiteSpace(ddlEmployee.SelectedValue)) // no employee selected. Control is in MainContent, not in GridView
+            if (string.IsNullOrWhiteSpace(ddlEmployee.SelectedValue)) // no employee selected. 
             {
                 ClientScript.RegisterStartupScript(GetType(), "error",
                     "alert('Please select Employee before adding Timecard.');", true);
@@ -190,7 +190,7 @@ namespace ProjectLogic
                 GridViewTimecardSQL.InsertParameters.Add("EmployeeID", ddlEmployee.SelectedValue);
                 GridViewTimecardSQL.InsertParameters.Add("Date", txtDate.Text);
                 GridViewTimecardSQL.InsertParameters.Add("TimecardTaskID", ddlDescription.SelectedValue);
-                GridViewTimecardSQL.InsertParameters.Add("Hours", txtHours.Text); // null exception here
+                GridViewTimecardSQL.InsertParameters.Add("Hours", txtHours.Text); 
                 GridViewTimecardSQL.InsertParameters.Add("Notes", txtNotes.Text); 
                 GridViewTimecardSQL.InsertParameters.Add("ProjectID", ddlProjectId.SelectedValue);
                 GridViewTimecardSQL.InsertParameters.Add("ReleaseNo", txtRelNo.Text);

@@ -22,39 +22,39 @@ namespace ProjectLogic {
         protected global::System.Web.UI.WebControls.Label Label3;
         
         /// <summary>
-        /// txtProjectID control.
+        /// TxtProjectID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtProjectID;
+        protected global::System.Web.UI.WebControls.TextBox TxtProjectID;
         
         /// <summary>
-        /// btnSearch control.
+        /// BtnSearch control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSearch;
+        protected global::System.Web.UI.WebControls.Button BtnSearch;
         
         /// <summary>
-        /// lvBFList control.
+        /// LvBFList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView lvBFList;
+        protected global::System.Web.UI.WebControls.ListView LvBFList;
         
         /// <summary>
-        /// lvBFListSQL control.
+        /// LvBFListSQL control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource lvBFListSQL;
+        protected global::System.Web.UI.WebControls.SqlDataSource LvBFListSQL;
     }
 }
