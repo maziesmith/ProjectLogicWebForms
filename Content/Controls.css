@@ -68,9 +68,7 @@ table, th, td {
     line-height:200%
 }
 
-.wrapper {
-    overflow:auto;
-}
+
 
 .lside {
     float:left;

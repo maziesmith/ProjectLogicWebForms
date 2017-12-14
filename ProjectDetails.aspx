@@ -50,8 +50,9 @@
 <asp:View ID="General" runat="server">
 <asp:FormView ID="FvGeneral" runat="server" CellPadding="4" DataKeyNames="ProjectID" DataSourceID="FvGeneralSQL" OnItemCommand="FvGeneral_ItemCommand">
 <ItemTemplate>
-<div class="wrapper">
-<div class="lside">
+
+<div >
+  <div class="lside">
     <table>
         <tr>
             <td>Address: </td>
@@ -204,6 +205,7 @@
             <td></td>
         </tr>
     </table>
+      <asp:Button ID="EditButton" runat="server" CausesValidation="True" CssClass="NoPrint" CommandName="Edit" Text="Edit"/>    
 </div> <!-- end div left -->
 <div class="rside">
     <table>
@@ -251,8 +253,10 @@
     <asp:Label ID="LblNotes2" runat="server" BorderStyle="Solid" BorderWidth="1"
                Text='<%# Eval("Notes").ToString().Replace(Environment.NewLine, "<br />") %>'/>
 </div> <!-- end div right -->
+
 </div> <!-- end div wrapper -->
-<asp:Button ID="EditButton" runat="server" CausesValidation="True" CssClass="NoPrint" CommandName="Edit" Text="Edit"/>
+
+
 </ItemTemplate>
 
 <EditItemTemplate>
@@ -471,7 +475,7 @@
 <asp:FormView ID="FvScope" runat="server" DataKeyNames="ProjectID" DataSourceID="FvScopeSQL" OnItemCommand="FvScope_ItemCommand">
 <ItemTemplate>
 
-    <div class="wrapper">
+    <div >
         <div class="lside">
             <table>
                 <tr>
@@ -840,7 +844,7 @@
 
 <asp:FormView ID="FvCAD" runat="server" DataKeyNames="ProjectID" DataSourceID="FvCADSQL" OnItemCommand="FvCAD_ItemCommand">
 <ItemTemplate>
-    <div class="wrapper">
+    <div >
         <div class="lside">
 
             <table>
@@ -907,7 +911,7 @@
                     </td>
                 </tr>
             </table>
-        </div>
+        </div> <!-- end div left -->
         <div class="rside">
 
             <table>
@@ -936,9 +940,9 @@
                     </td>
                 </tr>
             </table>
-        </div>
-    </div>
-    <table style="border: 0">
+        </div> <!-- end div left -->
+    </div> <!-- end div wrap -->
+    <table>
         <tr>
             <td>Notes:</td>
         </tr>
@@ -1064,7 +1068,7 @@
 <asp:View ID="PM" runat="server">
 <asp:FormView ID="FvPM" runat="server" CellPadding="4" DataKeyNames="ProjectID" DataSourceID="FvPMSQL" OnItemCommand="FvPM_ItemCommand" OnDataBound="FvPM_DataBound">
     <ItemTemplate>
-        <div class="wrapper">
+        <div >
             <div class="lside">
                 <table>
                     <tr>
@@ -1827,7 +1831,7 @@ Releases:
     </asp:GridView>
 </asp:View>
 <asp:View ID="Tasks" runat="server">
-<div class="wrapper">
+<div >
     <div class="lside">
         <br/>
         <br/>
@@ -1865,6 +1869,8 @@ Releases:
         </div> <!-- end div datalist -->
     </div> <!-- end div right -->
 </div> <!-- end div wrapper -->
+    <br />
+    
 <asp:GridView ID="GvProjectTask" runat="server" AutoGenerateColumns="False" ShowFooter="true" DataSourceID="GvProjectTaskSQL"
               OnRowCommand="GvProjectTask_RowCommand" OnRowUpdating="GvProjectTask_RowUpdating">
 <Columns>

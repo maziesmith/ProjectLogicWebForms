@@ -169,7 +169,7 @@
             </asp:TemplateField>
         </Columns>
         <EmptyDataTemplate>
-            <table border="1">
+            <table>
                 <tr style="background-color:silver">
                     <th class="NoPrint"></th>
                     <th>Date</th>
@@ -220,10 +220,10 @@
                     <asp:Label ID="lblPages" runat="server" />
                 </div>
             </div>
-            <asp:LinkButton ID="lbFirst" runat="server" Text="&lt&ltFirst" CommandArgument="First" CommandName="Page" />
-            <asp:LinkButton ID="lbPrev" runat="server" Text="&ltPrev" CommandArgument="Prev" CommandName="Page" />
-            <asp:LinkButton ID="lbNext" runat="server" Text="Next&gt" CommandArgument="Next" CommandName="Page" />
-            <asp:LinkButton ID="lbLast" runat="server" Text="Last&gt&gt" CommandArgument="Last" CommandName="Page" />
+            <asp:LinkButton ID="lbFirst" runat="server" Text="&lt;&lt;First" CommandArgument="First" CommandName="Page" />
+            <asp:LinkButton ID="lbPrev" runat="server" Text="&lt;Prev" CommandArgument="Prev" CommandName="Page" />
+            <asp:LinkButton ID="lbNext" runat="server" Text="Next&gt;" CommandArgument="Next" CommandName="Page" />
+            <asp:LinkButton ID="lbLast" runat="server" Text="Last&gt;&gt;" CommandArgument="Last" CommandName="Page" />
         </PagerTemplate>
     </asp:GridView>
     

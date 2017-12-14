@@ -27,7 +27,7 @@
         <AlternatingItemTemplate>
             <tr style="background-color:#FFF8DC;">
                 <td>
-                    <a href="/ProjectLogic/Project/<%# Eval("ProjectID") %>">
+                    <a href="Project/<%# Eval("ProjectID") %>">
                     <asp:Label ID="lblProjectID" runat="server" Text='<%# Eval("ProjectID") %>' />
                     </a>
                 </td>
@@ -60,7 +60,7 @@
         <ItemTemplate>
             <tr style="background-color:#DCDCDC;color: #000000;">
                 <td>
-                    <a href="/ProjectLogic/Project/<%# Eval("ProjectID") %>">
+                    <a href="Project/<%# Eval("ProjectID") %>">
 
                     <asp:Label ID="lblProjectID" runat="server" Text='<%# Eval("ProjectID") %>' />
                     </a>

@@ -21,7 +21,7 @@
         <AlternatingItemTemplate>
             <tr style="background-color:#FFF8DC;">
                 <td>
-                    <a href="/ProjectLogic/MatOrder/<%# Eval("OrderID") %>">
+                    <a href="MatOrder/<%# Eval("OrderID") %>">
                     <asp:Label ID="LblOrderID" runat="server" Text='<%# Eval("OrderID") %>' />
                     </a>
                 </td>
