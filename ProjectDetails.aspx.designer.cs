@@ -13,22 +13,22 @@ namespace ProjectLogic {
     public partial class ProjectDetails {
         
         /// <summary>
-        /// fvHeader control.
+        /// FvHeader control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FormView fvHeader;
+        protected global::System.Web.UI.WebControls.FormView FvHeader;
         
         /// <summary>
-        /// mnuProject control.
+        /// MnuProject control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Menu mnuProject;
+        protected global::System.Web.UI.WebControls.Menu MnuProject;
         
         /// <summary>
         /// MultiView1 control.
@@ -49,13 +49,13 @@ namespace ProjectLogic {
         protected global::System.Web.UI.WebControls.View General;
         
         /// <summary>
-        /// fvGeneral control.
+        /// FvGeneral control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FormView fvGeneral;
+        protected global::System.Web.UI.WebControls.FormView FvGeneral;
         
         /// <summary>
         /// Scope control.
@@ -67,13 +67,13 @@ namespace ProjectLogic {
         protected global::System.Web.UI.WebControls.View Scope;
         
         /// <summary>
-        /// fvScope control.
+        /// FvScope control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FormView fvScope;
+        protected global::System.Web.UI.WebControls.FormView FvScope;
         
         /// <summary>
         /// CAD control.
@@ -85,13 +85,13 @@ namespace ProjectLogic {
         protected global::System.Web.UI.WebControls.View CAD;
         
         /// <summary>
-        /// fvCAD control.
+        /// FvCAD control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FormView fvCAD;
+        protected global::System.Web.UI.WebControls.FormView FvCAD;
         
         /// <summary>
         /// PM control.
@@ -103,31 +103,40 @@ namespace ProjectLogic {
         protected global::System.Web.UI.WebControls.View PM;
         
         /// <summary>
-        /// fvPM control.
+        /// FvPM control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FormView fvPM;
+        protected global::System.Web.UI.WebControls.FormView FvPM;
         
         /// <summary>
-        /// gvPMShipment control.
+        /// GvPMShipment control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvPMShipment;
+        protected global::System.Web.UI.WebControls.GridView GvPMShipment;
         
         /// <summary>
-        /// gvPMRelease control.
+        /// LbNewShipment control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvPMRelease;
+        protected global::System.Web.UI.WebControls.LinkButton LbNewShipment;
+        
+        /// <summary>
+        /// GvPMRelease control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView GvPMRelease;
         
         /// <summary>
         /// Submittals control.
@@ -139,13 +148,13 @@ namespace ProjectLogic {
         protected global::System.Web.UI.WebControls.View Submittals;
         
         /// <summary>
-        /// gvSubmittals control.
+        /// GvSubmittals control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvSubmittals;
+        protected global::System.Web.UI.WebControls.GridView GvSubmittals;
         
         /// <summary>
         /// ChangeOrders control.
@@ -157,13 +166,13 @@ namespace ProjectLogic {
         protected global::System.Web.UI.WebControls.View ChangeOrders;
         
         /// <summary>
-        /// gvChangeOrders control.
+        /// GvChangeOrders control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvChangeOrders;
+        protected global::System.Web.UI.WebControls.GridView GvChangeOrders;
         
         /// <summary>
         /// Timecards control.
@@ -175,13 +184,13 @@ namespace ProjectLogic {
         protected global::System.Web.UI.WebControls.View Timecards;
         
         /// <summary>
-        /// gvTimeCards control.
+        /// GvTimeCards control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvTimeCards;
+        protected global::System.Web.UI.WebControls.GridView GvTimeCards;
         
         /// <summary>
         /// lstTotalHours control.
@@ -202,13 +211,13 @@ namespace ProjectLogic {
         protected global::System.Web.UI.WebControls.View Docs;
         
         /// <summary>
-        /// gvDocuments control.
+        /// GvDocuments control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvDocuments;
+        protected global::System.Web.UI.WebControls.GridView GvDocuments;
         
         /// <summary>
         /// Log control.
@@ -220,13 +229,13 @@ namespace ProjectLogic {
         protected global::System.Web.UI.WebControls.View Log;
         
         /// <summary>
-        /// gvLog control.
+        /// GvLog control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvLog;
+        protected global::System.Web.UI.WebControls.GridView GvLog;
         
         /// <summary>
         /// Financials control.
@@ -238,121 +247,121 @@ namespace ProjectLogic {
         protected global::System.Web.UI.WebControls.View Financials;
         
         /// <summary>
-        /// txtTotalContractPrice control.
+        /// TxtTotalContractPrice control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtTotalContractPrice;
+        protected global::System.Web.UI.WebControls.TextBox TxtTotalContractPrice;
         
         /// <summary>
-        /// txtTotalFreight control.
+        /// TxtTotalFreight control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtTotalFreight;
+        protected global::System.Web.UI.WebControls.TextBox TxtTotalFreight;
         
         /// <summary>
-        /// txtTotalCustInvoiced control.
+        /// TxtTotalCustInvoiced control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtTotalCustInvoiced;
+        protected global::System.Web.UI.WebControls.TextBox TxtTotalCustInvoiced;
         
         /// <summary>
-        /// txtCommissionsDue control.
+        /// TxtCommissionsDue control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCommissionsDue;
+        protected global::System.Web.UI.WebControls.TextBox TxtCommissionsDue;
         
         /// <summary>
-        /// txtContractInvoiced control.
+        /// TxtContractInvoiced control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtContractInvoiced;
+        protected global::System.Web.UI.WebControls.TextBox TxtContractInvoiced;
         
         /// <summary>
-        /// txtInvoicedFreight control.
+        /// TxtInvoicedFreight control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtInvoicedFreight;
+        protected global::System.Web.UI.WebControls.TextBox TxtInvoicedFreight;
         
         /// <summary>
-        /// txtCustomerPaid control.
+        /// TxtCustomerPaid control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCustomerPaid;
+        protected global::System.Web.UI.WebControls.TextBox TxtCustomerPaid;
         
         /// <summary>
-        /// txtCommissionsPaid control.
+        /// TxtCommissionsPaid control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCommissionsPaid;
+        protected global::System.Web.UI.WebControls.TextBox TxtCommissionsPaid;
         
         /// <summary>
-        /// txtContractBalance control.
+        /// TxtContractBalance control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtContractBalance;
+        protected global::System.Web.UI.WebControls.TextBox TxtContractBalance;
         
         /// <summary>
-        /// txtFreightBalance control.
+        /// TxtFreightBalance control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFreightBalance;
+        protected global::System.Web.UI.WebControls.TextBox TxtFreightBalance;
         
         /// <summary>
-        /// txtCustomerBalance control.
+        /// TxtCustomerBalance control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCustomerBalance;
+        protected global::System.Web.UI.WebControls.TextBox TxtCustomerBalance;
         
         /// <summary>
-        /// txtCommissionsBalance control.
+        /// TxtCommissionsBalance control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCommissionsBalance;
+        protected global::System.Web.UI.WebControls.TextBox TxtCommissionsBalance;
         
         /// <summary>
-        /// gvFinancial control.
+        /// GvFinancial control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvFinancial;
+        protected global::System.Web.UI.WebControls.GridView GvFinancial;
         
         /// <summary>
         /// Tasks control.
@@ -373,13 +382,13 @@ namespace ProjectLogic {
         protected global::System.Web.UI.WebControls.BulletedList blInstructions;
         
         /// <summary>
-        /// lblTaskCodeLegend control.
+        /// LblTaskCodeLegend control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTaskCodeLegend;
+        protected global::System.Web.UI.WebControls.Label LblTaskCodeLegend;
         
         /// <summary>
         /// lstTaskCode control.
@@ -391,13 +400,13 @@ namespace ProjectLogic {
         protected global::System.Web.UI.WebControls.DataList lstTaskCode;
         
         /// <summary>
-        /// gvProjectTask control.
+        /// GvProjectTask control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvProjectTask;
+        protected global::System.Web.UI.WebControls.GridView GvProjectTask;
         
         /// <summary>
         /// Scan control.
@@ -409,31 +418,31 @@ namespace ProjectLogic {
         protected global::System.Web.UI.WebControls.View Scan;
         
         /// <summary>
-        /// fvHeaderSQL control.
+        /// FvHeaderSQL control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource fvHeaderSQL;
+        protected global::System.Web.UI.WebControls.SqlDataSource FvHeaderSQL;
         
         /// <summary>
-        /// fvGeneralSQL control.
+        /// FvGeneralSQL control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource fvGeneralSQL;
+        protected global::System.Web.UI.WebControls.SqlDataSource FvGeneralSQL;
         
         /// <summary>
-        /// gvProjectTaskSQL control.
+        /// GvProjectTaskSQL control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource gvProjectTaskSQL;
+        protected global::System.Web.UI.WebControls.SqlDataSource GvProjectTaskSQL;
         
         /// <summary>
         /// lstTaskCodeSQL control.
@@ -445,85 +454,85 @@ namespace ProjectLogic {
         protected global::System.Web.UI.WebControls.SqlDataSource lstTaskCodeSQL;
         
         /// <summary>
-        /// ddlActiveEmployeeSQL control.
+        /// DdlActiveEmployeeSQL control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource ddlActiveEmployeeSQL;
+        protected global::System.Web.UI.WebControls.SqlDataSource DdlActiveEmployeeSQL;
         
         /// <summary>
-        /// ddlTaskStatusSQL control.
+        /// DdlTaskStatusSQL control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource ddlTaskStatusSQL;
+        protected global::System.Web.UI.WebControls.SqlDataSource DdlTaskStatusSQL;
         
         /// <summary>
-        /// ddlPrioritySQL control.
+        /// DdlPrioritySQL control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource ddlPrioritySQL;
+        protected global::System.Web.UI.WebControls.SqlDataSource DdlPrioritySQL;
         
         /// <summary>
-        /// ddlJobTypeSQL control.
+        /// DdlJobTypeSQL control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource ddlJobTypeSQL;
+        protected global::System.Web.UI.WebControls.SqlDataSource DdlJobTypeSQL;
         
         /// <summary>
-        /// ddlProjStatusSQL control.
+        /// DdlProjStatusSQL control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource ddlProjStatusSQL;
+        protected global::System.Web.UI.WebControls.SqlDataSource DdlProjStatusSQL;
         
         /// <summary>
-        /// ddlPreferredBillingSQL control.
+        /// DdlPreferredBillingSQL control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource ddlPreferredBillingSQL;
+        protected global::System.Web.UI.WebControls.SqlDataSource DdlPreferredBillingSQL;
         
         /// <summary>
-        /// gvSubmittalsSQL control.
+        /// GvSubmittalsSQL control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource gvSubmittalsSQL;
+        protected global::System.Web.UI.WebControls.SqlDataSource GvSubmittalsSQL;
         
         /// <summary>
-        /// ddlProjectSubmittalReasonSQL control.
+        /// DdlProjectSubmittalReasonSQL control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource ddlProjectSubmittalReasonSQL;
+        protected global::System.Web.UI.WebControls.SqlDataSource DdlProjectSubmittalReasonSQL;
         
         /// <summary>
-        /// ddlProjectSubmittalType control.
+        /// DdlProjectSubmittalType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource ddlProjectSubmittalType;
+        protected global::System.Web.UI.WebControls.SqlDataSource DdlProjectSubmittalType;
         
         /// <summary>
         /// ChangeOrdersSQL control.
@@ -535,31 +544,31 @@ namespace ProjectLogic {
         protected global::System.Web.UI.WebControls.SqlDataSource ChangeOrdersSQL;
         
         /// <summary>
-        /// gvChangeOrdersSQL control.
+        /// GvChangeOrdersSQL control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource gvChangeOrdersSQL;
+        protected global::System.Web.UI.WebControls.SqlDataSource GvChangeOrdersSQL;
         
         /// <summary>
-        /// ddlCOStatusSQL control.
+        /// DdlCOStatusSQL control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource ddlCOStatusSQL;
+        protected global::System.Web.UI.WebControls.SqlDataSource DdlCOStatusSQL;
         
         /// <summary>
-        /// gvTimeCardsSQL control.
+        /// GvTimeCardsSQL control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource gvTimeCardsSQL;
+        protected global::System.Web.UI.WebControls.SqlDataSource GvTimeCardsSQL;
         
         /// <summary>
         /// TimeCardTaskSQL control.
@@ -571,13 +580,13 @@ namespace ProjectLogic {
         protected global::System.Web.UI.WebControls.SqlDataSource TimeCardTaskSQL;
         
         /// <summary>
-        /// ddlAllEmployeeSQL control.
+        /// DdlAllEmployeeSQL control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource ddlAllEmployeeSQL;
+        protected global::System.Web.UI.WebControls.SqlDataSource DdlAllEmployeeSQL;
         
         /// <summary>
         /// TCTotalHoursSQL control.
@@ -589,138 +598,138 @@ namespace ProjectLogic {
         protected global::System.Web.UI.WebControls.SqlDataSource TCTotalHoursSQL;
         
         /// <summary>
-        /// gvDocumentSQL control.
+        /// GvDocumentSQL control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource gvDocumentSQL;
+        protected global::System.Web.UI.WebControls.SqlDataSource GvDocumentSQL;
         
         /// <summary>
-        /// ddlDocTypeSQL control.
+        /// DdlDocTypeSQL control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource ddlDocTypeSQL;
+        protected global::System.Web.UI.WebControls.SqlDataSource DdlDocTypeSQL;
         
         /// <summary>
-        /// gvLogSQL control.
+        /// GvLogSQL control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource gvLogSQL;
+        protected global::System.Web.UI.WebControls.SqlDataSource GvLogSQL;
         
         /// <summary>
-        /// ddlLogTypeSQL control.
+        /// DdlLogTypeSQL control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource ddlLogTypeSQL;
+        protected global::System.Web.UI.WebControls.SqlDataSource DdlLogTypeSQL;
         
         /// <summary>
-        /// gvFinancialSQL control.
+        /// GvFinancialSQL control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource gvFinancialSQL;
+        protected global::System.Web.UI.WebControls.SqlDataSource GvFinancialSQL;
         
         /// <summary>
-        /// fvPMSQL control.
+        /// FvPMSQL control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource fvPMSQL;
+        protected global::System.Web.UI.WebControls.SqlDataSource FvPMSQL;
         
         /// <summary>
-        /// ddlPMEmployeeSQL control.
+        /// DdlPMEmployeeSQL control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource ddlPMEmployeeSQL;
+        protected global::System.Web.UI.WebControls.SqlDataSource DdlPMEmployeeSQL;
         
         /// <summary>
-        /// ddlSeriesSQL control.
+        /// DdlSeriesSQL control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource ddlSeriesSQL;
+        protected global::System.Web.UI.WebControls.SqlDataSource DdlSeriesSQL;
         
         /// <summary>
-        /// fvScopeSQL control.
+        /// FvScopeSQL control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource fvScopeSQL;
+        protected global::System.Web.UI.WebControls.SqlDataSource FvScopeSQL;
         
         /// <summary>
-        /// fvCADSQL control.
+        /// FvCADSQL control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource fvCADSQL;
+        protected global::System.Web.UI.WebControls.SqlDataSource FvCADSQL;
         
         /// <summary>
-        /// ddlWarrantySQL control.
+        /// DdlWarrantySQL control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource ddlWarrantySQL;
+        protected global::System.Web.UI.WebControls.SqlDataSource DdlWarrantySQL;
         
         /// <summary>
-        /// ddlCADStatusSQL control.
+        /// DdlCADStatusSQL control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource ddlCADStatusSQL;
+        protected global::System.Web.UI.WebControls.SqlDataSource DdlCADStatusSQL;
         
         /// <summary>
-        /// gvPMShipmentSQL control.
+        /// GvPMShipmentSQL control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource gvPMShipmentSQL;
+        protected global::System.Web.UI.WebControls.SqlDataSource GvPMShipmentSQL;
         
         /// <summary>
-        /// gvPMShipmentSubSQL control.
+        /// GvPMShipmentSubSQL control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource gvPMShipmentSubSQL;
+        protected global::System.Web.UI.WebControls.SqlDataSource GvPMShipmentSubSQL;
         
         /// <summary>
-        /// gvPMReleaseSQL control.
+        /// GvPMReleaseSQL control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource gvPMReleaseSQL;
+        protected global::System.Web.UI.WebControls.SqlDataSource GvPMReleaseSQL;
     }
 }
