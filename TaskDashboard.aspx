@@ -31,8 +31,8 @@
 	</asp:Menu>
 	<asp:MultiView ID="MultiView1" runat="server" ActiveViewIndex="0">
 		<asp:View ID="vueByEmployee" runat="server">
-			<div id="wrapper">
-				<div id="lside">
+			<div class="wrapper">
+				<div class="lside">
 					<br />
 					<asp:BulletedList ID="blEmployee" runat="server">
 						<asp:ListItem>Select Employee from dropdown list to view active and inactive tasks for that employee.</asp:ListItem>
@@ -51,7 +51,7 @@
 						</asp:DropDownList>
 					</div>  
 				</div> <!-- end div left -->
-				<div id="rside">
+				<div class="rside">
 					<asp:Label ID="Label4" runat="server" Text="Task Code Legend"></asp:Label>
 					<div style="height: 100px; width:225px; overflow:auto; border: 1px solid">
 						<asp:DataList ID="DataList1" bordercolor="Black" borderwidth="0px" runat="server" DataKeyField="TaskCodeID" DataSourceID="lstTaskCodeSQL">
@@ -286,8 +286,8 @@
 			</asp:GridView>
 		</asp:View>
 		<asp:View ID="vueByProgram" runat="server">
-			<div id="wrapper">
-				<div id="lside">
+			<div class="wrapper">
+				<div class="lside">
 					<br />
 					<asp:BulletedList ID="blProgram" runat="server">
 						<asp:ListItem>Select Program from dropdown list to view and create tasks for that Program.</asp:ListItem>
@@ -319,7 +319,7 @@
 						</asp:DropDownList>
 					</div>  
 				</div> <!-- end div left -->
-				<div id="rside">
+				<div class="rside">
 					<asp:Label ID="Label9" runat="server" Text="Task Code Legend"></asp:Label>
 					<div style="height: 100px; width:225px; overflow:auto; border: 1px solid">
 						<asp:DataList ID="DataList2" bordercolor="Black" borderwidth="0px" runat="server" DataKeyField="TaskCodeID" DataSourceID="lstTaskCodeSQL">
@@ -342,8 +342,8 @@
 			<hr />
 		</asp:View>
 		<asp:View ID="vueByPM" runat="server">
-			<div id="wrapper">
-				<div id="lside">
+			<div class="wrapper">
+				<div class="lside">
 					<br />
 					<asp:BulletedList ID="blPM" runat="server">
 						<asp:ListItem>Select PM from dropdown list to view active Projects.</asp:ListItem>
@@ -362,7 +362,7 @@
 						</asp:DropDownList>
 					</div>  
 				</div> <!-- end div left -->
-				<div id="rside">
+				<div class="rside">
 					<asp:Label ID="LblLegend" runat="server" Text="Task Code Legend"></asp:Label>
 					<div style="height: 100px; width:225px; overflow:auto; border: 1px solid">
 						<asp:DataList ID="lstTaskCode" bordercolor="Black" borderwidth="0px" runat="server" DataKeyField="TaskCodeID" DataSourceID="lstTaskCodeSQL">
@@ -392,7 +392,7 @@
 							<a href="JavaScript:plusminus('div<%# Eval("ProjectID") %>');">
 								<img alt="Tasks" id="imgdiv<%# Eval ("ProjectID") %>" src="images/plus.png" />
 							</a>
-							<div id="div<%# Eval("ProjectID") %>" style="display:none;">
+							<div class="div<%# Eval("ProjectID") %>" style="display:none;">
 								<asp:GridView ID="gvPMProjectTask" runat="server" AutoGenerateColumns="False" DataKeyNames="TaskID"> 
 									<Columns>
 										<asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
@@ -439,8 +439,8 @@
 			</asp:GridView>
 		</asp:View>
 		<asp:View ID="vueByTeam" runat="server">
-			<div id="wrapper">
-				<div id="lside">
+			<div class="wrapper">
+				<div class="lside">
 					<br />
 					<asp:BulletedList ID="blTeam" runat="server">
 						<asp:ListItem>Select Team from dropdown list to view team members. Click the + sign next to the name to view that person's tasks.</asp:ListItem>
@@ -465,7 +465,7 @@
 						
 					</div>  
 				</div> <!-- end div left -->
-				<div id="rside">
+				<div class="rside">
 					<asp:Label ID="LblTeamLegend" runat="server" Text="Task Code Legend"></asp:Label>
 					<div style="height: 100px; width:225px; overflow:auto; border: 1px solid">
 						<asp:DataList ID="DlTaskCode" bordercolor="Black" borderwidth="0px" runat="server" DataKeyField="TaskCodeID" DataSourceID="lstTaskCodeSQL">

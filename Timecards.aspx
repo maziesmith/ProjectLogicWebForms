@@ -1,8 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Timecards.aspx.cs" Inherits="ProjectLogic.Timecards" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <br/>
-        <div id="wrapper">
-            <div id="lside">
+        <div class="wrapper">
+            <div class="lside">
                 <asp:Label ID="lblEmployee" runat="server" Text="Select Employee:" />
                 <asp:DropDownList ID="ddlEmployee" runat="server" AutoPostBack="True" DataSourceID="ddlActiveEmployeeSQL" AppendDataBoundItems="true"
                                     DataTextField="Name" DataValueField="EmployeeID">
@@ -21,7 +21,7 @@
                 <br/>
                 <asp:Button runat="server" CssClass="NoPrint" ID="BtnSearch" Text="Search"/>
             </div> <!-- end div left -->
-            <div id="rside">
+            <div class="rside">
             </div> <!-- end div right -->
         </div> <!-- end div wrapper -->
     <br/>
@@ -211,12 +211,12 @@
             </table>
         </EmptyDataTemplate>
         <PagerTemplate>
-            <div id="wrapper">
-                <div id="lside">
+            <div class="wrapper">
+                <div class="lside">
                     <asp:Label ID="lblMessage" runat="server" Text="Select a page: " />
                     <asp:DropDownList ID="ddlPage" runat="server" AutoPostBack="true" OnSelectedIndexChanged="TimecardPagerDDL_SelectedIndexChanged" />
                 </div>
-                <div id="rside">
+                <div class="rside">
                     <asp:Label ID="lblPages" runat="server" />
                 </div>
             </div>
