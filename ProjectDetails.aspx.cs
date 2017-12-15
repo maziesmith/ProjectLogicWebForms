@@ -14,10 +14,6 @@ namespace ProjectLogic
             {
                 MnuProject.Items[0].Selected = true;
             }
-
-            
-            
-            
         }
 
 
@@ -68,13 +64,14 @@ namespace ProjectLogic
                 SqlCommand command2 = new SqlCommand("SELECT SUM(NumPanels) FROM vueProjectRelease WHERE ProjectID = '" + strProjectId + "'", connection);
                 relToDate = (int)command2.ExecuteScalar();
                 panelsRemain = bidPanels - relToDate;
+                connection.Close();
             }
             if (txtBidPanels != null)
-            { txtBidPanels.Text = String.Format("{0:n0}",bidPanels); }
+            { txtBidPanels.Text = $"{bidPanels:n0}"; }
             if (txtRelToDate != null)
-            { txtRelToDate.Text = String.Format("{0:n0}",relToDate); }
+            { txtRelToDate.Text = $"{relToDate:n0}"; }
             if (txtPanelsRemain != null)
-            { txtPanelsRemain.Text = String.Format("{0:n0}",panelsRemain); }
+            { txtPanelsRemain.Text = $"{panelsRemain:n0}"; }
         }
         protected void GvPMShipment_RowDataBound(object sender, GridViewRowEventArgs e)
         {
