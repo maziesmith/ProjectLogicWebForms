@@ -68,7 +68,13 @@ table, th, td {
     line-height:200%
 }
 
+.gridview tr td {
+    padding: 1px 3px ;
+}
 
+.gridview tr th {
+    padding: 1px 3px ;
+}
 
 .lside {
     float:left;

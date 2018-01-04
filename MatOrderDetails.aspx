@@ -110,7 +110,7 @@
 <br/>
 <b>Sheet Goods</b>
 <asp:GridView ID="GvSheetGoods" runat="server" ShowFooter="True" FooterStyle-CssClass="NoPrint" AutoGenerateColumns="False" DataKeyNames="SheetID"
-              DataSourceID="GvSheetGoodsSQL" OnRowCommand="GvSheet_RowCommand" OnRowUpdating="GvSheet_RowUpdating">
+              DataSourceID="GvSheetGoodsSQL" OnRowCommand="GvSheet_RowCommand" OnRowUpdating="GvSheet_RowUpdating" CssClass="gridview">
 <EditRowStyle BackColor="LightYellow"/>
 <Columns>
     <asp:TemplateField ShowHeader="False" HeaderStyle-BackColor="Silver" ControlStyle-CssClass="NoPrint">
@@ -323,7 +323,7 @@
 <br/>
 <b>Support Materials</b>
 <asp:GridView ID="GvSupportMats" runat="server" ShowFooter="True" FooterStyle-CssClass="NoPrint" AutoGenerateColumns="False" DataKeyNames="ExtrusionID"
-              DataSourceID="GvSupportMatsSQL" OnRowCommand="GvSupport_RowCommand" OnRowUpdating="GvSupport_RowUpdating">
+              DataSourceID="GvSupportMatsSQL" OnRowCommand="GvSupport_RowCommand" OnRowUpdating="GvSupport_RowUpdating" CssClass="gridview">
     <EditRowStyle BackColor="LightYellow"/>
     <Columns>
         <asp:TemplateField ShowHeader="False" HeaderStyle-BackColor="Silver" ControlStyle-CssClass="NoPrint">
@@ -494,7 +494,7 @@
 <br/>
 <b>Misc Materials</b>
 <asp:GridView ID="GvMiscMats" runat="server" ShowFooter="True" FooterStyle-CssClass="NoPrint" AutoGenerateColumns="False" DataKeyNames="MiscID"
-              DataSourceID="GvMiscMatsSQL" OnRowCommand="GvMisc_RowCommand" OnRowUpdating="GvMisc_RowUpdating">
+              DataSourceID="GvMiscMatsSQL" OnRowCommand="GvMisc_RowCommand" OnRowUpdating="GvMisc_RowUpdating" CssClass="gridview">
     <EditRowStyle BackColor="LightYellow"/>
     <Columns>
         <asp:TemplateField ShowHeader="false" HeaderStyle-BackColor="Silver" ControlStyle-CssClass="NoPrint">
@@ -641,7 +641,7 @@
 <br/>
 <b>Material Allocation</b>
 <asp:GridView ID="GvMatAllocation" runat="server" ShowFooter="True" FooterStyle-CssClass="NoPrint" AutoGenerateColumns="False" DataKeyNames="MatAllocationID"
-              DataSourceID="GvMatAllocationSQL" OnRowCommand="GvMatAlloc_RowCommand" OnRowUpdating="GvMatAlloc_RowUpdating">
+              DataSourceID="GvMatAllocationSQL" OnRowCommand="GvMatAlloc_RowCommand" OnRowUpdating="GvMatAlloc_RowUpdating" CssClass="gridview">
     <EditRowStyle BackColor="LightYellow"/>
     <Columns>
         <asp:TemplateField ShowHeader="False" HeaderStyle-BackColor="Silver" ControlStyle-CssClass="NoPrint">

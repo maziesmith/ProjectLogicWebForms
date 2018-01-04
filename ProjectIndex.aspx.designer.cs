@@ -49,6 +49,42 @@ namespace ProjectLogic {
         protected global::System.Web.UI.WebControls.TextBox TxtProjectName;
         
         /// <summary>
+        /// LblPM control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblPM;
+        
+        /// <summary>
+        /// DdlPmSearch control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DdlPmSearch;
+        
+        /// <summary>
+        /// LblActive control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblActive;
+        
+        /// <summary>
+        /// ChkActiveOnly control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox ChkActiveOnly;
+        
+        /// <summary>
         /// BtnSearch control.
         /// </summary>
         /// <remarks>
@@ -74,5 +110,14 @@ namespace ProjectLogic {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource LvProjectSQL;
+        
+        /// <summary>
+        /// DdlPmSearchSQL control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource DdlPmSearchSQL;
     }
 }

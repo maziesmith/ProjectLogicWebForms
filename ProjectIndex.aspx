@@ -18,15 +18,33 @@
                 <asp:TextBox ID="TxtProjectName" runat="server"></asp:TextBox>
             </td>
         </tr>
+        <tr>
+            <td>
+                <asp:Label runat="server" ID="LblPM" Text="PM: "></asp:Label>
+            </td>
+            <td>
+                <asp:DropDownList runat="server" ID="DdlPmSearch" DataSourceID="DdlPmSearchSQL" DataTextField="Name" DataValueField="Scope_PM_EmployeeID" AppendDataBoundItems="True">
+                    <asp:ListItem Text="<--Select PM-->" Value="" />
+                </asp:DropDownList>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <asp:Label runat="server" ID="LblActive" Text="Active Only?:"></asp:Label>
+            </td>
+            <td>
+                <asp:CheckBox runat="server" ID="ChkActiveOnly" />
+            </td>
+        </tr>
     </table>
     <br/>
 
-    <asp:Button ID="BtnSearch" runat="server" Text="Search"/>
+    <asp:Button ID="BtnSearch" runat="server" Text="Search" OnClick="BtnSearch_OnClick"/>
     <br/>
     <br/>
     <asp:GridView ID="GvProjects" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" EmptyDataText="No Project Selected"
-                  DataKeyNames="ProjectID" DataSourceID="LvProjectSQL" OnDataBound="GvProjects_OnDataBound" BackColor="White" 
-                    BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" ForeColor="Black" GridLines="Vertical">
+                  DataKeyNames="ProjectID" DataSourceID="LvProjectSQL" OnDataBound="GvProjects_OnDataBound" BackColor="White" CssClass="gridview" 
+                    BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px"  ForeColor="Black" GridLines="Vertical">
         <AlternatingRowStyle BackColor="#CCCCCC" />
         <Columns>
             <asp:TemplateField HeaderText="Project&nbsp;#" SortExpression="ProjectID">
@@ -61,6 +79,16 @@
                     <asp:Label ID="LblZip" runat="server" Text='<%# Bind("ProjectZip") %>'></asp:Label>
                 </ItemTemplate>
             </asp:TemplateField>
+            <asp:TemplateField HeaderText="PM" SortExpression="Scope_PM_EmployeeID">
+                <ItemTemplate>
+                    <asp:Label runat="server" ID="LblPM" Text='<%# Bind("Name") %>'></asp:Label>
+                </ItemTemplate>
+            </asp:TemplateField>
+            <asp:TemplateField  HeaderText="Status" SortExpression="Status">
+                <ItemTemplate>
+                    <asp:Label ID="LblStatus" runat="server" Text='<%# Bind("Status") %>' />
+                </ItemTemplate>
+            </asp:TemplateField>
         </Columns>
         <FooterStyle BackColor="#CCCCCC" />
         <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" />
@@ -90,12 +118,20 @@
         <SortedDescendingHeaderStyle BackColor="#383838" />
     </asp:GridView>
     <asp:SqlDataSource ID="LvProjectSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>"
-                       SelectCommand="SELECT [ProjectID], [ProjectName], [ProjectAddress], [ProjectCity], [ProjectState], [ProjectZip] FROM [tblProject]
-            WHERE (ProjectName LIKE '%' + @ProjectName + '%') OR (ProjectID = @ProjectID)" CancelSelectOnNullParameter="false">
+                       SelectCommand="SELECT p.ProjectID, p.ProjectName, p.ProjectAddress, p.ProjectCity, p.ProjectState, p.ProjectZip, p.Scope_PM_EmployeeID, e.Name, ps.Description AS Status 
+                FROM tblProject p 
+                INNER JOIN tblEmployee e ON p.Scope_PM_EmployeeID = e.EmployeeID 
+                LEFT JOIN tblProjectStatus ps ON p.ProjectStatusID = ps.ProjectStatusID
+            WHERE (ProjectName LIKE '%' + @ProjectName + '%') OR (ProjectID = @ProjectID) OR (Scope_PM_EmployeeID = @PM)" CancelSelectOnNullParameter="False">
         <SelectParameters>
+            <asp:ControlParameter Name="ProjectName" ControlID="TxtProjectName" Type="String" PropertyName="Text" ConvertEmptyStringToNull="true" DefaultValue=""/>
             <asp:ControlParameter Name="ProjectID" ControlID="TxtProjectID" Type="Int32" PropertyName="Text" ConvertEmptyStringToNull="true"/>
-            <asp:ControlParameter Name="ProjectName" ControlID="TxtProjectName" Type="String" PropertyName="Text" ConvertEmptyStringToNull="true"/>
+            <asp:ControlParameter Name="PM" ControlID="DdlPmSearch" Type="Int32" PropertyName="SelectedValue" />
         </SelectParameters>
+    </asp:SqlDataSource>
+
+    <asp:SqlDataSource ID="DdlPmSearchSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>" 
+        SelectCommand="SELECT DISTINCT p.Scope_PM_EmployeeID, e.Name FROM tblEmployee e INNER JOIN tblProject p ON e.EmployeeID = p.Scope_PM_EmployeeID">
     </asp:SqlDataSource>
 
 </asp:Content>

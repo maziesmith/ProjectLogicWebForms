@@ -333,7 +333,8 @@
 <br/>
 <asp:Label ID="LblGvBFMats" runat="server" Text="Materials" Font-Bold="true"/>
 <asp:GridView ID="GvBFMats" runat="server" ShowFooter="True" FooterStyle-CssClass="NoPrint" AutoGenerateColumns="False"
-              DataKeyNames="MaterialID" DataSourceID="GvBFMatsSQL" OnRowCommand="GvBFMats_RowCommand" CellPadding="4" ForeColor="Black" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellSpacing="2">
+              DataKeyNames="MaterialID" DataSourceID="GvBFMatsSQL" OnRowCommand="GvBFMats_RowCommand" CssClass="gridview" 
+    ForeColor="Black" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" >
 
 <Columns>
     <asp:TemplateField ShowHeader="False" ControlStyle-CssClass="NoPrint">
@@ -442,7 +443,7 @@
             <asp:Label ID="LblColor" runat="server" Text='<%# Bind("MatFinishColor") %>'></asp:Label>
         </ItemTemplate>
     </asp:TemplateField>
-    <asp:TemplateField HeaderText="Qty" SortExpression="MatQty">
+    <asp:TemplateField HeaderText="Qty" SortExpression="MatQty" ItemStyle-HorizontalAlign="Right">
         <EditItemTemplate>
             <asp:TextBox ID="TxtQty" runat="server" CssClass="NumBox" Text='<%# Bind("MatQty") %>'></asp:TextBox>
         </EditItemTemplate>
@@ -731,8 +732,8 @@
 <br/>
 <asp:Label ID="GvBFProdLabel" runat="server" Text="Production" Font-Bold="true"/>
 <asp:GridView ID="GvBFProd" runat="server" ShowFooter="True" FooterStyle-CssClass="NoPrint" AutoGenerateColumns="False"
-              DataKeyNames="BFProdID" DataSourceID="GvBFProdSQL" OnRowCommand="GvBFProd_RowCommand" CellPadding="4" 
-    ForeColor="Black" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellSpacing="2">
+              DataKeyNames="BFProdID" DataSourceID="GvBFProdSQL" OnRowCommand="GvBFProd_RowCommand"  
+    ForeColor="Black" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CssClass="gridview">
 
     <Columns>
         <asp:TemplateField ShowHeader="False" ControlStyle-CssClass="NoPrint">
@@ -771,7 +772,7 @@
             </ItemTemplate>
             <FooterStyle HorizontalAlign="Left"/>
         </asp:TemplateField>
-        <asp:TemplateField HeaderText="#&nbsp;Flat Panels" SortExpression="NumFlatPanels" HeaderStyle-CssClass="NumBox">
+        <asp:TemplateField HeaderText="#&nbsp;Flat Panels" SortExpression="NumFlatPanels" ItemStyle-HorizontalAlign="Right" HeaderStyle-CssClass="NumBox">
             <EditItemTemplate>
                 <asp:TextBox ID="TxtFlatPanels" runat="server" CssClass="NumBox" Text='<%# Bind("NumFlatPanels") %>'></asp:TextBox>
             </EditItemTemplate>
@@ -779,12 +780,12 @@
                 <asp:TextBox ID="TxtFlatPanels" runat="server" CssClass="NumBox"></asp:TextBox>
             </FooterTemplate>
             <ItemTemplate>
-                <asp:Label ID="LblFlatPanels" runat="server" Text='<%# Bind("NumFlatPanels") %>'></asp:Label>
+                <asp:Label ID="LblFlatPanels" runat="server"  Text='<%# Bind("NumFlatPanels") %>'></asp:Label>
             </ItemTemplate>
 
 <HeaderStyle CssClass="NumBox"></HeaderStyle>
         </asp:TemplateField>
-        <asp:TemplateField HeaderText="#&nbsp;Gluers" SortExpression="NumACMWelders" HeaderStyle-CssClass="NumBox">
+        <asp:TemplateField HeaderText="#&nbsp;Gluers" SortExpression="NumACMWelders" ItemStyle-HorizontalAlign="Right" HeaderStyle-CssClass="NumBox">
             <EditItemTemplate>
                 <asp:TextBox ID="TxtGluers" runat="server" CssClass="NumBox" Text='<%# Bind("NumACMWelders") %>'></asp:TextBox>
             </EditItemTemplate>
@@ -792,12 +793,12 @@
                 <asp:TextBox ID="TxtGluers" runat="server" CssClass="NumBox"></asp:TextBox>
             </FooterTemplate>
             <ItemTemplate>
-                <asp:Label ID="LblGluers" runat="server" Text='<%# Bind("NumACMWelders") %>'></asp:Label>
+                <asp:Label ID="LblGluers" runat="server"  Text='<%# Bind("NumACMWelders") %>'></asp:Label>
             </ItemTemplate>
 
 <HeaderStyle CssClass="NumBox"></HeaderStyle>
         </asp:TemplateField>
-        <asp:TemplateField HeaderText="#&nbsp;Radius Panels" SortExpression="NumRadPanels" HeaderStyle-CssClass="NumBox">
+        <asp:TemplateField HeaderText="#&nbsp;Radius Panels" SortExpression="NumRadPanels" ItemStyle-HorizontalAlign="Right" HeaderStyle-CssClass="NumBox">
             <EditItemTemplate>
                 <asp:TextBox ID="TxtRadiusPanels" runat="server" CssClass="NumBox" Text='<%# Bind("NumRadPanels") %>'></asp:TextBox>
             </EditItemTemplate>
@@ -805,12 +806,12 @@
                 <asp:TextBox ID="TxtRadiusPanels" runat="server" CssClass="NumBox"></asp:TextBox>
             </FooterTemplate>
             <ItemTemplate>
-                <asp:Label ID="LblRadiusPanels" runat="server" Text='<%# Bind("NumRadPanels") %>'></asp:Label>
+                <asp:Label ID="LblRadiusPanels" runat="server"  Text='<%# Bind("NumRadPanels") %>'></asp:Label>
             </ItemTemplate>
 
 <HeaderStyle CssClass="NumBox"></HeaderStyle>
         </asp:TemplateField>
-        <asp:TemplateField HeaderText="#&nbsp;Radius Gluers" SortExpression="NumAlumWelders" HeaderStyle-CssClass="NumBox">
+        <asp:TemplateField HeaderText="#&nbsp;Radius Gluers" SortExpression="NumAlumWelders" ItemStyle-HorizontalAlign="Right" HeaderStyle-CssClass="NumBox">
             <EditItemTemplate>
                 <asp:TextBox ID="TxtRadiusGluers" runat="server" CssClass="NumBox" Text='<%# Bind("NumAlumWelders") %>'></asp:TextBox>
             </EditItemTemplate>
@@ -818,7 +819,7 @@
                 <asp:TextBox ID="TxtRadiusGluers" runat="server" CssClass="NumBox"></asp:TextBox>
             </FooterTemplate>
             <ItemTemplate>
-                <asp:Label ID="LblRadiusGLuers" runat="server" Text='<%# Bind("NumAlumWelders") %>'></asp:Label>
+                <asp:Label ID="LblRadiusGLuers" runat="server"  Text='<%# Bind("NumAlumWelders") %>'></asp:Label>
             </ItemTemplate>
 
 <HeaderStyle CssClass="NumBox"></HeaderStyle>
@@ -834,7 +835,7 @@
                 <asp:Label ID="LblOtherDesc" runat="server" Text='<%# Bind("OtherDesc") %>'></asp:Label>
             </ItemTemplate>
         </asp:TemplateField>
-        <asp:TemplateField HeaderText="#&nbsp;Other" SortExpression="NumOther" HeaderStyle-CssClass="NumBox">
+        <asp:TemplateField HeaderText="#&nbsp;Other" SortExpression="NumOther" ItemStyle-HorizontalAlign="Right" HeaderStyle-CssClass="NumBox">
             <EditItemTemplate>
                 <asp:TextBox ID="TxtNumOther" runat="server" CssClass="NumBox" Text='<%# Bind("NumOther") %>'></asp:TextBox>
             </EditItemTemplate>

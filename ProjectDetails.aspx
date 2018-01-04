@@ -28,21 +28,21 @@
 </asp:FormView>
 <asp:Menu ID="MnuProject" runat="server" Orientation="Horizontal" OnMenuItemClick="MnuProject_MenuItemClick" EnableViewState="false">
 	<StaticMenuStyle CssClass="MenuStyle"/>
-	<StaticMenuItemStyle BorderColor="Black" BorderStyle="Solid" BorderWidth="1px"/>
+	<StaticMenuItemStyle BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" HorizontalPadding="10px" />
 	<StaticSelectedStyle BackColor="Silver"/>
 	<Items>
-		<asp:MenuItem Text="_General_" Value="0"/>
-		<asp:MenuItem Text="_Scope_" Value="1"/>
-		<asp:MenuItem Text="_CAD_" Value="2"/>
-		<asp:MenuItem Text="_Scan_" Value="11"/>
-		<asp:MenuItem Text="_PM_" Value="3"/>
-		<asp:MenuItem Text="_Submittals_" Value="4"/>
+		<asp:MenuItem Text="General" Value="0"/>
+		<asp:MenuItem Text="Scope" Value="1"/>
+		<asp:MenuItem Text="CAD" Value="2"/>
+		<asp:MenuItem Text="Scan" Value="11"/>
+		<asp:MenuItem Text="PM" Value="3"/>
+		<asp:MenuItem Text="Submittals" Value="4"/>
 		<asp:MenuItem Text="Change&nbsp;Orders" Value="5"/>
-		<asp:MenuItem Text="_Timecards_" Value="6"/>
-		<asp:MenuItem Text="_Docs_" Value="7"/>
-		<asp:MenuItem Text="_Log_" Value="8"/>
-		<asp:MenuItem Text="_Financials_" Value="9"/>
-		<asp:MenuItem Text="_Tasks_" Value="10"/>
+		<asp:MenuItem Text="Timecards" Value="6"/>
+		<asp:MenuItem Text="Docs" Value="7"/>
+		<asp:MenuItem Text="Log" Value="8"/>
+		<asp:MenuItem Text="Financials" Value="9"/>
+		<asp:MenuItem Text="Tasks" Value="10"/>
 
 	</Items>
 </asp:Menu>
@@ -94,9 +94,11 @@
 		<tr>
 			<td>Job Type: </td>
 			<td colspan="4">
-				<asp:DropDownList ID="DdlJobType" runat="server" AutoPostBack="True"
+				<asp:DropDownList ID="DdlJobType" runat="server" AutoPostBack="True" AppendDataBoundItems="True"
 								  DataSourceID="DdlJobTypeSQL" DataTextField="JobTypeDescription" DataValueField="JobTypeID"
-								  SelectedValue='<%# Bind("JobTypeID") %>'/>
+								  SelectedValue='<%# Bind("JobTypeID") %>'>
+				    <asp:ListItem Text="<--Job Type-->" Value=""></asp:ListItem>
+				</asp:DropDownList>
 			</td>
 		</tr>
 		<tr>
@@ -657,7 +659,7 @@
 	<asp:LinkButton ID="EditButton" runat="server" CausesValidation="False" CommandName="Edit" Text="Edit"/>
 </ItemTemplate>
 <EditItemTemplate>
-	<div class="wrapper">
+	<div>
 		<div class="lside">
 			<table>
 				<tr>
@@ -2116,9 +2118,9 @@ Releases:
 		FROM tblProject p 
 		INNER JOIN tblEmployee emp ON p.Scope_PM_EmployeeID = emp.EmployeeID 
 		INNER JOIN tblProjectStatus ps ON p.ProjectStatusID = ps.ProjectStatusID 
-		INNER JOIN tblSeries s ON p.SeriesID = s.SeriesID 
+		LEFT JOIN tblSeries s ON p.SeriesID = s.SeriesID 
 		INNER JOIN tblCustomer c ON p.CustomerID = c.CustomerID
-		INNER JOIN tblJobType jt ON p.JobTypeID = jt.JobTypeID 
+		LEFT JOIN tblJobType jt ON p.JobTypeID = jt.JobTypeID 
 		WHERE (p.ProjectID = @ProjectID)"
 				   UpdateCommand="UPDATE [tblProject] 
 			SET [ProjectName] = @ProjectName, 
@@ -2461,15 +2463,31 @@ Releases:
 			[Scope_CAD_EmployeeID], [Scope_Others], [Scope_NumReleases], [Scope_ReleaseNotes], [Scope_ShippingNotes], [Scope_Warranty], [Scope_WarrantyStd], 
 			[Scope_TeamLead_EmployeeID], [NumPanels], [PanelSqFt], [Scope_BeginQtr], [Scope_BeginYear], [Scope_EndQtr], [Scope_EndYear], [Scope_InternalNotes], 
 			[Scope_RSM_EmployeeID], [Scope_SalesRep_ID] FROM [tblProject] 
-		WHERE ([ProjectID] = @ProjectID)"
-				   UpdateCommand="UPDATE [tblProject] SET [Scope_DateMeeting] = @Scope_DateMeeting, [Scope_TimeMeeting] = @Scope_TimeMeeting, [Scope_PM_EmployeeID] = @Scope_PM_EmployeeID, 
-			[Scope_CA_EmployeeID] = @Scope_CA_EmployeeID, [Scope_Estimator_EmployeeID] = @Scope_Estimator_EmployeeID, [Scope_CAD_EmployeeID] = @Scope_CAD_EmployeeID, 
-			[Scope_Others] = @Scope_Others, [Scope_NumReleases] = @Scope_NumReleases, [Scope_ReleaseNotes] = @Scope_ReleaseNotes, [Scope_ShippingNotes] = @Scope_ShippingNotes, 
-			[Scope_Warranty] = @Scope_Warranty, [Scope_WarrantyStd] = @Scope_WarrantyStd, [Scope_TeamLead_EmployeeID] = @Scope_TeamLead_EmployeeID, 
-			[NumPanels] = @NumPanels, [PanelSqFt] = @PanelSqFt, [Scope_BeginQtr] = @Scope_BeginQtr, [Scope_BeginYear] = @Scope_BeginYear, 
-			[Scope_EndQtr] = @Scope_EndQtr, [Scope_EndYear] = @Scope_EndYear, [Scope_InternalNotes] = @Scope_InternalNotes, [Scope_RSM_EmployeeID] = @Scope_RSM_EmployeeID, 
+		WHERE [ProjectID] = @ProjectID"
+				   UpdateCommand="UPDATE [tblProject] 
+			SET [Scope_DateMeeting] = @Scope_DateMeeting, 
+			[Scope_TimeMeeting] = @Scope_TimeMeeting, 
+			[Scope_PM_EmployeeID] = @Scope_PM_EmployeeID, 
+			[Scope_CA_EmployeeID] = @Scope_CA_EmployeeID, 
+			[Scope_Estimator_EmployeeID] = @Scope_Estimator_EmployeeID, 
+			[Scope_CAD_EmployeeID] = @Scope_CAD_EmployeeID, 
+			[Scope_Others] = @Scope_Others, 
+			[Scope_NumReleases] = @Scope_NumReleases, 
+			[Scope_ReleaseNotes] = @Scope_ReleaseNotes, 
+			[Scope_ShippingNotes] = @Scope_ShippingNotes, 
+			[Scope_Warranty] = @Scope_Warranty, 
+			[Scope_WarrantyStd] = @Scope_WarrantyStd, 
+			[Scope_TeamLead_EmployeeID] = @Scope_TeamLead_EmployeeID, 
+			[NumPanels] = @NumPanels, 
+			[PanelSqFt] = @PanelSqFt, 
+			[Scope_BeginQtr] = @Scope_BeginQtr, 
+			[Scope_BeginYear] = @Scope_BeginYear, 
+			[Scope_EndQtr] = @Scope_EndQtr, 
+			[Scope_EndYear] = @Scope_EndYear, 
+			[Scope_InternalNotes] = @Scope_InternalNotes, 
+			[Scope_RSM_EmployeeID] = @Scope_RSM_EmployeeID, 
 			[Scope_SalesRep_ID] = @Scope_SalesRep_ID 
-		WHERE [ProjectID] = @original_ProjectID)">
+		WHERE [ProjectID] = @ProjectID">
 	<SelectParameters>
 		<asp:RouteParameter Name="ProjectID" RouteKey="ProjectID" Type="Int32"/>
 	</SelectParameters>
@@ -2496,7 +2514,8 @@ Releases:
 		<asp:Parameter Name="Scope_InternalNotes" Type="String"/>
 		<asp:Parameter Name="Scope_RSM_EmployeeID" Type="Int32"/>
 		<asp:Parameter Name="Scope_SalesRep_ID" Type="Int32"/>
-		<asp:Parameter Name="original_ProjectID" Type="Int32"/>
+	    <asp:RouteParameter Name="ProjectID" RouteKey="ProjectID" Type="Int32"/>
+<%--		<asp:Parameter Name="original_ProjectID" Type="Int32"/>--%>
 	</UpdateParameters>
 </asp:SqlDataSource>
 

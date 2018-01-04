@@ -62,7 +62,14 @@ namespace ProjectLogic
                 SqlCommand command1 = new SqlCommand("SELECT NumPanels FROM tblBid WHERE BidID = '" + strProjectId + "'", connection);
                 bidPanels = (int)command1.ExecuteScalar();
                 SqlCommand command2 = new SqlCommand("SELECT SUM(NumPanels) FROM vueProjectRelease WHERE ProjectID = '" + strProjectId + "'", connection);
-                relToDate = (int)command2.ExecuteScalar();
+                var cmd2 = command2.ExecuteScalar();
+                if (cmd2 != DBNull.Value)
+                {
+                    relToDate = (int) cmd2;
+                }
+                else relToDate = 0;
+
+
                 panelsRemain = bidPanels - relToDate;
                 connection.Close();
             }
