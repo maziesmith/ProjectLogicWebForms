@@ -1,15 +1,14 @@
 ﻿using System;
-using System.Text;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace ProjectLogic
 {
-    public partial class BFDetails : Page
+    public partial class BfDetails : Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            bool isPostBack = IsPostBack;
+            
         }
 
         protected void GvBFMats_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -33,15 +32,18 @@ namespace ProjectLogic
 
         private void GvBfMatsRowInsert(GridViewRow gvRow)
         {
-            GridViewRow gvrow = gvRow;
+            if (gvRow == null)
+            {
+                return;
+            }
             Label lblBfid = (Label)FvHeader.FindControl("LblBFID");
-            DropDownList ddlMfr = (DropDownList)gvrow.FindControl("DdlMfr");
-            DropDownList ddlThickness = (DropDownList)gvrow.FindControl("DdlThickness");
-            DropDownList ddlCore = (DropDownList)gvrow.FindControl("DdlCore");
-            DropDownList ddlSize = (DropDownList)gvrow.FindControl("DdlSize");
-            TextBox txtColor = (TextBox)gvrow.FindControl("TxtColor");
-            TextBox txtQty = (TextBox)gvrow.FindControl("TxtQty");
-            DropDownList ddlFinish = (DropDownList)gvrow.FindControl("DdlFinish");
+            DropDownList ddlMfr = (DropDownList)gvRow.FindControl("DdlMfr");
+            DropDownList ddlThickness = (DropDownList)gvRow.FindControl("DdlThickness");
+            DropDownList ddlCore = (DropDownList)gvRow.FindControl("DdlCore");
+            DropDownList ddlSize = (DropDownList)gvRow.FindControl("DdlSize");
+            TextBox txtColor = (TextBox)gvRow.FindControl("TxtColor");
+            TextBox txtQty = (TextBox)gvRow.FindControl("TxtQty");
+            DropDownList ddlFinish = (DropDownList)gvRow.FindControl("DdlFinish");
             
 
             GvBFMatsSQL.InsertParameters.Clear();

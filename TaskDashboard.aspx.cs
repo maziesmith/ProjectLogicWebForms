@@ -1,15 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Web.Routing;
 using System.Configuration;
 
 namespace ProjectLogic
 {
-    public partial class TaskDashboard : System.Web.UI.Page
+    public partial class TaskDashboard : Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -24,14 +20,7 @@ namespace ProjectLogic
             MultiView1.ActiveViewIndex = int.Parse(e.Item.Value);
             for (int i = 0; i <= (mnuTaskDashboard.Items.Count - 1); i++)
             {
-                if (i == Convert.ToInt32(e.Item.Value))
-                {
-                    mnuTaskDashboard.Items[i].Text = mnuTaskDashboard.Items[i].Text;
-                }
-                else
-                {
-                    mnuTaskDashboard.Items[i].Text = mnuTaskDashboard.Items[i].Text;
-                }
+                mnuTaskDashboard.Items[i].Text = i == Convert.ToInt32(e.Item.Value) ? mnuTaskDashboard.Items[i].Text : mnuTaskDashboard.Items[i].Text;
             }
         }
 
@@ -54,36 +43,32 @@ namespace ProjectLogic
         {
             if (e.CommandName == "FooterInsert" && Page.IsValid)
             {
-                GridViewRow gvrow = gvTaskTeam.FooterRow;
-                if (gvrow != null)
-                {
-                    TaskTeamRowInsert(gvrow);
-                }
-                
+                GridViewRow gvRow = gvTaskTeam.FooterRow;
+                    TaskTeamRowInsert(gvRow);
             }
             if (e.CommandName == "EmptyInsert" && Page.IsValid)
             {
-                GridViewRow gvrow = (GridViewRow)gvTaskTeam.Controls[0].Controls[0];
-                if (gvrow != null)
-                {
-                    TaskTeamRowInsert(gvrow);
-                }
+                GridViewRow gvRow = (GridViewRow)gvTaskTeam.Controls[0].Controls[0];
+                    TaskTeamRowInsert(gvRow);
             }
         }
 
         private void TaskTeamRowInsert(GridViewRow gvRow)
         {
-            GridViewRow gvrow = gvRow;
-            DropDownList ddlEmployee = (DropDownList)gvrow.FindControl("DdlEmployee");
-            TextBox txtProjectId = (TextBox)gvrow.FindControl("TxtProjectID");
-            TextBox txtZoneDesc = (TextBox)gvrow.FindControl("TxtZoneDesc");
-            TextBox txtReleaseId = (TextBox)gvrow.FindControl("TxtReleaseID");
-            DropDownList ddlTaskCode = (DropDownList)gvrow.FindControl("DdlTaskCode");
-            DropDownList ddlStatus = (DropDownList)gvrow.FindControl("DdlStatus");
-            DropDownList ddlPriority = (DropDownList)gvrow.FindControl("DdlPriority");
-            TextBox txtDueDate = (TextBox)gvrow.FindControl("TxtDueDate");
-            TextBox txtNotes = (TextBox)gvrow.FindControl("TxtNotes");
-            TextBox txtComplete = (TextBox)gvrow.FindControl("TxtCompDate");
+            if (gvRow == null)
+            {
+                return;
+            }
+            DropDownList ddlEmployee = (DropDownList)gvRow.FindControl("DdlEmployee");
+            TextBox txtProjectId = (TextBox)gvRow.FindControl("TxtProjectID");
+            TextBox txtZoneDesc = (TextBox)gvRow.FindControl("TxtZoneDesc");
+            TextBox txtReleaseId = (TextBox)gvRow.FindControl("TxtReleaseID");
+            DropDownList ddlTaskCode = (DropDownList)gvRow.FindControl("DdlTaskCode");
+            DropDownList ddlStatus = (DropDownList)gvRow.FindControl("DdlStatus");
+            DropDownList ddlPriority = (DropDownList)gvRow.FindControl("DdlPriority");
+            TextBox txtDueDate = (TextBox)gvRow.FindControl("TxtDueDate");
+            TextBox txtNotes = (TextBox)gvRow.FindControl("TxtNotes");
+            TextBox txtComplete = (TextBox)gvRow.FindControl("TxtCompDate");
             if (string.IsNullOrWhiteSpace(txtProjectId.Text) || string.IsNullOrWhiteSpace(txtDueDate.Text))
             {
                 ClientScript.RegisterStartupScript(GetType(), "error", "alert('Enter Project # and Due Date.');", true);
@@ -123,25 +108,22 @@ namespace ProjectLogic
         {
             if ((e.CommandName == "FooterInsert") && Page.IsValid)
             {
-                GridViewRow gvrow = gvTaskEmployee.FooterRow;
-                if (gvrow != null)
-                {
-                    TaskEmpRowInsert(gvrow);
-                }
-                
+                GridViewRow gvRow = gvTaskEmployee.FooterRow;
+                    TaskEmpRowInsert(gvRow);
             }
             if ((e.CommandName == "EmptyInsert") && Page.IsValid)
             {
-                GridViewRow gvrow = (GridViewRow)gvTaskEmployee.Controls[0].Controls[0];
-                if (gvrow != null)
-                {
-                    TaskEmpRowInsert(gvrow);
-                }
+                GridViewRow gvRow = (GridViewRow)gvTaskEmployee.Controls[0].Controls[0];
+                    TaskEmpRowInsert(gvRow);
             }
         }
 
         private void TaskEmpRowInsert(GridViewRow gvRow)
         {
+            if (gvRow == null)
+            {
+                return;
+            }
             GridViewRow gvrow = gvRow;
             DropDownList ddlEmployee = (DropDownList)MultiView1.Views[0].FindControl("DdlEmployee");
             TextBox txtProjectId = (TextBox)gvrow.FindControl("TxtProjectID");

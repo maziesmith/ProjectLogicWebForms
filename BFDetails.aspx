@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Booking Form" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="BFDetails.aspx.cs" Inherits="ProjectLogic.BFDetails" %>
+﻿<%@ Page Title="Booking Form" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="BFDetails.aspx.cs" Inherits="ProjectLogic.BfDetails" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 <asp:FormView ID="FvHeader" runat="server" DataKeyNames="BookingFormID" DataSourceID="FvBookingFormSQL" OnItemCommand="FvBF_ItemCommand" RenderOuterTable="False">
 <EditItemTemplate>

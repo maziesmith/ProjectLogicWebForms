@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Web.Routing;
 
 namespace ProjectLogic
 {
@@ -106,32 +101,6 @@ namespace ProjectLogic
             DropDownList pageList = (DropDownList)pagerRow.Cells[0].FindControl("DdlPage");
             GvProjects.PageIndex = pageList.SelectedIndex;
         }
-
-        //protected void ChkActiveOnly_OnCheckedChanged(object sender, EventArgs e)
-        //{
-        //    CheckBox chkActiveOnly = (CheckBox) sender;
-
-
-        //    if (chkActiveOnly.Checked)
-        //    {
-        //        LvProjectSQL.SelectCommand =
-        //            "SELECT p.ProjectID, p.ProjectName, p.ProjectAddress, p.ProjectCity, p.ProjectState, p.ProjectZip, p.Scope_PM_EmployeeID, e.Name, ps.Description AS Status " +
-        //            "FROM tblProject p INNER JOIN tblEmployee e ON p.Scope_PM_EmployeeID = e.EmployeeID " +
-        //            "LEFT JOIN tblProjectStatus ps ON p.ProjectStatusID = ps.ProjectStatusID " +
-        //            "WHERE((ProjectName LIKE '%' + @ProjectName + '%') OR(ProjectID = @ProjectID) OR(Scope_PM_EmployeeID = @PM)) " +
-        //            "AND p.ProjectStatusID NOT BETWEEN '4' AND '6' "+
-        //            "ORDER BY p.ProjectID";
-        //    }
-        //    else
-        //    {
-        //        LvProjectSQL.SelectCommand =
-        //            "SELECT p.ProjectID, p.ProjectName, p.ProjectAddress, p.ProjectCity, p.ProjectState, p.ProjectZip, p.Scope_PM_EmployeeID, e.Name, ps.Description AS Status " +
-        //            "FROM tblProject p INNER JOIN tblEmployee e ON p.Scope_PM_EmployeeID = e.EmployeeID " +
-        //            "LEFT JOIN tblProjectStatus ps ON p.ProjectStatusID = ps.ProjectStatusID " +
-        //            "WHERE(ProjectName LIKE '%' + @ProjectName + '%') OR(ProjectID = @ProjectID) OR(Scope_PM_EmployeeID = @PM) "+
-        //            "ORDER BY p.ProjectID";
-        //    }
-        //}
 
         protected void BtnSearch_OnClick(object sender, EventArgs e)
         {

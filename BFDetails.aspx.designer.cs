@@ -10,7 +10,7 @@
 namespace ProjectLogic {
     
     
-    public partial class BFDetails {
+    public partial class BfDetails {
         
         /// <summary>
         /// FvHeader control.

@@ -10,7 +10,7 @@
 namespace ProjectLogic {
     
     
-    public partial class BFList {
+    public partial class BfList {
         
         /// <summary>
         /// Label3 control.

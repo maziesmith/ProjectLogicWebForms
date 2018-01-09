@@ -262,7 +262,7 @@
 </ItemTemplate>
 
 <EditItemTemplate>
-<div class="wrapper">
+<div >
 <div class="lside">
 	<table>
 		<tr>
@@ -1261,7 +1261,7 @@ Shipments:
 		</asp:TemplateField>
 	</Columns>
 	<PagerTemplate>
-		<div class="wrapper">
+		<div >
 			<div class="lside">
 				<asp:Label ID="LblMessage" runat="server" Text="Select a page: "/>
 				<asp:DropDownList ID="DdlPage" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ShipmentPagerDDL_SelectedIndexChanged"/>
@@ -1332,7 +1332,7 @@ Releases:
 		</asp:TemplateField>
 	</Columns>
 	<PagerTemplate>
-		<div class="wrapper">
+		<div >
 			<div class="lside">
 				<asp:Label ID="LblMessage" runat="server" Text="Select a page: "/>
 				<asp:DropDownList ID="DdlPage" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ReleasePagerDDL_SelectedIndexChanged"/>

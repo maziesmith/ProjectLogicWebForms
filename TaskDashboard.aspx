@@ -4,7 +4,7 @@
 	<script type="text/javascript">
 		function plusminus(input) {
 			var displayIcon = "img" + input;
-			if ($("#" + displayIcon).attr("src") == "images/plus.png")
+			if ($("#" + displayIcon).attr("src") === "images/plus.png")
 			{
 				$("#" + displayIcon).closest("tr")
 				.after("<tr><td></td><td colspan = '100%'>" + $("#" + input)
@@ -23,15 +23,15 @@
 		<StaticMenuItemStyle BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" />
 		<StaticSelectedStyle BackColor="Silver" />
 		<Items>
-			<asp:MenuItem Text="By&nbspEmployee" Value="0" />
-			<asp:MenuItem Text="By&nbspProgram" Value="1" />
-			<asp:MenuItem Text="By&nbspPM" Value="2" />
-			<asp:MenuItem Text="By&nbspTeam" Value="3" />
+			<asp:MenuItem Text="By&nbsp;Employee" Value="0" />
+			<asp:MenuItem Text="By&nbsp;Program" Value="1" />
+			<asp:MenuItem Text="By&nbsp;PM" Value="2" />
+			<asp:MenuItem Text="By&nbsp;Team" Value="3" />
 		</Items>
 	</asp:Menu>
 	<asp:MultiView ID="MultiView1" runat="server" ActiveViewIndex="0">
 		<asp:View ID="vueByEmployee" runat="server">
-			<div class="wrapper">
+			<div >
 				<div class="lside">
 					<br />
 					<asp:BulletedList ID="blEmployee" runat="server">
@@ -131,7 +131,7 @@
 						<asp:TextBox ID="TxtZoneDesc" CssClass="NumBox" runat="server" Text='<%# Bind("ZoneDesc") %>'></asp:TextBox>
 					</FooterTemplate>
 				</asp:TemplateField>
-				<asp:TemplateField HeaderText="Release&nbsp#" SortExpression="ReleaseID" HeaderStyle-BackColor="Silver">
+				<asp:TemplateField HeaderText="Release&nbsp;#" SortExpression="ReleaseID" HeaderStyle-BackColor="Silver">
 					<EditItemTemplate>
 						<asp:Label ID="TxtReleaseID" runat="server" Text='<%# Bind("ReleaseID") %>'></asp:Label>
 					</EditItemTemplate>
@@ -236,14 +236,14 @@
 				</asp:TemplateField>
 			</Columns>
 			<EmptyDataTemplate>
-				<table border="1">
+				<table>
 						<tr style="background-color:silver">
 							<th></th>
 							<th>Task ID</th>
-							<th>Project&nbsp#</th>
+							<th>Project&nbsp;#</th>
 							<th>Project Name</th>
 							<th>Zone Desc</th>
-							<th>Release&nbsp#</th>
+							<th>Release&nbsp;#</th>
 							<th>Task Code</th>
 							<th>Status</th>
 							<th>Priority</th>
@@ -286,7 +286,7 @@
 			</asp:GridView>
 		</asp:View>
 		<asp:View ID="vueByProgram" runat="server">
-			<div class="wrapper">
+			<div >
 				<div class="lside">
 					<br />
 					<asp:BulletedList ID="blProgram" runat="server">
@@ -342,7 +342,7 @@
 			<hr />
 		</asp:View>
 		<asp:View ID="vueByPM" runat="server">
-			<div class="wrapper">
+			<div >
 				<div class="lside">
 					<br />
 					<asp:BulletedList ID="blPM" runat="server">
@@ -439,7 +439,7 @@
 			</asp:GridView>
 		</asp:View>
 		<asp:View ID="vueByTeam" runat="server">
-			<div class="wrapper">
+			<div>
 				<div class="lside">
 					<br />
 					<asp:BulletedList ID="blTeam" runat="server">
@@ -526,7 +526,7 @@
 							</asp:DropDownList>
 						</ItemTemplate>
 					</asp:TemplateField>
-					<asp:TemplateField HeaderText="Project&nbsp#" SortExpression="ProjectID" HeaderStyle-BackColor="Silver">
+					<asp:TemplateField HeaderText="Project&nbsp;#" SortExpression="ProjectID" HeaderStyle-BackColor="Silver">
 						<EditItemTemplate>
 							<asp:Label ID="LblProjectID" runat="server" Text='<%# Bind("ProjectID") %>'></asp:Label>
 						</EditItemTemplate>
@@ -556,7 +556,7 @@
 							<asp:Label ID="TxtZoneDesc" runat="server" CssClass="NumBox" Text='<%# Bind("ZoneDesc") %>'></asp:Label>
 						</ItemTemplate>
 					</asp:TemplateField>
-					<asp:TemplateField HeaderText="Release&nbsp#" SortExpression="ReleaseID" HeaderStyle-BackColor="Silver">
+					<asp:TemplateField HeaderText="Release&nbsp;#" SortExpression="ReleaseID" HeaderStyle-BackColor="Silver">
 						<EditItemTemplate>
 							<asp:TextBox ID="TxtReleaseNum" runat="server" CssClass="NumBox" Text='<%# Bind("ReleaseID") %>'></asp:TextBox>
 						</EditItemTemplate>
@@ -661,15 +661,15 @@
 					</asp:TemplateField>
 				</Columns>
 				<EmptyDataTemplate>
-					<table border="1">
+					<table>
 						<tr style="background-color:silver">
 							<th></th>
-							<th>Task&nbspID</th>
+							<th>Task&nbsp;ID</th>
 							<th>Employee</th>
-							<th>Project&nbsp#</th>
+							<th>Project&nbsp;#</th>
 							<th>Project Name</th>
 							<th>Zone Desc</th>
-							<th>Release&nbsp#</th>
+							<th>Release&nbsp;#</th>
 							<th>Task Code</th>
 							<th>Status</th>
 							<th>Priority</th>
