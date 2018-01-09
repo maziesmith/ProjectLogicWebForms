@@ -12,7 +12,32 @@ namespace ProjectLogic
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            CheckBox chkActiveOnly = ChkActiveOnly;
+            DropDownList ddlPmSearch = DdlPmSearch;
+            String strSelectCommand =
+                "SELECT p.ProjectID, p.ProjectName, p.ProjectAddress, p.ProjectCity, p.ProjectState, p.ProjectZip, p.Scope_PM_EmployeeID, e.Name, ps.Description AS Status " +
+                "FROM tblProject p INNER JOIN tblEmployee e ON p.Scope_PM_EmployeeID = e.EmployeeID " +
+                "LEFT JOIN tblProjectStatus ps ON p.ProjectStatusID = ps.ProjectStatusID " +
+                "WHERE((ProjectName LIKE '%' + @ProjectName + '%') OR ProjectID = @ProjectID) ";
+
+            if (!String.IsNullOrEmpty(ddlPmSearch.SelectedValue))
+            {
+                if (string.IsNullOrEmpty(TxtProjectName.Text))
+                {
+                    strSelectCommand = strSelectCommand + "OR Scope_PM_EmployeeID = @PM ";
+                }
+                else strSelectCommand = strSelectCommand + "AND Scope_PM_EmployeeID = @PM ";
+            }
+            if (chkActiveOnly.Checked)
+            {
+                strSelectCommand = strSelectCommand + "AND p.ProjectStatusID NOT BETWEEN '4' AND '6' ORDER BY p.ProjectID";
+            }
+            else
+            {
+                strSelectCommand = strSelectCommand + "ORDER BY p.ProjectID";
+            }
+
+            LvProjectSQL.SelectCommand = strSelectCommand;
         }
 
         protected void GvProjects_OnDataBound(object sender, EventArgs e)

@@ -180,7 +180,7 @@ namespace ProjectLogic
                 string str = Convert.ToString(DataBinder.Eval(e.Row.DataItem, "ProjectID"));
                 SqlDataSource source = new SqlDataSource
                 {
-                    ConnectionString = ConfigurationManager.ConnectionStrings["ProjectLogicConnectionString"].ConnectionString,
+                    ConnectionString = ConfigurationManager.ConnectionStrings["ProjectLogicTestConnectionString"].ConnectionString,
                     SelectCommand = "SELECT tt.TaskID, e.Name, tt.ReleaseID, tc.TaskCodeAbbr, ts.TaskStatusName, tp.TaskPriorityName, tt.DueDate, tt.Notes, tt.CompDate " +
                     "FROM tblTaskTracker AS tt " +
                     "INNER JOIN tblTaskCode AS tc ON tt.TaskCodeID = tc.TaskCodeID " +

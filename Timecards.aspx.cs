@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Web.Routing;
 
 namespace ProjectLogic
 {
@@ -137,34 +132,31 @@ namespace ProjectLogic
         {
             if (e.CommandName == "FooterInsert" && Page.IsValid)
             {
-                GridViewRow gvrow = GvTimecards.FooterRow;
-                if (gvrow != null)
-                {
-                    RowInsert(gvrow);
-                }
+                GridViewRow gvRow = GvTimecards.FooterRow;
+                    RowInsert(gvRow);
             }
 
             if (e.CommandName == "EmptyInsert" && Page.IsValid)
             {
-                GridViewRow gvrow = (GridViewRow) GvTimecards.Controls[0].Controls[0];
-                if (gvrow != null)
-                {
-                    RowInsert(gvrow);
-                }
+                GridViewRow gvRow = (GridViewRow) GvTimecards.Controls[0].Controls[0];
+                    RowInsert(gvRow);
             }
         }
 
         private void RowInsert(GridViewRow gvRow)
         {
-            GridViewRow gvrow = gvRow;
-            TextBox txtDate = (TextBox)gvrow.FindControl("TxtDate");
-            DropDownList ddlDescription = (DropDownList)gvrow.FindControl("DdlTaskDesc");
-            TextBox txtHours = (TextBox)gvrow.FindControl("TxtHours");
-            TextBox txtNotes = (TextBox)gvrow.FindControl("TxtNotes");
-            DropDownList ddlProjectId = (DropDownList)gvrow.FindControl("DdlProjectsById");
-            TextBox txtRelNo = (TextBox)gvrow.FindControl("TxtRelNo");
-            TextBox txtNumPanels = (TextBox)gvrow.FindControl("TxtNumPanels");
-            TextBox txtNumSheets = (TextBox)gvrow.FindControl("TxtNumSheets"); 
+            if (gvRow == null)
+            {
+                return;
+            }
+            TextBox txtDate = (TextBox)gvRow.FindControl("TxtDate");
+            DropDownList ddlDescription = (DropDownList)gvRow.FindControl("DdlTaskDesc");
+            TextBox txtHours = (TextBox)gvRow.FindControl("TxtHours");
+            TextBox txtNotes = (TextBox)gvRow.FindControl("TxtNotes");
+            DropDownList ddlProjectId = (DropDownList)gvRow.FindControl("DdlProjectsById");
+            TextBox txtRelNo = (TextBox)gvRow.FindControl("TxtRelNo");
+            TextBox txtNumPanels = (TextBox)gvRow.FindControl("TxtNumPanels");
+            TextBox txtNumSheets = (TextBox)gvRow.FindControl("TxtNumSheets"); 
 
             //Data Validation
             if (string.IsNullOrWhiteSpace(ddlEmployee.SelectedValue)) // no employee selected. 
