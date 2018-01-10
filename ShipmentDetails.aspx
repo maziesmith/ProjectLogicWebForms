@@ -370,7 +370,8 @@
             [ShipToName], [ShipToAddress], [ShipToCity], [ShipToState], [ShipToZip], [DateShipped], [Notes], [FreightPaidBy]) 
             VALUES (@ProjectID, @ShipmentNo, @Description, @DateRequested, @DateAssigned, @ShipToName, @ShipToAddress, 
             @ShipToCity, @ShipToState, @ShipToZip, @DateShipped, @Notes, @FreightPaidBy)"
-                   SelectCommand="SELECT ProjectShipmentID, ProjectID, ShipmentNo, Description, DateRequested, DateAssigned, ShipToName, ShipToAddress, ShipToCity, ShipToState, ShipToZip, DateShipped, Notes, FreightPaidBy FROM tblProjectShipment WHERE (ProjectShipmentID = @PSID)"
+                   SelectCommand="SELECT ProjectShipmentID, ProjectID, ShipmentNo, Description, DateRequested, DateAssigned, ShipToName, 
+            ShipToAddress, ShipToCity, ShipToState, ShipToZip, DateShipped, Notes, FreightPaidBy FROM tblProjectShipment WHERE (ProjectShipmentID = @PSID)"
                    UpdateCommand="UPDATE [tblProjectShipment] SET [ProjectID] = @ProjectID, [ShipmentNo] = @ShipmentNo, [Description] = @Description, 
             [DateRequested] = @DateRequested, [DateAssigned] = @DateAssigned, [ShipToName] = @ShipToName, [ShipToAddress] = @ShipToAddress, 
             [ShipToCity] = @ShipToCity, [ShipToState] = @ShipToState, [ShipToZip] = @ShipToZip, [DateShipped] = @DateShipped, [Notes] = @Notes, 

@@ -38,6 +38,7 @@
 
 table, th, td {
     border: 1px solid black;
+    padding: 1px 3px;
 }
 .Grid td
 {
@@ -83,4 +84,6 @@ table, th, td {
 .rside {
     float:right;
 }
-
+.clear {
+    clear: both;
+}
