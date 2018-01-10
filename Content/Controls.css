@@ -87,3 +87,33 @@ table, th, td {
 .clear {
     clear: both;
 }
+
+.divTable{
+    display: block;
+    width: 100%;
+}
+.divTableHeading, .divTableBody, .divTableFoot, .divTableRow {
+    clear: both;
+}
+
+.divTableHead, .divTableFoot {
+    background-color: #eeeeee;
+    font-weight: bold;
+}
+
+.divTableCell, .divTableHead {
+    border: 1px solid #999999;
+    float: left;
+    min-width: 28%;
+    width: auto;
+    padding: 3px 10px;
+    min-height: 17px;
+}
+.divTable:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+}

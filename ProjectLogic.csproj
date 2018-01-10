@@ -122,6 +122,7 @@
     <Content Include="About.aspx" />
     <Content Include="BFDetails.aspx" />
     <Content Include="BFIndex.aspx" />
+    <Content Include="ChangeOrderDetails.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -229,6 +230,13 @@
     </Compile>
     <Compile Include="BFIndex.aspx.designer.cs">
       <DependentUpon>BFIndex.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ChangeOrderDetails.aspx.cs">
+      <DependentUpon>ChangeOrderDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ChangeOrderDetails.aspx.designer.cs">
+      <DependentUpon>ChangeOrderDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
