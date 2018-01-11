@@ -39,37 +39,40 @@
                 <%--Site Scripts--%>
             </Scripts>
         </asp:ScriptManager>
-
-        <div class="navbar navbar-inverse navbar-fixed-top">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" runat="server" href="~/">ProjectLogic</a>
-                </div>
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li><a runat="server" href="~/TaskDashboard">Task Dashboard</a></li>
-                        <li><a runat="server" href="~/ProjectIndex">Projects</a></li>
-                        <li><a runat="server" href="~/BFIndex">Booking Forms</a></li>
-                        <li><a runat="server" href="~/MatOrderIndex">Mat Orders</a></li>
-                        <li><a runat="server" href="~/Reports">Reports</a></li>
-                        <li><a runat="server" href="~/Timecards">Timecards</a></li>
-                    </ul>
-                    <p class="nav navbar-text navbar-right">Hello, <asp:LoginName runat="server" />!</p>
+        <div id="navbar" runat="server">
+            <div class="navbar navbar-inverse navbar-fixed-top">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" runat="server" href="~/">ProjectLogic</a>
+                    </div>
+                    <div class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav">
+                            <li><a runat="server" href="~/TaskDashboard">Task Dashboard</a></li>
+                            <li><a runat="server" href="~/ProjectIndex">Projects</a></li>
+                            <li><a runat="server" href="~/BFIndex">Booking Forms</a></li>
+                            <li><a runat="server" href="~/MatOrderIndex">Mat Orders</a></li>
+                            <li><a runat="server" href="~/Reports">Reports</a></li>
+                            <li><a runat="server" href="~/Timecards">Timecards</a></li>
+                        </ul>
+                        <p class="nav navbar-text navbar-right">Hello, <asp:LoginName runat="server" />!</p>
+                    </div>
                 </div>
             </div>
         </div>
         <div class="container body-content">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
-            <hr />
-            <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - Metal Design Systems, Inc.</p>
-            </footer>
+            <div id="footer" runat="server">
+                <hr />
+                <footer>
+                    <p>&copy; <%: DateTime.Now.Year %> - Metal Design Systems, Inc.</p>
+                </footer>
+            </div>
         </div>
 
     </form>

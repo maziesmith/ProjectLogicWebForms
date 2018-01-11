@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ReleaseDetails.aspx.cs" Inherits="ProjectLogic.ReleaseDetails" %>
+﻿<%@ Page Title="Release" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ReleaseDetails.aspx.cs" Inherits="ProjectLogic.ReleaseDetails" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 <script>
     window.onunload = refreshParent;
@@ -36,7 +36,7 @@
         <td>Shipment #: </td>
         <td>
             <asp:DropDownList ID="DdlShipment" runat="server" DataSourceID="DdlShipmentSQL" SelectedValue='<%# Bind("ProjectShipmentID") %>'
-                DataValueField="ProjectShipmentID" DataTextField="ShipmentNo" Enabled="False" />
+                              DataValueField="ProjectShipmentID" DataTextField="ShipmentNo" Enabled="False"/>
         </td>
         <td>Release #: </td>
         <td>
@@ -57,7 +57,7 @@
                 <td>Series: </td>
                 <td>
                     <asp:DropDownList runat="server" ID="DdlSeries" DataSourceID="DdlSeriesSQL" SelectedValue='<%# Bind("SeriesID") %>'
-                        DataTextField="Description" DataValueField="SeriesID" Enabled="False"/>
+                                      DataTextField="Description" DataValueField="SeriesID" Enabled="False"/>
                 </td>
             </tr>
             <tr>
@@ -107,7 +107,7 @@
             <tr>
                 <td>Dims Recd: </td>
                 <td>
-                    <asp:Label ID="LblDimsRecd" runat="server"  Text='<%# Bind("FieldDims_RecdFirst", "{0:d}") %>'/>
+                    <asp:Label ID="LblDimsRecd" runat="server" Text='<%# Bind("FieldDims_RecdFirst", "{0:d}") %>'/>
                 </td>
                 <td>Approved: </td>
                 <td>
@@ -128,7 +128,7 @@
                 <td>Programmed By: </td>
                 <td colspan="3">
                     <asp:DropDownList runat="server" ID="DdlProgBy" DataSourceID="DdlProgBySQL" SelectedValue='<%# Bind("ProgrammedBy_EmployeeID") %>'
-                         DataTextField="Name" DataValueField="EmployeeID" Enabled="False"/>
+                                      DataTextField="Name" DataValueField="EmployeeID" Enabled="False"/>
                 </td>
             </tr>
             <tr>
@@ -151,7 +151,7 @@
         </table>
     </div>
     <div class="rside">
-        <asp:Label runat="server" ID="LblNotesLbl" Text="Release Notes:" Font-Bold="True" />
+        <asp:Label runat="server" ID="LblNotesLbl" Text="Release Notes:" Font-Bold="True"/>
         <br/>
         <asp:Label ID="LblNotes" runat="server" BorderStyle="Solid" BorderWidth="1"
                    Text='<%# Eval("Notes").ToString().Replace(Environment.NewLine, "<br />") %>'/>
@@ -341,13 +341,13 @@
         <asp:QueryStringParameter Name="PRID" QueryStringField="PRID" Type="Int32"/>
     </SelectParameters>
 </asp:SqlDataSource>
-    <asp:SqlDataSource ID="DdlSeriesSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>" 
-        SelectCommand="SELECT [SeriesID], [Description] FROM [tblSeries]">
-    </asp:SqlDataSource>
-    <asp:SqlDataSource ID="DdlShipmentSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>" 
-        SelectCommand="SELECT [ProjectShipmentID], [ShipmentNo] FROM [tblProjectShipment] ORDER BY [ShipmentNo]">
-    </asp:SqlDataSource>
-    <asp:SqlDataSource ID="DdlProgBySQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>" 
-        SelectCommand="SELECT [EmployeeID], [Name] FROM [vueLkupRelProgBy] ORDER BY [Name]">
-    </asp:SqlDataSource>
+<asp:SqlDataSource ID="DdlSeriesSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>"
+                   SelectCommand="SELECT [SeriesID], [Description] FROM [tblSeries]">
+</asp:SqlDataSource>
+<asp:SqlDataSource ID="DdlShipmentSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>"
+                   SelectCommand="SELECT [ProjectShipmentID], [ShipmentNo] FROM [tblProjectShipment] ORDER BY [ShipmentNo]">
+</asp:SqlDataSource>
+<asp:SqlDataSource ID="DdlProgBySQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>"
+                   SelectCommand="SELECT [EmployeeID], [Name] FROM [vueLkupRelProgBy] ORDER BY [Name]">
+</asp:SqlDataSource>
 </asp:Content>

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Configuration;
 using System.Data.SqlClient;
+using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace ProjectLogic
@@ -9,7 +10,10 @@ namespace ProjectLogic
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            Control navbar = Master.FindControl("navbar");
+            Control footer = Master.FindControl("footer");
+            navbar.Visible = false;
+            footer.Visible = false;
 
         }
 
