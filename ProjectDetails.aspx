@@ -1455,7 +1455,7 @@ Releases:
 			<asp:TemplateField HeaderText="#" SortExpression="SeqNo">
 				<ItemTemplate>
 					<a href="../ChangeOrderDetails?PCOID=<%# Eval("ProjectChangeOrderID") %>"
-					   onclick="window.open('../ChangeOrderDetails?PCOID=<%# Eval("ProjectChangeOrderID") %>', 'newwindow', 'width=600,height=700');return false;">
+					   onclick="window.open('../ChangeOrderDetails?PCOID=<%# Eval("ProjectChangeOrderID") %>', 'newwindow', 'width=500,height=900');return false;">
 					<asp:Label ID="LblSeqNo" runat="server" Text='<%# Bind("SeqNo") %>'></asp:Label>
 				</ItemTemplate>
 			</asp:TemplateField>

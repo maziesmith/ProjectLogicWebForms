@@ -16,7 +16,7 @@
             <div class="divTableRow">
                 <div class="divTableCell">Project #:</div>
                 <div class="divTableCell">
-                    <asp:TextBox ID="TxtProjectID" runat="server" Text='<%# Bind("ProjectID") %>' Enabled="False"/>
+                    <asp:TextBox ID="TxtProjectID" runat="server" CssClass="DateBox AlignRight" Text='<%# Bind("ProjectID") %>' Enabled="False"/>
                 </div>
             </div>
             <div class="divTableRow">
@@ -31,26 +31,26 @@
             <div class="divTableRow">
                 <div class="divTableCell">C/O #:</div>
                 <div class="divTableCell">
-                    <asp:TextBox ID="TxtSeqNo" runat="server" Text='<%# Bind("SeqNo") %>'/>
+                    <asp:TextBox ID="TxtSeqNo" runat="server" CssClass="DateBox AlignRight"  Text='<%# Bind("SeqNo") %>'/>
                 </div>
             </div>
             <div class="divTableRow">
                 <div class="divTableCell">Date:</div>
                 <div class="divTableCell">
-                    <asp:TextBox ID="TxtDate" runat="server" Text='<%# Bind("Date") %>'/>
+                    <asp:TextBox ID="TxtDate" runat="server" CssClass="DateBox AlignRight" Text='<%# Bind("Date","{0:d}") %>'/>
                 </div>
             </div>
             <div class="divTableRow ">
                 <div class="divTableCell">Entered By:</div>
                 <div class="divTableCell">
-                    <asp:DropDownList runat="server" ID="DdlEnteredBy" DataSourceID="DdlEnteredBySQL" SelectedValue='<%# Bind("EnteredBy_UserID") %>'
+                    <asp:DropDownList runat="server" ID="DdlEnteredBy" CssClass="DDL150" DataSourceID="DdlEnteredBySQL" SelectedValue='<%# Bind("EnteredBy_UserID") %>'
                                       DataValueField="UserID" DataTextField="Name"/>
                 </div>
             </div>
             <div class="divTableRow ">
                 <div class="divTableCell">Source:</div>
                 <div class="divTableCell">
-                    <asp:DropDownList runat="server" ID="DdlSource" SelectedValue='<%# Bind("Source") %>'>
+                    <asp:DropDownList runat="server" ID="DdlSource" CssClass="DDL150" SelectedValue='<%# Bind("Source") %>'>
                         <asp:ListItem Text="Internal" Value="Internal"/>
                         <asp:ListItem Text="External" Value="External"/>
                         <asp:ListItem Text="Field Meas" Value="Field Meas"/>
@@ -60,7 +60,7 @@
             <div class="divTableRow ">
                 <div class="divTableCell">Initiator:</div>
                 <div class="divTableCell">
-                    <asp:DropDownList runat="server" ID="DdlInitiator" DataSourceID="DdlInitiatorSQL" SelectedValue='<%# Bind("Initiator") %>'
+                    <asp:DropDownList runat="server" ID="DdlInitiator" CssClass="DDL150" DataSourceID="DdlInitiatorSQL" SelectedValue='<%# Bind("Initiator") %>'
                                       DataValueField="FieldName" DataTextField="FieldValue" Enabled="False" AppendDataBoundItems="True">
                         <asp:ListItem Text="" Value=""/>
                     </asp:DropDownList>
@@ -69,7 +69,7 @@
             <div class="divTableRow ">
                 <div class="divTableCell">Reason:</div>
                 <div class="divTableCell">
-                    <asp:DropDownList runat="server" ID="DdlReason" DataSourceID="DdlReasonSQL" SelectedValue='<%# Bind("Reason") %>'
+                    <asp:DropDownList runat="server" ID="DdlReason" CssClass="DDL150" DataSourceID="DdlReasonSQL" SelectedValue='<%# Bind("Reason") %>'
                                       DataValueField="FieldName" DataTextField="FieldValue" Enabled="False" AppendDataBoundItems="True">
                         <asp:ListItem Text="" Value=""/>
                     </asp:DropDownList>
@@ -84,7 +84,7 @@
             <div class="divTableRow ">
                 <div class="divTableCell">Approval Code:</div>
                 <div class="divTableCell">
-                    <asp:TextBox ID="LblApprovalCode" runat="server" Text='<%# Bind("ApprovalCode") %>'/>
+                    <asp:TextBox ID="LblApprovalCode" runat="server" CssClass="DateBox" Text='<%# Bind("ApprovalCode") %>'/>
                 </div>
             </div>
             <div class="divTableRow ">
@@ -96,13 +96,13 @@
             <div class="divTableRow ">
                 <div class="divTableCell"># Panels</div>
                 <div class="divTableCell">
-                    <asp:TextBox ID="TxtNumPanels" runat="server" Text='<%# Bind("NumPanels") %>'/>
+                    <asp:TextBox ID="TxtNumPanels" runat="server" CssClass="DateBox AlignRight" Text='<%# Bind("NumPanels") %>'/>
                 </div>
             </div>
             <div class="divTableRow ">
                 <div class="divTableCell">Amount:</div>
                 <div class="divTableCell">
-                    <asp:TextBox ID="LblAmount" runat="server" Text='<%# Bind("Amount") %>'/>
+                    <asp:TextBox ID="LblAmount" runat="server" CssClass="DateBox AlignRight" Text='<%# Bind("Amount","${0:n2}") %>'/>
                 </div>
             </div>
             <div class="divTableRow ">
@@ -114,13 +114,13 @@
             <div class="divTableRow ">
                 <div class="divTableCell">Date Due:</div>
                 <div class="divTableCell">
-                    <asp:TextBox ID="TxtDateDue" runat="server" Text='<%# Bind("DateDue") %>'/>
+                    <asp:TextBox ID="TxtDateDue" runat="server" CssClass="DateBox AlignRight" Text='<%# Bind("DateDue","{0:d}") %>'/>
                 </div>
             </div>
             <div class="divTableRow ">
                 <div class="divTableCell">Date Recd:</div>
                 <div class="divTableCell">
-                    <asp:TextBox ID="TxtDateRecd" runat="server" Text='<%# Bind("DateRecd") %>'/>
+                    <asp:TextBox ID="TxtDateRecd" runat="server" CssClass="DateBox AlignRight" Text='<%# Bind("DateRecd","{0:d}") %>'/>
                 </div>
             </div>
             <div class="divTableRow ">
@@ -145,13 +145,13 @@
         <div class="divTableBody">
             <div class="divTableRow">
                 <div class="divTableCell">Project #:</div>
-                <div class="divTableCell">
+                <div class="divTableCell AlignRight">
                     <asp:Label ID="LblProjectID" runat="server" Text='<%# Eval("ProjectID") %>'/>
                 </div>
             </div>
             <div class="divTableRow">
                 <div class="divTableCell">Shipment #:</div>
-                <div class="divTableCell">
+                <div class="divTableCell AlignRight">
                     <asp:DropDownList runat="server" ID="DdlShipment" DataSourceID="DdlShipmentSQL" 
                         DataValueField="ProjectShipmentID" DataTextField="ShipmentNo" Enabled="False" AppendDataBoundItems="True">
                         <asp:ListItem Text="" Value="" />
@@ -161,27 +161,27 @@
             </div>
             <div class="divTableRow">
                 <div class="divTableCell">C/O #:</div>
-                <div class="divTableCell">
+                <div class="divTableCell AlignRight">
                     <asp:Label ID="LblSeqNo" runat="server" Text='<%# Bind("SeqNo") %>'/>
                 </div>
             </div>
             <div class="divTableRow">
                 <div class="divTableCell">Date:</div>
-                <div class="divTableCell">
+                <div class="divTableCell AlignRight">
                     <asp:Label ID="LblDate" runat="server" Text='<%# Bind("Date", "{0:d}") %>'/>
                 </div>
             </div>
             <div class="divTableRow ">
                 <div class="divTableCell">Entered By:</div>
                 <div class="divTableCell">
-                    <asp:DropDownList runat="server" ID="DdlEnteredBy" DataSourceID="DdlEnteredBySQL" SelectedValue='<%# Bind("EnteredBy_UserID") %>'
+                    <asp:DropDownList runat="server" ID="DdlEnteredBy" CssClass="DDL150" DataSourceID="DdlEnteredBySQL" SelectedValue='<%# Bind("EnteredBy_UserID") %>'
                                       DataValueField="UserID" DataTextField="Name" Enabled="False"/>
                 </div>
             </div>
             <div class="divTableRow ">
                 <div class="divTableCell">Source:</div>
                 <div class="divTableCell">
-                    <asp:DropDownList runat="server" ID="DdlSource" SelectedValue='<%# Bind("Source") %>' Enabled="False">
+                    <asp:DropDownList runat="server" ID="DdlSource" CssClass="DDL150" SelectedValue='<%# Bind("Source") %>' Enabled="False">
                         <asp:ListItem Text="Internal" Value="Internal"/>
                         <asp:ListItem Text="External" Value="External"/>
                         <asp:ListItem Text="Field Meas" Value="Field Meas"/>
@@ -191,7 +191,7 @@
             <div class="divTableRow ">
                 <div class="divTableCell">Initiator:</div>
                 <div class="divTableCell">
-                    <asp:DropDownList runat="server" ID="DdlInitiator" DataSourceID="DdlInitiatorSQL" SelectedValue='<%# Bind("Initiator") %>'
+                    <asp:DropDownList runat="server" ID="DdlInitiator" CssClass="DDL150" DataSourceID="DdlInitiatorSQL" SelectedValue='<%# Bind("Initiator") %>'
                                       DataValueField="FieldName" DataTextField="FieldValue" Enabled="False" AppendDataBoundItems="True">
                         <asp:ListItem Text="" Value=""/>
                     </asp:DropDownList>
@@ -200,7 +200,7 @@
             <div class="divTableRow ">
                 <div class="divTableCell">Reason:</div>
                 <div class="divTableCell">
-                    <asp:DropDownList runat="server" ID="DdlReason" DataSourceID="DdlReasonSQL" SelectedValue='<%# Bind("Reason") %>'
+                    <asp:DropDownList runat="server" ID="DdlReason" CssClass="DDL150" DataSourceID="DdlReasonSQL" SelectedValue='<%# Bind("Reason") %>'
                                       DataValueField="FieldName" DataTextField="FieldValue" Enabled="False" AppendDataBoundItems="True">
                         <asp:ListItem Text="" Value=""/>
                     </asp:DropDownList>
@@ -226,14 +226,14 @@
             </div>
             <div class="divTableRow ">
                 <div class="divTableCell"># Panels</div>
-                <div class="divTableCell">
+                <div class="divTableCell AlignRight">
                     <asp:Label ID="LblNumPanels" runat="server" Text='<%# Bind("NumPanels") %>'/>
                 </div>
             </div>
             <div class="divTableRow ">
                 <div class="divTableCell">Amount:</div>
-                <div class="divTableCell">
-                    <asp:Label ID="LblAmount" runat="server" Text='<%# Bind("Amount", "{0:c}") %>'/>
+                <div class="divTableCell AlignRight">
+                    <asp:Label ID="LblAmount" runat="server" Text='<%# Bind("Amount","{0:c}") %>'/>
                 </div>
             </div>
             <div class="divTableRow ">
@@ -244,13 +244,13 @@
             </div>
             <div class="divTableRow ">
                 <div class="divTableCell">Date Due:</div>
-                <div class="divTableCell">
+                <div class="divTableCell AlignRight">
                     <asp:Label ID="LblDateDue" runat="server" Text='<%# Bind("DateDue", "{0:d}") %>'/>
                 </div>
             </div>
             <div class="divTableRow ">
                 <div class="divTableCell">Date Recd:</div>
-                <div class="divTableCell">
+                <div class="divTableCell AlignRight">
                     <asp:Label ID="LblDateRecd" runat="server" Text='<%# Bind("DateRecd", "{0:d}") %>'/>
                 </div>
             </div>

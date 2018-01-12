@@ -37,13 +37,13 @@
                     <b>Order Date:</b>
                 </td>
                 <td>
-                    <asp:Label ID="LblOrderDate" runat="server" Text='<%# Bind("OrderDate", "{0:MM/dd/yyyy}") %>'/>
+                    <asp:Label ID="LblOrderDate" runat="server" Text='<%# Bind("OrderDate", "{0:d}") %>'/>
                     </td>
                 <td>
                     <b>Date Needed:</b>
                 </td>
                 <td>
-                    <asp:Label ID="LblDateNeeded" runat="server" Text='<%# Bind("DateNeeded", "{0:MM/dd/yyyy}") %>'/>
+                    <asp:Label ID="LblDateNeeded" runat="server" Text='<%# Bind("DateNeeded", "{0:d}") %>'/>
                 </td>
             </tr>
         </table>
@@ -86,7 +86,7 @@
                     <b>Order Date:</b>
                 </td>
                 <td>
-                    <asp:TextBox ID="TxtOrderDate" runat="server" CssClass="DateBox" Text='<%# Bind("OrderDate", "{0:MM/dd/yyyy}") %>'/>
+                    <asp:TextBox ID="TxtOrderDate" runat="server" CssClass="DateBox" Text='<%# Bind("OrderDate", "{0:d}") %>'/>
                     <asp:CompareValidator id="OrderDateValidator" runat="server" Display="Dynamic" Type="Date" Operator="DataTypeCheck" ControlToValidate="txtOrderDate"
                                           ErrorMessage="Please enter a valid date.">
                     </asp:CompareValidator>
@@ -95,7 +95,7 @@
                     <b>Date Needed:</b>
                 </td>
                 <td>
-                    <asp:TextBox ID="TxtDateNeeded" runat="server" CssClass="DateBox" Text='<%# Bind("DateNeeded", "{0:MM/dd/yyyy}") %>'/>
+                    <asp:TextBox ID="TxtDateNeeded" runat="server" CssClass="DateBox" Text='<%# Bind("DateNeeded", "{0:d}") %>'/>
                     <asp:CompareValidator id="DateNeededValidator" runat="server" Display="Dynamic" Type="Date" Operator="DataTypeCheck" ControlToValidate="txtDateNeeded"
                                           ErrorMessage="Please enter a valid date.">
                     </asp:CompareValidator>
@@ -254,13 +254,13 @@
     </asp:TemplateField>
     <asp:TemplateField HeaderText="Quoted Cost" SortExpression="CostFromEstimate" ItemStyle-HorizontalAlign="Right" HeaderStyle-BackColor="Silver">
         <EditItemTemplate>
-            <asp:TextBox ID="TxtCost" runat="server" CssClass="DateBox" Text='<%# Bind("CostFromEstimate", "${0:f2}") %>'></asp:TextBox>
+            <asp:TextBox ID="TxtCost" runat="server" CssClass="DateBox" Text='<%# Bind("CostFromEstimate", "${0:n2}") %>'></asp:TextBox>
         </EditItemTemplate>
         <FooterTemplate>
             <asp:TextBox ID="TxtCost" runat="server" CssClass="DateBox"></asp:TextBox>
         </FooterTemplate>
         <ItemTemplate>
-            <asp:Label ID="LblCost" runat="server" Text='<%# Bind("CostFromEstimate", "${0:f2}") %>'></asp:Label>
+            <asp:Label ID="LblCost" runat="server" Text='<%# Bind("CostFromEstimate", "${0:n2}") %>'></asp:Label>
         </ItemTemplate>
     </asp:TemplateField>
 </Columns>
@@ -314,7 +314,7 @@
                 <asp:TextBox ID="TxtCustColorCode" runat="server" CssClass="DateBox" Text='<%# Bind("CustColorCode") %>'/>
             </td>
             <td>
-                <asp:TextBox ID="TxtCost" runat="server" CssClass="DateBox" Text='<%# Bind("CostFromEstimate", "${0:f2}") %>'/>
+                <asp:TextBox ID="TxtCost" runat="server" CssClass="DateBox" Text='<%# Bind("CostFromEstimate", "${0:n2}") %>'/>
             </td>
         </tr>
     </table>
@@ -436,13 +436,13 @@
         </asp:TemplateField>
         <asp:TemplateField HeaderText="Quoted Cost" SortExpression="CostFromEstimate" ItemStyle-HorizontalAlign="Right" HeaderStyle-BackColor="Silver">
             <EditItemTemplate>
-                <asp:TextBox ID="TxtCost" runat="server" CssClass="DateBox" Text='<%# Bind("CostFromEstimate", "${0:f2}") %>'></asp:TextBox>
+                <asp:TextBox ID="TxtCost" runat="server" CssClass="DateBox" Text='<%# Bind("CostFromEstimate", "${0:n2}") %>'></asp:TextBox>
             </EditItemTemplate>
             <FooterTemplate>
                 <asp:TextBox ID="TxtCost" runat="server" CssClass="DateBox"></asp:TextBox>
             </FooterTemplate>
             <ItemTemplate>
-                <asp:Label ID="LblCost" runat="server" Text='<%# Bind("CostFromEstimate", "${0:f2}") %>'></asp:Label>
+                <asp:Label ID="LblCost" runat="server" Text='<%# Bind("CostFromEstimate", "${0:n2}") %>'></asp:Label>
             </ItemTemplate>
         </asp:TemplateField>
     </Columns>
@@ -485,7 +485,7 @@
                     <asp:TextBox ID="TxtNotes" runat="server" Text='<%# Bind("Notes") %>'/>
                 </td>
                 <td>
-                    <asp:TextBox ID="TxtCost" runat="server" CssClass="DateBox" Text='<%# Bind("CostFromEstimate", "${0:f2}") %>'/>
+                    <asp:TextBox ID="TxtCost" runat="server" CssClass="DateBox" Text='<%# Bind("CostFromEstimate", "${0:n2}") %>'/>
                 </td>
             </tr>
         </table>
@@ -589,13 +589,13 @@
         </asp:TemplateField>
         <asp:TemplateField HeaderText="Quoted Cost" SortExpression="CostFromEstimate" ItemStyle-HorizontalAlign="Right" HeaderStyle-BackColor="Silver">
             <EditItemTemplate>
-                <asp:TextBox ID="TxtCost" runat="server" CssClass="DateBox" Text='<%# Bind("CostFromEstimate", "${0:f2}") %>'></asp:TextBox>
+                <asp:TextBox ID="TxtCost" runat="server" CssClass="DateBox" Text='<%# Bind("CostFromEstimate", "${0:n2}") %>'></asp:TextBox>
             </EditItemTemplate>
             <FooterTemplate>
                 <asp:TextBox ID="TxtCost" runat="server" CssClass="DateBox"></asp:TextBox>
             </FooterTemplate>
             <ItemTemplate>
-                <asp:Label ID="LblCost" runat="server" Text='<%# Bind("CostFromEstimate", "${0:f2}") %>'></asp:Label>
+                <asp:Label ID="LblCost" runat="server" Text='<%# Bind("CostFromEstimate", "${0:n2}") %>'></asp:Label>
             </ItemTemplate>
         </asp:TemplateField>
     </Columns>
@@ -632,7 +632,7 @@
                     <asp:TextBox ID="TxtColor" runat="server" CssClass="DateBox" Text='<%# Bind("FinishColor") %>'/>
                 </td>
                 <td>
-                    <asp:TextBox ID="TxtCost" runat="server" CssClass="DateBox" Text='<%# Bind("CostFromEstimate", "${0:f2}") %>'/>
+                    <asp:TextBox ID="TxtCost" runat="server" CssClass="DateBox" Text='<%# Bind("CostFromEstimate", "${0:n2}") %>'/>
                 </td>
             </tr>
         </table>

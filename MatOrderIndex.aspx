@@ -35,7 +35,7 @@
                     <asp:Label ID="LblOrderReason" runat="server" Text='<%# Eval("Description") %>' />
                 </td>
                 <td>
-                    <asp:Label ID="LblOrderDate" runat="server" Text='<%# Eval("OrderDate", "{0:MM-dd-yyyy}") %>' />
+                    <asp:Label ID="LblOrderDate" runat="server" Text='<%# Eval("OrderDate", "{0:d}") %>' />
                 </td>
             </tr>
         </AlternatingItemTemplate>
@@ -69,7 +69,7 @@
                     <asp:Label ID="LblOrderReason" runat="server" Text='<%# Eval("Description") %>' />
                 </td>
                 <td>
-                    <asp:Label ID="LblOrderDate" runat="server" Text='<%# Eval("OrderDate", "{0:MM-dd-yyyy}") %>' />
+                    <asp:Label ID="LblOrderDate" runat="server" Text='<%# Eval("OrderDate", "{0:d}") %>' />
                 </td>
             </tr>
         </ItemTemplate>

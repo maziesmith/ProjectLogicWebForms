@@ -18,10 +18,14 @@ namespace ProjectLogic
             navbar.Visible = false;
             footer.Visible = false;
 
-            Label lblProjectId = (Label)FvChangeOrder.FindControl("LblProjectID");
-            String strProjectId = lblProjectId.Text;
-            DdlShipmentSQL.SelectParameters["ProjectID"].DefaultValue = strProjectId;
-            DataBind();
+            if (!IsPostBack)
+            {
+                Label lblProjectId = (Label)FvChangeOrder.FindControl("LblProjectID");
+                String strProjectId = lblProjectId.Text;
+                DdlShipmentSQL.SelectParameters["ProjectID"].DefaultValue = strProjectId;
+                DataBind();
+
+            }
 
 
             String strChangeOrderId = FvChangeOrder.DataKey["ProjectChangeOrderID"].ToString();
