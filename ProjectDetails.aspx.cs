@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Configuration;
 using System.Data.SqlClient;
+using System.Security.Principal;
+using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -13,6 +15,8 @@ namespace ProjectLogic
             if (!IsPostBack)
             {
                 MnuProject.Items[0].Selected = true;
+
+                
             }
         }
 
@@ -292,7 +296,94 @@ namespace ProjectLogic
 
         protected void LbNewShipment_OnClick(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            
+        }
+
+        protected void LbNewChangeOrder_OnClick(object sender, EventArgs e)
+        {
+            
+        }
+
+        protected void GvChangeOrders_OnRowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            switch (e.CommandName)
+            {
+                case "FooterInsert":
+                {
+                    GridViewRow gvRow = GvChangeOrders.FooterRow;
+                        GvChangeOrderRowInsert(gvRow);
+                    break;
+                }
+                case "EmptyInsert":
+                {
+                    GridViewRow gvRow = (GridViewRow)GvChangeOrders.Controls[0].Controls[0];
+                    GvChangeOrderRowInsert(gvRow);
+                        break;
+                }
+            }
+        }
+
+        private void GvChangeOrderRowInsert(GridViewRow gvRow)
+        {
+            if (gvRow == null)
+            {
+                return;
+            }
+            
+            Label lblProjectId = (Label)FvHeader.FindControl("LblProjectID");
+            string strProjectId = lblProjectId.Text;
+            TextBox txtDate = (TextBox) gvRow.FindControl("TxtDate");
+            TextBox txtAmount = (TextBox) gvRow.FindControl("TxtAmount");
+            DropDownList ddlSource = (DropDownList) gvRow.FindControl("DdlSource");
+            TextBox txtDateDue = (TextBox) gvRow.FindControl("TxtDateDue");
+            TextBox txtDateRecd = (TextBox) gvRow.FindControl("TxtDateRecd");
+            DropDownList ddlStatus = (DropDownList) gvRow.FindControl("DdlStatus");
+            TextBox txtDescription = (TextBox) gvRow.FindControl("TxtDescription");
+            
+            string[] name = Environment.UserName.Split('.');
+            string firstName = name[0];
+            string lastName = name[1];
+
+            
+            String conString = ConfigurationManager.ConnectionStrings["ProjectLogicTestConnectionString"].ConnectionString;
+            SqlConnection connection = new SqlConnection(conString);
+            connection.Open();
+            SqlCommand command = new SqlCommand("SELECT TOP 1 COALESCE(SeqNo,0) FROM tblProjectChangeOrder WHERE ProjectID = '" + strProjectId + "' ORDER BY SeqNo DESC", connection);
+            int scalar = (int) command.ExecuteScalar();
+            SqlCommand cmdGetUserId = new SqlCommand("SELECT UserID FROM tblUser AS u INNER JOIN tblEmployee AS e ON u.EmployeeID = e.EmployeeID " +
+                "WHERE e.Name ='"+firstName+" "+lastName+"'", connection);
+            string userId = (string)cmdGetUserId.ExecuteScalar();
+            connection.Close();
+            String strSeqNo = (scalar + 1).ToString();
+
+            if (string.IsNullOrWhiteSpace(userId))
+            {
+                ClientScript.RegisterStartupScript(GetType(), "error",
+                    "alert('No link between UserID and current user.');", true);
+            }
+
+            else
+            {
+                GvChangeOrdersSQL.InsertParameters.Clear();
+                GvChangeOrdersSQL.InsertParameters.Add("ProjectID", strProjectId);
+                GvChangeOrdersSQL.InsertParameters.Add("SeqNo", strSeqNo);
+                GvChangeOrdersSQL.InsertParameters.Add("Amount", txtAmount.Text);
+                GvChangeOrdersSQL.InsertParameters.Add("Source", ddlSource.SelectedValue);
+                GvChangeOrdersSQL.InsertParameters.Add("EnteredBy_UserID", userId);
+                GvChangeOrdersSQL.InsertParameters.Add("Date", txtDate.Text);
+                GvChangeOrdersSQL.InsertParameters.Add("DateDue", txtDateDue.Text);
+                GvChangeOrdersSQL.InsertParameters.Add("DateRecd", txtDateRecd.Text);
+                GvChangeOrdersSQL.InsertParameters.Add("Status", ddlStatus.SelectedValue);
+                GvChangeOrdersSQL.InsertParameters.Add("Description", txtDescription.Text);
+                GvChangeOrdersSQL.InsertParameters.Add("NumPanels", "0");
+                GvChangeOrdersSQL.InsertParameters.Add("IsCommissionable", "True");
+                GvChangeOrdersSQL.Insert();
+            }
+        }
+
+        protected void GvChangeOrders_OnDataBound(object sender, EventArgs e)
+        {
+            
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="Project" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ProjectDetails.aspx.cs" Inherits="ProjectLogic.ProjectDetails" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script type="text/javascript">
 	function plusminus(input) {
 		var displayIcon = "img" + input;
@@ -110,7 +110,7 @@
 			</td>
 			<td colspan="2">Date:</td>
 			<td>
-				<asp:Label ID="LblStatusDate" runat="server" Text='<%# Eval("DateStatus", "{0:MM/dd/yyyy}") %>'/>
+				<asp:Label ID="LblStatusDate" runat="server" Text='<%# Eval("DateStatus", "{0:d}") %>'/>
 			</td>
 		</tr>
 		<tr>
@@ -134,11 +134,11 @@
 		<tr>
 			<td>App Sent: </td>
 			<td>
-				<asp:Label ID="LblAppSent" runat="server" Text='<%# Eval("DateCreditAppSent", "{0:MM/dd/yyyy}") %>'/>
+				<asp:Label ID="LblAppSent" runat="server" Text='<%# Eval("DateCreditAppSent", "{0:d}") %>'/>
 			</td>
 			<td colspan="2">App Recd: </td>
 			<td>
-				<asp:Label ID="LblAppRecd" runat="server" Text='<%# Eval("DateCreditAppRecd", "{0:MM/dd/yyyy}") %>'/>
+				<asp:Label ID="LblAppRecd" runat="server" Text='<%# Eval("DateCreditAppRecd", "{0:d}") %>'/>
 			</td>
 		</tr>
 		<tr>
@@ -181,7 +181,7 @@
 		<tr>
 			<td>Deliv Date/Notes: </td>
 			<td>
-				<asp:Label ID="LblDateDelivery" runat="server" Text='<%# Eval("DateDelivery", "{0:MM/dd/yyyy}") %>'/>
+				<asp:Label ID="LblDateDelivery" runat="server" Text='<%# Eval("DateDelivery", "{0:d}") %>'/>
 			</td>
 			<td colspan="3">
 				<asp:Label ID="LblDeliveryNotes" runat="server" Text='<%# Eval("DeliveryNotes") %>'/>
@@ -324,7 +324,7 @@
 
 			<td colspan="2">Date:</td>
 			<td>
-				<asp:TextBox ID="TxtStatusDate" runat="server" CssClass="DateBox" Text='<%# Bind("DateStatus", "{0:MM/dd/yyyy}") %>'/>
+				<asp:TextBox ID="TxtStatusDate" runat="server" CssClass="DateBox" Text='<%# Bind("DateStatus", "{0:d}") %>'/>
 			</td>
 		</tr>
 		<tr>
@@ -348,11 +348,11 @@
 		<tr>
 			<td>App Sent: </td>
 			<td>
-				<asp:TextBox ID="TxtAppSent" runat="server" CssClass="DateBox" Text='<%# Bind("DateCreditAppSent", "{0:MM/dd/yyyy}") %>'/>
+				<asp:TextBox ID="TxtAppSent" runat="server" CssClass="DateBox" Text='<%# Bind("DateCreditAppSent", "{0:d}") %>'/>
 			</td>
 			<td colspan="2">App Recd: </td>
 			<td>
-				<asp:TextBox ID="TxtAppRecd" runat="server" CssClass="DateBox" Text='<%# Bind("DateCreditAppRecd", "{0:MM/dd/yyyy}") %>'/>
+				<asp:TextBox ID="TxtAppRecd" runat="server" CssClass="DateBox" Text='<%# Bind("DateCreditAppRecd", "{0:d}") %>'/>
 			</td>
 		</tr>
 		<tr>
@@ -394,7 +394,7 @@
 		<tr>
 			<td>Deliv Date/Notes: </td>
 			<td>
-				<asp:TextBox ID="TxtDateDelivery" runat="server" CssClass="DateBox" Text='<%# Bind("DateDelivery", "{0:MM/dd/yyyy}") %>'/>
+				<asp:TextBox ID="TxtDateDelivery" runat="server" CssClass="DateBox" Text='<%# Bind("DateDelivery", "{0:d}") %>'/>
 			</td>
 			<td colspan="3">
 				<asp:TextBox ID="TxtDeliveryNotes" runat="server" Text='<%# Bind("DeliveryNotes") %>'/>
@@ -483,7 +483,7 @@
 				<tr>
 					<td>Meeting Date:</td>
 					<td>
-						<asp:Label ID="LblMeetingDate" runat="server" Text='<%# Bind("Scope_DateMeeting", "{0:MM/dd/yyyy}") %>'/>
+						<asp:Label ID="LblMeetingDate" runat="server" Text='<%# Bind("Scope_DateMeeting", "{0:d}") %>'/>
 					</td>
 				</tr>
 				<tr>
@@ -665,7 +665,7 @@
 				<tr>
 					<td>Meeting Date:</td>
 					<td>
-						<asp:TextBox ID="TxtMeetingDate" runat="server" CssClass="DateBox" Text='<%# Bind("Scope_DateMeeting", "{0:MM/dd/yyyy}") %>'/>
+						<asp:TextBox ID="TxtMeetingDate" runat="server" CssClass="DateBox" Text='<%# Bind("Scope_DateMeeting", "{0:d}") %>'/>
 					</td>
 				</tr>
 				<tr>
@@ -884,31 +884,31 @@
 				<tr>
 					<td>Delivery Date:</td>
 					<td>
-						<asp:Label ID="LblDateDelivery" runat="server" Text='<%# Bind("DateDelivery", "{0:MM/dd/yyyy}") %>'/>
+						<asp:Label ID="LblDateDelivery" runat="server" Text='<%# Bind("DateDelivery", "{0:d}") %>'/>
 					</td>
 				</tr>
 				<tr>
 					<td>Date Rec'd:</td>
 					<td>
-						<asp:Label ID="LblDateRecd" runat="server" Text='<%# Bind("CAD_DateRecd", "{0:MM/dd/yyyy}") %>'/>
+						<asp:Label ID="LblDateRecd" runat="server" Text='<%# Bind("CAD_DateRecd", "{0:d}") %>'/>
 					</td>
 				</tr>
 				<tr>
 					<td>Date Est Send:</td>
 					<td>
-						<asp:Label ID="LblDateEstSent" runat="server" Text='<%# Bind("CAD_DateEst", "{0:MM/dd/yyyy}") %>'/>
+						<asp:Label ID="LblDateEstSent" runat="server" Text='<%# Bind("CAD_DateEst", "{0:d}") %>'/>
 					</td>
 				</tr>
 				<tr>
 					<td>Date Act Sent:</td>
 					<td>
-						<asp:Label ID="LblDateActSent" runat="server" Text='<%# Bind("CAD_DateSent", "{0:MM/dd/yyyy}") %>'/>
+						<asp:Label ID="LblDateActSent" runat="server" Text='<%# Bind("CAD_DateSent", "{0:d}") %>'/>
 					</td>
 				</tr>
 				<tr>
 					<td>Date Handoff:</td>
 					<td>
-						<asp:Label ID="LblDateHandoff" runat="server" Text='<%# Bind("CAD_DateHandoff", "{0:MM/dd/yyyy}") %>'/>
+						<asp:Label ID="LblDateHandoff" runat="server" Text='<%# Bind("CAD_DateHandoff", "{0:d}") %>'/>
 					</td>
 				</tr>
 			</table>
@@ -995,31 +995,31 @@
 		<tr>
 			<td>Delivery Date:</td>
 			<td>
-				<asp:TextBox ID="TxtDateDelivery" runat="server" CssClass="DateBox" Text='<%# Bind("DateDelivery", "{0:MM/dd/yyyy}") %>'/>
+				<asp:TextBox ID="TxtDateDelivery" runat="server" CssClass="DateBox" Text='<%# Bind("DateDelivery", "{0:d}") %>'/>
 			</td>
 		</tr>
 		<tr>
 			<td>Date Rec'd:</td>
 			<td>
-				<asp:TextBox ID="TxtDateRecd" runat="server" CssClass="DateBox" Text='<%# Bind("CAD_DateRecd", "{0:MM/dd/yyyy}") %>'/>
+				<asp:TextBox ID="TxtDateRecd" runat="server" CssClass="DateBox" Text='<%# Bind("CAD_DateRecd", "{0:d}") %>'/>
 			</td>
 		</tr>
 		<tr>
 			<td>Date Est Send:</td>
 			<td>
-				<asp:TextBox ID="TxtDateEstSent" runat="server" CssClass="DateBox" Text='<%# Bind("CAD_DateEst", "{0:MM/dd/yyyy}") %>'/>
+				<asp:TextBox ID="TxtDateEstSent" runat="server" CssClass="DateBox" Text='<%# Bind("CAD_DateEst", "{0:d}") %>'/>
 			</td>
 		</tr>
 		<tr>
 			<td>Date Act Sent:</td>
 			<td>
-				<asp:TextBox ID="TxtDateActSent" runat="server" CssClass="DateBox" Text='<%# Bind("CAD_DateSent", "{0:MM/dd/yyyy}") %>'/>
+				<asp:TextBox ID="TxtDateActSent" runat="server" CssClass="DateBox" Text='<%# Bind("CAD_DateSent", "{0:d}") %>'/>
 			</td>
 		</tr>
 		<tr>
 			<td>Date Handoff:</td>
 			<td>
-				<asp:TextBox ID="TxtDateHandoff" runat="server" CssClass="DateBox" Text='<%# Bind("CAD_DateHandoff", "{0:MM/dd/yyyy}") %>'/>
+				<asp:TextBox ID="TxtDateHandoff" runat="server" CssClass="DateBox" Text='<%# Bind("CAD_DateHandoff", "{0:d}") %>'/>
 			</td>
 		</tr>
 	</table>
@@ -1084,7 +1084,7 @@
 					<tr>
 						<td>MTO Complete:</td>
 						<td>
-							<asp:TextBox ID="TxtMTOComplete" runat="server" CssClass="DateBox AlignRight" Text='<%# Bind("MTO_Complete", "{0:MM/dd/yyyy}") %>'/>
+							<asp:TextBox ID="TxtMTOComplete" runat="server" CssClass="DateBox AlignRight" Text='<%# Bind("MTO_Complete", "{0:d}") %>'/>
 						</td>
 						<td>Reviewed By:</td>
 						<td>
@@ -1104,47 +1104,47 @@
 						</td>
 						<td>Shops Reviewed:</td>
 						<td>
-							<asp:TextBox ID="TxtShopsReviewed" runat="server" CssClass="DateBox AlignRight" Text='<%# Bind("Shops_Reviewed", "{0:MM/dd/yyyy}") %>'/>
+							<asp:TextBox ID="TxtShopsReviewed" runat="server" CssClass="DateBox AlignRight" Text='<%# Bind("Shops_Reviewed", "{0:d}") %>'/>
 						</td>
 					</tr>
 					<tr>
 						<td>Mat'l Approved:</td>
 						<td>
-							<asp:TextBox ID="TxtMatlApproved" runat="server" CssClass="DateBox AlignRight" Text='<%# Bind("PM_DateMatlApproved", "{0:MM/dd/yyyy}") %>'/>
+							<asp:TextBox ID="TxtMatlApproved" runat="server" CssClass="DateBox AlignRight" Text='<%# Bind("PM_DateMatlApproved", "{0:d}") %>'/>
 						</td>
 						<td>Shops Sent:</td>
 						<td>
-							<asp:TextBox ID="TxtShopsSent" runat="server" CssClass="DateBox AlignRight" Text='<%# Bind("CAD_DateSent", "{0:MM/dd/yyyy}") %>'/>
+							<asp:TextBox ID="TxtShopsSent" runat="server" CssClass="DateBox AlignRight" Text='<%# Bind("CAD_DateSent", "{0:d}") %>'/>
 						</td>
 					</tr>
 					<tr>
 						<td>Mat'l Ordered:</td>
 						<td>
-							<asp:TextBox ID="TxtMatlOrdered" runat="server" CssClass="DateBox AlignRight" Text='<%# Bind("PM_DateMatlOrderComplete", "{0:MM/dd/yyyy}") %>'/>
+							<asp:TextBox ID="TxtMatlOrdered" runat="server" CssClass="DateBox AlignRight" Text='<%# Bind("PM_DateMatlOrderComplete", "{0:d}") %>'/>
 						</td>
 						<td>Shops Received:</td>
 						<td>
-							<asp:TextBox ID="TxtShopsReceived" runat="server" CssClass="DateBox AlignRight" Text='<%# Bind("Shops_Recd", "{0:MM/dd/yyyy}") %>'/>
+							<asp:TextBox ID="TxtShopsReceived" runat="server" CssClass="DateBox AlignRight" Text='<%# Bind("Shops_Recd", "{0:d}") %>'/>
 						</td>
 					</tr>
 					<tr>
 						<td>ESD From Vendor:</td>
 						<td>
-							<asp:TextBox ID="TxtESDFromVendor" runat="server" CssClass="DateBox AlignRight" Text='<%# Bind("PM_ESD_ShopDrawings", "{0:MM/dd/yyyy}") %>'/>
+							<asp:TextBox ID="TxtESDFromVendor" runat="server" CssClass="DateBox AlignRight" Text='<%# Bind("PM_ESD_ShopDrawings", "{0:d}") %>'/>
 						</td>
 						<td>Shops Resubmitted:</td>
 						<td>
-							<asp:TextBox ID="TxtShopsRevised" runat="server" CssClass="DateBox AlignRight" Text='<%# Bind("Shops_Revised", "{0:MM/dd/yyyy}") %>'/>
+							<asp:TextBox ID="TxtShopsRevised" runat="server" CssClass="DateBox AlignRight" Text='<%# Bind("Shops_Revised", "{0:d}") %>'/>
 						</td>
 					</tr>
 					<tr>
 						<td>Mat'l Received</td>
 						<td>
-							<asp:TextBox ID="TxtMatlRecd" runat="server" CssClass="DateBox AlignRight" Text='<%# Bind("PM_DateMatlRecd", "{0:MM/dd/yyyy}") %>'/>
+							<asp:TextBox ID="TxtMatlRecd" runat="server" CssClass="DateBox AlignRight" Text='<%# Bind("PM_DateMatlRecd", "{0:d}") %>'/>
 						</td>
 						<td>Shops Approved:</td>
 						<td>
-							<asp:TextBox ID="TxtShopsApproved" runat="server" CssClass="DateBox AlignRight" Text='<%# Bind("PM_DateShopsApproved", "{0:MM/dd/yyyy}") %>'/>
+							<asp:TextBox ID="TxtShopsApproved" runat="server" CssClass="DateBox AlignRight" Text='<%# Bind("PM_DateShopsApproved", "{0:d}") %>'/>
 						</td>
 					</tr>
 				</table>
@@ -1206,7 +1206,7 @@ Shipments:
 						<Columns>
 							<asp:TemplateField HeaderText="Date">
 								<ItemTemplate>
-									<asp:Label ID="LblDate" runat="server" CssClass="AlignRight" Text='<%# Bind("Date", "{0:MM/dd/yyyy}") %>'/>
+									<asp:Label ID="LblDate" runat="server" CssClass="AlignRight" Text='<%# Bind("Date", "{0:d}") %>'/>
 								</ItemTemplate>
 							</asp:TemplateField>
 							<asp:TemplateField HeaderText="Paid By">
@@ -1243,17 +1243,17 @@ Shipments:
 		</asp:TemplateField>
 		<asp:TemplateField HeaderText="Description" SortExpression="Description">
 			<ItemTemplate>
-				<asp:Label ID="LblDescription" runat="server" Text='<%# Bind("Description") %>'></asp:Label>
+				<asp:Label ID="LblDescription" runat="server" Text='<%# Bind("Description") %>'/>
 			</ItemTemplate>
 		</asp:TemplateField>
 		<asp:TemplateField HeaderText="Date Req'd" SortExpression="DateRequested">
 			<ItemTemplate>
-				<asp:Label ID="LblDateReqd" runat="server" CssClass=" AlignRight" Text='<%# Bind("DateRequested", "{0:MM/dd/yyyy}") %>'></asp:Label>
+				<asp:Label ID="LblDateReqd" runat="server" CssClass=" AlignRight" Text='<%# Bind("DateRequested", "{0:d}") %>'/>
 			</ItemTemplate>
 		</asp:TemplateField>
 		<asp:TemplateField HeaderText="Date Shipped" SortExpression="DateShipped">
 			<ItemTemplate>
-				<asp:Label ID="LblDateShipped" runat="server" CssClass=" AlignRight" Text='<%# Bind("DateShipped", "{0:MM/dd/yyyy}") %>'></asp:Label>
+				<asp:Label ID="LblDateShipped" runat="server" CssClass=" AlignRight" Text='<%# Bind("DateShipped", "{0:d}") %>'/>
 			</ItemTemplate>
 		</asp:TemplateField>
 	</Columns>
@@ -1281,54 +1281,54 @@ Releases:
 	<Columns>
 		<asp:TemplateField HeaderText="Shipment #" SortExpression="ShipmentNo">
 			<EditItemTemplate>
-				<asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("ShipmentNo") %>'></asp:TextBox>
+				<asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("ShipmentNo") %>'/>
 			</EditItemTemplate>
 			<ItemTemplate>
 				<a href="../ReleaseDetails?PRID=<%# Eval("ProjectReleaseID") %>"
 				   onclick="window.open('../ReleaseDetails?PRID=<%# Eval("ProjectReleaseID") %>', 'newwindow', 'width=600,height=500');return false;">
-				<asp:Label ID="Label3" runat="server" Text='<%# Bind("ShipmentNo") %>'></asp:Label>
+				<asp:Label ID="Label3" runat="server" Text='<%# Bind("ShipmentNo") %>'/>
 			</ItemTemplate>
 		</asp:TemplateField>
 		<asp:TemplateField HeaderText="Release #" SortExpression="ReleaseNo">
 			<EditItemTemplate>
-				<asp:TextBox ID="TextBox3" runat="server" Text='<%# Bind("ReleaseNo") %>'></asp:TextBox>
+				<asp:TextBox ID="TextBox3" runat="server" Text='<%# Bind("ReleaseNo") %>'/>
 			</EditItemTemplate>
 			<ItemTemplate>
 				<a href="../ReleaseDetails?PRID=<%# Eval("ProjectReleaseID") %>"
 				   onclick="window.open('../ReleaseDetails?PRID=<%# Eval("ProjectReleaseID") %>', 'newwindow', 'width=600,height=500');return false;">
-				<asp:Label ID="Label4" runat="server" Text='<%# Bind("ReleaseNo") %>'></asp:Label>
+				<asp:Label ID="Label4" runat="server" Text='<%# Bind("ReleaseNo") %>'/>
 			</ItemTemplate>
 		</asp:TemplateField>
 		<asp:TemplateField HeaderText="Description" SortExpression="Description">
 			<EditItemTemplate>
-				<asp:TextBox ID="TextBox4" runat="server" Text='<%# Bind("Description") %>'></asp:TextBox>
+				<asp:TextBox ID="TextBox4" runat="server" Text='<%# Bind("Description") %>'/>
 			</EditItemTemplate>
 			<ItemTemplate>
-				<asp:Label ID="Label5" runat="server" Text='<%# Bind("Description") %>'></asp:Label>
+				<asp:Label ID="Label5" runat="server" Text='<%# Bind("Description") %>'/>
 			</ItemTemplate>
 		</asp:TemplateField>
 		<asp:TemplateField HeaderText="Release Date" SortExpression="DateRelease">
 			<EditItemTemplate>
-				<asp:TextBox ID="TextBox5" runat="server" Text='<%# Bind("DateRelease", "{0:MM/dd/yyyy}") %>'></asp:TextBox>
+				<asp:TextBox ID="TextBox5" runat="server" Text='<%# Bind("DateRelease", "{0:d}") %>'/>
 			</EditItemTemplate>
 			<ItemTemplate>
-				<asp:Label ID="Label6" runat="server" Text='<%# Bind("DateRelease", "{0:MM/dd/yyyy}") %>'></asp:Label>
+				<asp:Label ID="Label6" runat="server" Text='<%# Bind("DateRelease", "{0:d}") %>'/>
 			</ItemTemplate>
 		</asp:TemplateField>
 		<asp:TemplateField HeaderText="# Panels" SortExpression="NumPanels">
 			<EditItemTemplate>
-				<asp:Label ID="Label2" runat="server" Text='<%# Eval("NumPanels") %>'></asp:Label>
+				<asp:Label ID="Label2" runat="server" Text='<%# Eval("NumPanels") %>'/>
 			</EditItemTemplate>
 			<ItemTemplate>
-				<asp:Label ID="Label7" runat="server" Text='<%# Bind("NumPanels") %>'></asp:Label>
+				<asp:Label ID="Label7" runat="server" Text='<%# Bind("NumPanels") %>'/>
 			</ItemTemplate>
 		</asp:TemplateField>
 		<asp:TemplateField HeaderText="# Columns" SortExpression="NumColumns">
 			<EditItemTemplate>
-				<asp:Label ID="Label3" runat="server" Text='<%# Eval("NumColumns") %>'></asp:Label>
+				<asp:Label ID="Label3" runat="server" Text='<%# Eval("NumColumns") %>'/>
 			</EditItemTemplate>
 			<ItemTemplate>
-				<asp:Label ID="Label8" runat="server" Text='<%# Bind("NumColumns") %>'></asp:Label>
+				<asp:Label ID="Label8" runat="server" Text='<%# Bind("NumColumns") %>'/>
 			</ItemTemplate>
 		</asp:TemplateField>
 	</Columns>
@@ -1364,19 +1364,19 @@ Releases:
 			</asp:TemplateField>
 			<asp:TemplateField HeaderText="Date" SortExpression="Date">
 				<EditItemTemplate>
-					<asp:TextBox ID="TxtDate" runat="server" CssClass="DateBox" Text='<%# Bind("Date", "{0:MM/dd/yyyy}") %>'></asp:TextBox>
+					<asp:TextBox ID="TxtDate" runat="server" CssClass="DateBox" Text='<%# Bind("Date", "{0:d}") %>'/>
 					<asp:CompareValidator id="DateValidator" runat="server" Display="Dynamic" Type="Date" Operator="DataTypeCheck" ControlToValidate="TxtDate"
 										  ErrorMessage="Please enter a valid date.">
 					</asp:CompareValidator>
 				</EditItemTemplate>
 				<FooterTemplate>
-					<asp:TextBox ID="TxtDate" runat="server" CssClass="DateBox" Text='<%# Bind("Date", "{0:MM/dd/yyyy}") %>'></asp:TextBox>
+					<asp:TextBox ID="TxtDate" runat="server" CssClass="DateBox" Text='<%# Bind("Date", "{0:d}") %>'/>
 					<asp:CompareValidator id="DateValidator" runat="server" Display="Dynamic" Type="Date" Operator="DataTypeCheck" ControlToValidate="TxtDate"
 										  ErrorMessage="Please enter a valid date.">
 					</asp:CompareValidator>
 				</FooterTemplate>
 				<ItemTemplate>
-					<asp:Label ID="LblDate" runat="server" Text='<%# Bind("Date", "{0:MM/dd/yyyy}") %>'></asp:Label>
+					<asp:Label ID="LblDate" runat="server" Text='<%# Bind("Date", "{0:d}") %>'/>
 				</ItemTemplate>
 			</asp:TemplateField>
 			<asp:TemplateField HeaderText="Type" SortExpression="ProjectSubmittalTypeID">
@@ -1398,13 +1398,13 @@ Releases:
 			</asp:TemplateField>
 			<asp:TemplateField HeaderText="Description" SortExpression="Description">
 				<EditItemTemplate>
-					<asp:TextBox ID="TxtDescription" runat="server" Text='<%# Bind("Description") %>'></asp:TextBox>
+					<asp:TextBox ID="TxtDescription" runat="server" Text='<%# Bind("Description") %>'/>
 				</EditItemTemplate>
 				<FooterTemplate>
-					<asp:TextBox ID="TxtDescription" runat="server" Text='<%# Bind("Description") %>'></asp:TextBox>
+					<asp:TextBox ID="TxtDescription" runat="server" Text='<%# Bind("Description") %>'/>
 				</FooterTemplate>
 				<ItemTemplate>
-					<asp:Label ID="LblDescription" runat="server" Text='<%# Bind("Description") %>'></asp:Label>
+					<asp:Label ID="LblDescription" runat="server" Text='<%# Bind("Description") %>'/>
 				</ItemTemplate>
 			</asp:TemplateField>
 			<asp:TemplateField HeaderText="Reason" SortExpression="ProjectSubmittalReasonID">
@@ -1426,65 +1426,97 @@ Releases:
 			</asp:TemplateField>
 			<asp:TemplateField HeaderText="Manufacturer" SortExpression="Manufacturer">
 				<EditItemTemplate>
-					<asp:TextBox ID="TxtManufacturer" runat="server" Text='<%# Bind("Manufacturer") %>'></asp:TextBox>
+					<asp:TextBox ID="TxtManufacturer" runat="server" Text='<%# Bind("Manufacturer") %>'/>
 				</EditItemTemplate>
 				<FooterTemplate>
-					<asp:TextBox ID="TxtManufacturer" runat="server" Text='<%# Bind("Manufacturer") %>'></asp:TextBox>
+					<asp:TextBox ID="TxtManufacturer" runat="server" Text='<%# Bind("Manufacturer") %>'/>
 				</FooterTemplate>
 				<ItemTemplate>
-					<asp:Label ID="LblManufacturer" runat="server" Text='<%# Bind("Manufacturer") %>'></asp:Label>
+					<asp:Label ID="LblManufacturer" runat="server" Text='<%# Bind("Manufacturer") %>'/>
 				</ItemTemplate>
 			</asp:TemplateField>
 			<asp:TemplateField HeaderText="#" SortExpression="NumCopies">
 				<EditItemTemplate>
-					<asp:TextBox ID="TxtNumCopies" runat="server" CssClass="NumBox" Text='<%# Bind("NumCopies") %>'></asp:TextBox>
+					<asp:TextBox ID="TxtNumCopies" runat="server" CssClass="NumBox" Text='<%# Bind("NumCopies") %>'/>
 				</EditItemTemplate>
 				<FooterTemplate>
-					<asp:TextBox ID="TxtNumCopies" runat="server" CssClass="NumBox" Text='<%# Bind("NumCopies") %>'></asp:TextBox>
+					<asp:TextBox ID="TxtNumCopies" runat="server" CssClass="NumBox" Text='<%# Bind("NumCopies") %>'/>
 				</FooterTemplate>
 				<ItemTemplate>
-					<asp:Label ID="LblNumCopies" runat="server" Text='<%# Bind("NumCopies") %>'></asp:Label>
+					<asp:Label ID="LblNumCopies" runat="server" Text='<%# Bind("NumCopies") %>'/>
 				</ItemTemplate>
 			</asp:TemplateField>
 		</Columns>
 	</asp:GridView>
 </asp:View>
 <asp:View ID="ChangeOrders" runat="server">
-	<asp:GridView ID="GvChangeOrders" runat="server" AutoGenerateColumns="False" DataKeyNames="ProjectChangeOrderID" DataSourceID="GvChangeOrdersSQL">
+	<asp:GridView ID="GvChangeOrders" runat="server" AutoGenerateColumns="False" DataKeyNames="ProjectChangeOrderID" ShowFooter="True"
+        DataSourceID="GvChangeOrdersSQL" OnRowCommand="GvChangeOrders_OnRowCommand" OnDataBound="GvChangeOrders_OnDataBound">
 		<Columns>
 			<asp:TemplateField HeaderText="#" SortExpression="SeqNo">
+				<FooterTemplate>
+				    <asp:LinkButton runat="server" ID="LbNewChangeOrder" Text="Add" CommandName="FooterInsert"/>
+                </FooterTemplate>
 				<ItemTemplate>
-					<a href="../ChangeOrderDetails?PCOID=<%# Eval("ProjectChangeOrderID") %>"
-					   onclick="window.open('../ChangeOrderDetails?PCOID=<%# Eval("ProjectChangeOrderID") %>', 'newwindow', 'width=500,height=900');return false;">
-					<asp:Label ID="LblSeqNo" runat="server" Text='<%# Bind("SeqNo") %>'></asp:Label>
+					<a href="../ChangeOrderDetails?PCOID=<%# Eval("ProjectChangeOrderID") %>" 
+                        onclick="window.open('../ChangeOrderDetails?PCOID=<%# Eval("ProjectChangeOrderID") %>', 'newwindow', 'width=500,height=800');return false;">
+					<asp:Label ID="LblSeqNo" runat="server" Text='<%# Bind("SeqNo") %>'/>
+					</a>
 				</ItemTemplate>
 			</asp:TemplateField>
 			<asp:TemplateField HeaderText="Date" SortExpression="Date">
+				<FooterTemplate>
+				    <asp:TextBox ID="TxtDate" runat="server" CssClass="DateBox" Text='<%# Bind("Date", "{0:d}") %>'/>
+                </FooterTemplate>
 				<ItemTemplate>
-					<asp:Label ID="LblDate" runat="server" Text='<%# Bind("Date", "{0:MM/dd/yyyy}") %>'></asp:Label>
+					<asp:Label ID="LblDate" runat="server" Text='<%# Bind("Date", "{0:d}") %>'/>
 				</ItemTemplate>
 			</asp:TemplateField>
 			<asp:TemplateField HeaderText="Source" SortExpression="Source">
+				<FooterTemplate>
+                    <asp:DropDownList ID="DdlSource" runat="server" SelectedValue='<%# Bind("Source") %>'>
+                        <asp:ListItem Text="Internal" Value="Internal"/>
+                        <asp:ListItem Text="External" Value="External"/>
+                        <asp:ListItem Text="Field Meas" Value="Field Meas"/>
+                    </asp:DropDownList>
+                </FooterTemplate>
 				<ItemTemplate>
-					<asp:Label ID="LblSource" runat="server" Text='<%# Bind("Source") %>'></asp:Label>
+					<asp:Label ID="LblSource" runat="server" Text='<%# Bind("Source") %>'/>
 				</ItemTemplate>
 			</asp:TemplateField>
 			<asp:TemplateField HeaderText="Amount" SortExpression="Amount">
+				<FooterTemplate>
+				    <asp:TextBox ID="TxtAmount" runat="server" CssClass="DateBox" Style="text-align: right" Text='<%# Bind("Amount", "{0:n2}") %>'/>
+                </FooterTemplate>
 				<ItemTemplate>
-					<asp:Label ID="LblAmount" runat="server" Style="text-align: right" Text='<%# Bind("Amount", "{0:c}") %>'></asp:Label>
+					<asp:Label ID="LblAmount" runat="server" Style="text-align: right" Text='<%# Bind("Amount", "{0:c}") %>'/>
 				</ItemTemplate>
 			</asp:TemplateField>
 			<asp:TemplateField HeaderText="Due" SortExpression="DateDue">
+				<FooterTemplate>
+				    <asp:TextBox ID="TxtDateDue" runat="server" CssClass="DateBox" Text='<%# Bind("DateDue", "{0:d}") %>'/>
+                </FooterTemplate>
 				<ItemTemplate>
-					<asp:Label ID="LblDateDue" runat="server" Text='<%# Bind("DateDue", "{0:MM/dd/yyyy}") %>'></asp:Label>
+				    <asp:Label ID="LblDateDue" runat="server" Text='<%# Bind("DateDue", "{0:d}") %>'/>
 				</ItemTemplate>
 			</asp:TemplateField>
 			<asp:TemplateField HeaderText="Rec'd" SortExpression="DateRecd">
+				<FooterTemplate>
+				    <asp:TextBox ID="TxtDateRecd" runat="server" CssClass="DateBox" Text='<%# Bind("DateRecd", "{0:d}") %>'/>
+                </FooterTemplate>
 				<ItemTemplate>
-					<asp:Label ID="LblDateRecd" runat="server" Text='<%# Bind("DateRecd", "{0:MM/dd/yyyy}") %>'></asp:Label>
+				    <asp:Label ID="LblDateRecd" runat="server" Text='<%# Bind("DateRecd", "{0:d}") %>'/>
 				</ItemTemplate>
 			</asp:TemplateField>
 			<asp:TemplateField HeaderText="Status" SortExpression="Status">
+				<FooterTemplate>
+                    <asp:DropDownList ID="DdlStatus" runat="server" SelectedValue='<%# Bind("Status") %>'>
+                        <asp:ListItem Text="Pending" Value="P"></asp:ListItem>
+                        <asp:ListItem Text="Approved" Value="A"></asp:ListItem>
+                        <asp:ListItem Text="Denied" Value="D"></asp:ListItem>
+                        <asp:ListItem Text="Voided" Value="X"></asp:ListItem>
+                    </asp:DropDownList>
+                </FooterTemplate>
 				<ItemTemplate>
 					<asp:DropDownList ID="DdlCOStatus" runat="server" AutoPostBack="True" DataSourceID="DdlCOStatusSQL" Enabled="false"
 									  DataTextField="COStatusDesc" DataValueField="COStatusAbbr" SelectedValue='<%# Bind("Status") %>'>
@@ -1492,12 +1524,16 @@ Releases:
 				</ItemTemplate>
 			</asp:TemplateField>
 			<asp:TemplateField HeaderText="Description" SortExpression="Description">
+				<FooterTemplate>
+				    <asp:TextBox ID="TxtDescription" runat="server" Text='<%# Bind("Description") %>'/>
+                </FooterTemplate>
 				<ItemTemplate>
-					<asp:Label ID="LblDescription" runat="server" Text='<%# Eval("Description").ToString().Replace(Environment.NewLine, "<br />") %>'></asp:Label>
+					<asp:Label ID="LblDescription" runat="server" Text='<%# Eval("Description").ToString().Replace(Environment.NewLine, "<br />") %>'/>
 				</ItemTemplate>
 			</asp:TemplateField>
 		</Columns>
 	</asp:GridView>
+    <asp:LinkButton runat="server" ID="LbNewChangeOrder" Text="New Change Order" CommandName="NewChangeOrder" OnClick="LbNewChangeOrder_OnClick"/>
 </asp:View>
 <asp:View ID="Timecards" runat="server">
 	<asp:GridView ID="GvTimeCards" runat="server" AutoGenerateColumns="False" DataKeyNames="TimecardID" DataSourceID="GvTimeCardsSQL"
@@ -1506,10 +1542,10 @@ Releases:
 		<Columns>
 			<asp:TemplateField HeaderText="Date" SortExpression="Date">
 				<EditItemTemplate>
-					<asp:TextBox ID="TxtDate" runat="server" Text='<%# Bind("Date", "{0:MM/dd/yyyy}") %>'></asp:TextBox>
+				    <asp:TextBox ID="TxtDate" runat="server" Text='<%# Bind("Date", "{0:d}") %>'/>
 				</EditItemTemplate>
 				<ItemTemplate>
-					<asp:Label ID="LblDate" runat="server" Text='<%# Bind("Date", "{0:MM/dd/yyyy}") %>'></asp:Label>
+				    <asp:Label ID="LblDate" runat="server" Text='<%# Bind("Date", "{0:d}") %>'/>
 				</ItemTemplate>
 			</asp:TemplateField>
 			<asp:TemplateField HeaderText="Employee" SortExpression="EmployeeID">
@@ -1526,10 +1562,10 @@ Releases:
 			</asp:TemplateField>
 			<asp:TemplateField HeaderText="Rel#" SortExpression="ReleaseNo">
 				<EditItemTemplate>
-					<asp:TextBox ID="TxtReleaseNo" runat="server" Text='<%# Bind("ReleaseNo") %>'></asp:TextBox>
+					<asp:TextBox ID="TxtReleaseNo" runat="server" Text='<%# Bind("ReleaseNo") %>'/>
 				</EditItemTemplate>
 				<ItemTemplate>
-					<asp:Label ID="LblReleaseNo" runat="server" Text='<%# Bind("ReleaseNo") %>'></asp:Label>
+					<asp:Label ID="LblReleaseNo" runat="server" Text='<%# Bind("ReleaseNo") %>'/>
 				</ItemTemplate>
 			</asp:TemplateField>
 			<asp:TemplateField HeaderText="Task" SortExpression="TimeCardTaskID">
@@ -1546,34 +1582,34 @@ Releases:
 			</asp:TemplateField>
 			<asp:TemplateField HeaderText="Hours" SortExpression="Hours">
 				<EditItemTemplate>
-					<asp:TextBox ID="TxtHours" runat="server" Text='<%# Bind("Hours") %>'></asp:TextBox>
+					<asp:TextBox ID="TxtHours" runat="server" Text='<%# Bind("Hours") %>'/>
 				</EditItemTemplate>
 				<ItemTemplate>
-					<asp:Label ID="LblHours" runat="server" Text='<%# Bind("Hours") %>'></asp:Label>
+					<asp:Label ID="LblHours" runat="server" Text='<%# Bind("Hours") %>'/>
 				</ItemTemplate>
 			</asp:TemplateField>
 			<asp:TemplateField HeaderText="#&nbsp;Panels" SortExpression="NumPanels">
 				<EditItemTemplate>
-					<asp:TextBox ID="TxtNumPanels" runat="server" Text='<%# Bind("NumPanels") %>'></asp:TextBox>
+					<asp:TextBox ID="TxtNumPanels" runat="server" Text='<%# Bind("NumPanels") %>'/>
 				</EditItemTemplate>
 				<ItemTemplate>
-					<asp:Label ID="LblNumPanels" runat="server" Text='<%# Bind("NumPanels") %>'></asp:Label>
+					<asp:Label ID="LblNumPanels" runat="server" Text='<%# Bind("NumPanels") %>'/>
 				</ItemTemplate>
 			</asp:TemplateField>
 			<asp:TemplateField HeaderText="#&nbsp;Sheets" SortExpression="NumSheets">
 				<EditItemTemplate>
-					<asp:TextBox ID="TxtNumSheets" runat="server" Text='<%# Bind("NumSheets") %>'></asp:TextBox>
+					<asp:TextBox ID="TxtNumSheets" runat="server" Text='<%# Bind("NumSheets") %>'/>
 				</EditItemTemplate>
 				<ItemTemplate>
-					<asp:Label ID="LblNumSheets" runat="server" Text='<%# Bind("NumSheets") %>'></asp:Label>
+					<asp:Label ID="LblNumSheets" runat="server" Text='<%# Bind("NumSheets") %>'/>
 				</ItemTemplate>
 			</asp:TemplateField>
 			<asp:TemplateField HeaderText="Notes" SortExpression="Notes">
 				<EditItemTemplate>
-					<asp:TextBox ID="TxtNotes" runat="server" Text='<%# Bind("Notes") %>'></asp:TextBox>
+					<asp:TextBox ID="TxtNotes" runat="server" Text='<%# Bind("Notes") %>'/>
 				</EditItemTemplate>
 				<ItemTemplate>
-					<asp:Label ID="LblNotes" runat="server" Text='<%# Bind("Notes") %>'></asp:Label>
+					<asp:Label ID="LblNotes" runat="server" Text='<%# Bind("Notes") %>'/>
 				</ItemTemplate>
 			</asp:TemplateField>
 		</Columns>
@@ -1593,10 +1629,10 @@ Releases:
 		<Columns>
 			<asp:TemplateField HeaderText="Description" SortExpression="Description">
 				<EditItemTemplate>
-					<asp:TextBox ID="TxtDescription" runat="server" Text='<%# Bind("Description") %>'></asp:TextBox>
+					<asp:TextBox ID="TxtDescription" runat="server" Text='<%# Bind("Description") %>'/>
 				</EditItemTemplate>
 				<ItemTemplate>
-					<asp:Label ID="LblDescription" runat="server" Text='<%# Bind("Description") %>'></asp:Label>
+					<asp:Label ID="LblDescription" runat="server" Text='<%# Bind("Description") %>'/>
 				</ItemTemplate>
 			</asp:TemplateField>
 			<asp:TemplateField HeaderText="Type" SortExpression="ProjectDocumentTypeID">
@@ -1613,10 +1649,10 @@ Releases:
 			</asp:TemplateField>
 			<asp:TemplateField HeaderText="Date" SortExpression="Date">
 				<EditItemTemplate>
-					<asp:TextBox ID="TxtDate" runat="server" Text='<%# Bind("Date", "{0:MM/dd/yyyy}") %>'></asp:TextBox>
+					<asp:TextBox ID="TxtDate" runat="server" Text='<%# Bind("Date", "{0:d}") %>'/>
 				</EditItemTemplate>
 				<ItemTemplate>
-					<asp:Label ID="LblDate" runat="server" Text='<%# Bind("Date", "{0:MM/dd/yyyy}") %>'></asp:Label>
+					<asp:Label ID="LblDate" runat="server" Text='<%# Bind("Date", "{0:d}") %>'/>
 				</ItemTemplate>
 			</asp:TemplateField>
 		</Columns>
@@ -1627,10 +1663,10 @@ Releases:
 		<Columns>
 			<asp:TemplateField HeaderText="Date" SortExpression="Date">
 				<EditItemTemplate>
-					<asp:TextBox ID="TxtDate" runat="server" Text='<%# Bind("Date", "{0:MM/dd/yyyy}") %>'></asp:TextBox>
+					<asp:TextBox ID="TxtDate" runat="server" Text='<%# Bind("Date", "{0:d}") %>'/>
 				</EditItemTemplate>
 				<ItemTemplate>
-					<asp:Label ID="LblDate" runat="server" Text='<%# Bind("Date", "{0:MM/dd/yyyy}") %>'></asp:Label>
+					<asp:Label ID="LblDate" runat="server" Text='<%# Bind("Date", "{0:d}") %>'/>
 				</ItemTemplate>
 			</asp:TemplateField>
 			<asp:TemplateField HeaderText="Type" SortExpression="LogTypeID">
@@ -1647,10 +1683,10 @@ Releases:
 			</asp:TemplateField>
 			<asp:TemplateField HeaderText="Subject" SortExpression="Subject">
 				<EditItemTemplate>
-					<asp:TextBox ID="TxtSubject" runat="server" Text='<%# Bind("Subject") %>'></asp:TextBox>
+					<asp:TextBox ID="TxtSubject" runat="server" Text='<%# Bind("Subject") %>'/>
 				</EditItemTemplate>
 				<ItemTemplate>
-					<asp:Label ID="LblSubject" runat="server" Text='<%# Bind("Subject") %>'></asp:Label>
+					<asp:Label ID="LblSubject" runat="server" Text='<%# Bind("Subject") %>'/>
 				</ItemTemplate>
 			</asp:TemplateField>
 			<asp:TemplateField HeaderText="Employee" SortExpression="EmployeeID">
@@ -1736,74 +1772,74 @@ Releases:
 		<Columns>
 			<asp:TemplateField HeaderText="Invoice&nbsp;#" SortExpression="InvoiceNo">
 				<EditItemTemplate>
-					<asp:Label ID="LblInvoiceNo" runat="server" Text='<%# Eval("InvoiceNo") %>'></asp:Label>
+					<asp:Label ID="LblInvoiceNo" runat="server" Text='<%# Eval("InvoiceNo") %>'/>
 				</EditItemTemplate>
 				<ItemTemplate>
-					<asp:Label ID="LblInvoiceNo" runat="server" Text='<%# Bind("InvoiceNo") %>'></asp:Label>
+					<asp:Label ID="LblInvoiceNo" runat="server" Text='<%# Bind("InvoiceNo") %>'/>
 				</ItemTemplate>
 			</asp:TemplateField>
 			<asp:TemplateField HeaderText="Date" SortExpression="Date">
 				<EditItemTemplate>
-					<asp:TextBox ID="TxtDate" runat="server" Text='<%# Bind("Date", "{0:MM/dd/yyyy}") %>'></asp:TextBox>
+					<asp:TextBox ID="TxtDate" runat="server" Text='<%# Bind("Date", "{0:d}") %>'/>
 				</EditItemTemplate>
 				<ItemTemplate>
-					<asp:Label ID="LblDate" runat="server" Text='<%# Bind("Date", "{0:MM/dd/yyyy}") %>'></asp:Label>
+					<asp:Label ID="LblDate" runat="server" Text='<%# Bind("Date", "{0:d}") %>'/>
 				</ItemTemplate>
 			</asp:TemplateField>
 			<asp:TemplateField HeaderText="Amount" SortExpression="AmtInvoice">
 				<EditItemTemplate>
-					<asp:TextBox ID="TxtAmtInvoice" runat="server" Text='<%# Bind("AmtInvoice", "{0:c}") %>'></asp:TextBox>
+					<asp:TextBox ID="TxtAmtInvoice" runat="server" Text='<%# Bind("AmtInvoice", "{0:c}") %>'/>
 				</EditItemTemplate>
 				<ItemTemplate>
-					<asp:Label ID="LblAmtInvoice" runat="server" Text='<%# Bind("AmtInvoice", "{0:c}") %>'></asp:Label>
+					<asp:Label ID="LblAmtInvoice" runat="server" Text='<%# Bind("AmtInvoice", "{0:c}") %>'/>
 				</ItemTemplate>
 			</asp:TemplateField>
 			<asp:TemplateField HeaderText="Mat'l" SortExpression="AmtMaterial">
 				<EditItemTemplate>
-					<asp:TextBox ID="TxtAmtMaterial" runat="server" Text='<%# Bind("AmtMaterial", "{0:c}") %>'></asp:TextBox>
+					<asp:TextBox ID="TxtAmtMaterial" runat="server" Text='<%# Bind("AmtMaterial", "{0:c}") %>'/>
 				</EditItemTemplate>
 				<ItemTemplate>
-					<asp:Label ID="LblAmtMaterial" runat="server" Text='<%# Bind("AmtMaterial", "{0:c}") %>'></asp:Label>
+					<asp:Label ID="LblAmtMaterial" runat="server" Text='<%# Bind("AmtMaterial", "{0:c}") %>'/>
 				</ItemTemplate>
 			</asp:TemplateField>
 			<asp:TemplateField HeaderText="Other" SortExpression="AmtOther">
 				<EditItemTemplate>
-					<asp:TextBox ID="TxtAmtOther" runat="server" Text='<%# Bind("AmtOther", "{0:c}") %>'></asp:TextBox>
+					<asp:TextBox ID="TxtAmtOther" runat="server" Text='<%# Bind("AmtOther", "{0:c}") %>'/>
 				</EditItemTemplate>
 				<ItemTemplate>
-					<asp:Label ID="LblAmtOther" runat="server" Text='<%# Bind("AmtOther", "{0:c}") %>'></asp:Label>
+					<asp:Label ID="LblAmtOther" runat="server" Text='<%# Bind("AmtOther", "{0:c}") %>'/>
 				</ItemTemplate>
 			</asp:TemplateField>
 			<asp:TemplateField HeaderText="Freight" SortExpression="AmtFreight">
 				<EditItemTemplate>
-					<asp:TextBox ID="TxtAmtFreight" runat="server" Text='<%# Bind("AmtFreight", "{0:c}") %>'></asp:TextBox>
+					<asp:TextBox ID="TxtAmtFreight" runat="server" Text='<%# Bind("AmtFreight", "{0:c}") %>'/>
 				</EditItemTemplate>
 				<ItemTemplate>
-					<asp:Label ID="LblAmtFreight" runat="server" Text='<%# Bind("AmtFreight", "{0:c}") %>'></asp:Label>
+					<asp:Label ID="LblAmtFreight" runat="server" Text='<%# Bind("AmtFreight", "{0:c}") %>'/>
 				</ItemTemplate>
 			</asp:TemplateField>
 			<asp:TemplateField HeaderText="Paid">
 				<EditItemTemplate>
-					<asp:TextBox ID="TxtPaid" runat="server"></asp:TextBox>
+					<asp:TextBox ID="TxtPaid" runat="server"/>
 				</EditItemTemplate>
 				<ItemTemplate>
-					<asp:Label ID="LblPaid" runat="server"></asp:Label>
+					<asp:Label ID="LblPaid" runat="server"/>
 				</ItemTemplate>
 			</asp:TemplateField>
 			<asp:TemplateField HeaderText="Entered&nbsp;By" SortExpression="EnteredBy">
 				<EditItemTemplate>
-					<asp:TextBox ID="TxtEnteredBy" runat="server" Text='<%# Bind("EnteredBy") %>'></asp:TextBox>
+					<asp:TextBox ID="TxtEnteredBy" runat="server" Text='<%# Bind("EnteredBy") %>'/>
 				</EditItemTemplate>
 				<ItemTemplate>
-					<asp:Label ID="LblEnteredBy" runat="server" Text='<%# Bind("EnteredBy") %>'></asp:Label>
+					<asp:Label ID="LblEnteredBy" runat="server" Text='<%# Bind("EnteredBy") %>'/>
 				</ItemTemplate>
 			</asp:TemplateField>
 			<asp:TemplateField HeaderText="Description" SortExpression="Description">
 				<EditItemTemplate>
-					<asp:TextBox ID="TxtDescription" runat="server" Text='<%# Bind("Description") %>'></asp:TextBox>
+					<asp:TextBox ID="TxtDescription" runat="server" Text='<%# Bind("Description") %>'/>
 				</EditItemTemplate>
 				<ItemTemplate>
-					<asp:Label ID="LblDescription" runat="server" Text='<%# Bind("Description") %>'></asp:Label>
+					<asp:Label ID="LblDescription" runat="server" Text='<%# Bind("Description") %>'/>
 				</ItemTemplate>
 			</asp:TemplateField>
 		</Columns>
@@ -1821,7 +1857,7 @@ Releases:
 		</asp:BulletedList>
 	</div> <!-- end div left -->
 	<div class="rside">
-		<asp:Label ID="LblTaskCodeLegend" runat="server" Text="Task Code Legend"></asp:Label>
+		<asp:Label ID="LblTaskCodeLegend" runat="server" Text="Task Code Legend"/>
 		<div style="border: 1px solid; height: 100px; overflow: auto; width: 225px;">
 			<asp:DataList ID="lstTaskCode" runat="server" DataKeyField="TaskCodeID" DataSourceID="lstTaskCodeSQL">
 				<ItemTemplate>
@@ -1867,13 +1903,13 @@ Releases:
 	</asp:TemplateField>
 	<asp:TemplateField HeaderText="TaskID" SortExpression="TaskID" HeaderStyle-BackColor="Silver">
 		<EditItemTemplate>
-			<asp:Label ID="LblTaskID" runat="server" Text='<%# Bind("TaskID") %>'></asp:Label>
+			<asp:Label ID="LblTaskID" runat="server" Text='<%# Bind("TaskID") %>'/>
 		</EditItemTemplate>
 		<ItemTemplate>
-			<asp:Label ID="LblTaskID" runat="server" Text='<%# Bind("TaskID") %>'></asp:Label>
+			<asp:Label ID="LblTaskID" runat="server" Text='<%# Bind("TaskID") %>'/>
 		</ItemTemplate>
 		<FooterTemplate>
-			<asp:Label ID="LblTaskID" runat="server" Text='<%# Bind("TaskID") %>'></asp:Label>
+			<asp:Label ID="LblTaskID" runat="server" Text='<%# Bind("TaskID") %>'/>
 		</FooterTemplate>
 	</asp:TemplateField>
 	<asp:TemplateField HeaderText="Employee" SortExpression="ProjectName" HeaderStyle-BackColor="Silver">
@@ -1896,21 +1932,21 @@ Releases:
 	</asp:TemplateField>
 	<asp:TemplateField HeaderText="Release&nbsp;#" SortExpression="ReleaseID" HeaderStyle-BackColor="Silver">
 		<EditItemTemplate>
-			<asp:TextBox ID="TxtReleaseID" runat="server" Text='<%# Bind("ReleaseID") %>'></asp:TextBox>
+			<asp:TextBox ID="TxtReleaseID" runat="server" Text='<%# Bind("ReleaseID") %>'/>
 		</EditItemTemplate>
 		<ItemTemplate>
-			<asp:Label ID="LblReleaseID" runat="server" Text='<%# Bind("ReleaseID") %>'></asp:Label>
+			<asp:Label ID="LblReleaseID" runat="server" Text='<%# Bind("ReleaseID") %>'/>
 		</ItemTemplate>
 		<FooterTemplate>
-			<asp:TextBox ID="TxtReleaseID" runat="server" Width="50" Text='<%# Bind("ReleaseID") %>'></asp:TextBox>
+			<asp:TextBox ID="TxtReleaseID" runat="server" Width="50" Text='<%# Bind("ReleaseID") %>'/>
 		</FooterTemplate>
 	</asp:TemplateField>
 	<asp:TemplateField HeaderText="Task Code" SortExpression="TaskCodeAbbr" HeaderStyle-BackColor="Silver">
 		<EditItemTemplate>
-			<asp:Label ID="LblTaskCode" runat="server" Text='<%# Bind("TaskCodeAbbr") %>'></asp:Label>
+			<asp:Label ID="LblTaskCode" runat="server" Text='<%# Bind("TaskCodeAbbr") %>'/>
 		</EditItemTemplate>
 		<ItemTemplate>
-			<asp:Label ID="LblTaskCode" runat="server" Text='<%# Bind("TaskCodeAbbr") %>'></asp:Label>
+			<asp:Label ID="LblTaskCode" runat="server" Text='<%# Bind("TaskCodeAbbr") %>'/>
 		</ItemTemplate>
 		<FooterTemplate>
 			<asp:DropDownList ID="DdlTaskCode" runat="server" AutoPostBack="True"
@@ -1954,16 +1990,16 @@ Releases:
 	</asp:TemplateField>
 	<asp:TemplateField HeaderText="Due Date" SortExpression="DueDate" HeaderStyle-BackColor="Silver">
 		<EditItemTemplate>
-			<asp:TextBox ID="TxtDueDate" CssClass="DateBox" runat="server" Text='<%# Bind("DueDate", "{0:MM/dd/yyyy}") %>'></asp:TextBox>
+			<asp:TextBox ID="TxtDueDate" CssClass="DateBox" runat="server" Text='<%# Bind("DueDate", "{0:d}") %>'/>
 			<asp:CompareValidator id="DueDateValidator" runat="server" Display="Dynamic" Type="Date" Operator="DataTypeCheck" ControlToValidate="TxtDueDate"
 								  ErrorMessage="Please enter a valid date.">
 			</asp:CompareValidator>
 		</EditItemTemplate>
 		<ItemTemplate>
-			<asp:Label ID="LblDueDate" runat="server" CssClass="DateBox" Text='<%# Bind("DueDate", "{0:MM/dd/yyyy}") %>'></asp:Label>
+			<asp:Label ID="LblDueDate" runat="server" CssClass="DateBox" Text='<%# Bind("DueDate", "{0:d}") %>'/>
 		</ItemTemplate>
 		<FooterTemplate>
-			<asp:TextBox ID="TxtDueDate" CssClass="DateBox" runat="server" Text='<%# Bind("DueDate", "{0:MM/dd/yyyy}") %>'></asp:TextBox>
+			<asp:TextBox ID="TxtDueDate" CssClass="DateBox" runat="server" Text='<%# Bind("DueDate", "{0:d}") %>'/>
 			<asp:CompareValidator id="DueDateValidator" runat="server" Display="Dynamic" Type="Date" Operator="DataTypeCheck" ControlToValidate="TxtDueDate"
 								  ErrorMessage="Please enter a valid date.">
 			</asp:CompareValidator>
@@ -1971,27 +2007,27 @@ Releases:
 	</asp:TemplateField>
 	<asp:TemplateField HeaderText="Notes" SortExpression="Notes" HeaderStyle-BackColor="Silver">
 		<EditItemTemplate>
-			<asp:TextBox ID="TxtNotes" runat="server" Text='<%# Bind("Notes") %>'></asp:TextBox>
+			<asp:TextBox ID="TxtNotes" runat="server" Text='<%# Bind("Notes") %>'/>
 		</EditItemTemplate>
 		<ItemTemplate>
-			<asp:Label ID="LblNotes" runat="server" Text='<%# Bind("Notes") %>'></asp:Label>
+			<asp:Label ID="LblNotes" runat="server" Text='<%# Bind("Notes") %>'/>
 		</ItemTemplate>
 		<FooterTemplate>
-			<asp:TextBox ID="TxtNotes" runat="server" Text='<%# Bind("Notes") %>'></asp:TextBox>
+			<asp:TextBox ID="TxtNotes" runat="server" Text='<%# Bind("Notes") %>'/>
 		</FooterTemplate>
 	</asp:TemplateField>
 	<asp:TemplateField HeaderText="Date Complete" SortExpression="CompDate" HeaderStyle-BackColor="Silver">
 		<EditItemTemplate>
-			<asp:TextBox ID="TxtCompDate" CssClass="DateBox" runat="server" Text='<%# Bind("CompDate", "{0:MM/dd/yyyy}") %>'></asp:TextBox>
+			<asp:TextBox ID="TxtCompDate" CssClass="DateBox" runat="server" Text='<%# Bind("CompDate", "{0:d}") %>'/>
 			<asp:CompareValidator id="CompDateValidator" runat="server" Display="Dynamic" Type="Date" Operator="DataTypeCheck" ControlToValidate="TxtCompDate"
 								  ErrorMessage="Please enter a valid date.">
 			</asp:CompareValidator>
 		</EditItemTemplate>
 		<ItemTemplate>
-			<asp:Label ID="LblCompDate" CssClass="DateBox" runat="server" Text='<%# Bind("CompDate", "{0:MM/dd/yyyy}") %>'></asp:Label>
+			<asp:Label ID="LblCompDate" CssClass="DateBox" runat="server" Text='<%# Bind("CompDate", "{0:d}") %>'/>
 		</ItemTemplate>
 		<FooterTemplate>
-			<asp:TextBox ID="TxtCompDate" CssClass="DateBox" runat="server" Text='<%# Bind("CompDate", "{0:MM/dd/yyyy}") %>'></asp:TextBox>
+			<asp:TextBox ID="TxtCompDate" CssClass="DateBox" runat="server" Text='<%# Bind("CompDate", "{0:d}") %>'/>
 			<asp:CompareValidator id="CompDateValidator" runat="server" Display="Dynamic" Type="Date" Operator="DataTypeCheck" ControlToValidate="TxtCompDate"
 								  ErrorMessage="Please enter a valid date.">
 			</asp:CompareValidator>
@@ -2027,7 +2063,7 @@ Releases:
 			</td>
 
 			<td>
-				<asp:TextBox ID="TxtReleaseID" runat="server" CssClass="NumBox" AutoPostBack="true" Text='<%# Bind("ReleaseID") %>'></asp:TextBox>
+				<asp:TextBox ID="TxtReleaseID" runat="server" CssClass="NumBox" AutoPostBack="true" Text='<%# Bind("ReleaseID") %>'/>
 			</td>
 			<td>
 				<asp:DropDownList ID="DdlTaskCode" runat="server" AutoPostBack="True" DataSourceID="lstTaskCodeSQL"
@@ -2045,16 +2081,16 @@ Releases:
 				</asp:DropDownList>
 			</td>
 			<td>
-				<asp:TextBox ID="TxtDueDate" CssClass="DateBox" runat="server" AutoPostBack="true" Text='<%# Bind("DueDate", "{0:MM/dd/yyyy}") %>'></asp:TextBox>
+				<asp:TextBox ID="TxtDueDate" CssClass="DateBox" runat="server" AutoPostBack="true" Text='<%# Bind("DueDate", "{0:d}") %>'/>
 				<asp:CompareValidator id="EmptyDueDateValidator" runat="server" Display="Dynamic" Type="Date" Operator="DataTypeCheck" ControlToValidate="TxtDueDate"
 									  ErrorMessage="Please enter a valid date.">
 				</asp:CompareValidator>
 			</td>
 			<td>
-				<asp:TextBox ID="TxtNotes" runat="server" AutoPostBack="true" Text='<%# Bind("Notes") %>'></asp:TextBox>
+				<asp:TextBox ID="TxtNotes" runat="server" AutoPostBack="true" Text='<%# Bind("Notes") %>'/>
 			</td>
 			<td>
-				<asp:TextBox ID="TxtCompDate" CssClass="DateBox" runat="server" AutoPostBack="true" Text='<%# Bind("CompDate", "{0:MM/dd/yyyy}") %>'></asp:TextBox>
+				<asp:TextBox ID="TxtCompDate" CssClass="DateBox" runat="server" AutoPostBack="true" Text='<%# Bind("CompDate", "{0:d}") %>'/>
 				<asp:CompareValidator id="EmptyCompDateValidator" runat="server" Display="Dynamic" Type="Date" Operator="DataTypeCheck" ControlToValidate="TxtCompDate"
 									  ErrorMessage="Please enter a valid date.">
 				</asp:CompareValidator>
@@ -2099,39 +2135,39 @@ Releases:
 		INNER JOIN tblCustomer c ON p.CustomerID = c.CustomerID
 		LEFT JOIN tblJobType jt ON p.JobTypeID = jt.JobTypeID 
 		WHERE (p.ProjectID = @ProjectID)"
-				   UpdateCommand="UPDATE [tblProject] 
-			SET [ProjectName] = @ProjectName, 
-				[ProjectAddress] = @ProjectAddress, 
-				[ProjectCity] = @ProjectCity, 
-				[ProjectState] = @ProjectState, 
-				[ProjectZip] = @ProjectZip,
-				[DateSold] = @DateSold,
-				[SeriesID] = @SeriesID,
-				[MultipleSeries] = @MultipleSeries,
-				[JobTypeID] = @JobTypeID,
-				[ProjectStatusID] = @ProjectStatusID,
-				[DateStatus] = @DateStatus,
-				[CustomerPO] = @CustomerPO,
-				[WarrantyInfo] = @WarrantyInfo,
-				[CreditApproved] = @CreditApproved,
-				[DateCreditAppSent] = @DateCreditAppSent,
-				[DateCreditAppRecd] = @DateCreditAppRecd,
-				[PreferredBilling] = @PreferredBilling,
-				[NumShopDrawings] = @NumShopDrawings,
-				[OwnerName] = @OwnerName,
-				[OwnerAddress] = @OwnerAddress,
-				[OwnerCity] = @OwnerCity,
-				[OwnerState] = @OwnerState,
-				[OwnerZip] = @OwnerZip,
-				[DateDelivery] = @DateDelivery,
-				[DeliveryNotes] = @DeliveryNotes,
-				[DeliveryAddress] = @DeliveryAddress,
-				[DeliveryCity] = @DeliveryCity,
-				[DeliveryState] = @DeliveryState,
-				[DeliveryZip] = @DeliveryZip,
-				[Notes] = @Notes,
-				[Scope_PM_EmployeeID] = @PMEmpID
-			WHERE [ProjectID] = @original_ProjectID">
+				   UpdateCommand="UPDATE tblProject 
+			SET ProjectName = @ProjectName, 
+				ProjectAddress = @ProjectAddress, 
+				ProjectCity = @ProjectCity, 
+				ProjectState = @ProjectState, 
+				ProjectZip = @ProjectZip,
+				DateSold = @DateSold,
+				SeriesID = @SeriesID,
+				MultipleSeries = @MultipleSeries,
+				JobTypeID = @JobTypeID,
+				ProjectStatusID = @ProjectStatusID,
+				DateStatus = @DateStatus,
+				CustomerPO = @CustomerPO,
+				WarrantyInfo = @WarrantyInfo,
+				CreditApproved = @CreditApproved,
+				DateCreditAppSent = @DateCreditAppSent,
+				DateCreditAppRecd = @DateCreditAppRecd,
+				PreferredBilling = @PreferredBilling,
+				NumShopDrawings = @NumShopDrawings,
+				OwnerName = @OwnerName,
+				OwnerAddress = @OwnerAddress,
+				OwnerCity = @OwnerCity,
+				OwnerState = @OwnerState,
+				OwnerZip = @OwnerZip,
+				DateDelivery = @DateDelivery,
+				DeliveryNotes = @DeliveryNotes,
+				DeliveryAddress = @DeliveryAddress,
+				DeliveryCity = @DeliveryCity,
+				DeliveryState = @DeliveryState,
+				DeliveryZip = @DeliveryZip,
+				Notes = @Notes,
+				Scope_PM_EmployeeID = @PMEmpID
+			WHERE ProjectID = @original_ProjectID">
 	<SelectParameters>
 		<asp:RouteParameter Name="ProjectID" Type="Int32" RouteKey="ProjectID"/>
 	</SelectParameters>
@@ -2180,12 +2216,12 @@ Releases:
 					INNER JOIN tblTaskStatus ts on tt.TaskStatusID = ts.TaskStatusID
 					WHERE tt.ProjectID = @ProjectID AND ts.TaskStatusType <> 'Z' 
 					ORDER BY ts.TaskStatusType, tt.TaskPriorityID, tt.DueDate"
-				   InsertCommand="INSERT INTO [tblTaskTracker] 
-					([EmployeeID], [ProjectID], [ReleaseID], [TaskCodeID], [TaskStatusID], [TaskPriorityID], [DueDate], [Notes], [CompDate])
+				   InsertCommand="INSERT INTO tblTaskTracker 
+					(EmployeeID, ProjectID, ReleaseID, TaskCodeID, TaskStatusID, TaskPriorityID, DueDate, Notes, CompDate)
 					VALUES (@EmployeeID, @ProjectID, @ReleaseID, @TaskCodeID, @TaskStatusID, @TaskPriorityID, @DueDate, @Notes, @CompDate)"
-				   UpdateCommand="UPDATE [tblTaskTracker] SET  [EmployeeID] = @EmployeeID, [TaskStatusID] = @TaskStatusID, [TaskPriorityID] = @TaskPriorityID, 
-								[DueDate] = @DueDate, [Notes] = @Notes, [CompDate] = @CompDate WHERE [TaskID] = @TaskID"
-				   DeleteCommand="DELETE FROM [tblTaskTracker] WHERE [TaskID] = @TaskID">
+				   UpdateCommand="UPDATE tblTaskTracker SET  EmployeeID = @EmployeeID, TaskStatusID = @TaskStatusID, TaskPriorityID = @TaskPriorityID, 
+								DueDate = @DueDate, Notes = @Notes, CompDate = @CompDate WHERE TaskID = @TaskID"
+				   DeleteCommand="DELETE FROM tblTaskTracker WHERE TaskID = @TaskID">
 
 	<SelectParameters>
 		<asp:RouteParameter Name="ProjectID" Type="Int32" RouteKey="ProjectID"/>
@@ -2216,37 +2252,37 @@ Releases:
 </asp:SqlDataSource>
 
 <asp:SqlDataSource ID="lstTaskCodeSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>"
-				   SelectCommand="SELECT [TaskCodeID], [TaskCodeAbbr], [TaskCodeName] FROM [tblTaskCode] WHERE ([TaskCodeStatus] = @TaskCodeStatus) ORDER BY [TaskCodeAbbr]">
+				   SelectCommand="SELECT TaskCodeID, TaskCodeAbbr, TaskCodeName FROM tblTaskCode WHERE (TaskCodeStatus = @TaskCodeStatus) ORDER BY TaskCodeAbbr">
 	<SelectParameters>
 		<asp:Parameter DefaultValue="True" Name="TaskCodeStatus" Type="Boolean"/>
 	</SelectParameters>
 </asp:SqlDataSource>
 
 <asp:SqlDataSource ID="DdlActiveEmployeeSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>"
-				   SelectCommand="SELECT [EmployeeID], [Name] FROM [tblEmployee] WHERE ([Status] = 'A') ORDER BY [Name]">
+				   SelectCommand="SELECT EmployeeID, Name FROM tblEmployee WHERE (Status = 'A') ORDER BY Name">
 </asp:SqlDataSource>
 
 <asp:SqlDataSource ID="DdlTaskStatusSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>"
-				   SelectCommand="SELECT [TaskStatusID], [TaskStatusName] FROM [tblTaskStatus] ORDER BY [TaskStatusType], [TaskStatusName]">
+				   SelectCommand="SELECT TaskStatusID, TaskStatusName FROM tblTaskStatus ORDER BY TaskStatusType, TaskStatusName">
 </asp:SqlDataSource>
 
 <asp:SqlDataSource ID="DdlPrioritySQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>"
-				   SelectCommand="SELECT [TaskPriorityID], [TaskPriorityName] FROM [tblTaskPriority] ORDER BY [TaskPriorityID]">
+				   SelectCommand="SELECT TaskPriorityID, TaskPriorityName FROM tblTaskPriority ORDER BY TaskPriorityID">
 </asp:SqlDataSource>
 
 <asp:SqlDataSource ID="DdlJobTypeSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>"
-				   SelectCommand="SELECT [JobTypeID], [JobTypeDescription] FROM [tblJobType] WHERE ([Active] = @Active)">
+				   SelectCommand="SELECT JobTypeID, JobTypeDescription FROM tblJobType WHERE (Active = @Active)">
 	<SelectParameters>
 		<asp:Parameter DefaultValue="True" Name="Active" Type="Boolean"/>
 	</SelectParameters>
 </asp:SqlDataSource>
 
 <asp:SqlDataSource ID="DdlProjStatusSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>"
-				   SelectCommand="SELECT [ProjectStatusID], [Description] FROM [tblProjectStatus]">
+				   SelectCommand="SELECT ProjectStatusID, Description FROM tblProjectStatus">
 </asp:SqlDataSource>
 
 <asp:SqlDataSource ID="DdlPreferredBillingSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>"
-				   SelectCommand="SELECT DISTINCT [PreferredBilling] FROM [tblProject] ORDER BY [PreferredBilling]">
+				   SelectCommand="SELECT DISTINCT PreferredBilling FROM tblProject ORDER BY PreferredBilling">
 </asp:SqlDataSource>
 
 <asp:SqlDataSource ID="GvSubmittalsSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>"
@@ -2265,17 +2301,17 @@ Releases:
 			INNER JOIN tblProjectSubmittalType pst ON ps.ProjectSubmittalTypeID = pst.ProjectSubmittalTypeID
 			WHERE (ps.ProjectID = @ProjectID) ORDER BY ps.Date"
 				   UpdateCommand="UPDATE tblProjectSubmittal 
-			SET [Date] = @Date, 
-				[ProjectSubmittalTypeID] = @ProjectSubmittalTypeID, 
-				[Description] = @Description,
-				[ProjectSubmittalReasonID] = @ProjectSubmittalReasonID,        
-				[Manufacturer] = @Manufacturer, 
-				[NumCopies] = @NumCopies
-			WHERE [ProjectSubmittalID] = @ProjectSubmittalID"
+			SET Date = @Date, 
+				ProjectSubmittalTypeID = @ProjectSubmittalTypeID, 
+				Description = @Description,
+				ProjectSubmittalReasonID = @ProjectSubmittalReasonID,        
+				Manufacturer = @Manufacturer, 
+				NumCopies = @NumCopies
+			WHERE ProjectSubmittalID = @ProjectSubmittalID"
 				   InsertCommand="INSERT INTO tblProjectSubmittal
-			([ProjectSubmittalID], [ProjectID], [Date], [ProjectSubmittalTypeID], [NumCopies], [Manufacturer], [Description], [ProjectSubmittalReasonID])
+			(ProjectSubmittalID, ProjectID, Date, ProjectSubmittalTypeID, NumCopies, Manufacturer, Description, ProjectSubmittalReasonID)
 			VALUES (@ProjectSubmittalID, @ProjectID, @Date, @ProjectSubmittalTypeID, @NumCopies, @Manufacturer, @Description, @ProjectSubmittalReasonID)"
-				   DeleteCommand="DELETE FROM tblProjectSubmittal WHERE [ProjectSubmittalID] = @ProjectSubmittalID">
+				   DeleteCommand="DELETE FROM tblProjectSubmittal WHERE ProjectSubmittalID = @ProjectSubmittalID">
 	<SelectParameters>
 		<asp:RouteParameter Name="ProjectID" Type="Int32" RouteKey="ProjectID"/>
 	</SelectParameters>
@@ -2304,53 +2340,62 @@ Releases:
 </asp:SqlDataSource>
 
 <asp:SqlDataSource ID="DdlProjectSubmittalReasonSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>"
-				   SelectCommand="SELECT [ProjectSubmittalReasonID], [Description] FROM [tblProjectSubmittalReason]">
+				   SelectCommand="SELECT ProjectSubmittalReasonID, Description FROM tblProjectSubmittalReason">
 </asp:SqlDataSource>
 
 <asp:SqlDataSource ID="DdlProjectSubmittalType" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>"
-				   SelectCommand="SELECT [ProjectSubmittalTypeID], [Description] FROM [tblProjectSubmittalType]">
+				   SelectCommand="SELECT ProjectSubmittalTypeID, Description FROM tblProjectSubmittalType">
 </asp:SqlDataSource>
 
-<asp:SqlDataSource ID="ChangeOrdersSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>"
-				   SelectCommand="SELECT [ProjectChangeOrderID], [ProjectID], [Date], [Description], [Amount], [DateDue], [DateRecd], [Status], [ApprovalCode], 
-			[EnteredBy_UserID], [SeqNo], [Source], [Initiator], [Reason], [ReasonNotes], [NumPanels], [IsCommissionable], [ProjectShipmentID] 
-			FROM [tblProjectChangeOrder] 
-			WHERE ([ProjectID] = @ProjectID) 
-			ORDER BY [SeqNo], [Date] DESC">
-	<SelectParameters>
-		<asp:QueryStringParameter Name="ProjectID" QueryStringField="PID" Type="Int32"/>
-	</SelectParameters>
-</asp:SqlDataSource>
 
 <asp:SqlDataSource ID="GvChangeOrdersSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>"
-				   SelectCommand="SELECT [ProjectChangeOrderID], [SeqNo], [Date], [Source], [Amount], [DateDue], [DateRecd], [Status], [Description] 
-		FROM [tblProjectChangeOrder] 
-		WHERE ([ProjectID] = @ProjectID)">
+				   SelectCommand="SELECT ProjectChangeOrderID, ProjectShipmentID, SeqNo, Date, EnteredBy_UserID, Source, Initiator, Reason, ReasonNotes, 
+                ApprovalCode, Description, NumPanels, Amount, IsCommissionable, DateDue, DateRecd, Status 
+		FROM tblProjectChangeOrder 
+		WHERE (ProjectID = @ProjectID)"
+    InsertCommand="INSERT INTO tblProjectChangeOrder (ProjectID, SeqNo, Date, EnteredBy_UserID, Source, Description, 
+                NumPanels, Amount, IsCommissionable, DateDue, DateRecd, Status) 
+                VALUES (@ProjectID, @SeqNo, @Date, @EnteredBy_UserID, @Source, @Description, 
+                @NumPanels, @Amount, @IsCommissionable, @DateDue, @DateRecd, @Status)">
 	<SelectParameters>
 		<asp:RouteParameter Name="ProjectID" Type="Int32" RouteKey="ProjectID"/>
 	</SelectParameters>
+    <InsertParameters>
+        <asp:RouteParameter Name="ProjectID" Type="Int32" RouteKey="ProjectID"/>
+        <asp:Parameter Name="SeqNo" Type="Int32" DefaultValue="1" />
+        <asp:Parameter Name="Date" Type="DateTime"/>
+        <asp:Parameter Name="EnteredBy_UserID" Type="String"/>
+        <asp:Parameter Name="Source" Type="String"/>
+        <asp:Parameter Name="Amount" Type="Decimal"/>
+        <asp:Parameter Name="IsCommissionable" Type="Boolean" DefaultValue="True"/>
+        <asp:Parameter Name="NumPanels" Type="Int32" DefaultValue="0"/>
+        <asp:Parameter Name="DateDue" Type="DateTime"/>
+        <asp:Parameter Name="DateRecd" Type="DateTime"/>
+        <asp:Parameter Name="Status" Type="Char"/>
+        <asp:Parameter Name="Description" Type="String"/>
+    </InsertParameters>
 </asp:SqlDataSource>
 
 <asp:SqlDataSource ID="DdlCOStatusSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>"
-				   SelectCommand="SELECT [COStatusAbbr], [COStatusDesc] FROM [tblProjectChangeOrderStatus]">
+				   SelectCommand="SELECT COStatusAbbr, COStatusDesc FROM tblProjectChangeOrderStatus">
 </asp:SqlDataSource>
 
 <asp:SqlDataSource ID="GvTimeCardsSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>"
-				   SelectCommand="SELECT [TimecardID], [Date], [EmployeeID], [ReleaseNo], [TimeCardTaskID], [Hours], [NumPanels], [NumSheets], [Notes] 
-		FROM [tblTimecard] 
-		WHERE ([ProjectID] = @ProjectID) 
-		ORDER BY [Date] DESC, [TimecardID]">
+				   SelectCommand="SELECT TimecardID, Date, EmployeeID, ReleaseNo, TimeCardTaskID, Hours, NumPanels, NumSheets, Notes 
+		FROM tblTimecard 
+		WHERE (ProjectID = @ProjectID) 
+		ORDER BY Date DESC, TimecardID">
 	<SelectParameters>
 		<asp:RouteParameter Name="ProjectID" Type="Int32" RouteKey="ProjectID"/>
 	</SelectParameters>
 </asp:SqlDataSource>
 
 <asp:SqlDataSource ID="TimeCardTaskSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>"
-				   SelectCommand="SELECT [TimecardTaskID], [Description] FROM [tblTimecardTask]">
+				   SelectCommand="SELECT TimecardTaskID, Description FROM tblTimecardTask">
 </asp:SqlDataSource>
 
 <asp:SqlDataSource ID="DdlAllEmployeeSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>"
-				   SelectCommand="SELECT [EmployeeID], [Name] FROM [tblEmployee] ORDER BY [Name]">
+				   SelectCommand="SELECT EmployeeID, Name FROM tblEmployee ORDER BY Name">
 </asp:SqlDataSource>
 
 <asp:SqlDataSource ID="TCTotalHoursSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>"
@@ -2361,60 +2406,60 @@ Releases:
 </asp:SqlDataSource>
 
 <asp:SqlDataSource ID="GvDocumentSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>"
-				   SelectCommand="SELECT [ProjectDocumentID], [Description], [ProjectDocumentTypeID], [Date] 
-		FROM [tblProjectDocument] 
-		WHERE ([ProjectID] = @ProjectID) 
-		ORDER BY [Date] DESC">
+				   SelectCommand="SELECT ProjectDocumentID, Description, ProjectDocumentTypeID, Date 
+		FROM tblProjectDocument 
+		WHERE (ProjectID = @ProjectID) 
+		ORDER BY Date DESC">
 	<SelectParameters>
 		<asp:RouteParameter Name="ProjectID" Type="Int32" RouteKey="ProjectID"/>
 	</SelectParameters>
 </asp:SqlDataSource>
 
 <asp:SqlDataSource ID="DdlDocTypeSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>"
-				   SelectCommand="SELECT [ProjectDocumentTypeID], [Description] FROM [tblProjectDocumentType] ORDER BY [Description]">
+				   SelectCommand="SELECT ProjectDocumentTypeID, Description FROM tblProjectDocumentType ORDER BY Description">
 </asp:SqlDataSource>
 
 <asp:SqlDataSource ID="GvLogSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>"
-				   SelectCommand="SELECT [ProjectLogID], [Date], [LogTypeID], [Subject], [EmployeeID] 
-		FROM [tblProjectLog] 
-		WHERE ([ProjectID] = @ProjectID) 
-		ORDER BY [Date] DESC">
+				   SelectCommand="SELECT ProjectLogID, Date, LogTypeID, Subject, EmployeeID 
+		FROM tblProjectLog 
+		WHERE (ProjectID = @ProjectID) 
+		ORDER BY Date DESC">
 	<SelectParameters>
 		<asp:RouteParameter Name="ProjectID" Type="Int32" RouteKey="ProjectID"/>
 	</SelectParameters>
 </asp:SqlDataSource>
 
 <asp:SqlDataSource ID="DdlLogTypeSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>"
-				   SelectCommand="SELECT [LogTypeID], [Description] FROM [tblLogType]">
+				   SelectCommand="SELECT LogTypeID, Description FROM tblLogType">
 </asp:SqlDataSource>
 
 <asp:SqlDataSource ID="GvFinancialSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>"
-				   SelectCommand="SELECT [InvoiceNo], [Date], [AmtInvoice], [AmtMaterial], [AmtOther], [AmtFreight], [EnteredBy], [Description] 
-		FROM [tblInvoice] 
-		WHERE ([ProjectID] = @ProjectID) 
-		ORDER BY [InvoiceNo]">
+				   SelectCommand="SELECT InvoiceNo, Date, AmtInvoice, AmtMaterial, AmtOther, AmtFreight, EnteredBy, Description 
+		FROM tblInvoice 
+		WHERE (ProjectID = @ProjectID) 
+		ORDER BY InvoiceNo">
 	<SelectParameters>
 		<asp:RouteParameter Name="ProjectID" Type="Int32" RouteKey="ProjectID"/>
 	</SelectParameters>
 </asp:SqlDataSource>
 
 <asp:SqlDataSource ID="FvPMSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>"
-				   SelectCommand="SELECT [ProjectID], 
-			[Scope_PM_EmployeeID], 
-			[MTO_Complete], 
-			[MTO_Complete_EmployeeID], 
-			[PM_DateMatlApproved], 
-			[PM_DateMatlOrderComplete], 
-			[PM_ESD_ShopDrawings], 
-			[PM_DateMatlRecd], 
-			[Shops_Reviewed_EmployeeID], 
-			[Shops_Reviewed], 
-			[CAD_DateSent], 
-			[Shops_Recd], 
-			[Shops_Revised], 
-			[PM_DateShopsApproved] 
-		FROM [tblProject] 
-		WHERE ([ProjectID] = @ProjectID)">
+				   SelectCommand="SELECT ProjectID, 
+			Scope_PM_EmployeeID, 
+			MTO_Complete, 
+			MTO_Complete_EmployeeID, 
+			PM_DateMatlApproved, 
+			PM_DateMatlOrderComplete, 
+			PM_ESD_ShopDrawings, 
+			PM_DateMatlRecd, 
+			Shops_Reviewed_EmployeeID, 
+			Shops_Reviewed, 
+			CAD_DateSent, 
+			Shops_Recd, 
+			Shops_Revised, 
+			PM_DateShopsApproved 
+		FROM tblProject 
+		WHERE (ProjectID = @ProjectID)">
 	<SelectParameters>
 		<asp:RouteParameter Name="ProjectID" Type="Int32" RouteKey="ProjectID"/>
 	</SelectParameters>
@@ -2429,42 +2474,42 @@ Releases:
 </asp:SqlDataSource>
 
 <asp:SqlDataSource ID="DdlSeriesSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>"
-				   SelectCommand="SELECT [SeriesID], [Description] FROM [tblSeries] WHERE ([Active] = @Active) ORDER BY [Description]">
+				   SelectCommand="SELECT SeriesID, Description FROM tblSeries WHERE (Active = @Active) ORDER BY Description">
 	<SelectParameters>
 		<asp:Parameter DefaultValue="True" Name="Active" Type="Boolean"/>
 	</SelectParameters>
 </asp:SqlDataSource>
 
 <asp:SqlDataSource ID="FvScopeSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>"
-				   SelectCommand="SELECT [ProjectID], [Scope_DateMeeting], [Scope_TimeMeeting], [Scope_PM_EmployeeID], [Scope_CA_EmployeeID], [Scope_Estimator_EmployeeID], 
-			[Scope_CAD_EmployeeID], [Scope_Others], [Scope_NumReleases], [Scope_ReleaseNotes], [Scope_ShippingNotes], [Scope_Warranty], [Scope_WarrantyStd], 
-			[Scope_TeamLead_EmployeeID], [NumPanels], [PanelSqFt], [Scope_BeginQtr], [Scope_BeginYear], [Scope_EndQtr], [Scope_EndYear], [Scope_InternalNotes], 
-			[Scope_RSM_EmployeeID], [Scope_SalesRep_ID] FROM [tblProject] 
-		WHERE [ProjectID] = @ProjectID"
-				   UpdateCommand="UPDATE [tblProject] 
-			SET [Scope_DateMeeting] = @Scope_DateMeeting, 
-			[Scope_TimeMeeting] = @Scope_TimeMeeting, 
-			[Scope_PM_EmployeeID] = @Scope_PM_EmployeeID, 
-			[Scope_CA_EmployeeID] = @Scope_CA_EmployeeID, 
-			[Scope_Estimator_EmployeeID] = @Scope_Estimator_EmployeeID, 
-			[Scope_CAD_EmployeeID] = @Scope_CAD_EmployeeID, 
-			[Scope_Others] = @Scope_Others, 
-			[Scope_NumReleases] = @Scope_NumReleases, 
-			[Scope_ReleaseNotes] = @Scope_ReleaseNotes, 
-			[Scope_ShippingNotes] = @Scope_ShippingNotes, 
-			[Scope_Warranty] = @Scope_Warranty, 
-			[Scope_WarrantyStd] = @Scope_WarrantyStd, 
-			[Scope_TeamLead_EmployeeID] = @Scope_TeamLead_EmployeeID, 
-			[NumPanels] = @NumPanels, 
-			[PanelSqFt] = @PanelSqFt, 
-			[Scope_BeginQtr] = @Scope_BeginQtr, 
-			[Scope_BeginYear] = @Scope_BeginYear, 
-			[Scope_EndQtr] = @Scope_EndQtr, 
-			[Scope_EndYear] = @Scope_EndYear, 
-			[Scope_InternalNotes] = @Scope_InternalNotes, 
-			[Scope_RSM_EmployeeID] = @Scope_RSM_EmployeeID, 
-			[Scope_SalesRep_ID] = @Scope_SalesRep_ID 
-		WHERE [ProjectID] = @ProjectID">
+				   SelectCommand="SELECT ProjectID, Scope_DateMeeting, Scope_TimeMeeting, Scope_PM_EmployeeID, Scope_CA_EmployeeID, Scope_Estimator_EmployeeID, 
+			Scope_CAD_EmployeeID, Scope_Others, Scope_NumReleases, Scope_ReleaseNotes, Scope_ShippingNotes, Scope_Warranty, Scope_WarrantyStd, 
+			Scope_TeamLead_EmployeeID, NumPanels, PanelSqFt, Scope_BeginQtr, Scope_BeginYear, Scope_EndQtr, Scope_EndYear, Scope_InternalNotes, 
+			Scope_RSM_EmployeeID, Scope_SalesRep_ID FROM tblProject 
+		WHERE ProjectID = @ProjectID"
+				   UpdateCommand="UPDATE tblProject 
+			SET Scope_DateMeeting = @Scope_DateMeeting, 
+			Scope_TimeMeeting = @Scope_TimeMeeting, 
+			Scope_PM_EmployeeID = @Scope_PM_EmployeeID, 
+			Scope_CA_EmployeeID = @Scope_CA_EmployeeID, 
+			Scope_Estimator_EmployeeID = @Scope_Estimator_EmployeeID, 
+			Scope_CAD_EmployeeID = @Scope_CAD_EmployeeID, 
+			Scope_Others = @Scope_Others, 
+			Scope_NumReleases = @Scope_NumReleases, 
+			Scope_ReleaseNotes = @Scope_ReleaseNotes, 
+			Scope_ShippingNotes = @Scope_ShippingNotes, 
+			Scope_Warranty = @Scope_Warranty, 
+			Scope_WarrantyStd = @Scope_WarrantyStd, 
+			Scope_TeamLead_EmployeeID = @Scope_TeamLead_EmployeeID, 
+			NumPanels = @NumPanels, 
+			PanelSqFt = @PanelSqFt, 
+			Scope_BeginQtr = @Scope_BeginQtr, 
+			Scope_BeginYear = @Scope_BeginYear, 
+			Scope_EndQtr = @Scope_EndQtr, 
+			Scope_EndYear = @Scope_EndYear, 
+			Scope_InternalNotes = @Scope_InternalNotes, 
+			Scope_RSM_EmployeeID = @Scope_RSM_EmployeeID, 
+			Scope_SalesRep_ID = @Scope_SalesRep_ID 
+		WHERE ProjectID = @ProjectID">
 	<SelectParameters>
 		<asp:RouteParameter Name="ProjectID" RouteKey="ProjectID" Type="Int32"/>
 	</SelectParameters>
@@ -2497,16 +2542,16 @@ Releases:
 </asp:SqlDataSource>
 
 <asp:SqlDataSource ID="FvCADSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>"
-				   SelectCommand="SELECT [ProjectID], [ProjectName], [CAD_EmployeeID], [CAD_StatusID], [CAD_Num], [CAD_DateRecd], 
-	[CAD_DateEst], [CAD_DateSent], [CAD_DateHandoff], [CAD_EstHours], [DateDelivery], [NumShopDrawings], [CAD_Notes] 
-	FROM [tblProject] WHERE ([ProjectID] = @ProjectID)"
-				   DeleteCommand="DELETE FROM [tblProject] WHERE [ProjectID] = @ProjectID"
-				   InsertCommand="INSERT INTO [tblProject] ([ProjectID], [ProjectName], [CAD_EmployeeID], [CAD_StatusID], [CAD_Num], [CAD_DateRecd], [CAD_DateEst], [CAD_DateSent], 
-	[CAD_DateHandoff], [CAD_EstHours], [DateDelivery], [NumShopDrawings], [CAD_Notes]) 
+				   SelectCommand="SELECT ProjectID, ProjectName, CAD_EmployeeID, CAD_StatusID, CAD_Num, CAD_DateRecd, 
+	CAD_DateEst, CAD_DateSent, CAD_DateHandoff, CAD_EstHours, DateDelivery, NumShopDrawings, CAD_Notes 
+	FROM tblProject WHERE (ProjectID = @ProjectID)"
+				   DeleteCommand="DELETE FROM tblProject WHERE ProjectID = @ProjectID"
+				   InsertCommand="INSERT INTO tblProject (ProjectID, ProjectName, CAD_EmployeeID, CAD_StatusID, CAD_Num, CAD_DateRecd, CAD_DateEst, CAD_DateSent, 
+	CAD_DateHandoff, CAD_EstHours, DateDelivery, NumShopDrawings, CAD_Notes) 
 	VALUES (@ProjectID, @ProjectName, @CAD_EmployeeID, @CAD_StatusID, @CAD_Num, @CAD_DateRecd, @CAD_DateEst, @CAD_DateSent, @CAD_DateHandoff, @CAD_EstHours, @DateDelivery, @NumShopDrawings, @CAD_Notes)"
-				   UpdateCommand="UPDATE [tblProject] SET [ProjectName] = @ProjectName, [CAD_EmployeeID] = @CAD_EmployeeID, [CAD_StatusID] = @CAD_StatusID, [CAD_Num] = @CAD_Num, [CAD_DateRecd] = @CAD_DateRecd, 
-	[CAD_DateEst] = @CAD_DateEst, [CAD_DateSent] = @CAD_DateSent, [CAD_DateHandoff] = @CAD_DateHandoff, [CAD_EstHours] = @CAD_EstHours, [DateDelivery] = @DateDelivery, 
-	[NumShopDrawings] = @NumShopDrawings, [CAD_Notes] = @CAD_Notes WHERE [ProjectID] = @ProjectID">
+				   UpdateCommand="UPDATE tblProject SET ProjectName = @ProjectName, CAD_EmployeeID = @CAD_EmployeeID, CAD_StatusID = @CAD_StatusID, CAD_Num = @CAD_Num, CAD_DateRecd = @CAD_DateRecd, 
+	CAD_DateEst = @CAD_DateEst, CAD_DateSent = @CAD_DateSent, CAD_DateHandoff = @CAD_DateHandoff, CAD_EstHours = @CAD_EstHours, DateDelivery = @DateDelivery, 
+	NumShopDrawings = @NumShopDrawings, CAD_Notes = @CAD_Notes WHERE ProjectID = @ProjectID">
 	<DeleteParameters>
 		<asp:Parameter Name="ProjectID" Type="Int32"/>
 	</DeleteParameters>
@@ -2546,22 +2591,22 @@ Releases:
 </asp:SqlDataSource>
 
 <asp:SqlDataSource ID="DdlWarrantySQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>"
-				   SelectCommand="SELECT [Warranty] FROM [tblWarranty] ORDER BY [Warranty]">
+				   SelectCommand="SELECT Warranty FROM tblWarranty ORDER BY Warranty">
 </asp:SqlDataSource>
 
 <asp:SqlDataSource ID="DdlCADStatusSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>"
-				   SelectCommand="SELECT [ProjectCADStatusID], [Description] FROM [tblProjectCADStatus] ORDER BY [Description]">
+				   SelectCommand="SELECT ProjectCADStatusID, Description FROM tblProjectCADStatus ORDER BY Description">
 </asp:SqlDataSource>
 
 <asp:SqlDataSource ID="GvPMShipmentSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>"
-				   DeleteCommand="DELETE FROM [tblProjectShipment] WHERE [ProjectShipmentID] = @ProjectShipmentID"
-				   InsertCommand="INSERT INTO [tblProjectShipment] ([ProjectID], [ShipmentNo], [Description], [DateRequested], [DateShipped]) 
+				   DeleteCommand="DELETE FROM tblProjectShipment WHERE ProjectShipmentID = @ProjectShipmentID"
+				   InsertCommand="INSERT INTO tblProjectShipment (ProjectID, ShipmentNo, Description, DateRequested, DateShipped) 
 			VALUES (@ProjectID, @ShipmentNo, @Description, @DateRequested, @DateShipped)"
-				   SelectCommand="SELECT [ProjectShipmentID], [ProjectID], [ShipmentNo], [Description], [DateRequested], [DateShipped] 
-			FROM [tblProjectShipment] 
-			WHERE ([ProjectID] = @ProjectID) ORDER BY [ShipmentNo]"
-				   UpdateCommand="UPDATE [tblProjectShipment] SET [ProjectID] = @ProjectID, [ShipmentNo] = @ShipmentNo, [Description] = @Description, 
-			[DateRequested] = @DateRequested, [DateShipped] = @DateShipped WHERE [ProjectShipmentID] = @ProjectShipmentID">
+				   SelectCommand="SELECT ProjectShipmentID, ProjectID, ShipmentNo, Description, DateRequested, DateShipped 
+			FROM tblProjectShipment 
+			WHERE (ProjectID = @ProjectID) ORDER BY ShipmentNo"
+				   UpdateCommand="UPDATE tblProjectShipment SET ProjectID = @ProjectID, ShipmentNo = @ShipmentNo, Description = @Description, 
+			DateRequested = @DateRequested, DateShipped = @DateShipped WHERE ProjectShipmentID = @ProjectShipmentID">
 	<DeleteParameters>
 		<asp:Parameter Name="ProjectShipmentID" Type="Int32"/>
 	</DeleteParameters>
@@ -2586,7 +2631,7 @@ Releases:
 </asp:SqlDataSource>
 
 <asp:SqlDataSource ID="GvPMShipmentSubSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>"
-				   SelectCommand="SELECT [ShippingID], [Date], [PaidBy], [TrackingNo], [Cost] FROM [tblShipping] WHERE ([ProjectID] = @ProjectID)">
+				   SelectCommand="SELECT ShippingID, Date, PaidBy, TrackingNo, Cost FROM tblShipping WHERE (ProjectID = @ProjectID)">
 	<SelectParameters>
 		<asp:Parameter Name="ProjectID" Type="Int32"/>
 	</SelectParameters>

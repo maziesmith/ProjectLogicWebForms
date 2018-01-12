@@ -18,13 +18,18 @@
     width: 50px;
 }
 
+.DateBox {
+    width: 100px;
+}
+
+.MedBox {
+    width: 300px;
+}
 .LongBox {
     width: 400px;
 }
 
-.DateBox {
-    width: 100px;
-}
+
 
 .CurrencyBox {
     text-align: right;
@@ -110,7 +115,7 @@ table, th, td {
     float: left;
     min-width: 28%;
     width: auto;
-    padding: 3px 10px;
+    padding: 1px 5px;
     min-height: 17px;
 }
 .divTable:after {

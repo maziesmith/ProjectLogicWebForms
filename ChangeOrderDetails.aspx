@@ -102,7 +102,7 @@
             <div class="divTableRow ">
                 <div class="divTableCell">Amount:</div>
                 <div class="divTableCell">
-                    <asp:TextBox ID="LblAmount" runat="server" CssClass="DateBox AlignRight" Text='<%# Bind("Amount","${0:n2}") %>'/>
+                    $<asp:TextBox ID="TxtAmount" runat="server" CssClass="DateBox AlignRight" Text='<%# Bind("Amount","{0:n2}") %>'/>
                 </div>
             </div>
             <div class="divTableRow ">
@@ -269,22 +269,22 @@
     </div>
     <br/>
     <asp:LinkButton ID="EditButton" runat="server" CausesValidation="False" CommandName="Edit" Text="Edit"/>
-    &nbsp;<asp:LinkButton ID="DeleteButton" runat="server" CausesValidation="False" CommandName="FakeDelete" Text="Delete"/>
+    &nbsp;<asp:LinkButton ID="DeleteButton" runat="server" CausesValidation="False" CommandName="Delete" Text="Delete"/>
 </ItemTemplate>
 </asp:FormView>
 <asp:SqlDataSource ID="FvChangeOrderSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>"
-                   DeleteCommand="DELETE FROM [tblProjectChangeOrder] WHERE [ProjectChangeOrderID] = @PCOID"
-                   InsertCommand="INSERT INTO [tblProjectChangeOrder] ([ProjectID], [ProjectShipmentID], [SeqNo], [Date], [EnteredBy_UserID], [Source], [Initiator], [Reason], [ReasonNotes], 
-                [ApprovalCode], [Description], [NumPanels], [Amount], [IsCommissionable], [DateDue], [DateRecd], [Status]) 
+                   DeleteCommand="DELETE FROM tblProjectChangeOrder WHERE ProjectChangeOrderID = @PCOID"
+                   InsertCommand="INSERT INTO tblProjectChangeOrder (ProjectID, ProjectShipmentID, SeqNo, Date, EnteredBy_UserID, Source, Initiator, Reason, ReasonNotes, 
+                ApprovalCode, Description, NumPanels, Amount, IsCommissionable, DateDue, DateRecd, Status) 
                 VALUES (@ProjectID, @ProjectShipmentID, @SeqNo, @Date, @EnteredBy_UserID, @Source, @Initiator, @Reason, @ReasonNotes, 
                 @ApprovalCode, @Description, @NumPanels, @Amount, @IsCommissionable, @DateDue, @DateRecd, @Status)"
-                   SelectCommand="SELECT [ProjectID], [ProjectChangeOrderID], [ProjectShipmentID], [SeqNo], [Date], [EnteredBy_UserID], [Source], [Initiator], [Reason], [ReasonNotes], 
-                [ApprovalCode], [Description], [NumPanels], [Amount], [IsCommissionable], [DateDue], [DateRecd], [Status] 
-                FROM [tblProjectChangeOrder] WHERE ([ProjectChangeOrderID] = @PCOID)"
-                   UpdateCommand="UPDATE [tblProjectChangeOrder] SET [ProjectID] = @ProjectID, [ProjectShipmentID] = @ProjectShipmentID, [SeqNo] = @SeqNo, [Date] = @Date, 
-                [EnteredBy_UserID] = @EnteredBy_UserID, [Source] = @Source, [Initiator] = @Initiator, [Reason] = @Reason, [ReasonNotes] = @ReasonNotes, [ApprovalCode] = @ApprovalCode, 
-                [Description] = @Description, [NumPanels] = @NumPanels, [Amount] = @Amount, [IsCommissionable] = @IsCommissionable, [DateDue] = @DateDue, [DateRecd] = @DateRecd, [Status] = @Status 
-                WHERE [ProjectChangeOrderID] = @PCOID">
+                   SelectCommand="SELECT ProjectID, ProjectChangeOrderID, ProjectShipmentID, SeqNo, Date, EnteredBy_UserID, Source, Initiator, Reason, ReasonNotes, 
+                ApprovalCode, Description, NumPanels, Amount, IsCommissionable, DateDue, DateRecd, Status 
+                FROM tblProjectChangeOrder WHERE (ProjectChangeOrderID = @PCOID)"
+                   UpdateCommand="UPDATE tblProjectChangeOrder SET ProjectID = @ProjectID, ProjectShipmentID = @ProjectShipmentID, SeqNo = @SeqNo, Date = @Date, 
+                EnteredBy_UserID = @EnteredBy_UserID, Source = @Source, Initiator = @Initiator, Reason = @Reason, ReasonNotes = @ReasonNotes, ApprovalCode = @ApprovalCode, 
+                Description = @Description, NumPanels = @NumPanels, Amount = @Amount, IsCommissionable = @IsCommissionable, DateDue = @DateDue, DateRecd = @DateRecd, Status = @Status 
+                WHERE ProjectChangeOrderID = @PCOID">
     <DeleteParameters>
         <asp:QueryStringParameter Name="PCOID" QueryStringField="PCOID" Type="Int32"/>
     </DeleteParameters>
