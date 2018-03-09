@@ -49,6 +49,60 @@ namespace ProjectLogic {
         protected global::System.Web.UI.WebControls.TextBox TxtProjectName;
         
         /// <summary>
+        /// LblProjectState control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblProjectState;
+        
+        /// <summary>
+        /// TxtProjectState control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TxtProjectState;
+        
+        /// <summary>
+        /// LblSoldFrom control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblSoldFrom;
+        
+        /// <summary>
+        /// TxtSoldFrom control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TxtSoldFrom;
+        
+        /// <summary>
+        /// LblSoldTo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblSoldTo;
+        
+        /// <summary>
+        /// TxtSoldTo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TxtSoldTo;
+        
+        /// <summary>
         /// LblPM control.
         /// </summary>
         /// <remarks>
@@ -65,6 +119,24 @@ namespace ProjectLogic {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList DdlPmSearch;
+        
+        /// <summary>
+        /// LblCustomer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblCustomer;
+        
+        /// <summary>
+        /// DdlCustSearch control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DdlCustSearch;
         
         /// <summary>
         /// LblActive control.
@@ -94,6 +166,15 @@ namespace ProjectLogic {
         protected global::System.Web.UI.WebControls.Button BtnSearch;
         
         /// <summary>
+        /// BtnClear control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnClear;
+        
+        /// <summary>
         /// GvProjects control.
         /// </summary>
         /// <remarks>
@@ -119,5 +200,14 @@ namespace ProjectLogic {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource DdlPmSearchSQL;
+        
+        /// <summary>
+        /// DdlCustSearchSQL control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource DdlCustSearchSQL;
     }
 }

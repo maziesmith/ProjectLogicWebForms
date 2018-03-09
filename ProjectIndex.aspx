@@ -4,23 +4,41 @@
     <table runat="server">
         <tr>
             <td>
-                <asp:Label ID="LblProjectNum" runat="server" Text="Project #: "></asp:Label>
+                <asp:Label ID="LblProjectNum" runat="server" Text="Project #: " CssClass="NumBox"/>
             </td>
             <td>
-                <asp:TextBox ID="TxtProjectID" runat="server"></asp:TextBox>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <asp:Label ID="LblProjectName" runat="server" Text="Project Name: "></asp:Label>
-            </td>
-            <td>
-                <asp:TextBox ID="TxtProjectName" runat="server"></asp:TextBox>
+                <asp:TextBox ID="TxtProjectID" runat="server"/>
             </td>
         </tr>
         <tr>
             <td>
-                <asp:Label runat="server" ID="LblPM" Text="PM: "></asp:Label>
+                <asp:Label ID="LblProjectName" runat="server" Text="Project Name: "/>
+            </td>
+            <td>
+                <asp:TextBox ID="TxtProjectName" runat="server"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <asp:Label runat="server" ID="LblProjectState" Text="Project ST: "/>
+            </td>
+            <td>
+                <asp:TextBox runat="server" ID="TxtProjectState" CssClass="NumBox"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <asp:Label runat="server" ID="LblSoldFrom" Text="Sold From: "/>
+            </td>
+            <td>
+                <asp:TextBox runat="server" ID="TxtSoldFrom" CssClass="DateBox"/>
+                &nbsp;<asp:Label runat="server" ID="LblSoldTo" Text="To: "/>
+                <asp:TextBox runat="server" ID="TxtSoldTo" CssClass="DateBox" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <asp:Label runat="server" ID="LblPM" Text="PM: "/>
             </td>
             <td>
                 <asp:DropDownList runat="server" ID="DdlPmSearch" DataSourceID="DdlPmSearchSQL" DataTextField="Name" DataValueField="Scope_PM_EmployeeID" AppendDataBoundItems="True">
@@ -30,7 +48,17 @@
         </tr>
         <tr>
             <td>
-                <asp:Label runat="server" ID="LblActive" Text="Active Only?:"></asp:Label>
+                <asp:Label runat="server" ID="LblCustomer" Text="Customer: "/>
+            </td>
+            <td>
+                <asp:DropDownList runat="server" ID="DdlCustSearch" DataSourceID="DdlCustSearchSQL" DataTextField="Company" DataValueField="CustomerID" AppendDataBoundItems="True">
+                    <asp:ListItem Text="<--Select Customer-->" Value="" />
+                </asp:DropDownList>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <asp:Label runat="server" ID="LblActive" Text="Active Only?:"/>
             </td>
             <td>
                 <asp:CheckBox runat="server" ID="ChkActiveOnly" />
@@ -40,6 +68,7 @@
     <br/>
 
     <asp:Button ID="BtnSearch" runat="server" Text="Search" OnClick="BtnSearch_OnClick"/>
+    &nbsp;<asp:Button runat="server" ID="BtnClear" Text="Clear" OnClick="BtnClear_OnClick" />
     <br/>
     <br/>
     <asp:GridView ID="GvProjects" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" EmptyDataText="No Project Selected"
@@ -132,6 +161,9 @@
 
     <asp:SqlDataSource ID="DdlPmSearchSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>" 
         SelectCommand="SELECT DISTINCT p.Scope_PM_EmployeeID, e.Name FROM tblEmployee e INNER JOIN tblProject p ON e.EmployeeID = p.Scope_PM_EmployeeID">
+    </asp:SqlDataSource>
+    <asp:SqlDataSource ID="DdlCustSearchSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>" 
+        SelectCommand="SELECT DISTINCT CustomerID, Company FROM tblCustomer WHERE Status = 'A' ORDER BY Company">
     </asp:SqlDataSource>
 
 </asp:Content>

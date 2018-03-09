@@ -126,10 +126,15 @@ namespace ProjectLogic
             }
             else
             {
-                strSelectCommand = strSelectCommand + "ORDER BY p.ProjectID";
+                strSelectCommand = strSelectCommand + " ORDER BY p.ProjectID";
             }
 
             LvProjectSQL.SelectCommand = strSelectCommand;
+        }
+
+        protected void BtnClear_OnClick(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
     }
 }
