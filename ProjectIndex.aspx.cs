@@ -116,7 +116,7 @@ namespace ProjectLogic
 
             if (!String.IsNullOrEmpty(TxtProjectID.Text))
             {
-                strSelectCommand = strSelectCommand + " AND ProjectID = @ProjectID)";
+                strSelectCommand = strSelectCommand + " AND ProjectID = @ProjectID";
             }
 
             if (!String.IsNullOrEmpty(TxtProjectName.Text))
