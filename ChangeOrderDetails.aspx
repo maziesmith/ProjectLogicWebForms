@@ -1,12 +1,12 @@
 ﻿<%@ Page Title="Change Order" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ChangeOrderDetails.aspx.cs" Inherits="ProjectLogic.ChangeOrderDetails" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-<script>
+<%--<script>
     window.onunload = refreshParent;
 
     function refreshParent() {
         window.opener.location.reload();
     }
-</script>
+</script>--%>
 <asp:FormView ID="FvChangeOrder" runat="server" DataKeyNames="ProjectChangeOrderID" DataSourceID="FvChangeOrderSQL"
               OnItemCommand="FvChangeOrder_OnItemCommand" OnDataBound="FvChangeOrder_OnDataBound">
 <EditItemTemplate>
@@ -22,9 +22,9 @@
             <div class="divTableRow">
                 <div class="divTableCell">Shipment #:</div>
                 <div class="divTableCell">
-                    <asp:DropDownList runat="server" ID="DdlShipment" DataSourceID="DdlShipmentSQL" SelectedValue='<%# Bind("ProjectShipmentID") %>'
-                                      DataValueField="ProjectShipmentID" DataTextField="ShipmentNo" AppendDataBoundItems="True">
-                        <asp:ListItem Text="" Value=""/>
+                    <asp:DropDownList ID="DdlShipment" runat="server" DataSourceID="DdlShipmentSQL" DataTextField="ShipmentNo" AppendDataBoundItems="true"
+                        DataValueField="ProjectShipmentID" SelectedValue='<%# Bind("ProjectShipmentID") %>'>
+                        <asp:ListItem Text="None" Value="" />
                     </asp:DropDownList>
                 </div>
             </div>
@@ -51,6 +51,7 @@
                 <div class="divTableCell">Source:</div>
                 <div class="divTableCell">
                     <asp:DropDownList runat="server" ID="DdlSource" CssClass="DDL150" SelectedValue='<%# Bind("Source") %>'>
+                        <asp:ListItem Text="" Value=""/>
                         <asp:ListItem Text="Internal" Value="Internal"/>
                         <asp:ListItem Text="External" Value="External"/>
                         <asp:ListItem Text="Field Meas" Value="Field Meas"/>
@@ -152,7 +153,7 @@
             <div class="divTableRow">
                 <div class="divTableCell">Shipment #:</div>
                 <div class="divTableCell AlignRight">
-                    <asp:DropDownList runat="server" ID="DdlShipment" DataSourceID="DdlShipmentSQL" 
+                    <asp:DropDownList runat="server" ID="DdlShipment" DataSourceID="DdlShipmentSQL" SelectedValue='<%# Bind("ProjectShipmentID") %>'
                         DataValueField="ProjectShipmentID" DataTextField="ShipmentNo" Enabled="False" AppendDataBoundItems="True">
                         <asp:ListItem Text="" Value="" />
                     </asp:DropDownList>
@@ -182,6 +183,7 @@
                 <div class="divTableCell">Source:</div>
                 <div class="divTableCell">
                     <asp:DropDownList runat="server" ID="DdlSource" CssClass="DDL150" SelectedValue='<%# Bind("Source") %>' Enabled="False">
+                        <asp:ListItem Text="" Value=""/>
                         <asp:ListItem Text="Internal" Value="Internal"/>
                         <asp:ListItem Text="External" Value="External"/>
                         <asp:ListItem Text="Field Meas" Value="Field Meas"/>
@@ -309,9 +311,10 @@
     </InsertParameters>
     <SelectParameters>
         <asp:QueryStringParameter Name="PCOID" QueryStringField="PCOID" Type="Int32"/>
+        <asp:QueryStringParameter Name="ProjectID" QueryStringField="ProjectID" Type="Int32" />
     </SelectParameters>
     <UpdateParameters>
-        <asp:Parameter Name="ProjectID" Type="Int32"/>
+        <asp:QueryStringParameter Name="ProjectID" QueryStringField="ProjectID" Type="Int32" />
         <asp:Parameter Name="ProjectShipmentID" Type="Int32"/>
         <asp:Parameter Name="SeqNo" Type="Int32"/>
         <asp:Parameter Name="Date" Type="DateTime"/>
@@ -332,11 +335,10 @@
     </UpdateParameters>
 </asp:SqlDataSource>
 <asp:SqlDataSource ID="DdlShipmentSQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>"
-                   SelectCommand="SELECT pco.ProjectShipmentID, ps.ShipmentNo FROM tblProjectChangeOrder pco
-LEFT JOIN tblProjectShipment ps ON pco.ProjectShipmentID = ps.ProjectShipmentID 
-WHERE pco.ProjectID = @ProjectID">
+                   SelectCommand="SELECT ProjectShipmentID, ShipmentNo FROM tblProjectShipment WHERE (ProjectID = @ProjectID)">
     <SelectParameters>
-        <asp:Parameter Name="ProjectID" Type="String" DefaultValue="0"/>
+        <%--<asp:Parameter Name="ProjectID" Type="String" DefaultValue="0"/>--%>
+        <asp:QueryStringParameter Name="ProjectID" QueryStringField="ProjectID" Type="Int32" />
     </SelectParameters>
 </asp:SqlDataSource>
 <asp:SqlDataSource ID="DdlEnteredBySQL" runat="server" ConnectionString="<%$ ConnectionStrings:ProjectLogicTestConnectionString %>"

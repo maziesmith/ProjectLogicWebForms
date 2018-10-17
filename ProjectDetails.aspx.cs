@@ -301,7 +301,47 @@ namespace ProjectLogic
 
         protected void LbNewChangeOrder_OnClick(object sender, EventArgs e)
         {
-            
+            Label lblProjectId = (Label)FvHeader.FindControl("LblProjectID");
+            string strProjectId = lblProjectId.Text;
+            string[] name = Environment.UserName.Split('.');
+            string firstName = name[0];
+            string lastName = name[1];
+
+
+            String conString = ConfigurationManager.ConnectionStrings["ProjectLogicTestConnectionString"].ConnectionString;
+            SqlConnection connection = new SqlConnection(conString);
+            connection.Open();
+            SqlCommand command = new SqlCommand("SELECT COALESCE((SELECT MAX(SeqNo) FROM tblProjectChangeOrder WHERE ProjectID = '" + strProjectId + "'),0)", connection);
+            int scalar = (int)command.ExecuteScalar();
+            SqlCommand cmdGetUserId = new SqlCommand("SELECT UserID FROM tblUser AS u INNER JOIN tblEmployee AS e ON u.EmployeeID = e.EmployeeID " +
+                "WHERE e.Name ='" + firstName + " " + lastName + "'", connection);
+            string userId = (string)cmdGetUserId.ExecuteScalar();
+            connection.Close();
+            String strSeqNo = (scalar + 1).ToString();
+
+            if (string.IsNullOrWhiteSpace(userId))
+            {
+                ClientScript.RegisterStartupScript(GetType(), "error",
+                    "alert('No link between UserID and current user.');", true);
+            }
+
+            else
+            {
+                GvChangeOrdersSQL.InsertParameters.Clear();
+                GvChangeOrdersSQL.InsertParameters.Add("ProjectID", strProjectId);
+                GvChangeOrdersSQL.InsertParameters.Add("SeqNo", strSeqNo);
+                GvChangeOrdersSQL.InsertParameters.Add("Amount", "0");
+                GvChangeOrdersSQL.InsertParameters.Add("Source", "");
+                GvChangeOrdersSQL.InsertParameters.Add("EnteredBy_UserID", userId);
+                GvChangeOrdersSQL.InsertParameters.Add("Date", DateTime.Now.ToShortDateString());
+                GvChangeOrdersSQL.InsertParameters.Add("DateDue", "");
+                GvChangeOrdersSQL.InsertParameters.Add("DateRecd", "");
+                GvChangeOrdersSQL.InsertParameters.Add("Status", "P");
+                GvChangeOrdersSQL.InsertParameters.Add("Description", "");
+                GvChangeOrdersSQL.InsertParameters.Add("NumPanels", "0");
+                GvChangeOrdersSQL.InsertParameters.Add("IsCommissionable", "True");
+                GvChangeOrdersSQL.Insert();
+            }
         }
 
         protected void GvChangeOrders_OnRowCommand(object sender, GridViewCommandEventArgs e)
@@ -348,7 +388,7 @@ namespace ProjectLogic
             String conString = ConfigurationManager.ConnectionStrings["ProjectLogicTestConnectionString"].ConnectionString;
             SqlConnection connection = new SqlConnection(conString);
             connection.Open();
-            SqlCommand command = new SqlCommand("SELECT TOP 1 COALESCE(SeqNo,0) FROM tblProjectChangeOrder WHERE ProjectID = '" + strProjectId + "' ORDER BY SeqNo DESC", connection);
+            SqlCommand command = new SqlCommand("SELECT COALESCE((SELECT MAX(SeqNo) FROM tblProjectChangeOrder WHERE ProjectID = '" + strProjectId + "'),0)", connection);
             int scalar = (int) command.ExecuteScalar();
             SqlCommand cmdGetUserId = new SqlCommand("SELECT UserID FROM tblUser AS u INNER JOIN tblEmployee AS e ON u.EmployeeID = e.EmployeeID " +
                 "WHERE e.Name ='"+firstName+" "+lastName+"'", connection);
@@ -384,6 +424,13 @@ namespace ProjectLogic
         protected void GvChangeOrders_OnDataBound(object sender, EventArgs e)
         {
             
+        }
+
+        protected void LbRefresh_Click(object sender, EventArgs e)
+        {
+            //Response.Redirect(Request.RawUrl);
+            //MultiView1.ActiveViewIndex = 5;
+            DataBind();
         }
     }
 }
