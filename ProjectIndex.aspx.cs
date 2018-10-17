@@ -106,23 +106,56 @@ namespace ProjectLogic
         {
             CheckBox chkActiveOnly = ChkActiveOnly;
             DropDownList ddlPmSearch = DdlPmSearch;
+            DropDownList ddlCustSearch = DdlCustSearch;
+
             String strSelectCommand =
                 "SELECT p.ProjectID, p.ProjectName, p.ProjectAddress, p.ProjectCity, p.ProjectState, p.ProjectZip, p.Scope_PM_EmployeeID, e.Name, ps.Description AS Status " +
                 "FROM tblProject p INNER JOIN tblEmployee e ON p.Scope_PM_EmployeeID = e.EmployeeID " +
                 "LEFT JOIN tblProjectStatus ps ON p.ProjectStatusID = ps.ProjectStatusID " +
-                "WHERE((ProjectName LIKE '%' + @ProjectName + '%') OR ProjectID = @ProjectID) ";
+                "WHERE 1 = 1";
+
+            if (!String.IsNullOrEmpty(TxtProjectID.Text))
+            {
+                strSelectCommand = strSelectCommand + " AND ProjectID = @ProjectID)";
+            }
+
+            if (!String.IsNullOrEmpty(TxtProjectName.Text))
+            {
+                strSelectCommand = strSelectCommand + " AND ProjectName LIKE '%' + @ProjectName + '%'";
+            }
 
             if (!String.IsNullOrEmpty(ddlPmSearch.SelectedValue))
             {
-                if (string.IsNullOrEmpty(TxtProjectName.Text))
-                {
-                    strSelectCommand = strSelectCommand + "OR Scope_PM_EmployeeID = @PM ";
-                }
-                else strSelectCommand = strSelectCommand + "AND Scope_PM_EmployeeID = @PM ";
+                strSelectCommand = strSelectCommand + " AND Scope_PM_EmployeeID = @PM";
             }
+
+            if (!String.IsNullOrEmpty(ddlCustSearch.SelectedValue))
+            {
+                strSelectCommand = strSelectCommand + " AND CustomerID = @Cust";
+            }
+
+            if (!String.IsNullOrEmpty(TxtProjectState.Text))
+            {
+                strSelectCommand = strSelectCommand + " AND ProjectState = @ST";
+            }
+
+            if (!String.IsNullOrEmpty(TxtSoldFrom.Text))
+            {
+                if (!String.IsNullOrEmpty(TxtSoldTo.Text))
+                {
+                    strSelectCommand = strSelectCommand + " AND DateSold BETWEEN @SoldFrom AND @SoldTo";
+                }
+                else strSelectCommand = strSelectCommand + " AND DateSold >= @SoldFrom";
+            }
+
+            if(!String.IsNullOrEmpty(TxtSoldTo.Text))
+            {
+                strSelectCommand = strSelectCommand + " AND DateSold <= @SoldTo";
+            }
+
             if (chkActiveOnly.Checked)
             {
-                strSelectCommand = strSelectCommand + "AND p.ProjectStatusID NOT BETWEEN '4' AND '6' ORDER BY p.ProjectID";
+                strSelectCommand = strSelectCommand + " AND p.ProjectStatusID NOT BETWEEN '4' AND '6' ORDER BY p.ProjectID";
             }
             else
             {
@@ -134,7 +167,7 @@ namespace ProjectLogic
 
         protected void BtnClear_OnClick(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            Response.Redirect(Request.RawUrl);
         }
     }
 }

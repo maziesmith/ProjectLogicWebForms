@@ -156,6 +156,10 @@
             <asp:ControlParameter Name="ProjectName" ControlID="TxtProjectName" Type="String" PropertyName="Text" ConvertEmptyStringToNull="true" DefaultValue=""/>
             <asp:ControlParameter Name="ProjectID" ControlID="TxtProjectID" Type="Int32" PropertyName="Text" ConvertEmptyStringToNull="true"/>
             <asp:ControlParameter Name="PM" ControlID="DdlPmSearch" Type="Int32" PropertyName="SelectedValue" />
+            <asp:ControlParameter Name="Cust" ControlID="DdlCustSearch" Type="Int32" PropertyName="SelectedValue" />
+            <asp:ControlParameter Name="ST" ControlID="TxtProjectState" Type="String" PropertyName="Text" ConvertEmptyStringToNull="true" DefaultValue="" />
+            <asp:ControlParameter Name="SoldFrom" ControlID="TxtSoldFrom" Type="DateTime" PropertyName="Text" ConvertEmptyStringToNull="true" DefaultValue="" />
+            <asp:ControlParameter Name="SoldTo" ControlID="TxtSoldTo" Type="DateTime" PropertyName="Text" ConvertEmptyStringToNull="true" DefaultValue="" />
         </SelectParameters>
     </asp:SqlDataSource>
 
