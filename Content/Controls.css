@@ -1,8 +1,5 @@
-﻿body {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    -webkit-text-size-adjust: 100%;
-    -ms-text-size-adjust: 100%;
-}
+﻿
+
 .AlignRight {
     text-align: right;
 }
@@ -18,21 +15,8 @@
     width: 50px;
 }
 
-.DateBox {
-    width: 100px;
-}
-
-.MedBox {
-    width: 300px;
-}
 .LongBox {
     width: 400px;
-}
-
-
-
-.CurrencyBox {
-    text-align: right;
 }
 
 .MenuStyle
@@ -45,10 +29,14 @@
     width: 150px;
 }
 
-table, th, td {
-    border: 1px solid black;
-    padding: 1px 3px;
+.DateBox {
+    width: 100px;
 }
+
+.CurrencyBox{
+    text-align:right;
+}
+
 .Grid td
 {
     background-color: lightgray;
@@ -78,13 +66,6 @@ table, th, td {
     line-height:200%
 }
 
-.gridview tr td {
-    padding: 1px 3px ;
-}
-
-.gridview tr th {
-    padding: 1px 3px ;
-}
 
 .lside {
     float:left;
@@ -93,36 +74,4 @@ table, th, td {
 .rside {
     float:right;
 }
-.clear {
-    clear: both;
-}
 
-.divTable{
-    display: block;
-    width: 100%;
-}
-.divTableHeading, .divTableBody, .divTableFoot, .divTableRow {
-    clear: both;
-}
-
-.divTableHead, .divTableFoot {
-    background-color: #eeeeee;
-    font-weight: bold;
-}
-
-.divTableCell, .divTableHead {
-    border: 1px solid #999999;
-    float: left;
-    min-width: 28%;
-    width: auto;
-    padding: 1px 5px;
-    min-height: 17px;
-}
-.divTable:after {
-    visibility: hidden;
-    display: block;
-    font-size: 0;
-    content: " ";
-    clear: both;
-    height: 0;
-}

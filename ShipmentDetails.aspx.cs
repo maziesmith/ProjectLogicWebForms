@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -8,18 +11,22 @@ namespace ProjectLogic
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Control navbar = Master.FindControl("navbar");
-            Control footer = Master.FindControl("footer");
-            navbar.Visible = false;
-            footer.Visible = false;
+
         }
 
         protected void mnuShipment_MenuItemClick(object sender, MenuEventArgs e)
         {
             MultiView1.ActiveViewIndex = int.Parse(mnuShipment.SelectedValue);
-            for (int i = 0; i <= mnuShipment.Items.Count - 1; i++)
+            for (int i = 0; i <= (mnuShipment.Items.Count - 1); i++)
             {
-                mnuShipment.Items[i].Text = i == Convert.ToInt32(e.Item.Value) ? mnuShipment.Items[i].Text : mnuShipment.Items[i].Text;
+                if (i == Convert.ToInt32(e.Item.Value))
+                {
+                    mnuShipment.Items[i].Text = mnuShipment.Items[i].Text;
+                }
+                else
+                {
+                    mnuShipment.Items[i].Text = mnuShipment.Items[i].Text;
+                }
             }
         }
 

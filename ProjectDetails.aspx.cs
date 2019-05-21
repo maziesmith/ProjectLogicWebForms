@@ -1,88 +1,90 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
-using System.Security.Principal;
+using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace ProjectLogic
 {
-    public partial class ProjectDetails : Page
+    public partial class ProjectDetails : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                MnuProject.Items[0].Selected = true;
+                mnuProject.Items[0].Selected = true;
+            }
 
-                
+            
+            
+            
+        }
+
+
+        protected void mnuProject_MenuItemClick(object sender, MenuEventArgs e)
+        {
+            MultiView1.ActiveViewIndex = int.Parse(mnuProject.SelectedValue);
+            for (int i = 0; i <= (mnuProject.Items.Count - 1); i++)
+            {
+                if (i == Convert.ToInt32(e.Item.Value))
+                {
+                    mnuProject.Items[i].Text = mnuProject.Items[i].Text;
+                }
+                else
+                {
+                    mnuProject.Items[i].Text = mnuProject.Items[i].Text;
+                }
             }
         }
 
-
-        protected void MnuProject_MenuItemClick(object sender, MenuEventArgs e)
+        protected void fvGeneral_ItemCommand(object sender, FormViewCommandEventArgs e)
         {
-            MultiView1.ActiveViewIndex = int.Parse(MnuProject.SelectedValue);
-            for (int i = 0; i <= MnuProject.Items.Count - 1; i++)
+
+        }
+        protected void fvScope_ItemCommand(object sender, FormViewCommandEventArgs e)
+        {
+
+        }
+        protected void fvCAD_ItemCommand(object sender, FormViewCommandEventArgs e)
+        {
+
+        }
+        protected void fvPM_ItemCommand(object sender, FormViewCommandEventArgs e)
+        {
+
+        }
+        protected void fvPM_DataBound(Object sender, EventArgs e)
+        {
+            int BidPanels = 0;
+            int RelToDate = 0;
+            int PanelsRemain = 0;
+
+            TextBox txtBidPanels = (TextBox)fvPM.FindControl("txtBidPanels");
+            TextBox txtRelToDate = (TextBox)fvPM.FindControl("txtRelToDate");
+            TextBox txtPanelsRemain = (TextBox)fvPM.FindControl("txtPanelsRemain");
+            Label lblProjectID = (Label)this.fvHeader.FindControl("lblProjectID");
+
+            String strProjectID = lblProjectID.Text.ToString();
+            if (strProjectID != null)
             {
-                MnuProject.Items[i].Text = i == Convert.ToInt32(e.Item.Value) ? MnuProject.Items[i].Text : MnuProject.Items[i].Text;
-            }
-        }
-
-        protected void FvGeneral_ItemCommand(object sender, FormViewCommandEventArgs e)
-        {
-
-        }
-        protected void FvScope_ItemCommand(object sender, FormViewCommandEventArgs e)
-        {
-
-        }
-        protected void FvCAD_ItemCommand(object sender, FormViewCommandEventArgs e)
-        {
-
-        }
-        protected void FvPM_ItemCommand(object sender, FormViewCommandEventArgs e)
-        {
-
-        }
-        protected void FvPM_DataBound(object sender, EventArgs e)
-        {
-            int bidPanels = 0;
-            int relToDate = 0;
-            int panelsRemain = 0;
-
-            TextBox txtBidPanels = (TextBox)FvPM.FindControl("TxtBidPanels");
-            TextBox txtRelToDate = (TextBox)FvPM.FindControl("TxtRelToDate");
-            TextBox txtPanelsRemain = (TextBox)FvPM.FindControl("TxtPanelsRemain");
-            Label lblProjectId = (Label)FvHeader.FindControl("LblProjectID");
-
-            String strProjectId = lblProjectId.Text;
-            if (strProjectId != null)
-            {
-                String conString = ConfigurationManager.ConnectionStrings["ProjectLogicTestConnectionString"].ConnectionString;
+                String conString = ConfigurationManager.ConnectionStrings["ProjectLogicConnectionString"].ConnectionString;
                 SqlConnection connection = new SqlConnection(conString);
                 connection.Open();
-                SqlCommand command1 = new SqlCommand("SELECT NumPanels FROM tblBid WHERE BidID = '" + strProjectId + "'", connection);
-                bidPanels = (int)command1.ExecuteScalar();
-                SqlCommand command2 = new SqlCommand("SELECT SUM(NumPanels) FROM vueProjectRelease WHERE ProjectID = '" + strProjectId + "'", connection);
-                var cmd2 = command2.ExecuteScalar();
-                if (cmd2 != DBNull.Value)
-                {
-                    relToDate = (int) cmd2;
-                }
-                else relToDate = 0;
-
-
-                panelsRemain = bidPanels - relToDate;
-                connection.Close();
+                SqlCommand command1 = new SqlCommand("SELECT NumPanels FROM tblBid WHERE BidID = '" + strProjectID + "'", connection);
+                BidPanels = (int)command1.ExecuteScalar();
+                SqlCommand command2 = new SqlCommand("SELECT SUM(NumPanels) FROM vueProjectRelease WHERE ProjectID = '" + strProjectID + "'", connection);
+                RelToDate = (int)command2.ExecuteScalar();
+                PanelsRemain = BidPanels - RelToDate;
             }
             if (txtBidPanels != null)
-            { txtBidPanels.Text = $"{bidPanels:n0}"; }
+            { txtBidPanels.Text = String.Format("{0:n0}",BidPanels); }
             if (txtRelToDate != null)
-            { txtRelToDate.Text = $"{relToDate:n0}"; }
+            { txtRelToDate.Text = String.Format("{0:n0}",RelToDate); }
             if (txtPanelsRemain != null)
-            { txtPanelsRemain.Text = $"{panelsRemain:n0}"; }
+            { txtPanelsRemain.Text = String.Format("{0:n0}",PanelsRemain); }
         }
         protected void GvPMShipment_RowDataBound(object sender, GridViewRowEventArgs e)
         {
@@ -91,34 +93,34 @@ namespace ProjectLogic
                 string str = Convert.ToString(DataBinder.Eval(e.Row.DataItem, "ProjectShipmentID"));
                 SqlDataSource source = new SqlDataSource
                 {
-                    ConnectionString = ConfigurationManager.ConnectionStrings["ProjectLogicTestConnectionString"].ConnectionString,
+                    ConnectionString = ConfigurationManager.ConnectionStrings["ProjectLogicConnectionString"].ConnectionString,
                     SelectCommand = "SELECT [ShippingID], [Date], [PaidBy], [TrackingNo], [Cost] FROM [tblShipping] WHERE ([ProjectShipmentID] = '" + str + "')"
                 };
-                GridView view1 = (GridView)e.Row.FindControl("GvPMShipmentSub");
+                GridView view1 = (GridView)e.Row.FindControl("gvPMShipmentSub");
                 view1.DataSource = source;
                 view1.DataBind();
             }
 
         }
 
-        protected void GvPMShipment_DataBound(object sender, EventArgs e)
+        protected void GvPMShipment_DataBound(Object sender, EventArgs e)
         {
-            GridViewRow pagerRow = GvPMShipment.BottomPagerRow;
-            DropDownList pagelist = (DropDownList)pagerRow.Cells[0].FindControl("DdlPage");
-            Label pageLabel = (Label)pagerRow.Cells[0].FindControl("LblPages");
-            LinkButton lbFirst = (LinkButton)pagerRow.Cells[0].FindControl("LbFirst");
-            LinkButton lbPrev = (LinkButton)pagerRow.Cells[0].FindControl("LbPrev");
-            LinkButton lbNext = (LinkButton)pagerRow.Cells[0].FindControl("LbNext");
-            LinkButton lbLast = (LinkButton)pagerRow.Cells[0].FindControl("LbLast");
+            GridViewRow pagerRow = gvPMShipment.BottomPagerRow;
+            DropDownList pagelist = (DropDownList)pagerRow.Cells[0].FindControl("ddlPage");
+            Label pageLabel = (Label)pagerRow.Cells[0].FindControl("lblPages");
+            LinkButton lbFirst = (LinkButton)pagerRow.Cells[0].FindControl("lbFirst");
+            LinkButton lbPrev = (LinkButton)pagerRow.Cells[0].FindControl("lbPrev");
+            LinkButton lbNext = (LinkButton)pagerRow.Cells[0].FindControl("lbNext");
+            LinkButton lbLast = (LinkButton)pagerRow.Cells[0].FindControl("lbLast");
 
             if (pagelist != null)
             {
-                for (int i=0; i<GvPMShipment.PageCount; i++)
+                for (int i=0; i<gvPMShipment.PageCount; i++)
                 {
                     int pageNumber = i + 1;
                     ListItem item = new ListItem(pageNumber.ToString());
 
-                    if(i==GvPMShipment.PageIndex)
+                    if(i==gvPMShipment.PageIndex)
                     {
                         item.Selected = true;
                     }
@@ -129,16 +131,16 @@ namespace ProjectLogic
 
             if(pageLabel != null)
             {
-                int currentPage = GvPMShipment.PageIndex + 1;
+                int currentPage = gvPMShipment.PageIndex + 1;
 
-                pageLabel.Text = "Page " + currentPage + " of " + GvPMShipment.PageCount;
+                pageLabel.Text = "Page " + currentPage.ToString() + " of " + gvPMShipment.PageCount.ToString();
             }
-            if (GvPMShipment.PageIndex == 0)
+            if (gvPMShipment.PageIndex == 0)
             {
                 lbFirst.Visible = false;
                 lbPrev.Visible = false;
             }
-            else if (GvPMShipment.PageIndex == GvPMShipment.PageCount - 1)
+            else if (gvPMShipment.PageIndex == gvPMShipment.PageCount - 1)
             {
                 lbNext.Visible = false;
                 lbLast.Visible = false;
@@ -152,30 +154,30 @@ namespace ProjectLogic
             }
         }
 
-        protected void ShipmentPagerDDL_SelectedIndexChanged(object sender, EventArgs e)
+        protected void ShipmentPagerDDL_SelectedIndexChanged(Object sender, EventArgs e)
         {
-            GridViewRow pagerRow = GvPMShipment.BottomPagerRow;
-            DropDownList pageList = (DropDownList)pagerRow.Cells[0].FindControl("DdlPage");
-            GvPMShipment.PageIndex = pageList.SelectedIndex;
+            GridViewRow pagerRow = gvPMShipment.BottomPagerRow;
+            DropDownList pageList = (DropDownList)pagerRow.Cells[0].FindControl("ddlPage");
+            gvPMShipment.PageIndex = pageList.SelectedIndex;
         }
-        protected void GvPMRelease_DataBound(object sender, EventArgs e)
+        protected void GvPMRelease_DataBound(Object sender, EventArgs e)
         {
-            GridViewRow pagerRow = GvPMRelease.BottomPagerRow;
-            DropDownList pagelist = (DropDownList)pagerRow.Cells[0].FindControl("DdlPage");
-            Label pageLabel = (Label)pagerRow.Cells[0].FindControl("LblPages");
-            LinkButton lbFirst = (LinkButton)pagerRow.Cells[0].FindControl("LbFirst");
-            LinkButton lbPrev = (LinkButton)pagerRow.Cells[0].FindControl("LbPrev");
-            LinkButton lbNext = (LinkButton)pagerRow.Cells[0].FindControl("LbNext");
-            LinkButton lbLast = (LinkButton)pagerRow.Cells[0].FindControl("LbLast");
+            GridViewRow pagerRow = gvPMRelease.BottomPagerRow;
+            DropDownList pagelist = (DropDownList)pagerRow.Cells[0].FindControl("ddlPage");
+            Label pageLabel = (Label)pagerRow.Cells[0].FindControl("lblPages");
+            LinkButton lbFirst = (LinkButton)pagerRow.Cells[0].FindControl("lbFirst");
+            LinkButton lbPrev = (LinkButton)pagerRow.Cells[0].FindControl("lbPrev");
+            LinkButton lbNext = (LinkButton)pagerRow.Cells[0].FindControl("lbNext");
+            LinkButton lbLast = (LinkButton)pagerRow.Cells[0].FindControl("lbLast");
 
             if (pagelist != null)
             {
-                for (int i = 0; i < GvPMRelease.PageCount; i++)
+                for (int i = 0; i < gvPMRelease.PageCount; i++)
                 {
                     int pageNumber = i + 1;
                     ListItem item = new ListItem(pageNumber.ToString());
 
-                    if (i == GvPMRelease.PageIndex)
+                    if (i == gvPMRelease.PageIndex)
                     {
                         item.Selected = true;
                     }
@@ -186,17 +188,17 @@ namespace ProjectLogic
 
             if (pageLabel != null)
             {
-                int currentPage = GvPMRelease.PageIndex + 1;
+                int currentPage = gvPMRelease.PageIndex + 1;
 
-                pageLabel.Text = "Page " + currentPage + " of " + GvPMRelease.PageCount;
+                pageLabel.Text = "Page " + currentPage.ToString() + " of " + gvPMRelease.PageCount.ToString();
             }
 
-            if (GvPMRelease.PageIndex ==0)
+            if (gvPMRelease.PageIndex ==0)
             {
                 lbFirst.Visible = false;
                 lbPrev.Visible = false;
             }
-            else if (GvPMRelease.PageIndex == GvPMRelease.PageCount - 1)
+            else if (gvPMRelease.PageIndex == gvPMRelease.PageCount - 1)
             {
                 lbNext.Visible = false;
                 lbLast.Visible = false;
@@ -210,227 +212,109 @@ namespace ProjectLogic
             }
         }
 
-        protected void ReleasePagerDDL_SelectedIndexChanged(object sender, EventArgs e)
+        protected void ReleasePagerDDL_SelectedIndexChanged(Object sender, EventArgs e)
         {
-            GridViewRow pagerRow = GvPMRelease.BottomPagerRow;
-            DropDownList pageList = (DropDownList)pagerRow.Cells[0].FindControl("DdlPage");
-            GvPMRelease.PageIndex = pageList.SelectedIndex;
+            GridViewRow pagerRow = gvPMRelease.BottomPagerRow;
+            DropDownList pageList = (DropDownList)pagerRow.Cells[0].FindControl("ddlPage");
+            gvPMRelease.PageIndex = pageList.SelectedIndex;
         }
 
-        protected void GvProjectTask_RowUpdating(object sender, GridViewUpdateEventArgs e)
+        protected void gvProjectTask_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
-            GridViewRow gvrow = GvProjectTask.Rows[e.RowIndex];
-            DropDownList list = (DropDownList)gvrow.FindControl("DdlEditTaskStatus");
-            if (string.IsNullOrWhiteSpace(((TextBox)gvrow.FindControl("TxtCompDate")).Text) && list.SelectedItem.Text == "Complete")
+            GridViewRow row1 = gvProjectTask.Rows[e.RowIndex];
+            DropDownList list = (DropDownList)row1.FindControl("ddlEditTaskStatus");
+            if (string.IsNullOrWhiteSpace(((TextBox)row1.FindControl("txtCompDate")).Text) && (list.SelectedItem.Text == "Complete"))
             {
                 ClientScript.RegisterStartupScript(GetType(), "error", "alert('Enter Complete Date if Status is Complete.');", true);
                 e.Cancel = true;
             }
             else
             {
-                GvProjectTaskSQL.Update();
+                gvProjectTaskSQL.Update();
             }
         }
 
 
-        protected void GvProjectTask_RowCommand(object sender, GridViewCommandEventArgs e)
+        protected void gvProjectTask_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-            
-            switch (e.CommandName)
+            string str = base.Request.QueryString["PID"];
+            if ((e.CommandName == "FooterInsert") && Page.IsValid)
             {
-                case "FooterInsert" when Page.IsValid:
-                    GridViewRow footerRow = ((GridView)MultiView1.Views[10].FindControl("GvProjectTask")).FooterRow;
-                    GvProjectTaskRowInsert(footerRow);
-                    break;
-                case "EmptyInsert" when Page.IsValid:
-                    GridViewRow emptyRow = (GridViewRow)GvProjectTask.Controls[0].Controls[0];
-                    GvProjectTaskRowInsert(emptyRow);
-                    break;
-            }
-        }
-
-        private void GvProjectTaskRowInsert(GridViewRow gvRow)
-        {
-            
-            string strProjectId = Request.QueryString["PID"];
-            if (gvRow == null)
-            {
-                return;
-            }
-            DropDownList ddlEmployee = (DropDownList)gvRow.FindControl("DdlEmployee");
-            TextBox txtReleaseId = (TextBox)gvRow.FindControl("TxtReleaseID");
-            DropDownList ddlTaskCode = (DropDownList)gvRow.FindControl("DdlTaskCode");
-            DropDownList ddlTaskStatus = (DropDownList)gvRow.FindControl("DdlTaskStatus");
-            DropDownList ddlPriority = (DropDownList)gvRow.FindControl("DdlPriority");
-            TextBox txtDueDate = (TextBox)gvRow.FindControl("TxtDueDate");
-            TextBox txtNotes = (TextBox)gvRow.FindControl("TxtNotes");
-            TextBox txtCompDate = (TextBox)gvRow.FindControl("TxtCompDate");
-            if (string.IsNullOrWhiteSpace(txtDueDate.Text))
-            {
-                ClientScript.RegisterStartupScript(GetType(), "error", "alert('Enter Due Date.');", true);
-            }
-            else
-            {
-                GvProjectTaskSQL.InsertParameters.Clear();
-                GvProjectTaskSQL.InsertParameters.Add("EmployeeID", ddlEmployee.SelectedValue);
-                GvProjectTaskSQL.InsertParameters.Add("ProjectID", strProjectId);
-                GvProjectTaskSQL.InsertParameters.Add("ReleaseID", txtReleaseId.Text);
-                GvProjectTaskSQL.InsertParameters.Add("TaskCodeID", ddlTaskCode.SelectedValue);
-                GvProjectTaskSQL.InsertParameters.Add("TaskStatusID", ddlTaskStatus.SelectedValue);
-                GvProjectTaskSQL.InsertParameters.Add("TaskPriorityID", ddlPriority.SelectedValue);
-                GvProjectTaskSQL.InsertParameters.Add("DueDate", txtDueDate.Text);
-                GvProjectTaskSQL.InsertParameters.Add("Notes", txtNotes.Text);
-                GvProjectTaskSQL.InsertParameters.Add("CompDate", txtCompDate.Text);
-                GvProjectTaskSQL.Insert();
-            }
-        }
-
-        protected void GvSubmittals_RowCommand(object sender, GridViewCommandEventArgs e)
-        {
-        }
-
-        protected void GvSubmittals_RowUpdating(object sender, GridViewUpdateEventArgs e)
-        {
-        }
-
-
-        protected void LbNewShipment_OnClick(object sender, EventArgs e)
-        {
-            
-        }
-
-        protected void LbNewChangeOrder_OnClick(object sender, EventArgs e)
-        {
-            Label lblProjectId = (Label)FvHeader.FindControl("LblProjectID");
-            string strProjectId = lblProjectId.Text;
-            string[] name = Environment.UserName.Split('.');
-            string firstName = name[0];
-            string lastName = name[1];
-
-
-            String conString = ConfigurationManager.ConnectionStrings["ProjectLogicTestConnectionString"].ConnectionString;
-            SqlConnection connection = new SqlConnection(conString);
-            connection.Open();
-            SqlCommand command = new SqlCommand("SELECT COALESCE((SELECT MAX(SeqNo) FROM tblProjectChangeOrder WHERE ProjectID = '" + strProjectId + "'),0)", connection);
-            int scalar = (int)command.ExecuteScalar();
-            SqlCommand cmdGetUserId = new SqlCommand("SELECT UserID FROM tblUser AS u INNER JOIN tblEmployee AS e ON u.EmployeeID = e.EmployeeID " +
-                "WHERE e.Name ='" + firstName + " " + lastName + "'", connection);
-            string userId = (string)cmdGetUserId.ExecuteScalar();
-            connection.Close();
-            String strSeqNo = (scalar + 1).ToString();
-
-            if (string.IsNullOrWhiteSpace(userId))
-            {
-                ClientScript.RegisterStartupScript(GetType(), "error",
-                    "alert('No link between UserID and current user.');", true);
-            }
-
-            else
-            {
-                GvChangeOrdersSQL.InsertParameters.Clear();
-                GvChangeOrdersSQL.InsertParameters.Add("ProjectID", strProjectId);
-                GvChangeOrdersSQL.InsertParameters.Add("SeqNo", strSeqNo);
-                GvChangeOrdersSQL.InsertParameters.Add("Amount", "0");
-                GvChangeOrdersSQL.InsertParameters.Add("Source", "");
-                GvChangeOrdersSQL.InsertParameters.Add("EnteredBy_UserID", userId);
-                GvChangeOrdersSQL.InsertParameters.Add("Date", DateTime.Now.ToShortDateString());
-                GvChangeOrdersSQL.InsertParameters.Add("DateDue", "");
-                GvChangeOrdersSQL.InsertParameters.Add("DateRecd", "");
-                GvChangeOrdersSQL.InsertParameters.Add("Status", "P");
-                GvChangeOrdersSQL.InsertParameters.Add("Description", "");
-                GvChangeOrdersSQL.InsertParameters.Add("NumPanels", "0");
-                GvChangeOrdersSQL.InsertParameters.Add("IsCommissionable", "True");
-                GvChangeOrdersSQL.Insert();
-            }
-        }
-
-        protected void GvChangeOrders_OnRowCommand(object sender, GridViewCommandEventArgs e)
-        {
-            switch (e.CommandName)
-            {
-                case "FooterInsert":
+                GridViewRow footerRow = ((GridView)MultiView1.Views[10].FindControl("gvProjectTask")).FooterRow;
+                if (footerRow == null)
                 {
-                    GridViewRow gvRow = GvChangeOrders.FooterRow;
-                        GvChangeOrderRowInsert(gvRow);
-                    break;
+                    return;
                 }
-                case "EmptyInsert":
+                DropDownList list = (DropDownList)footerRow.FindControl("ddlEmployee");
+                TextBox box = (TextBox)footerRow.FindControl("txtReleaseID");
+                DropDownList list2 = (DropDownList)footerRow.FindControl("ddlTaskCode");
+                DropDownList list3 = (DropDownList)footerRow.FindControl("ddlTaskStatus");
+                DropDownList list4 = (DropDownList)footerRow.FindControl("ddlPriority");
+                TextBox box2 = (TextBox)footerRow.FindControl("txtDueDate");
+                TextBox box3 = (TextBox)footerRow.FindControl("txtNotes");
+                TextBox box4 = (TextBox)footerRow.FindControl("txtCompDate");
+                if (string.IsNullOrWhiteSpace(box2.Text))
                 {
-                    GridViewRow gvRow = (GridViewRow)GvChangeOrders.Controls[0].Controls[0];
-                    GvChangeOrderRowInsert(gvRow);
-                        break;
+                    ClientScript.RegisterStartupScript(GetType(), "error", "alert('Enter Due Date.');", true);
+                }
+                else
+                {
+                    gvProjectTaskSQL.InsertParameters.Clear();
+                    gvProjectTaskSQL.InsertParameters.Add("EmployeeID", list.SelectedValue);
+                    gvProjectTaskSQL.InsertParameters.Add("ProjectID", str.ToString());
+                    gvProjectTaskSQL.InsertParameters.Add("ReleaseID", box.Text);
+                    gvProjectTaskSQL.InsertParameters.Add("TaskCodeID", list2.SelectedValue);
+                    gvProjectTaskSQL.InsertParameters.Add("TaskStatusID", list3.SelectedValue);
+                    gvProjectTaskSQL.InsertParameters.Add("TaskPriorityID", list4.SelectedValue);
+                    gvProjectTaskSQL.InsertParameters.Add("DueDate", box2.Text);
+                    gvProjectTaskSQL.InsertParameters.Add("Notes", box3.Text);
+                    gvProjectTaskSQL.InsertParameters.Add("CompDate", box4.Text);
+                    gvProjectTaskSQL.Insert();
+                }
+            }
+            if ((e.CommandName == "EmptyInsert") && Page.IsValid)
+            {
+                GridViewRow row2 = (GridViewRow)gvProjectTask.Controls[0].Controls[0];
+                if (row2 != null)
+                {
+                    DropDownList list5 = (DropDownList)row2.FindControl("ddlEmployee");
+                    TextBox box5 = (TextBox)row2.FindControl("txtReleaseID");
+                    DropDownList list6 = (DropDownList)row2.FindControl("ddlTaskCode");
+                    DropDownList list7 = (DropDownList)row2.FindControl("ddlStatus");
+                    DropDownList list8 = (DropDownList)row2.FindControl("ddlPriority");
+                    TextBox box6 = (TextBox)row2.FindControl("txtDueDate");
+                    TextBox box7 = (TextBox)row2.FindControl("txtNotes");
+                    TextBox box8 = (TextBox)row2.FindControl("txtCompDate");
+                    if (string.IsNullOrWhiteSpace(box6.Text))
+                    {
+                        ClientScript.RegisterStartupScript(GetType(), "error", "alert('Enter Due Date.');", true);
+                    }
+                    else
+                    {
+                        gvProjectTaskSQL.InsertParameters.Clear();
+                        gvProjectTaskSQL.InsertParameters.Add("EmployeeID", list5.SelectedValue);
+                        gvProjectTaskSQL.InsertParameters.Add("ProjectID", str.ToString());
+                        gvProjectTaskSQL.InsertParameters.Add("ReleaseID", box5.Text);
+                        gvProjectTaskSQL.InsertParameters.Add("TaskCodeID", list6.SelectedValue);
+                        gvProjectTaskSQL.InsertParameters.Add("TaskStatusID", list7.SelectedValue);
+                        gvProjectTaskSQL.InsertParameters.Add("TaskPriorityID", list8.SelectedValue);
+                        gvProjectTaskSQL.InsertParameters.Add("DueDate", box6.Text);
+                        gvProjectTaskSQL.InsertParameters.Add("Notes", box7.Text);
+                        gvProjectTaskSQL.InsertParameters.Add("CompDate", box8.Text);
+                        gvProjectTaskSQL.Insert();
+                    }
                 }
             }
         }
 
-        private void GvChangeOrderRowInsert(GridViewRow gvRow)
+        protected void gvSubmittals_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-            if (gvRow == null)
-            {
-                return;
-            }
-            
-            Label lblProjectId = (Label)FvHeader.FindControl("LblProjectID");
-            string strProjectId = lblProjectId.Text;
-            TextBox txtDate = (TextBox) gvRow.FindControl("TxtDate");
-            TextBox txtAmount = (TextBox) gvRow.FindControl("TxtAmount");
-            DropDownList ddlSource = (DropDownList) gvRow.FindControl("DdlSource");
-            TextBox txtDateDue = (TextBox) gvRow.FindControl("TxtDateDue");
-            TextBox txtDateRecd = (TextBox) gvRow.FindControl("TxtDateRecd");
-            DropDownList ddlStatus = (DropDownList) gvRow.FindControl("DdlStatus");
-            TextBox txtDescription = (TextBox) gvRow.FindControl("TxtDescription");
-            
-            string[] name = Environment.UserName.Split('.');
-            string firstName = name[0];
-            string lastName = name[1];
-
-            
-            String conString = ConfigurationManager.ConnectionStrings["ProjectLogicTestConnectionString"].ConnectionString;
-            SqlConnection connection = new SqlConnection(conString);
-            connection.Open();
-            SqlCommand command = new SqlCommand("SELECT COALESCE((SELECT MAX(SeqNo) FROM tblProjectChangeOrder WHERE ProjectID = '" + strProjectId + "'),0)", connection);
-            int scalar = (int) command.ExecuteScalar();
-            SqlCommand cmdGetUserId = new SqlCommand("SELECT UserID FROM tblUser AS u INNER JOIN tblEmployee AS e ON u.EmployeeID = e.EmployeeID " +
-                "WHERE e.Name ='"+firstName+" "+lastName+"'", connection);
-            string userId = (string)cmdGetUserId.ExecuteScalar();
-            connection.Close();
-            String strSeqNo = (scalar + 1).ToString();
-
-            if (string.IsNullOrWhiteSpace(userId))
-            {
-                ClientScript.RegisterStartupScript(GetType(), "error",
-                    "alert('No link between UserID and current user.');", true);
-            }
-
-            else
-            {
-                GvChangeOrdersSQL.InsertParameters.Clear();
-                GvChangeOrdersSQL.InsertParameters.Add("ProjectID", strProjectId);
-                GvChangeOrdersSQL.InsertParameters.Add("SeqNo", strSeqNo);
-                GvChangeOrdersSQL.InsertParameters.Add("Amount", txtAmount.Text);
-                GvChangeOrdersSQL.InsertParameters.Add("Source", ddlSource.SelectedValue);
-                GvChangeOrdersSQL.InsertParameters.Add("EnteredBy_UserID", userId);
-                GvChangeOrdersSQL.InsertParameters.Add("Date", txtDate.Text);
-                GvChangeOrdersSQL.InsertParameters.Add("DateDue", txtDateDue.Text);
-                GvChangeOrdersSQL.InsertParameters.Add("DateRecd", txtDateRecd.Text);
-                GvChangeOrdersSQL.InsertParameters.Add("Status", ddlStatus.SelectedValue);
-                GvChangeOrdersSQL.InsertParameters.Add("Description", txtDescription.Text);
-                GvChangeOrdersSQL.InsertParameters.Add("NumPanels", "0");
-                GvChangeOrdersSQL.InsertParameters.Add("IsCommissionable", "True");
-                GvChangeOrdersSQL.Insert();
-            }
         }
 
-        protected void GvChangeOrders_OnDataBound(object sender, EventArgs e)
+        protected void gvSubmittals_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
-            
         }
 
-        protected void LbRefresh_Click(object sender, EventArgs e)
-        {
-            //Response.Redirect(Request.RawUrl);
-            //MultiView1.ActiveViewIndex = 5;
-            DataBind();
-        }
+        
     }
 }

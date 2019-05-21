@@ -10,15 +10,24 @@
 namespace ProjectLogic {
     
     
-    public partial class SiteMaster {
+    public partial class ProductionTracker {
         
         /// <summary>
-        /// MainContent control.
+        /// GvProdTracker control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder MainContent;
+        protected global::System.Web.UI.WebControls.GridView GvProdTracker;
+        
+        /// <summary>
+        /// SqlGvProdTracker control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlGvProdTracker;
     }
 }

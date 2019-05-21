@@ -10,7 +10,7 @@
 namespace ProjectLogic {
     
     
-    public partial class BfList {
+    public partial class BFList {
         
         /// <summary>
         /// Label3 control.
@@ -22,39 +22,39 @@ namespace ProjectLogic {
         protected global::System.Web.UI.WebControls.Label Label3;
         
         /// <summary>
-        /// TxtProjectID control.
+        /// txtProjectID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtProjectID;
+        protected global::System.Web.UI.WebControls.TextBox txtProjectID;
         
         /// <summary>
-        /// BtnSearch control.
+        /// btnSearch control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnSearch;
+        protected global::System.Web.UI.WebControls.Button btnSearch;
         
         /// <summary>
-        /// LvBFList control.
+        /// lvBFList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView LvBFList;
+        protected global::System.Web.UI.WebControls.ListView lvBFList;
         
         /// <summary>
-        /// LvBFListSQL control.
+        /// lvBFListSQL control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource LvBFListSQL;
+        protected global::System.Web.UI.WebControls.SqlDataSource lvBFListSQL;
     }
 }

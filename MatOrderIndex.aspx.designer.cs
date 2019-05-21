@@ -13,48 +13,48 @@ namespace ProjectLogic {
     public partial class MatOrderList {
         
         /// <summary>
-        /// LblProjectNum control.
+        /// lblProjectNum control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblProjectNum;
+        protected global::System.Web.UI.WebControls.Label lblProjectNum;
         
         /// <summary>
-        /// TxtProjectID control.
+        /// txtProjectID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtProjectID;
+        protected global::System.Web.UI.WebControls.TextBox txtProjectID;
         
         /// <summary>
-        /// BtnSearch control.
+        /// btnSearch control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnSearch;
+        protected global::System.Web.UI.WebControls.Button btnSearch;
         
         /// <summary>
-        /// LvMatOrders control.
+        /// lvMatOrders control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView LvMatOrders;
+        protected global::System.Web.UI.WebControls.ListView lvMatOrders;
         
         /// <summary>
-        /// LvMatOrdersSQL control.
+        /// lvMatOrdersSQL control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource LvMatOrdersSQL;
+        protected global::System.Web.UI.WebControls.SqlDataSource lvMatOrdersSQL;
     }
 }

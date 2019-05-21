@@ -10,168 +10,114 @@
 namespace ProjectLogic {
     
     
-    public partial class BfDetails {
+    public partial class BFDetails {
         
         /// <summary>
-        /// FvHeader control.
+        /// fvBookingForm control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FormView FvHeader;
+        protected global::System.Web.UI.WebControls.FormView fvBookingForm;
         
         /// <summary>
-        /// LblGvBFMats control.
+        /// gvBFMatsSQL control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblGvBFMats;
+        protected global::System.Web.UI.WebControls.SqlDataSource gvBFMatsSQL;
         
         /// <summary>
-        /// GvBFMats control.
+        /// gvBFProdSQL control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GvBFMats;
+        protected global::System.Web.UI.WebControls.SqlDataSource gvBFProdSQL;
         
         /// <summary>
-        /// FvMaterials control.
+        /// ddlBFProgSourceSQL control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FormView FvMaterials;
+        protected global::System.Web.UI.WebControls.SqlDataSource ddlBFProgSourceSQL;
         
         /// <summary>
-        /// GvBFProdLabel control.
+        /// fvBookingFormSQL control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label GvBFProdLabel;
+        protected global::System.Web.UI.WebControls.SqlDataSource fvBookingFormSQL;
         
         /// <summary>
-        /// GvBFProd control.
+        /// ddlBFSeriesSQL control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GvBFProd;
+        protected global::System.Web.UI.WebControls.SqlDataSource ddlBFSeriesSQL;
         
         /// <summary>
-        /// FvFooter control.
+        /// ddlMatCoreSQL control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FormView FvFooter;
+        protected global::System.Web.UI.WebControls.SqlDataSource ddlMatCoreSQL;
         
         /// <summary>
-        /// GvBFMatsSQL control.
+        /// ddlMatFinishSQL control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource GvBFMatsSQL;
+        protected global::System.Web.UI.WebControls.SqlDataSource ddlMatFinishSQL;
         
         /// <summary>
-        /// GvBFProdSQL control.
+        /// ddlMatMfrSQL control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource GvBFProdSQL;
+        protected global::System.Web.UI.WebControls.SqlDataSource ddlMatMfrSQL;
         
         /// <summary>
-        /// DdlBFProgSourceSQL control.
+        /// ddlMatSizeSQL control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource DdlBFProgSourceSQL;
+        protected global::System.Web.UI.WebControls.SqlDataSource ddlMatSizeSQL;
         
         /// <summary>
-        /// FvBookingFormSQL control.
+        /// ddlMatThicknessSQL control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource FvBookingFormSQL;
+        protected global::System.Web.UI.WebControls.SqlDataSource ddlMatThicknessSQL;
         
         /// <summary>
-        /// DdlBFSeriesSQL control.
+        /// ddlEmpCADProgSQL control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource DdlBFSeriesSQL;
-        
-        /// <summary>
-        /// DdlMatCoreSQL control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource DdlMatCoreSQL;
-        
-        /// <summary>
-        /// DdlMatFinishSQL control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource DdlMatFinishSQL;
-        
-        /// <summary>
-        /// DdlMatMfrSQL control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource DdlMatMfrSQL;
-        
-        /// <summary>
-        /// DdlMatSizeSQL control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource DdlMatSizeSQL;
-        
-        /// <summary>
-        /// DdlMatThicknessSQL control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource DdlMatThicknessSQL;
-        
-        /// <summary>
-        /// DdlEmpCADProgSQL control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource DdlEmpCADProgSQL;
+        protected global::System.Web.UI.WebControls.SqlDataSource ddlEmpCADProgSQL;
     }
 }
